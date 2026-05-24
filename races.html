@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Раси (Species) - D&D 5e</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
+                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .feat-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .feat-content.open {
+            grid-template-rows: 1fr;
+        }
+        .feat-inner {
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        th, td {
+            border: 1px solid #E2E8F0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #F8FAFC;
+            color: #14532D;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
+                    D&D 5e База Знань
+                </h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
+            </nav>
+        </div>
+    </header>  
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        
+        <!-- Заголовок та Фільтри -->
+        <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+            <div>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Раси (Species)</h1>
+                <p class="text-slate-600">Виберіть походження вашого персонажа, його спадщину та здібності.</p>
+            </div>
+            
+            <!-- Панель фільтрів (Тільки пошук по назві) -->
+            <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="searchInput" onkeyup="searchRacesByName()" placeholder="Пошук за назвою раси..." 
+                        class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
+                    <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сітка Рас -->
+        <div class="grid grid-cols-1 gap-4 space-y-4 items-start" id="racesGrid">
+            
+            <!-- ДВОРФ (DWARF) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Дворф (Dwarf)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Кремезні майстри каменю і сталі</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Витривалість +2 | Темний зір | Опір до отрути
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Королівства дворфів розташовані глибоко в горах. Вони славляться своєю майстерністю в ковальстві, видобутку дорогоцінних металів та незламною стійкістю у бою.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Дворфа:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Ваша Витривалість (Constitution) збільшується на 2.</li>
+                                    <li><strong>Вік:</strong> Дворфи стають дорослими у 50 років і можуть жити до 350 років.</li>
+                                    <li><strong>Розмір:</strong> Середній (від 1.2 до 1.5 метрів на зріст).</li>
+                                    <li><strong>Швидкість:</strong> 25 футів. Ваша швидкість не зменшується від носіння важких обладунків.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Ви бачите в тьмяному світлі на 60 футів як у яскравому, і в темряві — як у тьмяному.</li>
+                                    <li><strong>Дворфська стійкість:</strong> Ви маєте перевагу на рятунки проти отруєння та опір (resistance) до шкоди отрутою.</li>
+                                    <li><strong>Бойова підготовка дворфів:</strong> Ви володієте бойовими сокирами, ручними сокирами, легкими молотами та бойовими молотами.</li>
+                                    <li><strong>Інструменти:</strong> Ви володієте одними інструментами на вибір (ковальські, пивоварні або муляра).</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Пагорбовий дворф (Hill Dwarf)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Мудрі і витривалі жителі пагорбів.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Мудрість (Wisdom) +1.</li>
+                                            <li><strong>Дворфська міцність:</strong> Ваш максимум хітів збільшується на 1 і продовжує збільшуватися на 1 з кожним новим рівнем.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Гірський дворф (Mountain Dwarf)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Сильні та кремезні воїни гір.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Сила (Strength) +2.</li>
+                                            <li><strong>Тренування в обладунках:</strong> Ви володієте легкими (Light) та середніми (Medium) обладунками.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ЕЛЬФ (ELF) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ельф (Elf)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Граціозні, магічні та вічні жителі лісів</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Спритність +2 | Темний зір | Транс замість сну
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Ельфи — магічний народ неземної краси. Вони живуть у гармонії з природою, магією та мистецтвом. Для ельфа життя — це вічна подорож.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Ельфа:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Ваша Спритність (Dexterity) збільшується на 2.</li>
+                                    <li><strong>Вік:</strong> Ельфи живуть до 750 років. Дорослими вважаються після 100 років.</li>
+                                    <li><strong>Розмір:</strong> Середній.</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Бачення на 60 футів у темряві (чорно-біле).</li>
+                                    <li><strong>Гострі чуття:</strong> Ви володієте навичкою Уважність (Perception).</li>
+                                    <li><strong>Фейське походження:</strong> Перевага на рятунки проти зачарування, і магія не може вас приспати.</li>
+                                    <li><strong>Транс (Trance):</strong> Вам не потрібен сон. Ви медитуєте 4 години на день, що замінює 8-годинний Тривалий відпочинок.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Високий ельф (High Elf)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Аристократи з вродженим даром до магії.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Інтелект (Intelligence) +1.</li>
+                                            <li><strong>Бойова підготовка:</strong> Володіння довгим/коротким мечами та луками.</li>
+                                            <li><strong>Замовляння:</strong> Одне безкоштовне замовляння Чарівника (Інтелект).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Лісовий ельф (Wood Elf)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Швидкі та потайливі жителі хащів.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Мудрість (Wisdom) +1.</li>
+                                            <li><strong>Прудкість:</strong> Швидкість збільшується до 35 футів.</li>
+                                            <li><strong>Маска дикої природи:</strong> Можете ховатися навіть під час легкого дощу, туману чи в листі.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white md:col-span-2">
+                                        <h4 class="font-bold text-lg mb-1">Темний ельф / Дроу (Drow)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Вигнанці, що живуть глибоко в Підзем'ї (Underdark).</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Харизма (Charisma) +1.</li>
+                                            <li><strong>Вищий Темний зір:</strong> Бачення у темряві на 120 футів.</li>
+                                            <li><strong>Чутливість до сонця:</strong> Завада на атаки та Уважність, якщо ви або ціль знаходитесь на прямому сонячному світлі.</li>
+                                            <li><strong>Магія дроу:</strong> Знає заклинання "Dancing Lights" (0). З 3 рівня "Faerie Fire" (1/день). З 5 рівня "Darkness" (1/день).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ЛЮДИНА (HUMAN) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Людина (Human)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Найамбітніша і найчисельніша раса</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Всі характеристики +1 (або Риса зі старту)
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Люди — наймолодша з поширених рас, але їхня амбітність, гнучкість і жага до знань дозволили їм побудувати найбільші імперії у світі.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Стандартна Людина:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> УСІ 6 ваших характеристик збільшуються на 1.</li>
+                                    <li><strong>Вік:</strong> Дорослі з 18, живуть до 100 років.</li>
+                                    <li><strong>Розмір:</strong> Середній.</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Мови:</strong> Ви знаєте Загальну (Common) та ще одну мову на вибір.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Альтернативна Людина (Variant Human)</h3>
+                                <p class="mb-3 text-sm text-slate-600">Якщо Майстер дозволяє використовувати Риси (Feats), ви можете обрати цей варіант замість Стандартного.</p>
+                                <div class="border border-slate-200 p-4 rounded bg-white">
+                                    <ul class="list-disc pl-5 text-sm space-y-1">
+                                        <li><strong>Характеристики:</strong> Дві різні характеристики на ваш вибір збільшуються на 1.</li>
+                                        <li><strong>Навички:</strong> Ви володієте однією будь-якою навичкою на ваш вибір.</li>
+                                        <li><strong>Початкова Риса:</strong> Ви отримуєте одну безкоштовну Рису (Feat) зі старту.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- НАПІВРОСЛИК (HALFLING) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Напіврослик (Halfling)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Усміхнені та неймовірно везучі любителі затишку</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Спритність +2 | Везучий (перекидає 1) | Сміливий
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Напіврослики (хоббіти) люблять спокійне життя, смачну їжу та сімейне вогнище. Проте ті з них, хто вирушає у пригоди, відзначаються неймовірною спритністю та вродженою вдачею.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Напіврослика:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Ваша Спритність (Dexterity) збільшується на 2.</li>
+                                    <li><strong>Вік:</strong> Живуть до 250 років.</li>
+                                    <li><strong>Розмір:</strong> Малий (Small), близько 1 метра.</li>
+                                    <li><strong>Швидкість:</strong> 25 футів.</li>
+                                    <li><strong>Везучий (Lucky):</strong> Якщо ви викидаєте "1" на d20 (атака, перевірка чи рятунок), ви можете перекинути кубик і повинні використати новий результат.</li>
+                                    <li><strong>Сміливий (Brave):</strong> Перевага на рятунки проти страху.</li>
+                                    <li><strong>Спритність напіврослика:</strong> Ви можете проходити крізь простір будь-якої істоти, яка є більшою за вас.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Легконогий (Lightfoot)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Найбільш потаємні з усіх напівросликів.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Харизма (Charisma) +1.</li>
+                                            <li><strong>Природна потайливість:</strong> Ви можете спробувати сховатися, навіть якщо вас закриває істота, яка принаймні на один розмір більша за вас.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Кремезний (Stout)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Міцні напіврослики з кров'ю дворфів.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Витривалість (Constitution) +1.</li>
+                                            <li><strong>Стійкість кремезних:</strong> Перевага на рятунки проти отрути і опір (resistance) до шкоди отрутою.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ДРАКОНОНАРОДЖЕНИЙ (DRAGONBORN) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Дракононароджений (Dragonborn)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Горді нащадки могутніх драконів</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Сила +2, Харизма +1 | Дихання дракона | Опір стихії
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Дракононароджені виглядають як прямоходячі дракони без крил і хвостів. Їхня відданість клану безмежна, а в їхніх жилах тече сила стихій.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Дракононародженого:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Сила (Strength) +2, Харизма (Charisma) +1.</li>
+                                    <li><strong>Вік:</strong> Швидко ростуть. Живуть близько 80 років.</li>
+                                    <li><strong>Розмір:</strong> Середній (вищі та важчі за людей).</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Драконівська Спадщина:</strong> Виберіть колір дракона-предка. Це визначає тип вашого дихання та стійкості.</li>
+                                    <li><strong>Зброя Дихання (Breath Weapon):</strong> Ви можете видихати стихію дією. Вороги в зоні роблять рятунок Спритності або Витривалості. Шкода 2d6 (росте на рівнях). Використання: 1 раз на короткий відпочинок.</li>
+                                    <li><strong>Опір до шкоди (Damage Resistance):</strong> Ви маєте опір до того типу шкоди, який пов'язаний з вашою спадщиною.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Драконівська Спадщина (Кольори)</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Колір дракона</th>
+                                            <th>Тип шкоди</th>
+                                            <th>Зона дихання / Рятунок</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Чорний (Black)</td><td>Кислота</td><td>Лінія 5 на 30 фт. (Спритність)</td></tr>
+                                        <tr><td>Синій (Blue)</td><td>Блискавка</td><td>Лінія 5 на 30 фт. (Спритність)</td></tr>
+                                        <tr><td>Мідний (Brass)</td><td>Вогонь</td><td>Лінія 5 на 30 фт. (Спритність)</td></tr>
+                                        <tr><td>Бронзовий (Bronze)</td><td>Вогонь</td><td>Лінія 5 на 30 фт. (Спритність)</td></tr>
+                                        <tr><td>Мідний (Copper)</td><td>Кислота</td><td>Лінія 5 на 30 фт. (Спритність)</td></tr>
+                                        <tr><td>Золотий (Gold)</td><td>Вогонь</td><td>Конус 15 фт. (Спритність)</td></tr>
+                                        <tr><td>Зелений (Green)</td><td>Отрута</td><td>Конус 15 фт. (Витривалість)</td></tr>
+                                        <tr><td>Червоний (Red)</td><td>Вогонь</td><td>Конус 15 фт. (Спритність)</td></tr>
+                                        <tr><td>Срібний (Silver)</td><td>Холод</td><td>Конус 15 фт. (Витривалість)</td></tr>
+                                        <tr><td>Білий (White)</td><td>Холод</td><td>Конус 15 фт. (Витривалість)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТІФЛІНГ (TIEFLING) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Тіфлінг (Tiefling)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Нащадки тих, хто уклав угоду з пеклом</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Харизма +2, Інтелект +1 | Опір вогню | Пекельна магія
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Тіфлінги несуть у своїй крові відбиток Пекла. Роги, хвіст і колір шкіри змушують інших ставитися до них з недовірою, проте серед них є як великі злодії, так і видатні герої.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Тіфлінга:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Харизма (Charisma) +2, Інтелект (Intelligence) +1.</li>
+                                    <li><strong>Вік:</strong> Живуть трохи довше за людей.</li>
+                                    <li><strong>Розмір:</strong> Середній.</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Бачення на 60 футів у темряві.</li>
+                                    <li><strong>Пекельний опір:</strong> Ви маєте опір (resistance) до шкоди вогнем.</li>
+                                    <li><strong>Пекельний спадок (Infernal Legacy):</strong> Ви знаєте замовляння Thaumaturgy. На 3-му рівні ви можете 1 раз на день кастувати Hellish Rebuke (як заклинання 2 рівня). На 5-му рівні ви можете 1 раз на день кастувати Darkness. (Харизма є вашою магічною характеристикою для них).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ГНОМ (GNOME) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Гном (Gnome)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Маленькі, енергійні винахідники та ілюзіоністи</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Інтелект +2 | Темний зір | Перевага на магічні рятунки
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Гноми обожнюють життя, сповнені ентузіазму і цікавості. Їхній гострий розум робить їх ідеальними винахідниками та чарівниками-ілюзіоністами.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Гнома:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Ваш Інтелект (Intelligence) збільшується на 2.</li>
+                                    <li><strong>Вік:</strong> Живуть від 350 до 500 років.</li>
+                                    <li><strong>Розмір:</strong> Малий (Small), 90-120 см.</li>
+                                    <li><strong>Швидкість:</strong> 25 футів.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Бачення на 60 футів у темряві.</li>
+                                    <li><strong>Гномська хитрість:</strong> Перевага на всі рятівні кидки Інтелекту, Мудрості та Харизми проти магії.</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Лісовий гном (Forest Gnome)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Майстри ілюзій і друзі тварин.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Спритність (Dexterity) +1.</li>
+                                            <li><strong>Природний ілюзіоніст:</strong> Ви знаєте замовляння Minor Illusion.</li>
+                                            <li><strong>Спілкування з малими звірами:</strong> Ви можете передавати прості ідеї дрібним тваринам.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Скельний гном (Rock Gnome)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Геніальні майстри-винахідники.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li><strong>Характеристики:</strong> Витривалість (Constitution) +1.</li>
+                                            <li><strong>Знання ремісника:</strong> Подвійний бонус майстерності на перевірки Історії, пов'язані з механізмами чи магічними речами.</li>
+                                            <li><strong>Ремонтник (Tinker):</strong> Ви можете створити маленькі механічні іграшки (завжди робочі запальнички, музичні скриньки).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- НАПІВЕЛЬФ (HALF-ELF) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Напівельф (Half-Elf)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Взяли найкраще від обох світів</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Харизма +2, Інші +1, +1 | 2 додаткові навички
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Напівельфи поєднують найкращі риси ельфів та людей: вони мають людську гнучкість та цікавість, а також ельфійську грацію та гострі чуття. Часто вони є дипломатами чи мандрівниками.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Напівельфа:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Харизма (Charisma) +2, і дві інші характеристики на ваш вибір збільшуються на +1.</li>
+                                    <li><strong>Вік:</strong> Живуть до 180 років.</li>
+                                    <li><strong>Розмір:</strong> Середній.</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Бачення на 60 футів у темряві.</li>
+                                    <li><strong>Фейське походження:</strong> Перевага на рятунки проти зачарування, магія не може вас приспати.</li>
+                                    <li><strong>Універсальність навичок:</strong> Ви володієте двома будь-якими навичками (Skills) на ваш вибір.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- НАПІВОРК (HALF-ORC) -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Напіворк (Half-Orc)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Кремезні, витривалі і неймовірно сильні</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Сила +2, Витривалість +1 | Незламність | Сильні критичні атаки
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Напіворки — це втілення сили і люті. Шрами на їхніх тілах — це предмети гордості, а їхні емоції — як вогонь. Це робить їх неперевершеними Варварами та Воїнами.</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Напіворка:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Збільшення характеристик:</strong> Сила (Strength) +2, Витривалість (Constitution) +1.</li>
+                                    <li><strong>Вік:</strong> Дорослі з 14 років, живуть близько 75 років.</li>
+                                    <li><strong>Розмір:</strong> Середній (дуже масивні і високі).</li>
+                                    <li><strong>Швидкість:</strong> 30 футів.</li>
+                                    <li><strong>Темний зір (Darkvision):</strong> Бачення на 60 футів у темряві.</li>
+                                    <li><strong>Загрозливий (Menacing):</strong> Ви автоматично володієте навичкою Залякування (Intimidation).</li>
+                                    <li><strong>Незламна витривалість (Relentless Endurance):</strong> Коли ваші хіти падають до 0, але вас не вбивають одразу, ви можете замість цього впасти до 1 ХП. (1 раз на Тривалий відпочинок).</li>
+                                    <li><strong>Дикі атаки (Savage Attacks):</strong> Якщо ви робите критичне влучання зброєю ближнього бою, ви можете кинути кубик шкоди зброї ще один раз і додати його до шкоди.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Підмінок (Changeling)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Майстри перевтілення з фейською спадщиною</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Зміна зовнішності | Перевага на Харизму | Тип: Фея
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Завдяки своїй мінливій зовнішності, підмінки живуть у багатьох суспільствах абсолютно непоміченими[cite: 2402]. Вони походять з Краю Фей (Feywild), і хоч рідко показують свою справжню (бліду та безлику) форму, підмінки здатні створити цілу плеяду унікальних персон з власними історіями та характерами для різних ситуацій[cite: 2404, 2405, 2406, 2407, 2408].</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Підмінка:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Тип істоти:</strong> Фея (Fey)[cite: 2410].</li>
+                                    <li><strong>Розмір:</strong> Середній або Малий (обирається при створенні)[cite: 2410].</li>
+                                    <li><strong>Швидкість:</strong> 30 футів[cite: 2410].</li>
+                                    <li><strong>Інстинкти підмінка:</strong> Ви отримуєте володіння двома навичками на вибір: Обман, Проникливість, Залякування, Виступ або Переконання[cite: 2411].</li>
+                                    <li><strong>Зміна форми (Shape-Shifter):</strong> Як Дію, ви можете змінити свою зовнішність і голос[cite: 2412]. Ви визначаєте колір шкіри, волосся, розмір (Середній/Малий) та інші деталі[cite: 2413, 2414]. Ви не можете копіювати вигляд істоти, яку ніколи не бачили, і ваш одяг не змінюється[cite: 2416, 2417].</li>
+                                    <li><strong>Фейська чарівність:</strong> Поки ви змінили форму за допомогою цієї риси, ви маєте <strong>Перевагу на перевірки Харизми</strong>[cite: 2417]. Форма триває, поки ви не витратите дію, щоб повернути справжній вигляд[cite: 2418].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Калаштар (Kalashtar)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Носії духовного зв'язку зі світом снів</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Подвійний розум | Телепатія | Опір Психіці
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Калаштари створені від союзу людства та духів-відступників (кворі) з плану снів[cite: 2419]. Вони виглядають як люди, але їхні очі часто світяться при сильних емоціях[cite: 2420, 2421]. Хоч вони не можуть говорити з духами прямо, цей зв'язок дарує їм псіонічні сили і захищає розум від атак[cite: 2422, 2423].</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Калаштара:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Тип істоти:</strong> Аберація (Aberration)[cite: 2424].</li>
+                                    <li><strong>Розмір:</strong> Середній[cite: 2424].</li>
+                                    <li><strong>Швидкість:</strong> 30 футів[cite: 2424].</li>
+                                    <li><strong>Подвійний розум (Dual Mind):</strong> Ви маєте Перевагу на рятувальні кидки Мудрості та Харизми[cite: 2425].</li>
+                                    <li><strong>Ментальна дисципліна:</strong> Ви отримуєте Опір (Resistance) до Психічної шкоди[cite: 2425].</li>
+                                    <li><strong>Зв'язок розумів (Mind Link):</strong> Ви отримуєте Телепатію на відстань у футах = 10 × ваш рівень[cite: 2426]. Магічною дією ви можете дозволити телепатичній цілі відповідати вам протягом 1 години[cite: 2427].</li>
+                                    <li><strong>Відрізані від снів:</strong> Ви не можете бути ціллю заклинання <em>Dream</em>[cite: 2428]. Після кожного Тривалого відпочинку ви можете обрати 1 навичку і отримати володіння нею (зберігається до наступного відпочинку)[cite: 2429, 2430].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Хоравар (Khoravar)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Діти Кхорвайру, нащадки ельфів та людей</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Універсальність | Фейський дар | Опір до сну
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Нащадки людей та ельфів, які створили власні спільноти і називають себе Хоравар (діти Кхорвайру), адже їм не подобається термін "напівельф"[cite: 2430, 2432]. Вони часто стають мостом між культурами, виступаючи дипломатами, бардами та медіаторами[cite: 2433, 2434].</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Хоравара:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Тип істоти:</strong> Гуманоїд[cite: 2437].</li>
+                                    <li><strong>Розмір:</strong> Середній або Малий[cite: 2437].</li>
+                                    <li><strong>Швидкість:</strong> 30 футів. <strong>Темний зір:</strong> 60 футів[cite: 2437, 2438].</li>
+                                    <li><strong>Фейське походження:</strong> Перевага на рятувальні кидки проти стану Зачарований (Charmed)[cite: 2438].</li>
+                                    <li><strong>Фейський дар:</strong> Ви знаєте замовляння <em>Friends</em>. Після Тривалого відпочинку ви можете замінити його на будь-яке інше замовляння зі списку Жерця, Друїда або Чарівника (ваша характеристика: Інтелект, Мудрість або Харизма)[cite: 2439, 2440].</li>
+                                    <li><strong>Стійкість до млявості:</strong> Коли ви провалюєте рятунок, що призводить до стану Непритомний (Unconscious), ви можете замість цього досягти успіху. Відновлюється через 1d4 Тривалих відпочинків[cite: 2441, 2442].</li>
+                                    <li><strong>Універсальність навичок:</strong> Ви отримуєте володіння 1 навичкою або інструментом. Цей вибір можна змінювати після кожного Тривалого відпочинку[cite: 2443, 2444].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Шифтер (Shifter)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Нащадки лікантропів, здатні пробуджувати звіра всередині</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Звірина форма | Темний зір | Тимчасові хіти
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Гуманоїди зі звіриними рисами, які походять від лікантропів. Хоч вони не можуть перетворюватися повністю, вони здатні посилювати свою тваринну природу в процесі "шифтингу" (зміни форми)[cite: 2445, 2446]. Шифтери дуже гнучкі та зберігають гуманоїдний вигляд навіть у найдикішому стані[cite: 2447, 2450].</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Шифтера:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Тип істоти:</strong> Гуманоїд. <strong>Розмір:</strong> Середній або Малий. <strong>Швидкість:</strong> 30 футів. <strong>Темний зір:</strong> 60 футів[cite: 2451, 2453].</li>
+                                    <li><strong>Звірині інстинкти:</strong> Володіння 1 навичкою на вибір: Акробатика, Атлетика, Залякування або Виживання[cite: 2452].</li>
+                                    <li><strong>Шифтинг (Shifting):</strong> Бонусною дією ви приймаєте звірину форму на 1 хвилину. Ви отримуєте Тимчасові Хіти = (Бонус Майстерності × 2). Використань = ваш Бонус Майстерності (відновлюється після Тривалого відпочинку)[cite: 2453, 2454, 2455, 2456].</li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 border-t border-slate-200 pt-4">
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Варіанти Шифтингу (Оберіть один при створенні)</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Шкура звіра (Beasthide)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Міцна шкіра, як у ведмедя чи кабана.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li>Ви отримуєте додатково 1d6 Тимчасових хітів при зміні форми[cite: 2458].</li>
+                                            <li>Поки ви у звіриній формі, ваш Клас Захисту (AC) збільшується на +1[cite: 2458].</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Довгий ікол (Longtooth)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Хижі ікла, як у вовка чи тигра.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li>Бонусною дією (включаючи ту, якою ви перетворюєтесь) можете зробити Беззбройний удар іклами[cite: 2459].</li>
+                                            <li>Удар іклами завдає колючої шкоди рівної 1d6 + модифікатор Сили[cite: 2460].</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Швидкий крок (Swiftstride)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Неймовірна швидкість і рефлекси.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li>Поки ви у звіриній формі, ваша швидкість збільшується на 10 футів[cite: 2461].</li>
+                                            <li>Ви можете Реакцією переміститися на 10 футів (без провокування атак), якщо ворог закінчує хід поруч з вами[cite: 2462, 2463].</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border border-slate-200 p-4 rounded bg-white">
+                                        <h4 class="font-bold text-lg mb-1">Дике полювання (Wildhunt)</h4>
+                                        <p class="text-xs text-slate-600 mb-2">Гострі чуття хижака, від якого неможливо сховатися.</p>
+                                        <ul class="list-disc pl-5 text-sm space-y-1">
+                                            <li>Поки ви у формі, ви маєте Перевагу на всі перевірки Мудрості[cite: 2463].</li>
+                                            <li>Жодна істота в радіусі 30 футів не може мати Перевагу на атаки по вас (окрім випадків, коли ви недієздатні)[cite: 2464].</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Кований (Warforged)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Живі механізми, створені для битви</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Тип: Конструкт | Броня +1 | Імунітет до сну і втоми
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Механічні істоти з дерева, металу чи каменю, які були створені як зброя для Останньої Війни, але несподівано здобули розум і здатність відчувати біль та емоції[cite: 2465, 2466, 2467]. Вони часто модифікують свої тіла, щоб підкреслити індивідуальність[cite: 2469].</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові Риси Кованого:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Тип істоти:</strong> Конструкт (Construct)[cite: 2470].</li>
+                                    <li><strong>Розмір:</strong> Середній або Малий. <strong>Швидкість:</strong> 30 футів[cite: 2470].</li>
+                                    <li><strong>Стійкість конструкта:</strong> Ви маєте Опір (Resistance) до шкоди отрутою. Також ви маєте Перевагу на рятунки проти стану Отруєний (Poisoned)[cite: 2471].</li>
+                                    <li><strong>Інтегрований захист:</strong> Ви отримуєте бонус +1 до вашого Класу Захисту (AC). Вдягнену вами броню неможливо зняти проти вашої волі, поки ви живі[cite: 2472, 2473].</li>
+                                    <li><strong>Відпочинок вартового (Sentry's Rest):</strong> Вам не потрібен сон, і магія не може вас приспати[cite: 2474]. Ваш Тривалий відпочинок триває 6 годин (ви залишаєтесь нерухомими, але перебуваєте у свідомості і все бачите)[cite: 2475, 2476].</li>
+                                    <li><strong>Спеціалізований дизайн:</strong> Ви отримуєте володіння 1 навичкою та 1 інструментом на ваш вибір[cite: 2476].</li>
+                                    <li><strong>Невтомність:</strong> Ви не отримуєте рівнів Виснаження (Exhaustion) від нестачі води, їжі чи повітря (удушення)[cite: 2477].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function toggleSingle(element) {
+            const card = element.closest('.feat-card');
+            const content = card.querySelector('.feat-content');
+            const title = card.querySelector('.feat-name');
+            const isOpen = content.classList.contains('open');
+
+            document.querySelectorAll('.feat-content.open').forEach(el => {
+                el.classList.remove('open');
+                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
+            });
+
+            if (!isOpen) {
+                content.classList.add('open');
+                title.classList.replace('text-black', 'text-forest');
+                
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+
+        function searchRacesByName() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('feat-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                // Пошук ТІЛЬКИ по .feat-name (назва раси)
+                let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
+                
+                if (name.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
