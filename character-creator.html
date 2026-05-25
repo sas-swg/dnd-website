@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- D&D Character Creator -->
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="dnd-data.js"></script>
     
     <script>
         tailwind.config = {
@@ -40,7 +40,8 @@
         
         .tab-btn { border-bottom: 3px solid transparent; transition: all 0.2s ease; }
         .tab-btn.active { border-bottom-color: #14532D; color: #14532D; font-weight: 700; }
-        .class-btn.active { border-color: #14532D; background-color: #F4F2EC; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .class-btn.active, .race-btn.active { border-color: #14532D; background-color: #F4F2EC; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-surface font-body text-ui-text flex flex-col min-h-screen">
@@ -75,6 +76,7 @@
 
     <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
         
+        <!-- ============================= TAB 1: КЛАС ============================= -->
         <div id="tab-content-1" class="tab-content block">
             <div class="mb-6">
                 <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Оберіть Клас</h2>
@@ -83,19 +85,17 @@
             
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="w-full lg:w-1/3">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3" id="class-grid">
-                        </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3" id="class-grid"></div>
                 </div>
 
                 <div class="w-full lg:w-2/3 flex flex-col">
-                    
                     <div id="class-details-empty" class="bg-white border border-slate-200 rounded-xl p-12 text-center text-slate-500 shadow-sm flex flex-col items-center justify-center h-full min-h-[400px]">
                         <div class="text-5xl mb-4 opacity-50">🛡️</div>
                         <h3 class="text-xl font-heading font-bold text-slate-700 mb-2">Немає обраного класу</h3>
                         <p class="text-sm">Оберіть клас зі списку ліворуч, щоб почати налаштування здібностей та навичок.</p>
                     </div>
 
-                    <div id="class-details-active" class="hidden bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex flex-col h-full">
+                    <div id="class-details-active" class="hidden bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex-col h-full">
                         
                         <div class="bg-dnd-beige border-b border-slate-200 p-5 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                             <div class="flex items-center gap-4">
@@ -108,21 +108,35 @@
                             
                             <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-lg border border-slate-300 shadow-sm">
                                 <label for="class-level-select" class="text-sm font-bold text-slate-700">Рівень:</label>
-                                <select id="class-level-select" onchange="updateLevel()" class="bg-transparent text-forest font-bold outline-none cursor-pointer text-lg">
-                                    </select>
+                                <select id="class-level-select" onchange="updateLevel()" class="bg-transparent text-forest font-bold outline-none cursor-pointer text-lg"></select>
                             </div>
                         </div>
                         
-                        <div class="p-5 space-y-8 flex-grow">
+                        <div class="p-5 space-y-6 flex-grow">
                             
-                            <div id="subclass-section" class="hidden animate-fade-in bg-slate-50 p-4 border border-slate-200 rounded-xl">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Рятунки</div>
+                                    <div id="class-saves" class="font-bold text-slate-800">—</div>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Володіння бронею</div>
+                                    <div id="class-armor" class="font-bold text-slate-800">—</div>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Володіння зброєю</div>
+                                    <div id="class-weapons" class="font-bold text-slate-800">—</div>
+                                </div>
+                            </div>
+
+                            <div id="subclass-section" class="hidden bg-slate-50 p-4 border border-slate-200 rounded-xl">
                                 <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
                                     <h4 class="font-bold text-lg text-forest font-heading">Архетип / Підклас</h4>
                                     <span class="text-xs bg-forest text-white px-2 py-1 rounded">Рівень 3+</span>
                                 </div>
-                                <select id="subclass-select" onchange="saveClassState()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer text-sm font-medium">
+                                <select id="subclass-select" onchange="onSubclassChange()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer text-sm font-medium">
                                     <option value="">Оберіть підклас...</option>
-                                    </select>
+                                </select>
                             </div>
 
                             <div>
@@ -130,25 +144,13 @@
                                     <h4 class="font-bold text-lg text-forest font-heading">Володіння навичками</h4>
                                     <span id="skills-counter" class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">Обрано: 0 / 2</span>
                                 </div>
-                                <div id="skills-checkboxes" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                                    </div>
+                                <div id="skills-checkboxes" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm"></div>
                                 <p id="skills-warning" class="text-red-500 text-sm mt-3 font-medium hidden">⚠️ Ви обрали максимальну кількість навичок!</p>
                             </div>
 
                             <div>
                                 <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Вміння класу (доступні на цьому рівні)</h4>
-                                <div id="class-features-list" class="space-y-3">
-                                    </div>
-                            </div>
-
-                            <div id="spells-section" class="hidden bg-slate-50 p-5 rounded-xl border border-slate-200">
-                                <div class="flex items-start gap-4">
-                                    <div class="text-3xl">🔮</div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 mb-1">Магія та Заклинання</h4>
-                                        <p class="text-sm text-slate-600 leading-relaxed">Цей клас володіє магією. Детальне налаштування вашої книги заклинань, замовлянь та магічних слотів буде доступне на фінальних етапах створення персонажа.</p>
-                                    </div>
-                                </div>
+                                <div id="class-features-list" class="space-y-3"></div>
                             </div>
 
                         </div>
@@ -157,11 +159,155 @@
             </div>
         </div>
 
-        <div id="tab-content-2" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">👥</div><h3 class="text-xl font-bold mb-2">Раса</h3></div></div>
-        <div id="tab-content-3" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">🎲</div><h3 class="text-xl font-bold mb-2">Характеристики</h3></div></div>
-        <div id="tab-content-4" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">📜</div><h3 class="text-xl font-bold mb-2">Опис</h3></div></div>
-        <div id="tab-content-5" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">🎒</div><h3 class="text-xl font-bold mb-2">Спорядження</h3></div></div>
-        <div id="tab-content-6" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">📝</div><h3 class="text-xl font-bold mb-2">Фінал</h3></div></div>
+        <!-- ============================= TAB 2: РАСА ============================= -->
+        <div id="tab-content-2" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Оберіть Расу</h2>
+                <p class="text-sm text-ui-muted mt-2">Раса визначає бонуси до характеристик, особливі здібності та зовнішній вигляд.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <div class="w-full lg:w-1/3">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3" id="race-grid"></div>
+                </div>
+
+                <div class="w-full lg:w-2/3 flex flex-col">
+                    <div id="race-details-empty" class="bg-white border border-slate-200 rounded-xl p-12 text-center text-slate-500 shadow-sm flex flex-col items-center justify-center h-full min-h-[400px]">
+                        <div class="text-5xl mb-4 opacity-50">👥</div>
+                        <h3 class="text-xl font-heading font-bold text-slate-700 mb-2">Немає обраної раси</h3>
+                        <p class="text-sm">Оберіть расу зі списку ліворуч, щоб переглянути її особливості та бонуси.</p>
+                    </div>
+
+                    <div id="race-details-active" class="hidden bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex-col h-full">
+                        <div class="bg-dnd-beige border-b border-slate-200 p-5 flex items-center gap-4">
+                            <div id="selected-race-icon" class="w-12 h-12 bg-forest text-white rounded-lg flex items-center justify-center text-2xl shadow-sm">👥</div>
+                            <div>
+                                <h3 id="selected-race-name" class="text-2xl font-bold font-heading text-forest">Назва раси</h3>
+                                <p id="selected-race-bonuses" class="text-xs font-semibold text-slate-600 uppercase tracking-wide mt-1">+2 до характеристики</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Швидкість</div>
+                                    <div id="race-speed" class="font-bold text-slate-800">—</div>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Розмір</div>
+                                    <div id="race-size" class="font-bold text-slate-800">—</div>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Мови</div>
+                                    <div id="race-languages" class="font-bold text-slate-800">—</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Бонуси до характеристик</h4>
+                                <div id="race-bonuses-grid" class="grid grid-cols-3 sm:grid-cols-6 gap-2"></div>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Расові риси</h4>
+                                <div id="race-traits-list" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================= TAB 3: ХАРАКТЕРИСТИКИ ============================= -->
+        <div id="tab-content-3" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Характеристики</h2>
+                <p class="text-sm text-ui-muted mt-2">Оберіть метод визначення характеристик та розподіліть значення.</p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <label class="font-bold text-slate-700">Метод:</label>
+                    <div class="flex gap-2">
+                        <button onclick="setStatMethod('standard')" id="method-standard" class="px-4 py-2 rounded-lg font-bold text-sm border-2 transition border-forest bg-forest text-white">Стандартний масив</button>
+                        <button onclick="setStatMethod('pointbuy')" id="method-pointbuy" class="px-4 py-2 rounded-lg font-bold text-sm border-2 transition border-slate-200 bg-white text-slate-700 hover:border-forest">Купівля очок</button>
+                    </div>
+                </div>
+
+                <div id="standard-info" class="mt-4 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg p-3">
+                    <strong>Стандартний масив:</strong> розподіліть значення <span class="font-mono font-bold text-forest">[15, 14, 13, 12, 10, 8]</span> між шістьма характеристиками. Кожне значення можна використати лише один раз.
+                </div>
+
+                <div id="pointbuy-info" class="hidden mt-4 text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg p-3">
+                    <strong>Купівля очок:</strong> у вас є <span id="pb-points-left" class="font-mono font-bold text-forest">27</span> очок. Базове значення 8. Вартість: 9→1, 10→2, 11→3, 12→4, 13→5, 14→7, 15→9. Максимум базового — 15.
+                </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="abilities-grid"></div>
+            </div>
+
+            <div class="mt-6 bg-dnd-beige border border-slate-200 rounded-xl p-5">
+                <h4 class="font-bold text-lg text-forest font-heading mb-3">Підсумок (з расовими бонусами)</h4>
+                <div id="abilities-summary" class="grid grid-cols-3 sm:grid-cols-6 gap-3 text-center"></div>
+            </div>
+        </div>
+
+        <!-- ============================= TAB 4: ОПИС ============================= -->
+        <div id="tab-content-4" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Опис персонажа</h2>
+                <p class="text-sm text-ui-muted mt-2">Розкажіть про вашого героя: хто він, звідки і що ним керує.</p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-6 space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ім'я персонажа</label>
+                        <input id="desc-name" type="text" oninput="updateDescription()" placeholder="Наприклад, Торін Дубощит" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Світогляд</label>
+                        <select id="desc-alignment" onchange="updateDescription()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer">
+                            <option value="">Оберіть світогляд...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Передісторія</label>
+                        <select id="desc-background" onchange="updateDescription()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer">
+                            <option value="">Оберіть передісторію...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Стать / Зовнішність</label>
+                        <input id="desc-appearance" type="text" oninput="updateDescription()" placeholder="Коротко: вік, очі, волосся" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Риси характеру</label>
+                        <textarea id="desc-traits" oninput="updateDescription()" rows="3" placeholder="Я завжди ввічливий і поважний..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ідеали</label>
+                        <textarea id="desc-ideals" oninput="updateDescription()" rows="3" placeholder="Свобода. Кожен заслуговує жити вільно..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Зв'язки</label>
+                        <textarea id="desc-bonds" oninput="updateDescription()" rows="3" placeholder="Я знайду людину, що зрадила мою родину..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Слабкості</label>
+                        <textarea id="desc-flaws" oninput="updateDescription()" rows="3" placeholder="Я не можу встояти перед азартними іграми..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================= TAB 5-6: PLACEHOLDERS ============================= -->
+        <div id="tab-content-5" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">🎒</div><h3 class="text-xl font-bold mb-2">Спорядження</h3><p class="text-sm">Цей розділ буде доступний у наступній фазі.</p></div></div>
+        <div id="tab-content-6" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">📝</div><h3 class="text-xl font-bold mb-2">Фінал</h3><p class="text-sm">Цей розділ буде доступний у наступній фазі.</p></div></div>
 
     </main>
 
@@ -174,63 +320,44 @@
     </div>
 
     <script>
-        const allClasses = {
-            "barbarian": { 
-                name: "Варвар", icon: "🪓", stats: "Кістка хітів: 1d12 | Основна: Сила", skillsCount: 2, spells: false,
-                skills: ["Поводження з тваринами", "Атлетика", "Залякування", "Природа", "Уважність", "Виживання"],
-                subclasses: ["Шлях Берсерка", "Шлях Дикого Серця", "Шлях Світового Дерева", "Шлях Зілота"],
-                features: [
-                    { level: 1, name: "Лють (Rage)", desc: "Бонусною дією (якщо ви не у важкій броні) ви входите в Лютість. Ви маєте Опір до дроблячої, колючої та рубаючої шкоди. Ви додаєте додаткову шкоду до атак Силою і маєте Перевагу на перевірки та рятунки Сили. Ви не можете підтримувати концентрацію і кастувати заклинання." },
-                    { level: 1, name: "Захист без броні (Unarmored Defense)", desc: "Поки ви не носите броні, ваш Клас Захисту дорівнює 10 + модифікатор Спритності + модифікатор Витривалості. Ви можете використовувати щит." },
-                    { level: 1, name: "Майстерність зброї (Weapon Mastery)", desc: "Ви можете використовувати властивості майстерності двох видів простої або бойової зброї ближнього бою.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Майстерність Зброї 1 -</option><option>Бойова сокира (Cleave)</option><option>Ручна сокира (Vex)</option><option>Бойовий молот (Topple)</option><option>Дворучний меч (Graze)</option></select><br><select class='mt-2 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Майстерність Зброї 2 -</option><option>Бойова сокира (Cleave)</option><option>Ручна сокира (Vex)</option><option>Бойовий молот (Topple)</option><option>Дворучний меч (Graze)</option></select>" },
-                    { level: 2, name: "Відчуття небезпеки (Danger Sense)", desc: "Ви маєте Перевагу на рятувальні кидки Спритності, якщо ви не недієздатні." },
-                    { level: 2, name: "Безрозсудна атака (Reckless Attack)", desc: "При першій атаці у свій хід ви можете атакувати безрозсудно. Ви отримуєте Перевагу на всі атаки Силою в цей хід, але всі атаки по вас також мають Перевагу до вашого наступного ходу." },
-                    { level: 3, name: "Вміння підкласу (Архетип)", desc: "<span class='text-forest font-semibold'>Ви отримуєте здібності обраного підкласу 3-го рівня.</span><br>Оберіть підклас у меню вище, щоб визначити свій Шлях." },
-                    { level: 3, name: "Первісне знання (Primal Knowledge)", desc: "Ви отримуєте володіння ще однією навичкою. Крім того, поки ви в Люті, ви можете використовувати Силу для перевірок Акробатики, Залякування, Уважності, Скритності або Виживання.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть навичку Варвара -</option><option>Поводження з тваринами</option><option>Атлетика</option><option>Залякування</option><option>Природа</option><option>Уважність</option><option>Виживання</option></select>" },
-                    { level: 4, name: "Риса (Feat)", desc: "Ви отримуєте Покращення характеристик або іншу Рису на ваш вибір.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Рису -</option><option>Покращення характеристик (+2 / +1, +1)</option><option>Майстер важкої зброї (Great Weapon Master)</option><option>Міцний (Tough)</option><option>Вбивця магів (Mage Slayer)</option><option>Атлет (Athlete)</option></select>" },
-                    { level: 5, name: "Додаткова атака (Extra Attack)", desc: "Ви можете атакувати двічі замість одного разу, коли використовуєте дію Атака у свій хід." },
-                    { level: 5, name: "Швидкий рух (Fast Movement)", desc: "Ваша швидкість збільшується на 10 футів, поки ви не носите важкої броні." },
-                    { level: 6, name: "Вміння підкласу (Архетип)", desc: "<span class='text-forest font-semibold'>Ви отримуєте здібності обраного підкласу 6-го рівня.</span>" },
-                    { level: 7, name: "Дикий інстинкт (Feral Instinct)", desc: "Ви маєте Перевагу на кидки Ініціативи." },
-                    { level: 7, name: "Інстинктивний стрибок (Instinctive Pounce)", desc: "Як частину Бонусної дії, якою ви входите в Лютість, ви можете переміститися на відстань до половини вашої швидкості." },
-                    { level: 8, name: "Риса (Feat)", desc: "Ви отримуєте Покращення характеристик або іншу Рису на ваш вибір.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Рису -</option><option>Покращення характеристик (+2 / +1, +1)</option><option>Майстер важкої зброї (Great Weapon Master)</option><option>Міцний (Tough)</option><option>Вбивця магів (Mage Slayer)</option></select>" },
-                    { level: 9, name: "Брутальний удар (Brutal Strike)", desc: "При Безрозсудній атаці ви можете відмовитися від Переваги на одну атаку, щоб завдати додатково +1d10 шкоди і відштовхнути ціль на 15 футів або зменшити її швидкість на 15 футів." },
-                    { level: 10, name: "Вміння підкласу (Архетип)", desc: "<span class='text-forest font-semibold'>Ви отримуєте здібності обраного підкласу 10-го рівня.</span>" },
-                    { level: 10, name: "Майстерність зброї (Weapon Mastery)", desc: "Ви отримуєте можливість використовувати властивості майстерності ще одного виду зброї.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Майстерність Зброї 3 -</option><option>Спис (Sap)</option><option>Алебарда (Cleave)</option><option>Моргенштерн (Push)</option></select>" },
-                    { level: 11, name: "Невпинна лють (Relentless Rage)", desc: "Якщо ваші Хіти падають до 0 під час Люті, і ви не вмираєте миттєво, ви робите рятунок Витривалості Скл. 10. При успіху ваші Хіти стають рівними подвійному рівню Варвара. Кожне наступне використання збільшує Скл. на 5." },
-                    { level: 12, name: "Риса (Feat)", desc: "Ви отримуєте Покращення характеристик або іншу Рису на ваш вибір.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Рису -</option><option>Покращення характеристик (+2 / +1, +1)</option><option>Майстер важкої зброї (Great Weapon Master)</option><option>Міцний (Tough)</option><option>Вбивця магів (Mage Slayer)</option></select>" },
-                    { level: 13, name: "Покращений Брутальний удар", desc: "Нові ефекти для Брутального удару: Завада для цілі на наступний рятунок або +5 до наступної атаки по цілі від вашого союзника." },
-                    { level: 14, name: "Вміння підкласу (Архетип)", desc: "<span class='text-forest font-semibold'>Ви отримуєте фінальні здібності обраного підкласу 14-го рівня.</span>" },
-                    { level: 15, name: "Стійка лють (Persistent Rage)", desc: "Коли ви кидаєте Ініціативу, ви можете відновити всі використання Люті. Ваша Лють тепер триває 10 хвилин без необхідності здійснювати атаки для її підтримання." },
-                    { level: 16, name: "Риса (Feat)", desc: "Ви отримуєте Покращення характеристик або іншу Рису на ваш вибір.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Рису -</option><option>Покращення характеристик (+2 / +1, +1)</option><option>Майстер важкої зброї (Great Weapon Master)</option><option>Міцний (Tough)</option><option>Вбивця магів (Mage Slayer)</option></select>" },
-                    { level: 17, name: "Вищий Брутальний удар", desc: "Шкода від Брутального удару зростає до 2d10. Ви можете застосовувати два ефекти Брутального удару одночасно." },
-                    { level: 18, name: "Незламна міць (Indomitable Might)", desc: "Якщо ваш результат перевірки Сили або рятунку Сили менший за ваше значення Сили, ви можете використовувати ваше значення Сили замість результату кидка." },
-                    { level: 19, name: "Епічне благо (Epic Boon)", desc: "Ви отримуєте Епічну рису на ваш вибір.<br><select class='mt-3 w-full p-2.5 border border-slate-300 rounded-lg bg-slate-50 text-slate-700 text-sm outline-none cursor-pointer focus:ring-2 focus:ring-forest'><option value=''>- Оберіть Епічну Рису -</option><option>Дар Бойової Майстерності (Boon of Combat Prowess)</option><option>Дар Міцності (Boon of Fortitude)</option><option>Дар Непереможності (Boon of Irresistible Offense)</option></select>" },
-                    { level: 20, name: "Первісний чемпіон (Primal Champion)", desc: "Ваші характеристики Сили та Витривалості збільшуються на 4. Їхній максимум тепер становить 25." }
-                ]
-            },
-            "bard": { name: "Бард", icon: "🎸", stats: "Кістка хітів: 1d8 | Основна: Харизма", skillsCount: 3, spells: true, skills: ["Акробатика", "Магія", "Історія", "Уважність", "Виступ", "Переконання"], subclasses: ["Колегія Знань", "Колегія Хоробрості"], features: [] },
-            "cleric": { name: "Жрець", icon: "⚕️", stats: "Кістка хітів: 1d8 | Основна: Мудрість", skillsCount: 2, spells: true, skills: ["Історія", "Проникливість", "Медицина", "Переконання", "Релігія"], subclasses: ["Домен Життя", "Домен Світла"], features: [] },
-            "druid": { name: "Друїд", icon: "🌿", stats: "Кістка хітів: 1d8 | Основна: Мудрість", skillsCount: 2, spells: true, skills: ["Магія", "Тварини", "Медицина", "Природа", "Уважність", "Релігія", "Виживання"], subclasses: ["Коло Землі", "Коло Місяця"], features: [] },
-            "fighter": { name: "Воїн", icon: "⚔️", stats: "Кістка хітів: 1d10 | Основна: Сила або Спритність", skillsCount: 2, spells: false, skills: ["Акробатика", "Атлетика", "Тварини", "Історія", "Залякування", "Виживання"], subclasses: ["Чемпіон", "Майстер Бою"], features: [] },
-            "monk": { name: "Монах", icon: "👊", stats: "Кістка хітів: 1d8 | Основна: Спритність і Мудрість", skillsCount: 2, spells: false, skills: ["Акробатика", "Атлетика", "Історія", "Проникливість", "Релігія", "Скритність"], subclasses: ["Воїн Відкритої Долоні"], features: [] },
-            "paladin": { name: "Паладин", icon: "🛡️", stats: "Кістка хітів: 1d10 | Основна: Сила та Харизма", skillsCount: 2, spells: true, skills: ["Атлетика", "Проникливість", "Залякування", "Медицина", "Переконання", "Релігія"], subclasses: ["Клятва Відданості", "Клятва Помсти"], features: [] },
-            "ranger": { name: "Слідопит", icon: "🏹", stats: "Кістка хітів: 1d10 | Основна: Спритність і Мудрість", skillsCount: 3, spells: true, skills: ["Атлетика", "Тварини", "Дослідження", "Природа", "Уважність", "Скритність", "Виживання"], subclasses: ["Мисливець", "Володар Звірів"], features: [] },
-            "rogue": { name: "Шахрай", icon: "🗡️", stats: "Кістка хітів: 1d8 | Основна: Спритність", skillsCount: 4, spells: false, skills: ["Акробатика", "Атлетика", "Обман", "Проникливість", "Залякування", "Дослідження", "Уважність", "Виступ", "Переконання", "Спритність рук", "Скритність"], subclasses: ["Злодій", "Вбивця"], features: [] },
-            "sorcerer": { name: "Чаклун", icon: "✨", stats: "Кістка хітів: 1d6 | Основна: Харизма", skillsCount: 2, spells: true, skills: ["Магія", "Обман", "Проникливість", "Залякування", "Переконання", "Релігія"], subclasses: ["Драконівська магія", "Дика магія"], features: [] },
-            "warlock": { name: "Чорнокнижник", icon: "👁️", stats: "Кістка хітів: 1d8 | Основна: Харизма", skillsCount: 2, spells: true, skills: ["Магія", "Обман", "Історія", "Залякування", "Дослідження", "Природа", "Релігія"], subclasses: ["Ісчадя", "Архіфея"], features: [] },
-            "wizard": { name: "Чарівник", icon: "📖", stats: "Кістка хітів: 1d6 | Основна: Інтелект", skillsCount: 2, spells: true, skills: ["Магія", "Історія", "Проникливість", "Дослідження", "Медицина", "Релігія"], subclasses: ["Вчений Втілення", "Вчений Ілюзії"], features: [] }
+        // ============================= ГЛОБАЛЬНИЙ СТАН =============================
+        let character = {
+            classId: "",
+            className: "",
+            level: 1,
+            subclass: "",
+            skills: [],
+            raceId: "",
+            raceName: "",
+            statMethod: "standard", // 'standard' або 'pointbuy'
+            baseStats: { str: 8, dex: 8, con: 8, int: 8, wis: 8, cha: 8 },
+            standardAssign: { str: null, dex: null, con: null, int: null, wis: null, cha: null }, // індекс STANDARD_ARRAY
+            description: {
+                name: "",
+                alignment: "",
+                background: "",
+                appearance: "",
+                traits: "",
+                ideals: "",
+                bonds: "",
+                flaws: ""
+            }
         };
-
-        let character = { classId: "", className: "", level: 1, subclass: "", skills: [] };
         let currentTab = 1;
 
+        // ============================= ІНІЦІАЛІЗАЦІЯ =============================
         window.onload = function() {
             renderClassList();
             populateLevelSelect();
+            renderRaceList();
+            populateAlignments();
+            populateBackgrounds();
+            renderAbilitiesEditor();
+            renderAbilitiesSummary();
             updateTabUI();
         };
 
+        // ============================= TABS =============================
         function switchTab(tabNum) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -238,23 +365,26 @@
             document.getElementById(`tab-btn-${tabNum}`).classList.add('active');
             currentTab = tabNum;
             updateTabUI();
+            // Перерахунок підсумку, бо може залежати від раси / класу
+            if (tabNum === 3) renderAbilitiesSummary();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function nextTab() { if(currentTab < 6) switchTab(currentTab + 1); }
-        function prevTab() { if(currentTab > 1) switchTab(currentTab - 1); }
+        function nextTab() { if (currentTab < 6) switchTab(currentTab + 1); }
+        function prevTab() { if (currentTab > 1) switchTab(currentTab - 1); }
 
         function updateTabUI() {
             document.getElementById('btn-prev').classList.toggle('hidden', currentTab === 1);
             document.getElementById('btn-next').innerText = currentTab === 6 ? "Завершити" : "Далі →";
         }
 
+        // ============================= TAB 1: КЛАС =============================
         function renderClassList() {
             const grid = document.getElementById('class-grid');
             grid.innerHTML = "";
-            for (const [id, data] of Object.entries(allClasses)) {
+            for (const [id, data] of Object.entries(DND_CLASSES)) {
                 grid.innerHTML += `
-                    <button onclick="selectClass('${id}')" id="class-btn-${id}" class="class-btn text-left p-3 border border-slate-200 rounded-xl hover:border-forest hover:bg-slate-50 transition flex items-center gap-3">
+                    <button onclick="selectClass('${id}')" id="class-btn-${id}" class="class-btn text-left p-3 border border-slate-200 rounded-xl hover:border-forest hover:bg-slate-50 transition flex items-center gap-3 bg-white">
                         <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-xl shrink-0">${data.icon}</div>
                         <span class="font-bold text-slate-800 text-sm md:text-base">${data.name}</span>
                     </button>
@@ -264,13 +394,14 @@
 
         function populateLevelSelect() {
             const select = document.getElementById('class-level-select');
-            for(let i=1; i<=20; i++) {
+            select.innerHTML = "";
+            for (let i = 1; i <= 20; i++) {
                 select.innerHTML += `<option value="${i}">${i}</option>`;
             }
         }
 
         function selectClass(classId) {
-            const data = allClasses[classId];
+            const data = DND_CLASSES[classId];
             character.classId = classId;
             character.className = data.name;
             character.skills = [];
@@ -280,46 +411,55 @@
             document.getElementById(`class-btn-${classId}`).classList.add('active');
 
             document.getElementById('class-details-empty').classList.add('hidden');
-            document.getElementById('class-details-active').classList.remove('hidden');
-            document.getElementById('class-details-active').classList.add('flex');
+            const active = document.getElementById('class-details-active');
+            active.classList.remove('hidden');
+            active.classList.add('flex');
 
             document.getElementById('selected-class-icon').innerText = data.icon;
             document.getElementById('selected-class-name').innerText = data.name;
-            document.getElementById('selected-class-stats').innerText = data.stats;
-            document.getElementById('skills-count-allowed').innerText = data.skillsCount;
+            document.getElementById('selected-class-stats').innerText = `Кістка хітів: ${data.hitDice} | Основна: ${data.primaryAbility}`;
+            document.getElementById('class-saves').innerText = data.savingThrowsLabel;
+            document.getElementById('class-armor').innerText = data.armorProf;
+            document.getElementById('class-weapons').innerText = data.weaponProf;
+
             document.getElementById('skills-counter').innerText = `Обрано: 0 / ${data.skillsCount}`;
             document.getElementById('skills-counter').className = "text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded";
-            
-            document.getElementById('spells-section').classList.toggle('hidden', !data.spells);
 
             renderSkills(data);
-            updateLevel(); 
+            updateLevel();
         }
 
         function updateLevel() {
             character.level = parseInt(document.getElementById('class-level-select').value);
-            
+            const data = DND_CLASSES[character.classId];
+            if (!data) return;
+
             const subclassSection = document.getElementById('subclass-section');
-            if(character.level >= 3) {
+            if (character.level >= (data.subclassLevel || 3)) {
                 subclassSection.classList.remove('hidden');
                 renderSubclasses();
             } else {
                 subclassSection.classList.add('hidden');
                 character.subclass = "";
             }
-            
-            renderFeatures(); // ОСЬ ЦЕ НАЙГОЛОВНІШИЙ РЯДОК ЯКИЙ БУВ ВТРАЧЕНИЙ
+
+            renderFeatures();
             saveClassState();
         }
 
         function renderSubclasses() {
-            const data = allClasses[character.classId];
+            const data = DND_CLASSES[character.classId];
             const select = document.getElementById('subclass-select');
             select.innerHTML = `<option value="">Оберіть підклас...</option>`;
             data.subclasses.forEach(sub => {
                 const selected = character.subclass === sub ? "selected" : "";
                 select.innerHTML += `<option value="${sub}" ${selected}>${sub}</option>`;
             });
+        }
+
+        function onSubclassChange() {
+            character.subclass = document.getElementById('subclass-select').value;
+            saveClassState();
         }
 
         function renderSkills(data) {
@@ -336,41 +476,43 @@
         }
 
         function handleSkillChange(cb) {
-            const maxSkills = allClasses[character.classId].skillsCount;
+            const data = DND_CLASSES[character.classId];
+            const maxSkills = data.skillsCount;
             const checkedBoxes = document.querySelectorAll('.skill-cb:checked');
             const warning = document.getElementById('skills-warning');
             const counter = document.getElementById('skills-counter');
 
-            if(checkedBoxes.length > maxSkills) {
-                cb.checked = false; 
+            if (checkedBoxes.length > maxSkills) {
+                cb.checked = false;
                 warning.classList.remove('hidden');
                 setTimeout(() => warning.classList.add('hidden'), 3000);
-            } else {
-                warning.classList.add('hidden');
-                character.skills = Array.from(checkedBoxes).map(b => b.value);
-                
-                counter.innerText = `Обрано: ${character.skills.length} / ${maxSkills}`;
-                if(character.skills.length === maxSkills) {
-                    counter.className = "text-xs font-bold text-white bg-forest px-2 py-1 rounded";
-                } else {
-                    counter.className = "text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded";
-                }
-                saveClassState();
+                return;
             }
+
+            warning.classList.add('hidden');
+            character.skills = Array.from(checkedBoxes).map(b => b.value);
+            counter.innerText = `Обрано: ${character.skills.length} / ${maxSkills}`;
+            counter.className = character.skills.length === maxSkills
+                ? "text-xs font-bold text-white bg-forest px-2 py-1 rounded"
+                : "text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded";
+            saveClassState();
         }
 
         function renderFeatures() {
-            const data = allClasses[character.classId];
+            const data = DND_CLASSES[character.classId];
             const container = document.getElementById('class-features-list');
             container.innerHTML = "";
-            
-            if(!data.features || data.features.length === 0) {
+
+            if (!data.features || data.features.length === 0) {
                 container.innerHTML = "<p class='text-sm text-slate-500'>Список вмінь для цього класу ще формується.</p>";
                 return;
             }
 
-            const currentLevel = character.level;
-            const availableFeatures = data.features.filter(f => f.level <= currentLevel);
+            const availableFeatures = data.features.filter(f => f.level <= character.level);
+            if (availableFeatures.length === 0) {
+                container.innerHTML = "<p class='text-sm text-slate-500'>На цьому рівні поки немає доступних вмінь.</p>";
+                return;
+            }
 
             availableFeatures.forEach(feat => {
                 container.innerHTML += `
@@ -386,10 +528,226 @@
         }
 
         function saveClassState() {
-            if(!document.getElementById('subclass-section').classList.contains('hidden')) {
-                character.subclass = document.getElementById('subclass-select').value;
+            console.log("Стан класу збережено:", character);
+        }
+
+        // ============================= TAB 2: РАСА =============================
+        function renderRaceList() {
+            const grid = document.getElementById('race-grid');
+            grid.innerHTML = "";
+            for (const [id, data] of Object.entries(DND_RACES)) {
+                grid.innerHTML += `
+                    <button onclick="selectRace('${id}')" id="race-btn-${id}" class="race-btn text-left p-3 border border-slate-200 rounded-xl hover:border-forest hover:bg-slate-50 transition flex items-center gap-3 bg-white">
+                        <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-xl shrink-0">${data.icon}</div>
+                        <span class="font-bold text-slate-800 text-sm md:text-base">${data.name}</span>
+                    </button>
+                `;
             }
-            console.log("Збережено стан:", character);
+        }
+
+        function selectRace(raceId) {
+            const data = DND_RACES[raceId];
+            character.raceId = raceId;
+            character.raceName = data.name;
+
+            document.querySelectorAll('.race-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(`race-btn-${raceId}`).classList.add('active');
+
+            document.getElementById('race-details-empty').classList.add('hidden');
+            const active = document.getElementById('race-details-active');
+            active.classList.remove('hidden');
+            active.classList.add('flex');
+
+            document.getElementById('selected-race-icon').innerText = data.icon;
+            document.getElementById('selected-race-name').innerText = data.name;
+            document.getElementById('selected-race-bonuses').innerText = data.bonusesLabel;
+            document.getElementById('race-speed').innerText = data.speed + " футів";
+            document.getElementById('race-size').innerText = data.size;
+            document.getElementById('race-languages').innerText = data.languages;
+
+            const bonusGrid = document.getElementById('race-bonuses-grid');
+            bonusGrid.innerHTML = "";
+            ABILITY_KEYS.forEach(key => {
+                const bonus = data.bonuses[key] || 0;
+                const bonusText = bonus > 0 ? `+${bonus}` : "—";
+                const cls = bonus > 0 ? "border-forest bg-forest/5 text-forest" : "border-slate-200 bg-slate-50 text-slate-400";
+                bonusGrid.innerHTML += `
+                    <div class="p-2 border ${cls} rounded-lg text-center">
+                        <div class="text-xs font-bold uppercase">${ABILITY_LABELS[key]}</div>
+                        <div class="font-mono font-bold text-lg">${bonusText}</div>
+                    </div>
+                `;
+            });
+
+            const traitsList = document.getElementById('race-traits-list');
+            traitsList.innerHTML = "";
+            data.traits.forEach(t => {
+                traitsList.innerHTML += `
+                    <div class="p-3 bg-white border border-slate-200 rounded-lg shadow-sm">
+                        <h5 class="font-bold text-forest text-sm mb-1">${t.name}</h5>
+                        <p class="text-xs text-slate-700 leading-relaxed">${t.desc}</p>
+                    </div>
+                `;
+            });
+
+            console.log("Стан раси збережено:", character);
+        }
+
+        // ============================= TAB 3: ХАРАКТЕРИСТИКИ =============================
+        const POINT_BUY_COST = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
+        const POINT_BUY_TOTAL = 27;
+
+        function setStatMethod(method) {
+            character.statMethod = method;
+            document.getElementById('method-standard').classList.toggle('border-forest', method === 'standard');
+            document.getElementById('method-standard').classList.toggle('bg-forest', method === 'standard');
+            document.getElementById('method-standard').classList.toggle('text-white', method === 'standard');
+            document.getElementById('method-standard').classList.toggle('border-slate-200', method !== 'standard');
+            document.getElementById('method-standard').classList.toggle('bg-white', method !== 'standard');
+            document.getElementById('method-standard').classList.toggle('text-slate-700', method !== 'standard');
+
+            document.getElementById('method-pointbuy').classList.toggle('border-forest', method === 'pointbuy');
+            document.getElementById('method-pointbuy').classList.toggle('bg-forest', method === 'pointbuy');
+            document.getElementById('method-pointbuy').classList.toggle('text-white', method === 'pointbuy');
+            document.getElementById('method-pointbuy').classList.toggle('border-slate-200', method !== 'pointbuy');
+            document.getElementById('method-pointbuy').classList.toggle('bg-white', method !== 'pointbuy');
+            document.getElementById('method-pointbuy').classList.toggle('text-slate-700', method !== 'pointbuy');
+
+            document.getElementById('standard-info').classList.toggle('hidden', method !== 'standard');
+            document.getElementById('pointbuy-info').classList.toggle('hidden', method !== 'pointbuy');
+
+            // Скидаємо значення при зміні методу
+            if (method === 'standard') {
+                character.standardAssign = { str: null, dex: null, con: null, int: null, wis: null, cha: null };
+                ABILITY_KEYS.forEach(k => character.baseStats[k] = 8);
+            } else {
+                ABILITY_KEYS.forEach(k => character.baseStats[k] = 8);
+            }
+
+            renderAbilitiesEditor();
+            renderAbilitiesSummary();
+        }
+
+        function renderAbilitiesEditor() {
+            const grid = document.getElementById('abilities-grid');
+            grid.innerHTML = "";
+
+            ABILITY_KEYS.forEach(key => {
+                if (character.statMethod === 'standard') {
+                    // Спадне меню зі значеннями STANDARD_ARRAY
+                    let opts = `<option value="">—</option>`;
+                    STANDARD_ARRAY.forEach((val, idx) => {
+                        const used = Object.entries(character.standardAssign).some(([k, v]) => k !== key && v === idx);
+                        const sel = character.standardAssign[key] === idx ? "selected" : "";
+                        const disabled = used ? "disabled" : "";
+                        opts += `<option value="${idx}" ${sel} ${disabled}>${val}${used ? " (зайнято)" : ""}</option>`;
+                    });
+
+                    grid.innerHTML += `
+                        <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                            <div class="text-xs font-bold uppercase text-slate-500 mb-2">${ABILITY_LABELS[key]}</div>
+                            <select onchange="assignStandard('${key}', this.value)" class="w-full p-2 border border-slate-300 rounded-lg bg-white font-mono font-bold text-lg text-center text-forest outline-none cursor-pointer focus:ring-2 focus:ring-forest">
+                                ${opts}
+                            </select>
+                        </div>
+                    `;
+                } else {
+                    // Point-Buy: інпут від 8 до 15
+                    grid.innerHTML += `
+                        <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                            <div class="text-xs font-bold uppercase text-slate-500 mb-2">${ABILITY_LABELS[key]}</div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="pointBuyChange('${key}', -1)" class="w-9 h-9 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 font-bold text-lg">−</button>
+                                <div class="flex-grow text-center font-mono font-bold text-2xl text-forest">${character.baseStats[key]}</div>
+                                <button onclick="pointBuyChange('${key}', 1)" class="w-9 h-9 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 font-bold text-lg">+</button>
+                            </div>
+                            <div class="text-xs text-slate-500 mt-2 text-center">Вартість: <span class="font-bold">${POINT_BUY_COST[character.baseStats[key]] || 0}</span></div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (character.statMethod === 'pointbuy') {
+                document.getElementById('pb-points-left').innerText = pointsRemaining();
+            }
+        }
+
+        function assignStandard(key, idxStr) {
+            const idx = idxStr === "" ? null : parseInt(idxStr);
+            character.standardAssign[key] = idx;
+            character.baseStats[key] = idx === null ? 8 : STANDARD_ARRAY[idx];
+            renderAbilitiesEditor();
+            renderAbilitiesSummary();
+        }
+
+        function pointsRemaining() {
+            let spent = 0;
+            ABILITY_KEYS.forEach(k => spent += (POINT_BUY_COST[character.baseStats[k]] || 0));
+            return POINT_BUY_TOTAL - spent;
+        }
+
+        function pointBuyChange(key, delta) {
+            const cur = character.baseStats[key];
+            const next = cur + delta;
+            if (next < 8 || next > 15) return;
+            const newCost = POINT_BUY_COST[next];
+            const oldCost = POINT_BUY_COST[cur];
+            const newSpent = (POINT_BUY_TOTAL - pointsRemaining()) - oldCost + newCost;
+            if (newSpent > POINT_BUY_TOTAL) return;
+            character.baseStats[key] = next;
+            renderAbilitiesEditor();
+            renderAbilitiesSummary();
+        }
+
+        function renderAbilitiesSummary() {
+            const grid = document.getElementById('abilities-summary');
+            grid.innerHTML = "";
+            const race = character.raceId ? DND_RACES[character.raceId] : null;
+
+            ABILITY_KEYS.forEach(key => {
+                const base = character.baseStats[key] || 8;
+                const racial = (race && race.bonuses[key]) ? race.bonuses[key] : 0;
+                const total = base + racial;
+                const mod = Math.floor((total - 10) / 2);
+                const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
+                const racialStr = racial ? ` <span class="text-forest font-bold">(+${racial})</span>` : "";
+
+                grid.innerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+                        <div class="text-xs font-bold uppercase text-slate-500">${ABILITY_LABELS[key]}</div>
+                        <div class="font-mono font-bold text-2xl text-forest mt-1">${total}</div>
+                        <div class="text-xs text-slate-600">Мод: <span class="font-bold">${modStr}</span>${racialStr}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // ============================= TAB 4: ОПИС =============================
+        function populateAlignments() {
+            const sel = document.getElementById('desc-alignment');
+            ALIGNMENTS.forEach(a => {
+                sel.innerHTML += `<option value="${a}">${a}</option>`;
+            });
+        }
+
+        function populateBackgrounds() {
+            const sel = document.getElementById('desc-background');
+            BACKGROUNDS.forEach(b => {
+                sel.innerHTML += `<option value="${b}">${b}</option>`;
+            });
+        }
+
+        function updateDescription() {
+            character.description.name = document.getElementById('desc-name').value;
+            character.description.alignment = document.getElementById('desc-alignment').value;
+            character.description.background = document.getElementById('desc-background').value;
+            character.description.appearance = document.getElementById('desc-appearance').value;
+            character.description.traits = document.getElementById('desc-traits').value;
+            character.description.ideals = document.getElementById('desc-ideals').value;
+            character.description.bonds = document.getElementById('desc-bonds').value;
+            character.description.flaws = document.getElementById('desc-flaws').value;
+
+            document.getElementById('header-char-name').innerText = character.description.name || "Невідомий";
         }
     </script>
 </body>
