@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- pdf-lib + fontkit для генерації PDF із підтримкою кирилиці -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
     <script src="dnd-data.js"></script>
     
     <script>
@@ -68,8 +71,7 @@
                 <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">2. Раса</button>
                 <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">3. Характеристики</button>
                 <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">4. Опис</button>
-                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">5. Спорядження</button>
-                <button onclick="switchTab(6)" id="tab-btn-6" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">6. Фінал</button>
+                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">5. Огляд</button>
             </div>
         </div>
     </div>
@@ -305,9 +307,94 @@
             </div>
         </div>
 
-        <!-- ============================= TAB 5-6: PLACEHOLDERS ============================= -->
-        <div id="tab-content-5" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">🎒</div><h3 class="text-xl font-bold mb-2">Спорядження</h3><p class="text-sm">Цей розділ буде доступний у наступній фазі.</p></div></div>
-        <div id="tab-content-6" class="tab-content hidden"><div class="bg-white border rounded-xl p-16 text-center text-slate-500 shadow-sm"><div class="text-5xl mb-4">📝</div><h3 class="text-xl font-bold mb-2">Фінал</h3><p class="text-sm">Цей розділ буде доступний у наступній фазі.</p></div></div>
+        <!-- ============================= TAB 5: ОГЛЯД + PDF ============================= -->
+        <div id="tab-content-5" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Огляд персонажа</h2>
+                <p class="text-sm text-ui-muted mt-2">Перевірте, що все заповнено правильно, і завантажте офіційний аркуш персонажа D&amp;D 5e у форматі PDF.</p>
+            </div>
+
+            <!-- Картка з підсумком -->
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden mb-6">
+                <div class="bg-dnd-beige border-b border-slate-200 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div class="flex items-center gap-4">
+                        <div id="summary-icon" class="w-14 h-14 bg-forest text-white rounded-lg flex items-center justify-center text-3xl shadow-sm">🛡️</div>
+                        <div>
+                            <h3 id="summary-name" class="text-2xl font-bold font-heading text-forest">Невідомий</h3>
+                            <p id="summary-headline" class="text-sm font-semibold text-slate-600 mt-0.5">— ще не обрано клас та расу —</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="summary-level-badge" class="text-xs font-bold uppercase tracking-wide bg-forest text-white px-3 py-1.5 rounded-lg shadow-sm">Рівень 1</span>
+                    </div>
+                </div>
+
+                <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Базова інфо -->
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Базова інформація</h4>
+                        <dl class="text-sm space-y-2">
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Ім'я:</dt><dd id="sum-name" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Клас і рівень:</dt><dd id="sum-class" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Підклас:</dt><dd id="sum-subclass" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Раса:</dt><dd id="sum-race" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Передісторія:</dt><dd id="sum-bg" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Світогляд:</dt><dd id="sum-align" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Швидкість:</dt><dd id="sum-speed" class="font-bold text-slate-800 text-right">—</dd></div>
+                        </dl>
+                    </div>
+
+                    <!-- Бойові показники -->
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Бойові показники</h4>
+                        <dl class="text-sm space-y-2">
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Хіт-поінти (макс):</dt><dd id="sum-hp" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Кістка хітів:</dt><dd id="sum-hd" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">КЗ (без броні):</dt><dd id="sum-ac" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Ініціатива:</dt><dd id="sum-init" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Бонус володіння:</dt><dd id="sum-prof" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Пасивна Уважність:</dt><dd id="sum-passive" class="font-bold text-slate-800 text-right">—</dd></div>
+                        </dl>
+                    </div>
+                </div>
+
+                <!-- Характеристики -->
+                <div class="px-5 pb-5">
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Характеристики (з расовими бонусами)</h4>
+                    <div id="sum-abilities" class="grid grid-cols-3 sm:grid-cols-6 gap-3 text-center"></div>
+                </div>
+
+                <!-- Навички та володіння -->
+                <div class="px-5 pb-5">
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Володіння навичками</h4>
+                    <div id="sum-skills" class="text-sm text-slate-700">—</div>
+                </div>
+
+                <!-- Опис -->
+                <div class="px-5 pb-5">
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Особистість</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Риси характеру</div><p id="sum-traits" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Ідеали</div><p id="sum-ideals" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Зв'язки</div><p id="sum-bonds" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Слабкості</div><p id="sum-flaws" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка завантаження PDF -->
+            <div class="bg-dnd-beige border border-slate-200 rounded-xl shadow-sm p-6 text-center">
+                <div class="text-4xl mb-3">📜</div>
+                <h3 class="font-heading font-bold text-xl text-forest mb-2">Готові експортувати персонажа?</h3>
+                <p class="text-sm text-slate-600 mb-5 max-w-xl mx-auto">Натисніть кнопку нижче, щоб згенерувати офіційний аркуш персонажа D&amp;D 5e українською мовою з усіма вашими значеннями.</p>
+                <button onclick="generatePDF()" id="btn-download-pdf"
+                    class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-forest text-white rounded-lg hover:bg-forest-hover font-bold text-base transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+                    <span id="btn-download-icon">⬇️</span>
+                    <span id="btn-download-label">Завантажити PDF</span>
+                </button>
+                <p id="pdf-status" class="text-xs text-slate-500 mt-4 min-h-[1rem]"></p>
+            </div>
+        </div>
 
     </main>
 
@@ -367,15 +454,20 @@
             updateTabUI();
             // Перерахунок підсумку, бо може залежати від раси / класу
             if (tabNum === 3) renderAbilitiesSummary();
+            if (tabNum === 5) renderSummary();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function nextTab() { if (currentTab < 6) switchTab(currentTab + 1); }
+        const TOTAL_TABS = 5;
+        function nextTab() { if (currentTab < TOTAL_TABS) switchTab(currentTab + 1); }
         function prevTab() { if (currentTab > 1) switchTab(currentTab - 1); }
 
         function updateTabUI() {
             document.getElementById('btn-prev').classList.toggle('hidden', currentTab === 1);
-            document.getElementById('btn-next').innerText = currentTab === 6 ? "Завершити" : "Далі →";
+            const next = document.getElementById('btn-next');
+            // На останній вкладці ховаємо «Далі», бо там є власна кнопка PDF
+            next.classList.toggle('hidden', currentTab === TOTAL_TABS);
+            next.innerText = "Далі →";
         }
 
         // ============================= TAB 1: КЛАС =============================
@@ -759,6 +851,345 @@
             character.description.flaws = document.getElementById('desc-flaws').value;
 
             document.getElementById('header-char-name').innerText = character.description.name || "Невідомий";
+        }
+
+        // ============================= ОБЧИСЛЕНІ ДЕРИВАТИ =============================
+        // Бонус володіння за рівнем (D&D 5e: 1-4=+2, 5-8=+3, 9-12=+4, 13-16=+5, 17-20=+6)
+        function profBonus(level) {
+            return 2 + Math.floor((Math.max(1, Math.min(20, level)) - 1) / 4);
+        }
+
+        // Підсумкове значення характеристики (база + расовий бонус)
+        function finalAbility(key) {
+            const race = character.raceId ? DND_RACES[character.raceId] : null;
+            const base = character.baseStats[key] || 8;
+            const racial = (race && race.bonuses && race.bonuses[key]) ? race.bonuses[key] : 0;
+            return base + racial;
+        }
+        function abilityMod(key) {
+            return Math.floor((finalAbility(key) - 10) / 2);
+        }
+        function fmtMod(m) { return m >= 0 ? `+${m}` : `${m}`; }
+
+        // Кістка хітів класу — повертає число з рядка типу "1d10"
+        function classHitDieValue() {
+            const data = DND_CLASSES[character.classId];
+            if (!data) return 8;
+            const m = String(data.hitDice).match(/d(\d+)/i);
+            return m ? parseInt(m[1]) : 8;
+        }
+
+        // Максимум хіт-поінтів: 1 рів = HD_max + CON_mod; кожний наступний = (HD/2 + 1) + CON_mod (стандартне середнє)
+        function maxHP() {
+            const hd = classHitDieValue();
+            const conMod = abilityMod('con');
+            const lvl = character.level || 1;
+            if (lvl <= 1) return hd + conMod;
+            const perLevel = Math.floor(hd / 2) + 1 + conMod;
+            return (hd + conMod) + (lvl - 1) * perLevel;
+        }
+
+        // КЗ без броні: 10 + DEX мод (Варвар може використовувати додатково CON, але це для базового аркуша)
+        function unarmoredAC() {
+            return 10 + abilityMod('dex');
+        }
+
+        // Пасивна Уважність: 10 + WIS мод (+ бонус володіння, якщо є навичка "Уважність")
+        function passivePerception() {
+            const hasPerception = character.skills && character.skills.includes("Уважність");
+            return 10 + abilityMod('wis') + (hasPerception ? profBonus(character.level || 1) : 0);
+        }
+
+        // ============================= TAB 5: ОГЛЯД =============================
+        function renderSummary() {
+            const classData = character.classId ? DND_CLASSES[character.classId] : null;
+            const raceData = character.raceId ? DND_RACES[character.raceId] : null;
+            const d = character.description;
+
+            // Шапка
+            document.getElementById('summary-icon').innerText = classData ? classData.icon : "🛡️";
+            document.getElementById('summary-name').innerText = d.name || "Невідомий";
+            const headlineBits = [];
+            if (raceData) headlineBits.push(raceData.name);
+            if (classData) headlineBits.push(classData.name);
+            document.getElementById('summary-headline').innerText = headlineBits.length
+                ? headlineBits.join(" · ")
+                : "— ще не обрано клас та расу —";
+            document.getElementById('summary-level-badge').innerText = `Рівень ${character.level || 1}`;
+
+            // Базова інфо
+            const setText = (id, value) => { document.getElementById(id).innerText = value || "—"; };
+            setText('sum-name', d.name);
+            setText('sum-class', classData ? `${classData.name} ${character.level}` : "");
+            setText('sum-subclass', character.subclass);
+            setText('sum-race', raceData ? raceData.name : "");
+            setText('sum-bg', d.background);
+            setText('sum-align', d.alignment);
+            setText('sum-speed', raceData ? `${raceData.speed} футів` : "");
+
+            // Бойові показники
+            if (classData) {
+                setText('sum-hp', `${maxHP()}`);
+                setText('sum-hd', `${character.level}${classData.hitDice.slice(classData.hitDice.indexOf('d'))}`);
+                setText('sum-ac', `${unarmoredAC()}`);
+                setText('sum-init', fmtMod(abilityMod('dex')));
+                setText('sum-prof', `+${profBonus(character.level || 1)}`);
+                setText('sum-passive', `${passivePerception()}`);
+            } else {
+                ['sum-hp','sum-hd','sum-ac','sum-init','sum-prof','sum-passive'].forEach(id => setText(id, ""));
+            }
+
+            // Характеристики
+            const abGrid = document.getElementById('sum-abilities');
+            abGrid.innerHTML = "";
+            ABILITY_KEYS.forEach(key => {
+                const total = finalAbility(key);
+                const mod = abilityMod(key);
+                abGrid.innerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
+                        <div class="text-xs font-bold uppercase text-slate-500">${ABILITY_LABELS[key]}</div>
+                        <div class="font-mono font-bold text-2xl text-forest mt-1">${total}</div>
+                        <div class="text-xs text-slate-600">Мод: <span class="font-bold">${fmtMod(mod)}</span></div>
+                    </div>
+                `;
+            });
+
+            // Навички
+            const skills = document.getElementById('sum-skills');
+            if (character.skills && character.skills.length) {
+                skills.innerHTML = character.skills
+                    .map(s => `<span class="inline-block bg-forest/10 text-forest border border-forest/20 px-2.5 py-1 rounded-md text-xs font-semibold mr-1.5 mb-1.5">${s}</span>`)
+                    .join("");
+            } else {
+                skills.innerText = "— не обрано —";
+            }
+
+            setText('sum-traits', d.traits);
+            setText('sum-ideals', d.ideals);
+            setText('sum-bonds', d.bonds);
+            setText('sum-flaws', d.flaws);
+        }
+
+        // ============================= ГЕНЕРАЦІЯ PDF =============================
+        // URL шрифту з підтримкою кирилиці (Roboto Regular, fontsource CDN)
+        const CYRILLIC_FONT_URL = "https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/cyrillic-400-normal.ttf";
+        // Резервне джерело Latin-діапазону Roboto на випадок, якщо потрібні латинські символи (метрики беруться з Cyrillic-набору, але він також містить ASCII)
+        const PDF_TEMPLATE_URL = "5E CharacterSheet.pdf";
+
+        // Кеш, щоб не качати щоразу
+        let _pdfTemplateBytes = null;
+        let _fontBytes = null;
+        async function fetchBytes(url) {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Не вдалося завантажити ${url}: ${res.status}`);
+            return new Uint8Array(await res.arrayBuffer());
+        }
+
+        function setPdfStatus(text, isError = false) {
+            const el = document.getElementById('pdf-status');
+            el.innerText = text || "";
+            el.className = `text-xs mt-4 min-h-[1rem] ${isError ? 'text-red-600 font-semibold' : 'text-slate-500'}`;
+        }
+
+        async function generatePDF() {
+            const btn = document.getElementById('btn-download-pdf');
+            const label = document.getElementById('btn-download-label');
+            const icon = document.getElementById('btn-download-icon');
+            const originalLabel = label.innerText;
+
+            try {
+                btn.disabled = true;
+                icon.innerText = "⏳";
+                label.innerText = "Готуємо PDF...";
+                setPdfStatus("Завантажуємо шаблон та кириличний шрифт...");
+
+                // 1) Тягнемо шаблон PDF та шрифт паралельно (з кешуванням)
+                const [pdfBytes, fontBytes] = await Promise.all([
+                    _pdfTemplateBytes ? Promise.resolve(_pdfTemplateBytes) : fetchBytes(PDF_TEMPLATE_URL).then(b => (_pdfTemplateBytes = b)),
+                    _fontBytes        ? Promise.resolve(_fontBytes)        : fetchBytes(CYRILLIC_FONT_URL).then(b => (_fontBytes = b))
+                ]);
+
+                // 2) Завантажуємо документ та реєструємо fontkit, щоб мати змогу вбудувати кастомний TTF
+                const { PDFDocument } = PDFLib;
+                const pdfDoc = await PDFDocument.load(pdfBytes);
+                pdfDoc.registerFontkit(window.fontkit);
+
+                // 3) Вбудовуємо кириличний шрифт — без цього літери у формі будуть пустими квадратами
+                const cyrFont = await pdfDoc.embedFont(fontBytes, { subset: true });
+
+                // 4) Отримуємо форму та допоміжні дані персонажа
+                const form = pdfDoc.getForm();
+                const cls = character.classId ? DND_CLASSES[character.classId] : null;
+                const race = character.raceId ? DND_RACES[character.raceId] : null;
+                const d = character.description;
+                const lvl = character.level || 1;
+                const pb = profBonus(lvl);
+
+                // Безпечні сетери — ігнорують помилки, якщо поле відсутнє в шаблоні
+                const filled = []; // лог для діагностики
+                function setTxt(name, value) {
+                    if (value === undefined || value === null || value === "") return;
+                    try {
+                        const f = form.getTextField(name);
+                        f.setText(String(value));
+                        // Обов'язково оновлюємо вигляд саме нашим кириличним шрифтом
+                        f.updateAppearances(cyrFont);
+                        filled.push(name);
+                    } catch (e) {
+                        console.warn(`PDF: не вдалося заповнити поле "${name}":`, e.message);
+                    }
+                }
+
+                // 5) =============== МАПУВАННЯ ХАРАКТЕР → PDF ===============
+                // Зверніть увагу: деякі поля PDF мають хвостовий пробіл або нестандартний регістр (наприклад "Race ", "DEXmod ", "CHamod") — імена взято дослівно з форми.
+
+                // --- Ідентифікація персонажа ---
+                setTxt("CharacterName",   d.name);                                  // character.description.name
+                setTxt("CharacterName 2", d.name);                                  // дублюється на 2-й сторінці аркуша
+                setTxt("ClassLevel",      cls ? `${cls.name} ${lvl}` : "");         // character.className + character.level
+                setTxt("Background",      d.background);                            // character.description.background
+                setTxt("Race ",           race ? race.name : "");                   // character.raceName (поле має хвостовий пробіл!)
+                setTxt("Alignment",       d.alignment);                             // character.description.alignment
+                setTxt("PlayerName",      "");                                       // зарезервовано (поки не збираємо у формі)
+                setTxt("XP",              "0");                                      // стартовий досвід
+
+                // --- Шість характеристик (база + расовий бонус) ---
+                // Числові значення характеристик
+                setTxt("STR", String(finalAbility('str')));                          // character.baseStats.str + race.bonuses.str
+                setTxt("DEX", String(finalAbility('dex')));                          // character.baseStats.dex + race.bonuses.dex
+                setTxt("CON", String(finalAbility('con')));                          // character.baseStats.con + race.bonuses.con
+                setTxt("INT", String(finalAbility('int')));                          // character.baseStats.int + race.bonuses.int
+                setTxt("WIS", String(finalAbility('wis')));                          // character.baseStats.wis + race.bonuses.wis
+                setTxt("CHA", String(finalAbility('cha')));                          // character.baseStats.cha + race.bonuses.cha
+
+                // Модифікатори характеристик (увага: "DEXmod " та "CHamod" — оригінальні імена)
+                setTxt("STRmod",   fmtMod(abilityMod('str')));
+                setTxt("DEXmod ",  fmtMod(abilityMod('dex')));
+                setTxt("CONmod",   fmtMod(abilityMod('con')));
+                setTxt("INTmod",   fmtMod(abilityMod('int')));
+                setTxt("WISmod",   fmtMod(abilityMod('wis')));
+                setTxt("CHamod",   fmtMod(abilityMod('cha')));
+
+                // --- Рятункові кидки (мод + проф.бонус для тих, що даються класом) ---
+                const isSt = (k) => cls && cls.savingThrows && cls.savingThrows.includes(k);
+                const stVal = (k) => fmtMod(abilityMod(k) + (isSt(k) ? pb : 0));
+                setTxt("ST Strength",    stVal('str'));
+                setTxt("ST Dexterity",   stVal('dex'));
+                setTxt("ST Constitution",stVal('con'));
+                setTxt("ST Intelligence",stVal('int'));
+                setTxt("ST Wisdom",      stVal('wis'));
+                setTxt("ST Charisma",    stVal('cha'));
+
+                // --- Бойові показники (обчислюються з character + cls + race) ---
+                setTxt("ProfBonus",  `+${pb}`);                                      // profBonus(character.level)
+                setTxt("AC",         String(unarmoredAC()));                         // 10 + DEX мод
+                setTxt("Initiative", fmtMod(abilityMod('dex')));                     // DEX мод
+                setTxt("Speed",      race ? `${race.speed}` : "");                   // race.speed
+                setTxt("HPMax",      cls ? String(maxHP()) : "");                    // обчислено з HD + CON
+                setTxt("HPCurrent",  cls ? String(maxHP()) : "");                    // на старті = максимум
+                setTxt("HDTotal",    cls ? `${lvl}${cls.hitDice.slice(cls.hitDice.indexOf('d'))}` : ""); // напр. "5d10"
+                setTxt("HD",         cls ? `${lvl}${cls.hitDice.slice(cls.hitDice.indexOf('d'))}` : "");
+                setTxt("Passive",    cls ? String(passivePerception()) : "");        // 10 + WIS мод (+ проф. якщо є "Уважність")
+
+                // --- Навички (мод характеристики + проф., якщо навичка вибрана) ---
+                // Стандартна карта "навичка українською → ключ характеристики"
+                const SKILL_MAP = {
+                    "Акробатика":             { stat: "dex", field: "Acrobatics" },
+                    "Поводження з тваринами": { stat: "wis", field: "Animal" },
+                    "Атлетика":               { stat: "str", field: "Athletics" },
+                    "Обман":                  { stat: "cha", field: "Deception " },
+                    "Історія":                { stat: "int", field: "History " },
+                    "Проникливість":          { stat: "wis", field: "Insight" },
+                    "Залякування":            { stat: "cha", field: "Intimidation" },
+                    "Дослідження":            { stat: "int", field: "Investigation " },
+                    "Аркана":                 { stat: "int", field: "Arcana" },
+                    "Природа":                { stat: "int", field: "Nature" },
+                    "Уважність":              { stat: "wis", field: "Perception " },
+                    "Виступ":                 { stat: "cha", field: "Performance" },
+                    "Медицина":               { stat: "wis", field: "Medicine" },
+                    "Релігія":                { stat: "int", field: "Religion" },
+                    "Скритність":             { stat: "dex", field: "Stealth " },
+                    "Переконання":            { stat: "cha", field: "Persuasion" },
+                    "Спритність рук":         { stat: "dex", field: "SleightofHand" },
+                    "Виживання":              { stat: "wis", field: "Survival" }
+                };
+                const chosenSkills = new Set(character.skills || []);
+                for (const [skillName, info] of Object.entries(SKILL_MAP)) {
+                    const proficient = chosenSkills.has(skillName);
+                    const value = abilityMod(info.stat) + (proficient ? pb : 0);
+                    setTxt(info.field, fmtMod(value));
+                }
+
+                // --- Особистість (з вкладки "Опис") ---
+                setTxt("PersonalityTraits ", d.traits);     // character.description.traits
+                setTxt("Ideals",             d.ideals);     // character.description.ideals
+                setTxt("Bonds",              d.bonds);      // character.description.bonds
+                setTxt("Flaws",              d.flaws);      // character.description.flaws
+
+                // --- Володіння (зброя, броня, мови, навички) ---
+                const profLines = [];
+                if (cls) {
+                    profLines.push(`Броня: ${cls.armorProf}`);
+                    profLines.push(`Зброя: ${cls.weaponProf}`);
+                    profLines.push(`Рятунки: ${cls.savingThrowsLabel}`);
+                }
+                if (race && race.languages) profLines.push(`Мови: ${race.languages}`);
+                if (chosenSkills.size) profLines.push(`Навички: ${[...chosenSkills].join(", ")}`);
+                setTxt("ProficienciesLang", profLines.join("\n"));
+
+                // --- Особливості та риси (вміння класу + расові риси + підклас) ---
+                const featLines = [];
+                if (cls && cls.features) {
+                    cls.features
+                        .filter(f => f.level <= lvl)
+                        .forEach(f => featLines.push(`• [Рів.${f.level}] ${f.name}: ${f.desc}`));
+                }
+                if (character.subclass) featLines.push(`\nПідклас: ${character.subclass}`);
+                if (race && race.traits) {
+                    featLines.push(`\nРасові риси (${race.name}):`);
+                    race.traits.forEach(t => featLines.push(`• ${t.name}: ${t.desc}`));
+                }
+                setTxt("Features and Traits", featLines.join("\n"));
+                setTxt("Feat+Traits",         featLines.join("\n"));
+
+                // --- Зовнішність (поки збираємо лише загальний опис) ---
+                setTxt("Age",    "");
+                setTxt("Height", "");
+                setTxt("Weight", "");
+                setTxt("Eyes",   "");
+                setTxt("Skin",   "");
+                setTxt("Hair",   "");
+                // Зовнішність користувача — у поле Backstory, плюс окремо в Allies/FactionName залишаємо порожнім
+                setTxt("Backstory", d.appearance || "");
+
+                // 6) КРИТИЧНО: оновлюємо вигляд УСІХ полів обраним шрифтом, щоб кирилиця коректно
+                //    рендерилася навіть у переглядачах, які не використовують вбудовані appearance streams.
+                //    Без цього кроку деякі читалки покажуть пусті квадрати замість українських літер.
+                form.updateFieldAppearances(cyrFont);
+
+                // 7) Зберігаємо PDF та ініціюємо завантаження у браузері
+                const outBytes = await pdfDoc.save();
+                const blob = new Blob([outBytes], { type: "application/pdf" });
+                const url = URL.createObjectURL(blob);
+                const safeName = (d.name || "character").replace(/[^A-Za-zА-Яа-яЁёЇїІіЄєҐґ0-9_-]+/g, "_").slice(0, 80);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${safeName || "character"}_DnD5e.pdf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(url), 5000);
+
+                setPdfStatus(`Готово! Заповнено ${filled.length} полів. Файл збережено.`);
+            } catch (err) {
+                console.error("Помилка генерації PDF:", err);
+                setPdfStatus(`Помилка: ${err.message}. Перевірте, що файл "5E CharacterSheet.pdf" та шрифт доступні.`, true);
+            } finally {
+                const btn = document.getElementById('btn-download-pdf');
+                btn.disabled = false;
+                document.getElementById('btn-download-icon').innerText = "⬇️";
+                document.getElementById('btn-download-label').innerText = "Завантажити PDF";
+            }
         }
     </script>
 </body>
