@@ -67,11 +67,12 @@
     <div class="bg-white shadow-sm border-b border-slate-200 sticky top-16 z-40">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-8">
-                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">1. Клас</button>
-                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">2. Раса</button>
-                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">3. Характеристики</button>
-                <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">4. Опис</button>
-                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest">5. Огляд</button>
+                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">1. Клас<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">2. Раса<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">3. Характеристики<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">4. Опис<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">5. Спорядження<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(6)" id="tab-btn-6" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">6. Огляд<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
             </div>
         </div>
     </div>
@@ -154,6 +155,8 @@
                                 <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Вміння класу (доступні на цьому рівні)</h4>
                                 <div id="class-features-list" class="space-y-3"></div>
                             </div>
+
+                            <div id="asi-section" class="hidden bg-slate-50 p-4 border border-slate-200 rounded-xl"></div>
 
                         </div>
                     </div>
@@ -286,6 +289,41 @@
                     </div>
                 </div>
 
+                <!-- Кастомна передісторія -->
+                <div id="custom-bg-section" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                        <h4 class="font-bold text-lg text-forest font-heading">Власна передісторія</h4>
+                        <span class="text-xs bg-forest text-white px-2 py-1 rounded">Кастомна</span>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Назва передісторії <span class="text-red-500">*</span></label>
+                        <input id="cbg-name" type="text" oninput="updateCustomBackground()" placeholder="Напр.: Мисливець на чудовиськ" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Володіння навичками (оберіть рівно 2) <span class="text-red-500">*</span></label>
+                        <div id="cbg-skills" class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm"></div>
+                        <p id="cbg-skills-counter" class="text-xs text-slate-500 mt-2">Обрано: 0 / 2</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Мови</label>
+                            <input id="cbg-languages" type="text" oninput="updateCustomBackground()" placeholder="Напр.: Ельфійська, Драконяча" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Інструменти</label>
+                            <input id="cbg-tools" type="text" oninput="updateCustomBackground()" placeholder="Напр.: Набір ремісника, Музичний інструмент" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Особлива риса передісторії <span class="text-red-500">*</span></label>
+                        <textarea id="cbg-feature" oninput="updateCustomBackground()" rows="3" placeholder="Опишіть унікальну рису або вигоду вашого минулого..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Риси характеру</label>
@@ -307,8 +345,90 @@
             </div>
         </div>
 
-        <!-- ============================= TAB 5: ОГЛЯД + PDF ============================= -->
+        <!-- ============================= TAB 5: СПОРЯДЖЕННЯ / HP / AC ============================= -->
         <div id="tab-content-5" class="tab-content hidden">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Спорядження, HP та КЗ</h2>
+                <p class="text-sm text-ui-muted mt-2">Оберіть броню, перегляньте максимум та поточні Хіт-Поінти, а також автоматично перерахований Клас Захисту.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Блок HP / AC -->
+                <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4">
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Хіт-поінти та Захист</h4>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Максимум HP</div>
+                        <div id="inv-hp-max" class="font-mono font-bold text-3xl text-forest">—</div>
+                        <p class="text-xs text-slate-500 mt-1">Розраховано автоматично з кістки хітів та модифікатора Витривалості.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Поточні HP</label>
+                        <input id="inv-hp-current" type="number" min="0" oninput="updateInventory()"
+                            class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none font-mono font-bold text-xl text-center">
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Клас Захисту (КЗ / AC)</div>
+                        <div id="inv-ac" class="font-mono font-bold text-3xl text-forest">10</div>
+                        <p id="inv-ac-formula" class="text-xs text-slate-500 mt-1">Без броні: 10 + Спритність.</p>
+                    </div>
+                </div>
+
+                <!-- Блок Броня -->
+                <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4 lg:col-span-2">
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Спорядження</h4>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Броня</label>
+                            <select id="inv-armor" onchange="updateInventory()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer">
+                                <option value="none">Без броні</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <label class="flex items-center gap-2 p-2.5 border border-slate-300 rounded-lg bg-slate-50 cursor-pointer w-full">
+                                <input id="inv-shield" type="checkbox" onchange="updateInventory()" class="w-4 h-4 text-forest rounded">
+                                <span class="font-medium text-slate-700">Щит (+2 КЗ)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Зброя</label>
+                        <textarea id="inv-weapons" oninput="updateInventory()" rows="3" placeholder="Наприклад: Дворучний меч (+5 до влучання, 2d6+3 рубаючої)..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Спорядження / Інвентар</label>
+                        <textarea id="inv-items" oninput="updateInventory()" rows="4" placeholder="Рюкзак, мотузка 50 футів, факели, кремінь та крем'яне кресало..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">CP</label>
+                            <input id="inv-cp" type="number" min="0" oninput="updateInventory()" value="0" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-center font-mono">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">SP</label>
+                            <input id="inv-sp" type="number" min="0" oninput="updateInventory()" value="0" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-center font-mono">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">GP</label>
+                            <input id="inv-gp" type="number" min="0" oninput="updateInventory()" value="0" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-center font-mono">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">PP</label>
+                            <input id="inv-pp" type="number" min="0" oninput="updateInventory()" value="0" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-center font-mono">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================= TAB 6: ОГЛЯД + PDF ============================= -->
+        <div id="tab-content-6" class="tab-content hidden">
             <div class="mb-6">
                 <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Огляд персонажа</h2>
                 <p class="text-sm text-ui-muted mt-2">Перевірте, що все заповнено правильно, і завантажте офіційний аркуш персонажа D&amp;D 5e у форматі PDF.</p>
@@ -350,7 +470,7 @@
                         <dl class="text-sm space-y-2">
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Хіт-поінти (макс):</dt><dd id="sum-hp" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Кістка хітів:</dt><dd id="sum-hd" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">КЗ (без броні):</dt><dd id="sum-ac" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">КЗ (Клас Захисту):</dt><dd id="sum-ac" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Ініціатива:</dt><dd id="sum-init" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Бонус володіння:</dt><dd id="sum-prof" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Пасивна Уважність:</dt><dd id="sum-passive" class="font-bold text-slate-800 text-right">—</dd></div>
@@ -428,7 +548,26 @@
                 ideals: "",
                 bonds: "",
                 flaws: ""
-            }
+            },
+            // Кастомна передісторія (активна, якщо background === "__custom__")
+            customBackground: {
+                name: "",
+                skills: [],      // 2 обрані навички
+                languages: "",   // вільний текст мов
+                tools: "",       // вільний текст інструментів
+                feature: ""      // власна риса передісторії
+            },
+            // Спорядження + бойові показники, керовані вручну
+            inventory: {
+                armor: "none",
+                shield: false,
+                weapons: "",
+                items: "",
+                cp: 0, sp: 0, gp: 0, pp: 0,
+                hpCurrent: null     // null = автозаповнення макс HP
+            },
+            // Зроблені вибори ASI (level → "+X to STR" або "Feat: Name")
+            asiSelections: {}
         };
         let currentTab = 1;
 
@@ -439,10 +578,56 @@
             renderRaceList();
             populateAlignments();
             populateBackgrounds();
+            populateArmorSelect();
             renderAbilitiesEditor();
             renderAbilitiesSummary();
             updateTabUI();
         };
+
+        // ============================= ASI / FEATS ПРОГРЕСІЯ =============================
+        // Розрахунок підвищень характеристик з даних класу. Зберігаємо у character.asiSelections.
+        function getASIUnlockedLevels() {
+            if (!character.classId) return [];
+            const levels = getASILevels(character.classId) || [];
+            return levels.filter(l => l <= (character.level || 1));
+        }
+
+        function renderASISection() {
+            const container = document.getElementById('asi-section');
+            if (!container) return;
+            const unlocked = getASIUnlockedLevels();
+            if (unlocked.length === 0) {
+                container.classList.add('hidden');
+                container.innerHTML = "";
+                return;
+            }
+            container.classList.remove('hidden');
+            container.innerHTML = `
+                <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
+                    <h4 class="font-bold text-lg text-forest font-heading">Підвищення характеристик / Риси (ASI)</h4>
+                    <span class="text-xs bg-forest text-white px-2 py-1 rounded">${unlocked.length} вибір${unlocked.length > 1 ? 'и' : ''}</span>
+                </div>
+                <div class="space-y-3" id="asi-rows"></div>
+            `;
+            const rows = document.getElementById('asi-rows');
+            unlocked.forEach(lvl => {
+                const cur = character.asiSelections[lvl] || "";
+                rows.innerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-lg p-3">
+                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Рівень ${lvl}</div>
+                        <input type="text" value="${escapeHtml(cur)}" oninput="onASIChange(${lvl}, this.value)" placeholder="Напр.: +2 СИЛ, або Риса: Великий мисливець" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-sm">
+                    </div>
+                `;
+            });
+        }
+
+        function onASIChange(level, value) {
+            character.asiSelections[level] = value;
+        }
+
+        function escapeHtml(s) {
+            return String(s || "").replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
 
         // ============================= TABS =============================
         function switchTab(tabNum) {
@@ -454,11 +639,12 @@
             updateTabUI();
             // Перерахунок підсумку, бо може залежати від раси / класу
             if (tabNum === 3) renderAbilitiesSummary();
-            if (tabNum === 5) renderSummary();
+            if (tabNum === 5) renderInventoryTab();
+            if (tabNum === 6) renderSummary();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        const TOTAL_TABS = 5;
+        const TOTAL_TABS = 6;
         function nextTab() { if (currentTab < TOTAL_TABS) switchTab(currentTab + 1); }
         function prevTab() { if (currentTab > 1) switchTab(currentTab - 1); }
 
@@ -593,6 +779,25 @@
             saveClassState();
         }
 
+        // Зібрати ВСІ вміння класу для поточного рівня (базові + з CLASS_FEATURES_BY_LEVEL)
+        function collectAllClassFeatures() {
+            const data = DND_CLASSES[character.classId];
+            if (!data) return [];
+            const base = (data.features || []).slice();
+            const extra = (typeof CLASS_FEATURES_BY_LEVEL !== "undefined" && CLASS_FEATURES_BY_LEVEL[character.classId]) || [];
+            // Об'єднуємо унікально (за level+name)
+            const seen = new Set(base.map(f => `${f.level}|${f.name}`));
+            extra.forEach(f => {
+                const key = `${f.level}|${f.name}`;
+                if (!seen.has(key)) {
+                    base.push(f);
+                    seen.add(key);
+                }
+            });
+            base.sort((a, b) => a.level - b.level);
+            return base;
+        }
+
         // Назва, очікувана завданням; залишаємо renderFeatures як псевдонім для зворотної сумісності
         function renderClassFeatures() {
             const data = DND_CLASSES[character.classId];
@@ -600,14 +805,17 @@
             if (!container) return;
             container.innerHTML = "";
 
-            if (!data || !data.features || data.features.length === 0) {
+            if (!data) {
                 container.innerHTML = "<p class='text-sm text-slate-500'>Список вмінь для цього класу ще формується.</p>";
+                renderASISection();
                 return;
             }
 
-            const availableFeatures = data.features.filter(f => f.level <= character.level);
+            const allFeatures = collectAllClassFeatures();
+            const availableFeatures = allFeatures.filter(f => f.level <= character.level);
             if (availableFeatures.length === 0) {
                 container.innerHTML = "<p class='text-sm text-slate-500'>На цьому рівні поки немає доступних вмінь.</p>";
+                renderASISection();
                 return;
             }
 
@@ -622,6 +830,8 @@
                     </div>
                 `;
             });
+
+            renderASISection();
         }
 
         // Псевдонім, щоб старі виклики renderFeatures() продовжували працювати
@@ -825,6 +1035,117 @@
             });
         }
 
+        // ============================= TAB 5: СПОРЯДЖЕННЯ, HP, AC =============================
+        function populateArmorSelect() {
+            const sel = document.getElementById('inv-armor');
+            if (!sel) return;
+            sel.innerHTML = "";
+            if (typeof ARMOR_DATA === "undefined") {
+                sel.innerHTML = `<option value="none">Без броні</option>`;
+                return;
+            }
+            for (const [id, a] of Object.entries(ARMOR_DATA)) {
+                const typeLabel = a.type === "light" ? "Легка" : a.type === "medium" ? "Середня" : a.type === "heavy" ? "Важка" : "—";
+                sel.innerHTML += `<option value="${id}">${a.name}${a.type !== "none" ? ` — ${typeLabel} (база ${a.base})` : ""}</option>`;
+            }
+        }
+
+        // Розрахунок КЗ за 5e: Light = base + DEX; Medium = base + min(DEX, 2); Heavy = base; +2 за щит.
+        function calculateAC() {
+            const armorId = character.inventory.armor || "none";
+            const armor = (typeof ARMOR_DATA !== "undefined" && ARMOR_DATA[armorId]) ? ARMOR_DATA[armorId] : { type: "none", base: 10, addDex: true, maxDex: null };
+            const dex = abilityMod('dex');
+            let ac = armor.base;
+            let formula = "";
+            if (armor.type === "none") {
+                ac = 10 + dex;
+                formula = `10 + Спритність (${fmtMod(dex)})`;
+            } else if (armor.type === "light") {
+                ac = armor.base + dex;
+                formula = `${armor.base} (${armor.name}) + Спритність (${fmtMod(dex)})`;
+            } else if (armor.type === "medium") {
+                const cap = Math.min(dex, 2);
+                ac = armor.base + cap;
+                formula = `${armor.base} (${armor.name}) + Спр. макс. +2 (${fmtMod(cap)})`;
+            } else if (armor.type === "heavy") {
+                ac = armor.base;
+                formula = `${armor.base} (${armor.name}, Спритність не додається)`;
+            }
+            if (character.inventory.shield) {
+                ac += 2;
+                formula += " + 2 (Щит)";
+            }
+            return { ac, formula };
+        }
+
+        function renderInventoryTab() {
+            // HP Max + поточні
+            const hpMax = character.classId ? maxHP() : 0;
+            const hpMaxEl = document.getElementById('inv-hp-max');
+            if (hpMaxEl) hpMaxEl.innerText = character.classId ? String(hpMax) : "—";
+
+            const hpCurEl = document.getElementById('inv-hp-current');
+            if (hpCurEl) {
+                if (character.inventory.hpCurrent === null || character.inventory.hpCurrent === "") {
+                    hpCurEl.value = hpMax || "";
+                } else {
+                    hpCurEl.value = character.inventory.hpCurrent;
+                }
+            }
+
+            // Армор select відновити стан
+            const armorSel = document.getElementById('inv-armor');
+            if (armorSel) armorSel.value = character.inventory.armor || "none";
+
+            const shieldEl = document.getElementById('inv-shield');
+            if (shieldEl) shieldEl.checked = !!character.inventory.shield;
+
+            // Текстові поля
+            const weaponsEl = document.getElementById('inv-weapons');
+            if (weaponsEl) weaponsEl.value = character.inventory.weapons || "";
+            const itemsEl = document.getElementById('inv-items');
+            if (itemsEl) itemsEl.value = character.inventory.items || "";
+            ['cp','sp','gp','pp'].forEach(c => {
+                const el = document.getElementById('inv-' + c);
+                if (el) el.value = character.inventory[c] || 0;
+            });
+
+            const { ac, formula } = calculateAC();
+            const acEl = document.getElementById('inv-ac');
+            if (acEl) acEl.innerText = ac;
+            const f = document.getElementById('inv-ac-formula');
+            if (f) f.innerText = formula;
+        }
+
+        function updateInventory() {
+            const armorSel = document.getElementById('inv-armor');
+            character.inventory.armor = armorSel ? armorSel.value : "none";
+            const shieldEl = document.getElementById('inv-shield');
+            character.inventory.shield = shieldEl ? !!shieldEl.checked : false;
+            const weaponsEl = document.getElementById('inv-weapons');
+            character.inventory.weapons = weaponsEl ? weaponsEl.value : "";
+            const itemsEl = document.getElementById('inv-items');
+            character.inventory.items = itemsEl ? itemsEl.value : "";
+
+            ['cp','sp','gp','pp'].forEach(c => {
+                const el = document.getElementById('inv-' + c);
+                character.inventory[c] = el ? (parseInt(el.value) || 0) : 0;
+            });
+
+            const hpCurEl = document.getElementById('inv-hp-current');
+            if (hpCurEl) {
+                const v = hpCurEl.value;
+                character.inventory.hpCurrent = (v === "" || v === null || isNaN(parseInt(v))) ? null : parseInt(v);
+            }
+
+            // Перерахунок AC у режимі реального часу
+            const { ac, formula } = calculateAC();
+            const acEl = document.getElementById('inv-ac');
+            if (acEl) acEl.innerText = ac;
+            const fEl = document.getElementById('inv-ac-formula');
+            if (fEl) fEl.innerText = formula;
+        }
+
         // ============================= TAB 4: ОПИС =============================
         function populateAlignments() {
             const sel = document.getElementById('desc-alignment');
@@ -838,6 +1159,47 @@
             BACKGROUNDS.forEach(b => {
                 sel.innerHTML += `<option value="${b}">${b}</option>`;
             });
+            // Спеціальний пункт "Власна передісторія"
+            sel.innerHTML += `<option value="__custom__">✏️ Власна передісторія…</option>`;
+            renderCustomBgSkillsList();
+        }
+
+        function renderCustomBgSkillsList() {
+            const list = document.getElementById('cbg-skills');
+            if (!list) return;
+            const all = (typeof ALL_SKILLS !== "undefined") ? ALL_SKILLS : [];
+            list.innerHTML = "";
+            all.forEach(skill => {
+                const checked = (character.customBackground.skills || []).includes(skill) ? "checked" : "";
+                list.innerHTML += `
+                    <label class="flex items-center gap-2 p-2 border border-slate-200 rounded-lg hover:bg-white cursor-pointer transition bg-white/60">
+                        <input type="checkbox" value="${skill}" ${checked} onchange="onCustomBgSkillChange(this)" class="cbg-skill-cb w-4 h-4 text-forest focus:ring-forest rounded border-slate-300">
+                        <span class="text-slate-700">${skill}</span>
+                    </label>
+                `;
+            });
+        }
+
+        function onCustomBgSkillChange(cb) {
+            const checked = Array.from(document.querySelectorAll('.cbg-skill-cb:checked'));
+            if (checked.length > 2) {
+                cb.checked = false;
+                return;
+            }
+            character.customBackground.skills = checked.map(b => b.value);
+            const counter = document.getElementById('cbg-skills-counter');
+            if (counter) counter.innerText = `Обрано: ${character.customBackground.skills.length} / 2`;
+        }
+
+        function updateCustomBackground() {
+            const nameEl = document.getElementById('cbg-name');
+            const langEl = document.getElementById('cbg-languages');
+            const toolsEl = document.getElementById('cbg-tools');
+            const featEl = document.getElementById('cbg-feature');
+            character.customBackground.name = nameEl ? nameEl.value : "";
+            character.customBackground.languages = langEl ? langEl.value : "";
+            character.customBackground.tools = toolsEl ? toolsEl.value : "";
+            character.customBackground.feature = featEl ? featEl.value : "";
         }
 
         function updateDescription() {
@@ -850,7 +1212,56 @@
             character.description.bonds = document.getElementById('desc-bonds').value;
             character.description.flaws = document.getElementById('desc-flaws').value;
 
+            // Показуємо/ховаємо блок кастомної передісторії
+            const customSec = document.getElementById('custom-bg-section');
+            if (customSec) {
+                if (character.description.background === "__custom__") {
+                    customSec.classList.remove('hidden');
+                } else {
+                    customSec.classList.add('hidden');
+                }
+            }
+
             document.getElementById('header-char-name').innerText = character.description.name || "Невідомий";
+        }
+
+        // Повертає ефективну назву передісторії з урахуванням кастомного варіанту
+        function effectiveBackgroundName() {
+            const bg = character.description.background;
+            if (bg === "__custom__") return character.customBackground.name || "Власна передісторія";
+            return bg || "";
+        }
+
+        // Зведений список бонусних навичок з передісторії (для відображення/PDF)
+        function backgroundBonusSkills() {
+            const bg = character.description.background;
+            if (bg === "__custom__") return (character.customBackground.skills || []).slice();
+            if (bg && typeof BACKGROUND_DATA !== "undefined" && BACKGROUND_DATA[bg]) return (BACKGROUND_DATA[bg].skills || []).slice();
+            return [];
+        }
+
+        function backgroundFeatureText() {
+            const bg = character.description.background;
+            if (bg === "__custom__") return character.customBackground.feature || "";
+            if (bg && typeof BACKGROUND_DATA !== "undefined" && BACKGROUND_DATA[bg]) return BACKGROUND_DATA[bg].feature || "";
+            return "";
+        }
+
+        function backgroundLanguagesText() {
+            const bg = character.description.background;
+            if (bg === "__custom__") return character.customBackground.languages || "";
+            if (bg && typeof BACKGROUND_DATA !== "undefined" && BACKGROUND_DATA[bg]) {
+                const n = BACKGROUND_DATA[bg].languages || 0;
+                return n > 0 ? `${n} додаткова мова на вибір` : "";
+            }
+            return "";
+        }
+
+        function backgroundToolsText() {
+            const bg = character.description.background;
+            if (bg === "__custom__") return character.customBackground.tools || "";
+            if (bg && typeof BACKGROUND_DATA !== "undefined" && BACKGROUND_DATA[bg]) return (BACKGROUND_DATA[bg].tools || []).join(", ");
+            return "";
         }
 
         // ============================= ОБЧИСЛЕНІ ДЕРИВАТИ =============================
@@ -923,7 +1334,7 @@
             setText('sum-class', classData ? `${classData.name} ${character.level}` : "");
             setText('sum-subclass', character.subclass);
             setText('sum-race', raceData ? raceData.name : "");
-            setText('sum-bg', d.background);
+            setText('sum-bg', effectiveBackgroundName());
             setText('sum-align', d.alignment);
             setText('sum-speed', raceData ? `${raceData.speed} футів` : "");
 
@@ -931,7 +1342,7 @@
             if (classData) {
                 setText('sum-hp', `${maxHP()}`);
                 setText('sum-hd', `${character.level}${classData.hitDice.slice(classData.hitDice.indexOf('d'))}`);
-                setText('sum-ac', `${unarmoredAC()}`);
+                setText('sum-ac', `${calculateAC().ac}`);
                 setText('sum-init', fmtMod(abilityMod('dex')));
                 setText('sum-prof', `+${profBonus(character.level || 1)}`);
                 setText('sum-passive', `${passivePerception()}`);
@@ -970,6 +1381,110 @@
             setText('sum-flaws', d.flaws);
         }
 
+        // ============================= ВАЛІДАЦІЯ =============================
+        // Структура: список перевірок з прив'язкою до вкладки, селектора та повідомлення
+        function buildValidationRules() {
+            return [
+                // Tab 1: клас
+                { tab: 1, check: () => !!character.classId, elId: null, message: "Не обрано клас." },
+                {
+                    tab: 1,
+                    check: () => !character.classId || (character.skills && character.skills.length === (DND_CLASSES[character.classId]?.skillsCount || 0)),
+                    elId: 'skills-checkboxes',
+                    message: "Оберіть необхідну кількість навичок класу."
+                },
+                {
+                    tab: 1,
+                    check: () => {
+                        if (!character.classId) return true;
+                        const data = DND_CLASSES[character.classId];
+                        if ((character.level || 1) < (data.subclassLevel || 3)) return true;
+                        return !!character.subclass;
+                    },
+                    elId: 'subclass-select',
+                    message: "Оберіть підклас (відкривається з 3-го рівня)."
+                },
+                // Tab 2: раса
+                { tab: 2, check: () => !!character.raceId, elId: null, message: "Не обрано расу." },
+                // Tab 3: характеристики
+                {
+                    tab: 3,
+                    check: () => {
+                        if (character.statMethod === 'standard') {
+                            return ABILITY_KEYS.every(k => character.standardAssign[k] !== null && character.standardAssign[k] !== undefined);
+                        }
+                        return true; // у point-buy завжди має хоч якесь значення
+                    },
+                    elId: null,
+                    message: "Розподіліть усі шість значень стандартного масиву."
+                },
+                // Tab 4: опис — ім'я обов'язкове
+                { tab: 4, check: () => !!(character.description.name || "").trim(), elId: 'desc-name', message: "Введіть ім'я персонажа." },
+                { tab: 4, check: () => !!(character.description.alignment || "").trim(), elId: 'desc-alignment', message: "Оберіть світогляд." },
+                { tab: 4, check: () => !!(character.description.background || "").trim(), elId: 'desc-background', message: "Оберіть передісторію." },
+                // Кастомна передісторія — поля стають обов'язковими, якщо обрано "Власна"
+                {
+                    tab: 4,
+                    check: () => character.description.background !== "__custom__" || !!(character.customBackground.name || "").trim(),
+                    elId: 'cbg-name',
+                    message: "Вкажіть назву власної передісторії."
+                },
+                {
+                    tab: 4,
+                    check: () => character.description.background !== "__custom__" || (character.customBackground.skills || []).length === 2,
+                    elId: 'cbg-skills',
+                    message: "Оберіть рівно 2 навички для власної передісторії."
+                },
+                {
+                    tab: 4,
+                    check: () => character.description.background !== "__custom__" || !!(character.customBackground.feature || "").trim(),
+                    elId: 'cbg-feature',
+                    message: "Опишіть рису власної передісторії."
+                }
+            ];
+        }
+
+        // Очистити всі попередні позначки помилок
+        function clearValidationHighlights() {
+            document.querySelectorAll('.border-red-500').forEach(el => {
+                el.classList.remove('border-red-500', 'ring-2', 'ring-red-300');
+            });
+            document.querySelectorAll('.tab-alert').forEach(dot => dot.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('text-red-500'));
+        }
+
+        function markFieldError(elId) {
+            if (!elId) return;
+            const el = document.getElementById(elId);
+            if (!el) return;
+            el.classList.add('border-red-500', 'ring-2', 'ring-red-300');
+        }
+
+        function markTabError(tabNum) {
+            const btn = document.getElementById(`tab-btn-${tabNum}`);
+            if (!btn) return;
+            btn.classList.add('text-red-500');
+            const dot = btn.querySelector('.tab-alert');
+            if (dot) dot.classList.remove('hidden');
+        }
+
+        // Повертає список помилок { tab, message, elId } або порожній масив
+        function runValidation() {
+            clearValidationHighlights();
+            const rules = buildValidationRules();
+            const errors = [];
+            rules.forEach(r => {
+                let passed = false;
+                try { passed = !!r.check(); } catch (e) { passed = false; }
+                if (!passed) {
+                    errors.push(r);
+                    markFieldError(r.elId);
+                    markTabError(r.tab);
+                }
+            });
+            return errors;
+        }
+
         // ============================= ГЕНЕРАЦІЯ PDF =============================
         // URL шрифту з підтримкою кирилиці (Roboto Regular, fontsource CDN)
         const CYRILLIC_FONT_URL = "https://cdn.jsdelivr.net/fontsource/fonts/roboto@latest/cyrillic-400-normal.ttf";
@@ -1000,6 +1515,19 @@
             const originalLabel = label.innerText;
 
             try {
+                // 0) Валідація обов'язкових полів. Якщо є помилки — показуємо їх та зупиняємось.
+                const errors = runValidation();
+                if (errors.length > 0) {
+                    const firstTab = errors[0].tab;
+                    const summary = errors.slice(0, 5).map(e => `• ${e.message}`).join("\n");
+                    setPdfStatus(
+                        `Заповніть обов'язкові поля перед генерацією PDF (${errors.length} помилк${errors.length === 1 ? "а" : errors.length < 5 ? "и" : "ок"}). Червоні позначки на вкладках вказують, де саме виправити.\n${summary}`,
+                        true
+                    );
+                    if (firstTab && firstTab !== currentTab) switchTab(firstTab);
+                    return;
+                }
+
                 btn.disabled = true;
                 icon.innerText = "⏳";
                 label.innerText = "Готуємо PDF...";
@@ -1036,14 +1564,58 @@
                 const lvl = character.level || 1;
                 const pb = profBonus(lvl);
 
-                // Безпечні сетери — ігнорують помилки, якщо поле відсутнє в шаблоні
+                // Безпечні сетери — ігнорують помилки, якщо поле відсутнє в шаблоні.
+                // Динамічне масштабування: якщо текст не вміщується у поле — зменшуємо шрифт
+                // покроково до 6pt, щоб уникнути обрізки та порожніх квадратів.
                 const filled = []; // лог для діагностики
-                function setTxt(name, value) {
+                function fitFontSize(field, text, font, opts) {
+                    // opts: { maxSize, minSize, multiline }
+                    const widget = field.acroField.getWidgets()[0];
+                    if (!widget) return opts.maxSize;
+                    const rect = widget.getRectangle();
+                    const w = Math.max(1, rect.width - 4);
+                    const h = Math.max(1, rect.height - 4);
+                    let size = opts.maxSize;
+                    while (size >= opts.minSize) {
+                        if (opts.multiline) {
+                            // Розраховуємо потенційний перенос рядків
+                            const lineHeight = size * 1.15;
+                            const linesAvailable = Math.max(1, Math.floor(h / lineHeight));
+                            const charsPerLine = Math.max(1, Math.floor(w / (size * 0.45)));
+                            const rawLines = String(text).split(/\r?\n/);
+                            let total = 0;
+                            rawLines.forEach(ln => total += Math.max(1, Math.ceil(ln.length / charsPerLine)));
+                            if (total <= linesAvailable) return size;
+                        } else {
+                            let textWidth;
+                            try { textWidth = font.widthOfTextAtSize(String(text), size); }
+                            catch (_) { textWidth = String(text).length * size * 0.5; }
+                            if (textWidth <= w) return size;
+                        }
+                        size -= 0.5;
+                    }
+                    return opts.minSize;
+                }
+
+                function setTxt(name, value, opts) {
                     if (value === undefined || value === null || value === "") return;
+                    opts = opts || {};
                     try {
                         const f = form.getTextField(name);
-                        f.setText(String(value));
-                        // Обов'язково оновлюємо вигляд саме нашим кириличним шрифтом
+                        const str = String(value);
+                        f.setText(str);
+
+                        // Визначаємо параметри підгонки шрифту
+                        const isMulti = !!f.isMultiline?.() || !!opts.multiline;
+                        const maxSize = opts.maxSize || (isMulti ? 10 : 11);
+                        const minSize = opts.minSize || (isMulti ? 6 : 7);
+                        let chosen = maxSize;
+                        try {
+                            chosen = fitFontSize(f, str, cyrFont, { maxSize, minSize, multiline: isMulti });
+                        } catch (_) { chosen = maxSize; }
+                        try { f.setFontSize(chosen); } catch (_) {}
+                        // КРИТИЧНО: оновлюємо вигляд саме кириличним шрифтом,
+                        // інакше глифи кирилиці перетворяться на порожні квадрати.
                         f.updateAppearances(cyrFont);
                         filled.push(name);
                     } catch (e) {
@@ -1058,7 +1630,7 @@
                 setTxt("CharacterName",   d.name);                                  // character.description.name
                 setTxt("CharacterName 2", d.name);                                  // дублюється на 2-й сторінці аркуша
                 setTxt("ClassLevel",      cls ? `${cls.name} ${lvl}` : "");         // character.className + character.level
-                setTxt("Background",      d.background);                            // character.description.background
+                setTxt("Background",      effectiveBackgroundName());               // підтримка кастомної передісторії
                 setTxt("Race ",           race ? race.name : "");                   // character.raceName (поле має хвостовий пробіл!)
                 setTxt("Alignment",       d.alignment);                             // character.description.alignment
                 setTxt("PlayerName",      "");                                       // зарезервовано (поки не збираємо у формі)
@@ -1091,13 +1663,18 @@
                 setTxt("ST Wisdom",      stVal('wis'));
                 setTxt("ST Charisma",    stVal('cha'));
 
-                // --- Бойові показники (обчислюються з character + cls + race) ---
+                // --- Бойові показники (обчислюються з character + cls + race + спорядження) ---
+                const acCalc = calculateAC();
+                const hpMaxVal = cls ? maxHP() : 0;
+                const hpCurVal = (character.inventory.hpCurrent !== null && character.inventory.hpCurrent !== "")
+                    ? character.inventory.hpCurrent
+                    : hpMaxVal;
                 setTxt("ProfBonus",  `+${pb}`);                                      // profBonus(character.level)
-                setTxt("AC",         String(unarmoredAC()));                         // 10 + DEX мод
+                setTxt("AC",         String(acCalc.ac));                             // КЗ з урахуванням броні/щита/Спритності
                 setTxt("Initiative", fmtMod(abilityMod('dex')));                     // DEX мод
                 setTxt("Speed",      race ? `${race.speed}` : "");                   // race.speed
-                setTxt("HPMax",      cls ? String(maxHP()) : "");                    // обчислено з HD + CON
-                setTxt("HPCurrent",  cls ? String(maxHP()) : "");                    // на старті = максимум
+                setTxt("HPMax",      cls ? String(hpMaxVal) : "");                    // обчислено з HD + CON
+                setTxt("HPCurrent",  cls ? String(hpCurVal) : "");                    // поточні з інвентаря (або макс)
                 setTxt("HDTotal",    cls ? `${lvl}${cls.hitDice.slice(cls.hitDice.indexOf('d'))}` : ""); // напр. "5d10"
                 setTxt("HD",         cls ? `${lvl}${cls.hitDice.slice(cls.hitDice.indexOf('d'))}` : "");
                 setTxt("Passive",    cls ? String(passivePerception()) : "");        // 10 + WIS мод (+ проф. якщо є "Уважність")
@@ -1124,7 +1701,9 @@
                     "Спритність рук":         { stat: "dex", field: "SleightofHand" },
                     "Виживання":              { stat: "wis", field: "Survival" }
                 };
-                const chosenSkills = new Set(character.skills || []);
+                // Об'єднуємо класові навички та бонусні навички передісторії
+                const bgSkills = backgroundBonusSkills();
+                const chosenSkills = new Set([...(character.skills || []), ...bgSkills]);
                 for (const [skillName, info] of Object.entries(SKILL_MAP)) {
                     const proficient = chosenSkills.has(skillName);
                     const value = abilityMod(info.stat) + (proficient ? pb : 0);
@@ -1137,31 +1716,72 @@
                 setTxt("Bonds",              d.bonds);      // character.description.bonds
                 setTxt("Flaws",              d.flaws);      // character.description.flaws
 
-                // --- Володіння (зброя, броня, мови, навички) ---
+                // --- Володіння (зброя, броня, мови, навички, інструменти) ---
                 const profLines = [];
                 if (cls) {
                     profLines.push(`Броня: ${cls.armorProf}`);
                     profLines.push(`Зброя: ${cls.weaponProf}`);
                     profLines.push(`Рятунки: ${cls.savingThrowsLabel}`);
                 }
-                if (race && race.languages) profLines.push(`Мови: ${race.languages}`);
+                const allLanguages = [];
+                if (race && race.languages) allLanguages.push(race.languages);
+                const bgLangs = backgroundLanguagesText();
+                if (bgLangs) allLanguages.push(`Передісторія: ${bgLangs}`);
+                if (allLanguages.length) profLines.push(`Мови: ${allLanguages.join("; ")}`);
+                const bgTools = backgroundToolsText();
+                if (bgTools) profLines.push(`Інструменти: ${bgTools}`);
                 if (chosenSkills.size) profLines.push(`Навички: ${[...chosenSkills].join(", ")}`);
-                setTxt("ProficienciesLang", profLines.join("\n"));
+                setTxt("ProficienciesLang", profLines.join("\n"), { multiline: true });
 
-                // --- Особливості та риси (вміння класу + расові риси + підклас) ---
+                // --- Особливості та риси (всі вміння класу + расові риси + підклас + ASI + передісторія) ---
                 const featLines = [];
-                if (cls && cls.features) {
-                    cls.features
-                        .filter(f => f.level <= lvl)
-                        .forEach(f => featLines.push(`• [Рів.${f.level}] ${f.name}: ${f.desc}`));
+                const allClassFeatures = collectAllClassFeatures().filter(f => f.level <= lvl);
+                if (allClassFeatures.length) {
+                    featLines.push(`Вміння класу ${cls ? cls.name : ""}:`);
+                    allClassFeatures.forEach(f => featLines.push(`• [Рів.${f.level}] ${f.name}: ${f.desc}`));
                 }
                 if (character.subclass) featLines.push(`\nПідклас: ${character.subclass}`);
+
+                // ASI / Feat-обрання
+                const asiLevels = getASIUnlockedLevels();
+                if (asiLevels.length) {
+                    featLines.push("\nПідвищення характеристик / Риси:");
+                    asiLevels.forEach(l => {
+                        const sel = (character.asiSelections[l] || "").trim();
+                        featLines.push(`• Рів.${l}: ${sel || "— ще не обрано —"}`);
+                    });
+                }
+
                 if (race && race.traits) {
                     featLines.push(`\nРасові риси (${race.name}):`);
                     race.traits.forEach(t => featLines.push(`• ${t.name}: ${t.desc}`));
                 }
-                setTxt("Features and Traits", featLines.join("\n"));
-                setTxt("Feat+Traits",         featLines.join("\n"));
+
+                // Риса передісторії
+                const bgFeat = backgroundFeatureText();
+                if (bgFeat) {
+                    featLines.push(`\nРиса передісторії (${effectiveBackgroundName()}):`);
+                    featLines.push(`• ${bgFeat}`);
+                }
+
+                const featsText = featLines.join("\n");
+                setTxt("Features and Traits", featsText, { multiline: true });
+                setTxt("Feat+Traits",         featsText, { multiline: true });
+
+                // --- Спорядження та валюта ---
+                const inv = character.inventory || {};
+                const eqLines = [];
+                if (inv.armor && inv.armor !== "none" && typeof ARMOR_DATA !== "undefined" && ARMOR_DATA[inv.armor]) {
+                    eqLines.push(`Броня: ${ARMOR_DATA[inv.armor].name}`);
+                }
+                if (inv.shield) eqLines.push("Щит");
+                if (inv.weapons) eqLines.push(`Зброя:\n${inv.weapons}`);
+                if (inv.items)   eqLines.push(`Інвентар:\n${inv.items}`);
+                if (eqLines.length) setTxt("Equipment", eqLines.join("\n\n"), { multiline: true });
+                setTxt("CP", String(inv.cp || 0));
+                setTxt("SP", String(inv.sp || 0));
+                setTxt("GP", String(inv.gp || 0));
+                setTxt("PP", String(inv.pp || 0));
 
                 // --- Зовнішність (поки збираємо лише загальний опис) ---
                 setTxt("Age",    "");
