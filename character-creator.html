@@ -427,10 +427,13 @@
 
             renderSkills(data);
             updateLevel();
+            // Підсумок характеристик може залежати від класу — оновлюємо одразу
+            renderAbilitiesSummary();
         }
 
         function updateLevel() {
-            character.level = parseInt(document.getElementById('class-level-select').value);
+            const levelEl = document.getElementById('class-level-select');
+            character.level = parseInt(levelEl.value) || 1;
             const data = DND_CLASSES[character.classId];
             if (!data) return;
 
@@ -443,7 +446,7 @@
                 character.subclass = "";
             }
 
-            renderFeatures();
+            renderClassFeatures();
             saveClassState();
         }
 
@@ -498,12 +501,14 @@
             saveClassState();
         }
 
-        function renderFeatures() {
+        // Назва, очікувана завданням; залишаємо renderFeatures як псевдонім для зворотної сумісності
+        function renderClassFeatures() {
             const data = DND_CLASSES[character.classId];
             const container = document.getElementById('class-features-list');
+            if (!container) return;
             container.innerHTML = "";
 
-            if (!data.features || data.features.length === 0) {
+            if (!data || !data.features || data.features.length === 0) {
                 container.innerHTML = "<p class='text-sm text-slate-500'>Список вмінь для цього класу ще формується.</p>";
                 return;
             }
@@ -526,6 +531,9 @@
                 `;
             });
         }
+
+        // Псевдонім, щоб старі виклики renderFeatures() продовжували працювати
+        function renderFeatures() { renderClassFeatures(); }
 
         function saveClassState() {
             console.log("Стан класу збережено:", character);
@@ -589,6 +597,9 @@
                     </div>
                 `;
             });
+
+            // Автоматично реєструємо расові модифікатори у вкладці "Характеристики"
+            renderAbilitiesSummary();
 
             console.log("Стан раси збережено:", character);
         }
