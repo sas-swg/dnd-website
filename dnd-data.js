@@ -382,3 +382,81 @@ const ARMOR_DATA = {
     "splint":        { name: "Шинна",            type: "heavy",  base: 17, addDex: false, maxDex: 0 },
     "plate":         { name: "Латна",            type: "heavy",  base: 18, addDex: false, maxDex: 0 }
 };
+
+// ====================================================================
+// Зброя D&D 5e (проста + бойова). `ability`: "str" / "dex" / "finesse" (краще з двох),
+// `ranged`: true для дистанційної (тоді бонус атаки рахується від Спритності).
+// ====================================================================
+const DND_WEAPONS = [
+    // --- Проста зброя (ближній бій) ---
+    { id: "club",          name: "Кийок",                 damage: "1d4",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Проста" },
+    { id: "dagger",        name: "Кинджал",               damage: "1d4",  damageType: "Колюча",    ability: "finesse", ranged: false, category: "Проста" },
+    { id: "greatclub",     name: "Велика палиця",         damage: "1d8",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Проста" },
+    { id: "handaxe",       name: "Ручна сокира",          damage: "1d6",  damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Проста" },
+    { id: "javelin",       name: "Метальний спис",        damage: "1d6",  damageType: "Колюча",    ability: "str",     ranged: false, category: "Проста" },
+    { id: "lighthammer",   name: "Легкий молот",          damage: "1d4",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Проста" },
+    { id: "mace",          name: "Булава",                damage: "1d6",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Проста" },
+    { id: "quarterstaff",  name: "Бойовий посох",         damage: "1d6",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Проста" },
+    { id: "sickle",        name: "Серп",                  damage: "1d4",  damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Проста" },
+    { id: "spear",         name: "Спис",                  damage: "1d6",  damageType: "Колюча",    ability: "str",     ranged: false, category: "Проста" },
+    // --- Проста зброя (дистанційна) ---
+    { id: "crossbowlight", name: "Легкий арбалет",        damage: "1d8",  damageType: "Колюча",    ability: "dex",     ranged: true,  category: "Проста" },
+    { id: "dart",          name: "Дротик",                damage: "1d4",  damageType: "Колюча",    ability: "finesse", ranged: true,  category: "Проста" },
+    { id: "shortbow",      name: "Короткий лук",          damage: "1d6",  damageType: "Колюча",    ability: "dex",     ranged: true,  category: "Проста" },
+    { id: "sling",         name: "Праща",                 damage: "1d4",  damageType: "Дробляча",  ability: "dex",     ranged: true,  category: "Проста" },
+    // --- Бойова зброя (ближній бій) ---
+    { id: "battleaxe",     name: "Бойова сокира",         damage: "1d8",  damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "flail",         name: "Кистень",               damage: "1d8",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Бойова" },
+    { id: "glaive",        name: "Глефа",                 damage: "1d10", damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "greataxe",      name: "Велика сокира",         damage: "1d12", damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "greatsword",    name: "Дворучний меч",         damage: "2d6",  damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "halberd",       name: "Алебарда",              damage: "1d10", damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "lance",         name: "Лансет",                damage: "1d12", damageType: "Колюча",    ability: "str",     ranged: false, category: "Бойова" },
+    { id: "longsword",     name: "Довгий меч",            damage: "1d8",  damageType: "Рубаюча",   ability: "str",     ranged: false, category: "Бойова" },
+    { id: "maul",          name: "Молот",                 damage: "2d6",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Бойова" },
+    { id: "morningstar",   name: "Моргенштерн",           damage: "1d8",  damageType: "Колюча",    ability: "str",     ranged: false, category: "Бойова" },
+    { id: "pike",          name: "Піка",                  damage: "1d10", damageType: "Колюча",    ability: "str",     ranged: false, category: "Бойова" },
+    { id: "rapier",        name: "Рапіра",                damage: "1d8",  damageType: "Колюча",    ability: "finesse", ranged: false, category: "Бойова" },
+    { id: "scimitar",      name: "Скімітар",              damage: "1d6",  damageType: "Рубаюча",   ability: "finesse", ranged: false, category: "Бойова" },
+    { id: "shortsword",    name: "Короткий меч",          damage: "1d6",  damageType: "Колюча",    ability: "finesse", ranged: false, category: "Бойова" },
+    { id: "trident",       name: "Тризубець",             damage: "1d6",  damageType: "Колюча",    ability: "str",     ranged: false, category: "Бойова" },
+    { id: "warpick",       name: "Бойова кирка",          damage: "1d8",  damageType: "Колюча",    ability: "str",     ranged: false, category: "Бойова" },
+    { id: "warhammer",     name: "Бойовий молот",         damage: "1d8",  damageType: "Дробляча",  ability: "str",     ranged: false, category: "Бойова" },
+    { id: "whip",          name: "Батіг",                 damage: "1d4",  damageType: "Рубаюча",   ability: "finesse", ranged: false, category: "Бойова" },
+    // --- Бойова зброя (дистанційна) ---
+    { id: "crossbowhand",  name: "Ручний арбалет",        damage: "1d6",  damageType: "Колюча",    ability: "dex",     ranged: true,  category: "Бойова" },
+    { id: "crossbowheavy", name: "Важкий арбалет",        damage: "1d10", damageType: "Колюча",    ability: "dex",     ranged: true,  category: "Бойова" },
+    { id: "longbow",       name: "Довгий лук",            damage: "1d8",  damageType: "Колюча",    ability: "dex",     ranged: true,  category: "Бойова" }
+];
+
+// ====================================================================
+// Риси (Feats) D&D 5e — найпопулярніші, локалізовано українською.
+// ====================================================================
+const DND_FEATS = [
+    { id: "alert",          name: "Уважний",                 description: "Завжди настороже: +5 до ініціативи, вас не можна заскочити зненацька, поки ви при свідомості, та невидимі істоти не отримують переваги на атаки по вас." },
+    { id: "athlete",        name: "Атлет",                   description: "Підвищте Силу або Спритність на 1. Підйом з простягнутого положення коштує лише 5 футів руху, а лазіння не зменшує швидкість. Стрибок з місця — повна відстань." },
+    { id: "actor",          name: "Актор",                   description: "Підвищте Харизму на 1. Маєте перевагу на перевірки Обману та Виступу при імітації мови або поведінки інших." },
+    { id: "charger",        name: "Атакуючий",               description: "Якщо ви здійснили дію Ривок, бонусною дією можете виконати атаку ближнього бою або поштовх на 10 футів — з +5 шкоди при влучанні." },
+    { id: "crossbowexpert", name: "Майстер арбалета",        description: "Ігноруйте властивість «зарядка» арбалетів. Не маєте недоліку за стрільбу в ближньому бою. Бонусна атака ручним арбалетом після основної." },
+    { id: "defensive",      name: "Захисний боєць",          description: "Підвищте Силу або Спритність на 1. Ви маєте +1 до КЗ, поки тримаєте щит." },
+    { id: "dualwielder",    name: "Дворукий боєць",          description: "+1 до КЗ при двох зброях. Можете двозбройно бити недрібною зброєю. Можете швидко дістати або сховати дві зброї одночасно." },
+    { id: "durable",        name: "Витривалий",              description: "Підвищте Витривалість на 1. Кидаючи кістку хітів для відновлення HP, мінімум — подвоєний модифікатор Витривалості (мін. 2)." },
+    { id: "elementaladept", name: "Стихійний адепт",         description: "Ваші заклинання обраного типу шкоди ігнорують опір та трактують 1 на кістках шкоди як 2." },
+    { id: "greatweapon",    name: "Майстер великої зброї",   description: "При критичному попаданні або вбитті ворога зброєю — бонусна атака. На двосторонніх важких зброях: можете перекинути 1-2 на кістках шкоди. -5 до влучання за +10 до шкоди (опціонально)." },
+    { id: "healer",         name: "Цілитель",                description: "Перев'язавши когось набором цілителя, відновлюєте йому 1d6 + 4 + рівні істоти HP. Істота не може отримати знову, поки не відпочине." },
+    { id: "heavyarmor",     name: "Майстер важкої броні",    description: "Підвищте Силу на 1. У важкій броні: дробляча, колюча та рубаюча немагічна шкода від атак зменшується на 3." },
+    { id: "inspiring",      name: "Натхненний лідер",        description: "Підвищте Харизму на 1. 10 хв надихаючої промови дають до 6 союзникам тимчасові HP = ваш рівень + Харизма мод." },
+    { id: "lucky",          name: "Удачливий",               description: "3 «очка удачі» за день: перекидаєте атаку, перевірку, рятунок або форсуєте перекидання ворожої атаки по вас." },
+    { id: "magicinit",      name: "Початківець магії",       description: "Вивчіть 2 фокуси та одне закляття 1-го рівня з обраного класу. Закляття 1-го рівня кастується раз на день безкоштовно." },
+    { id: "mobile",         name: "Рухливий",                description: "Швидкість +10 футів. Після Ривка важкий рельєф не сповільнює до кінця ходу. Атака ближнього бою не провокує реакцію цілі цього ходу." },
+    { id: "polearm",        name: "Майстер дрюків",          description: "Бонусна атака рукояттю на 1d4 при атаці глефою/алебардою/посохом/спису. Можливість реакції-атаки, коли ворог заходить у вашу досяжність." },
+    { id: "resilient",      name: "Стійкий",                 description: "Підвищте обрану характеристику на 1 та отримайте володіння рятунками з нею." },
+    { id: "savagebowman",   name: "Меткий лучник",           description: "Стрільба у ближньому бою не дає недоліку. Дальня дистанція не дає недоліку. -5 до влучання за +10 до шкоди (опціонально)." },
+    { id: "sentinel",       name: "Страж",                   description: "При вашій реакції-атаці швидкість цілі стає 0 до кінця ходу. Союзник поруч — і ви атакуєте реакцією за ціль, що атакує його." },
+    { id: "sharpshooter",   name: "Влучний стрілець",        description: "Дальня дистанція не дає недоліку. Атаки ігнорують укриття на ½ та ¾. -5 до влучання за +10 до шкоди (опціонально)." },
+    { id: "shieldmaster",   name: "Майстер щита",            description: "Бонусною дією штовхаєте щитом. У повноростовому укритті щит дає тимчасове укриття для рятунків Спритності." },
+    { id: "skilled",        name: "Майстер навичок",         description: "Отримайте володіння 3 навичками або інструментами на вибір." },
+    { id: "spellsniper",    name: "Магічний снайпер",        description: "Дальність магічних атак подвоюється. Закляття ігнорують укриття на ½ та ¾. Вивчіть 1 фокус-закляття атаки." },
+    { id: "toughness",      name: "Загартований",            description: "Ваш максимум HP збільшується на 2 за кожен рівень персонажа (мінімум +2 при отриманні риси)." },
+    { id: "warcaster",      name: "Бойовий заклинач",        description: "Перевага на рятунки Витривалості для збереження концентрації. Можете кастувати соматичні закляття з зайнятими руками. Реакція-атака може бути замінена на закляття цілі." }
+];
