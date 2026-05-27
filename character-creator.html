@@ -397,7 +397,17 @@
 
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Зброя</label>
-                        <textarea id="inv-weapons" oninput="updateInventory()" rows="3" placeholder="Наприклад: Дворучний меч (+5 до влучання, 2d6+3 рубаючої)..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        <div id="weapon-list" class="space-y-3 mb-3"></div>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" onclick="addWeaponRow('standard')" class="px-3 py-2 bg-forest text-white rounded-lg hover:bg-forest-hover font-bold text-xs transition shadow-sm">+ Додати зброю</button>
+                            <button type="button" onclick="addWeaponRow('custom')" class="px-3 py-2 bg-white text-forest border-2 border-forest rounded-lg hover:bg-forest/5 font-bold text-xs transition shadow-sm">+ Своя зброя</button>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">Бонус атаки та шкоди рахуються автоматично з вашого модифікатора Сили / Спритності та бонусу володіння.</p>
+
+                        <details class="mt-3 group">
+                            <summary class="cursor-pointer text-xs text-slate-500 hover:text-forest">Додаткові нотатки про зброю (необов'язково)</summary>
+                            <textarea id="inv-weapons" oninput="updateInventory()" rows="2" placeholder="Вільний опис: магічні бонуси, особливі властивості..." class="w-full mt-2 p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        </details>
                     </div>
 
                     <div>
@@ -561,12 +571,13 @@
             inventory: {
                 armor: "none",
                 shield: false,
-                weapons: "",
+                weapons: "",          // вільний текст (зберігається для зворотної сумісності)
+                weaponList: [],       // структурований список зброї (див. addWeaponRow)
                 items: "",
                 cp: 0, sp: 0, gp: 0, pp: 0,
                 hpCurrent: null     // null = автозаповнення макс HP
             },
-            // Зроблені вибори ASI (level → "+X to STR" або "Feat: Name")
+            // Зроблені вибори ASI (level → { kind: 'asi', allocations: {str:2} } або { kind: 'feat', featId })
             asiSelections: {}
         };
         let currentTab = 1;
@@ -604,24 +615,183 @@
             container.classList.remove('hidden');
             container.innerHTML = `
                 <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
-                    <h4 class="font-bold text-lg text-forest font-heading">Підвищення характеристик / Риси (ASI)</h4>
+                    <h4 class="font-bold text-lg text-forest font-heading">Прокачка: Підвищення характеристик / Риса</h4>
                     <span class="text-xs bg-forest text-white px-2 py-1 rounded">${unlocked.length} вибір${unlocked.length > 1 ? 'и' : ''}</span>
                 </div>
-                <div class="space-y-3" id="asi-rows"></div>
+                <p class="text-xs text-slate-600 mb-3">Для кожного рівня прокачки оберіть <strong>+2 до однієї</strong> або <strong>+1 до двох різних</strong> характеристик (ASI), або візьміть <strong>Рису (Feat)</strong>.</p>
+                <div class="space-y-4" id="asi-rows"></div>
             `;
             const rows = document.getElementById('asi-rows');
             unlocked.forEach(lvl => {
-                const cur = character.asiSelections[lvl] || "";
-                rows.innerHTML += `
-                    <div class="bg-white border border-slate-200 rounded-lg p-3">
-                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Рівень ${lvl}</div>
-                        <input type="text" value="${escapeHtml(cur)}" oninput="onASIChange(${lvl}, this.value)" placeholder="Напр.: +2 СИЛ, або Риса: Великий мисливець" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none text-sm">
-                    </div>
-                `;
+                const sel = normalizeASISelection(character.asiSelections[lvl]);
+                character.asiSelections[lvl] = sel;
+                rows.innerHTML += renderASIRow(lvl, sel);
             });
         }
 
+        function normalizeASISelection(raw) {
+            if (!raw || typeof raw !== 'object') {
+                return { kind: 'asi', allocations: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 }, featId: "" };
+            }
+            const out = { kind: raw.kind === 'feat' ? 'feat' : 'asi',
+                          allocations: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+                          featId: raw.featId || "" };
+            if (raw.allocations) {
+                ABILITY_KEYS.forEach(k => { out.allocations[k] = parseInt(raw.allocations[k]) || 0; });
+            }
+            return out;
+        }
+
+        function renderASIRow(lvl, sel) {
+            const isASI = sel.kind === 'asi';
+            const isFeat = sel.kind === 'feat';
+            // Кнопки-перемикачі
+            const asiTabCls = isASI
+                ? "px-3 py-1.5 rounded-md text-xs font-bold bg-forest text-white border border-forest"
+                : "px-3 py-1.5 rounded-md text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:border-forest";
+            const featTabCls = isFeat
+                ? "px-3 py-1.5 rounded-md text-xs font-bold bg-forest text-white border border-forest"
+                : "px-3 py-1.5 rounded-md text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:border-forest";
+
+            // Контент панелі
+            let body = "";
+            if (isASI) {
+                const total = ABILITY_KEYS.reduce((s, k) => s + (sel.allocations[k] || 0), 0);
+                const valid = isASIValid(sel.allocations);
+                body = `
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        ${ABILITY_KEYS.map(k => {
+                            const v = sel.allocations[k] || 0;
+                            return `
+                                <div class="border border-slate-200 rounded-lg p-2 bg-white text-center">
+                                    <div class="text-[10px] font-bold uppercase text-slate-500">${ABILITY_LABELS[k]}</div>
+                                    <div class="flex items-center justify-center gap-1 mt-1">
+                                        <button type="button" onclick="changeASIAlloc(${lvl}, '${k}', -1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 border border-slate-300 font-bold text-sm leading-none">−</button>
+                                        <span class="font-mono font-bold text-lg text-forest w-6 text-center">+${v}</span>
+                                        <button type="button" onclick="changeASIAlloc(${lvl}, '${k}', 1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 border border-slate-300 font-bold text-sm leading-none">+</button>
+                                    </div>
+                                </div>
+                            `;
+                        }).join("")}
+                    </div>
+                    <div class="text-xs mt-2 flex items-center justify-between">
+                        <span class="text-slate-600">Розподілено: <strong>${total}</strong>/2 (правила: +2 до однієї або +1 до двох)</span>
+                        <span class="${valid ? 'text-forest font-bold' : 'text-red-500 font-bold'}">${valid ? '✓ Розподіл валідний' : (total === 0 ? '— очікує вибору —' : '✗ Невалідний розподіл')}</span>
+                    </div>
+                `;
+            } else {
+                const feats = (typeof DND_FEATS !== "undefined") ? DND_FEATS : [];
+                const opts = `<option value="">— оберіть рису —</option>` + feats.map(f =>
+                    `<option value="${f.id}" ${sel.featId === f.id ? 'selected' : ''}>${escapeHtml(f.name)}</option>`
+                ).join("");
+                const chosen = feats.find(f => f.id === sel.featId);
+                body = `
+                    <select onchange="onASIFeatChange(${lvl}, this.value)" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer text-sm font-medium">
+                        ${opts}
+                    </select>
+                    ${chosen ? `<div class="mt-2 p-3 bg-white border border-slate-200 rounded-lg">
+                        <div class="font-bold text-forest text-sm mb-1">${escapeHtml(chosen.name)}</div>
+                        <p class="text-xs text-slate-700 leading-relaxed">${escapeHtml(chosen.description)}</p>
+                    </div>` : ''}
+                `;
+            }
+
+            return `
+                <div class="bg-white border border-slate-200 rounded-lg p-3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="text-xs font-bold uppercase text-slate-500">Рівень ${lvl} — прокачка</div>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="setASIKind(${lvl}, 'asi')" class="${asiTabCls}">Покращення характеристик (ASI)</button>
+                            <button type="button" onclick="setASIKind(${lvl}, 'feat')" class="${featTabCls}">Риса (Feat)</button>
+                        </div>
+                    </div>
+                    ${body}
+                </div>
+            `;
+        }
+
+        // Чи валідний розподіл ASI: рівно +2 в одну або по +1 у дві різні характеристики
+        function isASIValid(allocations) {
+            const counts = ABILITY_KEYS.map(k => parseInt(allocations[k]) || 0).filter(v => v > 0);
+            const total = counts.reduce((s, v) => s + v, 0);
+            if (total !== 2) return false;
+            // Дозволено: [2] (одна по +2) або [1,1] (дві по +1)
+            if (counts.length === 1 && counts[0] === 2) return true;
+            if (counts.length === 2 && counts[0] === 1 && counts[1] === 1) return true;
+            return false;
+        }
+
+        function setASIKind(level, kind) {
+            const cur = normalizeASISelection(character.asiSelections[level]);
+            cur.kind = kind === 'feat' ? 'feat' : 'asi';
+            if (cur.kind === 'asi') cur.featId = "";
+            character.asiSelections[level] = cur;
+            renderASISection();
+            renderAbilitiesSummary();
+            // Деривати залежать від характеристик — переаплікація
+            if (currentTab === 5) renderInventoryTab();
+        }
+
+        function changeASIAlloc(level, key, delta) {
+            const cur = normalizeASISelection(character.asiSelections[level]);
+            cur.kind = 'asi';
+            const next = (cur.allocations[key] || 0) + delta;
+            if (next < 0 || next > 2) return;
+            // Загальний бюджет ≤ 2
+            const candidate = { ...cur.allocations, [key]: next };
+            const total = ABILITY_KEYS.reduce((s, k) => s + (candidate[k] || 0), 0);
+            if (total > 2) return;
+            // Не можна +2 для двох різних — дозволяється або один +2, або два +1
+            const nonZero = ABILITY_KEYS.filter(k => (candidate[k] || 0) > 0);
+            if (nonZero.length > 2) return;
+            if (nonZero.length === 2 && nonZero.some(k => (candidate[k] || 0) === 2)) return;
+            cur.allocations = candidate;
+            character.asiSelections[level] = cur;
+            renderASISection();
+            renderAbilitiesSummary();
+            if (currentTab === 5) renderInventoryTab();
+        }
+
+        function onASIFeatChange(level, featId) {
+            const cur = normalizeASISelection(character.asiSelections[level]);
+            cur.kind = 'feat';
+            cur.featId = featId || "";
+            character.asiSelections[level] = cur;
+            renderASISection();
+        }
+
+        // Сума ASI-бонусів до конкретної характеристики (тільки валідні ASI-вибори)
+        function asiBonusFor(key) {
+            let bonus = 0;
+            const unlocked = new Set(getASIUnlockedLevels());
+            for (const [lvl, raw] of Object.entries(character.asiSelections || {})) {
+                if (!unlocked.has(parseInt(lvl))) continue;
+                const sel = normalizeASISelection(raw);
+                if (sel.kind !== 'asi') continue;
+                if (!isASIValid(sel.allocations)) continue;
+                bonus += parseInt(sel.allocations[key]) || 0;
+            }
+            return bonus;
+        }
+
+        // Список обраних Feat-об'єктів (для PDF / огляду)
+        function selectedFeats() {
+            const out = [];
+            const unlocked = new Set(getASIUnlockedLevels());
+            const feats = (typeof DND_FEATS !== "undefined") ? DND_FEATS : [];
+            for (const [lvl, raw] of Object.entries(character.asiSelections || {})) {
+                if (!unlocked.has(parseInt(lvl))) continue;
+                const sel = normalizeASISelection(raw);
+                if (sel.kind !== 'feat' || !sel.featId) continue;
+                const f = feats.find(x => x.id === sel.featId);
+                if (f) out.push({ level: parseInt(lvl), ...f });
+            }
+            out.sort((a, b) => a.level - b.level);
+            return out;
+        }
+
         function onASIChange(level, value) {
+            // Зворотна сумісність для старих викликів — більше не використовується UI
             character.asiSelections[level] = value;
         }
 
@@ -1020,16 +1190,18 @@
             ABILITY_KEYS.forEach(key => {
                 const base = character.baseStats[key] || 8;
                 const racial = (race && race.bonuses[key]) ? race.bonuses[key] : 0;
-                const total = base + racial;
+                const asi = (typeof asiBonusFor === "function") ? asiBonusFor(key) : 0;
+                const total = base + racial + asi;
                 const mod = Math.floor((total - 10) / 2);
                 const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
-                const racialStr = racial ? ` <span class="text-forest font-bold">(+${racial})</span>` : "";
+                const racialStr = racial ? ` <span class="text-forest font-bold">(+${racial} раса)</span>` : "";
+                const asiStr = asi ? ` <span class="text-amber-600 font-bold">(+${asi} прокачка)</span>` : "";
 
                 grid.innerHTML += `
                     <div class="bg-white border border-slate-200 rounded-lg p-3 shadow-sm">
                         <div class="text-xs font-bold uppercase text-slate-500">${ABILITY_LABELS[key]}</div>
                         <div class="font-mono font-bold text-2xl text-forest mt-1">${total}</div>
-                        <div class="text-xs text-slate-600">Мод: <span class="font-bold">${modStr}</span>${racialStr}</div>
+                        <div class="text-xs text-slate-600">Мод: <span class="font-bold">${modStr}</span>${racialStr}${asiStr}</div>
                     </div>
                 `;
             });
@@ -1048,6 +1220,171 @@
                 const typeLabel = a.type === "light" ? "Легка" : a.type === "medium" ? "Середня" : a.type === "heavy" ? "Важка" : "—";
                 sel.innerHTML += `<option value="${id}">${a.name}${a.type !== "none" ? ` — ${typeLabel} (база ${a.base})` : ""}</option>`;
             }
+        }
+
+        // ============================= ЗБРОЯ (структурний модуль) =============================
+        // Кожний слот в character.inventory.weaponList виглядає як:
+        //   { kind: 'standard', weaponId: 'longsword' }
+        //   { kind: 'custom', name: 'Меч Сонця', damage: '1d10', damageType: 'Рубаюча', ability: 'str', ranged: false }
+
+        function ensureWeaponList() {
+            if (!Array.isArray(character.inventory.weaponList)) character.inventory.weaponList = [];
+        }
+
+        function addWeaponRow(kind) {
+            ensureWeaponList();
+            if (kind === 'custom') {
+                character.inventory.weaponList.push({
+                    kind: 'custom', name: "", damage: "1d6", damageType: "Рубаюча", ability: "str", ranged: false
+                });
+            } else {
+                const first = (typeof DND_WEAPONS !== "undefined" && DND_WEAPONS.length) ? DND_WEAPONS[0].id : "";
+                character.inventory.weaponList.push({ kind: 'standard', weaponId: first });
+            }
+            renderWeaponList();
+        }
+
+        function removeWeaponRow(idx) {
+            ensureWeaponList();
+            character.inventory.weaponList.splice(idx, 1);
+            renderWeaponList();
+        }
+
+        function updateWeaponField(idx, field, value) {
+            ensureWeaponList();
+            const row = character.inventory.weaponList[idx];
+            if (!row) return;
+            if (field === 'ranged') row.ranged = !!value;
+            else row[field] = value;
+            renderWeaponList();
+        }
+
+        // Повертає об'єкт з даними зброї для розрахунку: { name, damage, damageType, ability, ranged }
+        function resolveWeapon(row) {
+            if (!row) return null;
+            if (row.kind === 'custom') {
+                return {
+                    name: row.name || "Своя зброя",
+                    damage: row.damage || "1d4",
+                    damageType: row.damageType || "—",
+                    ability: row.ability || "str",
+                    ranged: !!row.ranged
+                };
+            }
+            const list = (typeof DND_WEAPONS !== "undefined") ? DND_WEAPONS : [];
+            const w = list.find(x => x.id === row.weaponId);
+            if (!w) return null;
+            return { name: w.name, damage: w.damage, damageType: w.damageType, ability: w.ability, ranged: !!w.ranged };
+        }
+
+        // Який мод використовувати: str / dex / finesse → max(str,dex); ranged → dex
+        function weaponAbilityKey(w) {
+            if (!w) return 'str';
+            if (w.ranged) return 'dex';
+            if (w.ability === 'dex') return 'dex';
+            if (w.ability === 'finesse') {
+                return abilityMod('dex') >= abilityMod('str') ? 'dex' : 'str';
+            }
+            return 'str';
+        }
+
+        // Розрахунок бонусу атаки та рядка шкоди для зброї
+        function weaponAttackInfo(row) {
+            const w = resolveWeapon(row);
+            if (!w) return null;
+            const abKey = weaponAbilityKey(w);
+            const abMod = abilityMod(abKey);
+            const pb = profBonus(character.level || 1);
+            const attack = pb + abMod;
+            const modPart = abMod === 0 ? "" : (abMod > 0 ? ` + ${abMod}` : ` - ${Math.abs(abMod)}`);
+            return {
+                name: w.name,
+                attackBonus: fmtMod(attack),
+                damageStr: `${w.damage}${modPart} ${w.damageType}`.trim(),
+                abilityKey: abKey,
+                ranged: w.ranged
+            };
+        }
+
+        function renderWeaponList() {
+            const container = document.getElementById('weapon-list');
+            if (!container) return;
+            ensureWeaponList();
+            const list = character.inventory.weaponList;
+            if (!list.length) {
+                container.innerHTML = `<div class="text-xs text-slate-500 italic p-3 border border-dashed border-slate-300 rounded-lg text-center">Зброя ще не обрана. Натисніть «Додати зброю» нижче.</div>`;
+                return;
+            }
+            const std = (typeof DND_WEAPONS !== "undefined") ? DND_WEAPONS : [];
+            // Групування зброї для випадаючого списку
+            const groups = {};
+            std.forEach(w => {
+                const cat = w.category || "Інше";
+                const sub = w.ranged ? "Дистанційна" : "Ближній бій";
+                const label = `${cat} — ${sub}`;
+                (groups[label] = groups[label] || []).push(w);
+            });
+
+            container.innerHTML = "";
+            list.forEach((row, idx) => {
+                const info = weaponAttackInfo(row);
+                if (row.kind === 'standard') {
+                    const optsHtml = Object.entries(groups).map(([label, items]) => {
+                        const inner = items.map(w =>
+                            `<option value="${w.id}" ${row.weaponId === w.id ? 'selected' : ''}>${w.name} (${w.damage} ${w.damageType})</option>`
+                        ).join("");
+                        return `<optgroup label="${label}">${inner}</optgroup>`;
+                    }).join("");
+                    container.innerHTML += `
+                        <div class="border border-slate-200 rounded-lg p-3 bg-white">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase text-slate-500">Зброя #${idx + 1}</span>
+                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Видалити</button>
+                            </div>
+                            <select onchange="updateWeaponField(${idx}, 'weaponId', this.value)" class="w-full p-2 border border-slate-300 rounded-lg bg-white cursor-pointer text-sm focus:ring-2 focus:ring-forest outline-none">
+                                ${optsHtml}
+                            </select>
+                            ${info ? `
+                                <div class="mt-2 grid grid-cols-3 gap-2 text-center text-xs">
+                                    <div class="bg-slate-50 border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Атака</div><div class="font-mono font-bold text-forest">${info.attackBonus}</div></div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Шкода</div><div class="font-mono font-bold text-forest">${escapeHtml(info.damageStr)}</div></div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Атрибут</div><div class="font-mono font-bold text-forest">${ABILITY_LABELS[info.abilityKey]}${info.ranged ? ' / Дист.' : ''}</div></div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML += `
+                        <div class="border-2 border-forest/40 rounded-lg p-3 bg-forest/5">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase text-forest">✏️ Своя зброя #${idx + 1}</span>
+                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Видалити</button>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <input type="text" value="${escapeHtml(row.name || '')}" oninput="updateWeaponField(${idx}, 'name', this.value)" placeholder="Назва (напр.: Меч Сонця)" class="p-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-forest outline-none">
+                                <input type="text" value="${escapeHtml(row.damage || '')}" oninput="updateWeaponField(${idx}, 'damage', this.value)" placeholder="Кубики шкоди (напр.: 1d10)" class="p-2 border border-slate-300 rounded-lg text-sm font-mono focus:ring-2 focus:ring-forest outline-none">
+                                <input type="text" value="${escapeHtml(row.damageType || '')}" oninput="updateWeaponField(${idx}, 'damageType', this.value)" placeholder="Тип шкоди (напр.: Рубаюча)" class="p-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-forest outline-none">
+                                <select onchange="updateWeaponField(${idx}, 'ability', this.value)" class="p-2 border border-slate-300 rounded-lg text-sm bg-white cursor-pointer focus:ring-2 focus:ring-forest outline-none">
+                                    <option value="str" ${row.ability === 'str' ? 'selected' : ''}>Сила (str)</option>
+                                    <option value="dex" ${row.ability === 'dex' ? 'selected' : ''}>Спритність (dex)</option>
+                                    <option value="finesse" ${row.ability === 'finesse' ? 'selected' : ''}>Витончена (краще з СИЛ/СПР)</option>
+                                </select>
+                            </div>
+                            <label class="flex items-center gap-2 mt-2 text-xs text-slate-700 cursor-pointer">
+                                <input type="checkbox" ${row.ranged ? 'checked' : ''} onchange="updateWeaponField(${idx}, 'ranged', this.checked)" class="w-4 h-4 text-forest rounded">
+                                <span>Дистанційна зброя (бонус — від Спритності)</span>
+                            </label>
+                            ${info ? `
+                                <div class="mt-2 grid grid-cols-3 gap-2 text-center text-xs">
+                                    <div class="bg-white border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Атака</div><div class="font-mono font-bold text-forest">${info.attackBonus}</div></div>
+                                    <div class="bg-white border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Шкода</div><div class="font-mono font-bold text-forest">${escapeHtml(info.damageStr)}</div></div>
+                                    <div class="bg-white border border-slate-200 rounded p-2"><div class="text-[10px] uppercase text-slate-500">Атрибут</div><div class="font-mono font-bold text-forest">${ABILITY_LABELS[info.abilityKey]}${info.ranged ? ' / Дист.' : ''}</div></div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+            });
         }
 
         // Розрахунок КЗ за 5e: Light = base + DEX; Medium = base + min(DEX, 2); Heavy = base; +2 за щит.
@@ -1115,6 +1452,9 @@
             if (acEl) acEl.innerText = ac;
             const f = document.getElementById('inv-ac-formula');
             if (f) f.innerText = formula;
+
+            // Структурний список зброї
+            renderWeaponList();
         }
 
         function updateInventory() {
@@ -1270,12 +1610,13 @@
             return 2 + Math.floor((Math.max(1, Math.min(20, level)) - 1) / 4);
         }
 
-        // Підсумкове значення характеристики (база + расовий бонус)
+        // Підсумкове значення характеристики (база + расовий бонус + ASI з прокачки)
         function finalAbility(key) {
             const race = character.raceId ? DND_RACES[character.raceId] : null;
             const base = character.baseStats[key] || 8;
             const racial = (race && race.bonuses && race.bonuses[key]) ? race.bonuses[key] : 0;
-            return base + racial;
+            const asi = (typeof asiBonusFor === "function") ? asiBonusFor(key) : 0;
+            return base + racial + asi;
         }
         function abilityMod(key) {
             return Math.floor((finalAbility(key) - 10) / 2);
@@ -1747,8 +2088,28 @@
                 if (asiLevels.length) {
                     featLines.push("\nПідвищення характеристик / Риси:");
                     asiLevels.forEach(l => {
-                        const sel = (character.asiSelections[l] || "").trim();
-                        featLines.push(`• Рів.${l}: ${sel || "— ще не обрано —"}`);
+                        const sel = normalizeASISelection(character.asiSelections[l]);
+                        if (sel.kind === 'feat' && sel.featId) {
+                            const feats = (typeof DND_FEATS !== "undefined") ? DND_FEATS : [];
+                            const f = feats.find(x => x.id === sel.featId);
+                            featLines.push(`• Рів.${l}: Риса — ${f ? f.name : sel.featId}`);
+                        } else if (sel.kind === 'asi' && isASIValid(sel.allocations)) {
+                            const parts = ABILITY_KEYS
+                                .filter(k => (sel.allocations[k] || 0) > 0)
+                                .map(k => `+${sel.allocations[k]} ${ABILITY_LABELS[k]}`);
+                            featLines.push(`• Рів.${l}: ASI (${parts.join(", ")})`);
+                        } else {
+                            featLines.push(`• Рів.${l}: — ще не обрано —`);
+                        }
+                    });
+                }
+
+                // Деталі обраних рис (повний опис у блок "Особливості та риси")
+                const chosenFeats = selectedFeats();
+                if (chosenFeats.length) {
+                    featLines.push("\nРиси (Feats):");
+                    chosenFeats.forEach(f => {
+                        featLines.push(`• ${f.name} (Рів.${f.level}): ${f.description}`);
                     });
                 }
 
@@ -1775,9 +2136,35 @@
                     eqLines.push(`Броня: ${ARMOR_DATA[inv.armor].name}`);
                 }
                 if (inv.shield) eqLines.push("Щит");
-                if (inv.weapons) eqLines.push(`Зброя:\n${inv.weapons}`);
+                // Структурний список зброї → також включаємо у Equipment для огляду
+                const weaponRows = Array.isArray(inv.weaponList) ? inv.weaponList : [];
+                if (weaponRows.length) {
+                    const lines = weaponRows.map(row => {
+                        const info = weaponAttackInfo(row);
+                        return info ? `• ${info.name} — ${info.attackBonus} до влучання, шкода: ${info.damageStr}` : null;
+                    }).filter(Boolean);
+                    if (lines.length) eqLines.push(`Зброя:\n${lines.join("\n")}`);
+                }
+                if (inv.weapons) eqLines.push(`Нотатки про зброю:\n${inv.weapons}`);
                 if (inv.items)   eqLines.push(`Інвентар:\n${inv.items}`);
                 if (eqLines.length) setTxt("Equipment", eqLines.join("\n\n"), { multiline: true });
+
+                // --- ATTACKS & SPELLCASTING: до 3 слотів на PDF аркуші ---
+                // Імена полів узяті з офіційного wizards-аркуша 5e.
+                const WEAPON_FIELDS = [
+                    { name: "Wpn Name",   atk: "Wpn1 AtkBonus",   dmg: "Wpn1 Damage" },
+                    { name: "Wpn Name 2", atk: "Wpn2 AtkBonus ",  dmg: "Wpn2 Damage " },
+                    { name: "Wpn Name 3", atk: "Wpn3 AtkBonus  ", dmg: "Wpn3 Damage " }
+                ];
+                weaponRows.slice(0, WEAPON_FIELDS.length).forEach((row, i) => {
+                    const info = weaponAttackInfo(row);
+                    if (!info) return;
+                    const slot = WEAPON_FIELDS[i];
+                    setTxt(slot.name, info.name);
+                    setTxt(slot.atk,  info.attackBonus);
+                    setTxt(slot.dmg,  info.damageStr);
+                });
+
                 setTxt("CP", String(inv.cp || 0));
                 setTxt("SP", String(inv.sp || 0));
                 setTxt("GP", String(inv.gp || 0));
