@@ -48,6 +48,8 @@
         .dice-btn { transition: all 0.1s; }
         .dice-btn:active { transform: scale(0.9); }
     </style>
+    <link rel="stylesheet" href="site-common.css">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
 </head>
 <body class="font-body text-ui-text min-h-screen flex flex-col overflow-x-hidden">
 
@@ -67,13 +69,14 @@
     </header>
 
     <!-- Main Content -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <main class="container mx-auto px-4 py-8 flex-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <a href="character-creator.html" class="nav-card block bg-white rounded-xl p-6 border-2 border-[#22C55E]/30 hover:border-[#22C55E] transition-all">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl bg-[#22C55E]">✨</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Створити персонажа</h3>
-                <p class="text-ui-muted text-sm">Покроковий конструктор для швидкого та зручного створення вашого героя.</p>
-            </a>
+            <a href="spells.html" class="nav-card block bg-white rounded-xl p-6">
+                    <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🔮</div>
+                    <h3 class="font-heading text-lg font-bold text-forest mb-2">Заклинання</h3>
+                    <p class="text-ui-muted text-sm">Повна база магії з фільтрами за рівнем, класом та школою.</p>
+                </a>
 
             <a href="rules.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📖</div>
@@ -106,11 +109,11 @@
             </a>
 
             <div class="md:col-span-2 lg:col-span-1 lg:col-start-2 flex justify-center">
-                <a href="spells.html" class="nav-card block bg-white rounded-xl p-6 w-full md:w-[calc(50%-0.75rem)] lg:w-full">
-                    <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🔮</div>
-                    <h3 class="font-heading text-lg font-bold text-forest mb-2">Заклинання</h3>
-                    <p class="text-ui-muted text-sm">Повна база магії з фільтрами за рівнем, класом та школою.</p>
-                </a>
+                <a href="character-creator.html" class="nav-card block bg-white rounded-xl p-6 border-2 border-[#22C55E]/30 hover:border-[#22C55E] transition-all w-full md:w-[calc(50%-0.75rem)] lg:w-full">
+                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl bg-[#22C55E]">✨</div>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Створити персонажа</h3>
+                <p class="text-ui-muted text-sm">Покроковий конструктор для швидкого та зручного створення вашого героя.</p>
+            </a>
             </div>
 
         </div>
@@ -254,5 +257,6 @@
             <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Цифрова База Знань. Неофіційний проект.</p>
         </div>
     </footer>
+    <script src="site-common.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ const DND_CLASSES = {
         savingThrows: ["str", "con"],
         savingThrowsLabel: "Сила, Витривалість",
         armorProf: "Легка та середня броня, щити",
+        unarmoredDefense: "10 + dex + con",  // Barbarian Unarmored Defense
         weaponProf: "Проста зброя, бойова зброя",
         spells: false,
         skillsCount: 2,
@@ -26,10 +27,30 @@ const DND_CLASSES = {
             "Виживання"
         ],
         subclasses: [
-            "Шлях Берсерка",
-            "Шлях Дикого Серця",
-            "Шлях Світового Дерева",
-            "Шлях Зілота"
+            { id: "berserker", name: "Шлях Берсерка", features: [
+                { level: 3, name: "Шаленство", description: "Під час Люті ви можете бонусною дією здійснити одну додаткову атаку зброєю ближнього бою. Після завершення Люті ви отримуєте рівень виснаження." },
+                { level: 6, name: "Несамовита лють", description: "Поки ви в Люті, вас не можна зачарувати чи налякати; наявний такий ефект призупиняється до кінця Люті." },
+                { level: 10, name: "Заляклива присутність", description: "Дією ви змушуєте істоту в межах 30 футів пройти рятунок Мудрості, інакше вона стає наляканою вами." },
+                { level: 14, name: "Відплата", description: "Коли істота поруч завдає вам шкоди, ви можете реакцією здійснити по ній атаку ближнього бою у відповідь." }
+            ]},
+            { id: "wildheart", name: "Шлях Дикого Серця", features: [
+                { level: 3, name: "Тотемний дух", description: "Ви обираєте тотемну тварину (Ведмідь, Орел, Вовк тощо), що дарує особливу перевагу під час Люті — як-от опір усій шкоді, крім психічної." },
+                { level: 6, name: "Аспект звіра", description: "Ви отримуєте постійну рису обраної тварини — могутність, гострий зір чи невтомність у мандрах." },
+                { level: 10, name: "Блукач духів", description: "Ви можете проводити ритуал, що відтворює ефект закляття «Спілкування з природою»." },
+                { level: 14, name: "Тотемне єднання", description: "Ваш зв'язок із тотемом дарує потужний бойовий ефект під час Люті відповідно до обраної тварини." }
+            ]},
+            { id: "worldtree", name: "Шлях Світового Дерева", features: [
+                { level: 3, name: "Життєва сила Дерева", description: "Входячи в Лють, ви отримуєте тимчасові хіти, підживлені силою світового ясена." },
+                { level: 6, name: "Гілки Дерева", description: "Реакцією ви прикликаєте примарні гілки, щоб утримати або підтягнути ворога в межах 30 футів." },
+                { level: 10, name: "Караючі корені", description: "Ваша досяжність в атаках ближнього бою зростає на 10 футів завдяки примарним кореням." },
+                { level: 14, name: "Подорож Деревом", description: "Під час Люті ви можете телепортуватися на значну відстань, мандруючи гілками Світового Дерева." }
+            ]},
+            { id: "zealot", name: "Шлях Зілота", features: [
+                { level: 3, name: "Божественна лють", description: "Перша ваша атака в хід під час Люті завдає додаткову некротичну або промінну шкоду." },
+                { level: 6, name: "Фанатичний фокус", description: "Раз під час Люті ви можете перекинути провалений рятунковий кидок." },
+                { level: 10, name: "Запальна присутність", description: "Бонусною дією ви надихаєте союзників: їхні атаки отримують перевагу на 1 хвилину." },
+                { level: 14, name: "Лють за межею смерті", description: "Поки ви в Люті, ви не падаєте без свідомості при 0 хітів (окрім руйнівної шкоди)." }
+            ]}
         ],
         subclassLevel: 3,
         features: [
@@ -65,10 +86,36 @@ const DND_CLASSES = {
             "Виживання"
         ],
         subclasses: [
-            "Чемпіон",
-            "Майстер Бою",
-            "Лицар Закляттів",
-            "Психо-Воїн"
+            { id: "champion", name: "Чемпіон", criticalRange: 19, improvedAthletics: true, features: [
+                { level: 3, name: "Покращений критичний удар", description: "Ваші атаки зброєю завдають критичного попадання при випадінні 19 або 20 на кістці атаки." },
+                { level: 7, name: "Видатний атлет", description: "Ви додаєте половину бонусу володіння (з округленням вгору) до перевірок Сили, Спритності та Витривалості, що їх ще не враховують. Розбіг для стрибка скорочується до 5 футів." },
+                { level: 10, name: "Додатковий бойовий стиль", description: "Ви обираєте другий варіант Бойового стилю." },
+                { level: 15, name: "Покращений критичний удар (вищий)", description: "Ваші атаки зброєю завдають критичного попадання при випадінні 18–20 на кістці атаки." },
+                { level: 18, name: "Невпинний", description: "Якщо на початку свого ходу ви маєте не більше половини хітів, ви відновлюєте 5 + модифікатор Витривалості хітів." }
+            ]},
+            { id: "battle_master", name: "Бойовий Майстер", superiorityDice: "d8", maneuversKnown: 3, features: [
+                { level: 3, name: "Бойова перевага", description: "4 кістки переваги (d8). Відновлюються після короткого або довгого відпочинку." },
+                { level: 3, name: "Маневри", description: "Вивчіть 3 маневри. Використовуйте кістку переваги для активації." },
+                { level: 3, name: "Знавець", description: "Володіння одним ремісничим інструментом та однією навичкою: Історія, Проникливість, Виступ, або Переконання." },
+                { level: 7, name: "Знай свого ворога", description: "1 хвилина спостереження: дізнайтеся, чи ворог рівний, вищий або нижчий у двох характеристиках." },
+                { level: 10, name: "Покращена бойова перевага", description: "Кістки d10. Вивчіть 2 додаткові маневри." },
+                { level: 15, name: "Невпинний", description: "Кидаючи ініціативу без кісток переваги, відновіть 1 кістку." },
+                { level: 18, name: "Вища бойова перевага", description: "Кістки d12. Вивчіть 2 додаткові маневри." }
+            ]},
+            
+            { id: "eldritchknight", name: "Лицар Закляттів", features: [
+                { level: 3, name: "Чаротворення", description: "Ви вивчаєте закляття чарівника (переважно школи Захоплення та Перетворення) і отримуєте слоти заклять." },
+                { level: 3, name: "Зв'язок зі зброєю", description: "Ритуалом ви прив'язуєте до себе зброю: її не можна обеззброїти, і ви можете прикликати її бонусною дією." },
+                { level: 7, name: "Бойова магія", description: "Застосувавши фокус дією, ви можете бонусною дією здійснити одну атаку зброєю." },
+                { level: 10, name: "Розгром закляттям", description: "Влучивши зброєю по істоті, що провалила ваш рятунок від закляття цього ходу, ви додаєте шкоду." },
+                { level: 15, name: "Покращена бойова магія", description: "Застосувавши будь-яке закляття дією, ви можете бонусною дією здійснити одну атаку зброєю." }
+            ]},
+            { id: "psiwarrior", name: "Психо-Воїн", features: [
+                { level: 3, name: "Псіонічна сила", description: "Ви володієте кістками Енергії (d6), якими підживлюєте удари, захист і телекінез." },
+                { level: 7, name: "Телекінетичний адепт", description: "Ви можете телекінетично штовхати ворогів та здійснювати ривок-стрибок силою думки." },
+                { level: 10, name: "Психічний капюшон", description: "Ви маєте опір психічною шкодою; реакцією можете зменшити шкоду собі чи союзнику поруч." },
+                { level: 15, name: "Телекінетичний майстер", description: "Ви можете постійно застосовувати «Телекінез» і бонусною дією здійснювати атаку зброєю під час його дії." }
+            ]}
         ],
         subclassLevel: 3,
         features: [
@@ -106,10 +153,34 @@ const DND_CLASSES = {
             "Скритність"
         ],
         subclasses: [
-            "Злодій",
-            "Вбивця",
-            "Аркан-Трюкач",
-            "Душа Клинка"
+            { id: "thief", name: "Злодій", features: [
+                { level: 3, name: "Спритні руки", description: "Бонусною дією ви можете застосувати Хитру дію для маніпуляцій предметами, злому замків чи знешкодження пасток." },
+                { level: 3, name: "Верхолаз", description: "Ви отримуєте швидкість лазіння, рівну вашій швидкості, і не втрачаєте темп під час підйому." },
+                { level: 9, name: "Кмітливість шахрая", description: "Ви маєте перевагу на перевірки Спритності рук та на дії, пов'язані з користуванням магічними предметами." },
+                { level: 13, name: "Використання предметів", description: "Ви можете користуватися магічними предметами, навіть якщо зазвичай не відповідаєте вимогам класу чи раси." },
+                { level: 17, name: "Невловний злодій", description: "Реакцією ви можете додати свій бонус ухильності, уникаючи атак та ефектів зони." }
+            ]},
+            { id: "assassin", name: "Вбивця", features: [
+                { level: 3, name: "Майстер маскування", description: "Ви володієте інструментами отруйника та набором для гриму; вам легше видавати себе за інших осіб." },
+                { level: 3, name: "Вбивство", description: "Ви маєте перевагу на атаки істот, що ще не ходили в бою; влучання по заскоченій істоті завжди критичне." },
+                { level: 9, name: "Підступник", description: "Ви можете майстерно вдавати чужу особистість, ідеально копіюючи поведінку та мову." },
+                { level: 13, name: "Отрута в дії", description: "Ви можете виготовляти отрути та застосовувати їх із смертельною ефективністю." },
+                { level: 17, name: "Смертельний удар", description: "Заскочена вами істота, що провалила рятунок Витривалості, отримує подвоєну шкоду від вашого влучання." }
+            ]},
+            { id: "arcanetrickster", name: "Аркан-Трюкач", features: [
+                { level: 3, name: "Чаротворення", description: "Ви вивчаєте закляття чарівника (переважно школи Захоплення та Ілюзії) й отримуєте слоти заклять." },
+                { level: 3, name: "Магічна рука «маг»", description: "Ваша «Магічна рука» стає невидимою і може здійснювати тонкі маніпуляції — красти, підкладати, відмикати." },
+                { level: 9, name: "Магічна засідка", description: "Якщо ви сховані, ціль вашого закляття має недолік на рятунок проти нього цього ходу." },
+                { level: 13, name: "Вправний дух", description: "Ви маєте перевагу на рятунки Інтелекту, Мудрості й Харизми проти магії." },
+                { level: 17, name: "Викрадач заклять", description: "Реакцією на закляття, націлене на вас, ви можете спробувати викрасти знання цього закляття у того, хто його застосував." }
+            ]},
+            { id: "soulknife", name: "Душа Клинка", features: [
+                { level: 3, name: "Психічні клинки", description: "Ви прикликаєте клинки чистої психічної енергії й можете кидати їх або бити ними в ближньому бою." },
+                { level: 3, name: "Псіонічна сила", description: "Ви володієте кістками Енергії (d6), якими підживлюєте перевірки навичок та свої психічні клинки." },
+                { level: 9, name: "Душевні таланти", description: "Ви отримуєте телепатичне спілкування на коротку відстань і здатність психічно прокрастися повз увагу інших." },
+                { level: 13, name: "Психічні вуалі", description: "Ви можете зробити себе невидимими на короткий час за допомогою псіонічної енергії." },
+                { level: 17, name: "Розрив свідомості", description: "Влучивши психічним клинком, ви можете телепортувати себе разом із ціллю або приголомшити її розум." }
+            ]}
         ],
         subclassLevel: 3,
         features: [
@@ -120,54 +191,901 @@ const DND_CLASSES = {
             { level: 3, name: "Архетип Шахрая", desc: "Оберіть архетип, що сформує ваш стиль роботи." },
             { level: 5, name: "Ухильність", desc: "При рятунку Спритності з половинною шкодою — ви не отримуєте шкоди взагалі, а при провалі — лише половину." }
         ]
+    },
+    cleric: {
+        id: "cleric",
+        name: "Жрець",
+        icon: "✨",
+        hitDice: "1d8",
+        primaryAbility: "Мудрість",
+        primaryAbilityKey: "wis",
+        savingThrows: ["wis", "cha"],
+        savingThrowsLabel: "Мудрість, Харизма",
+        armorProf: "Легка та середня броня, щити",
+        weaponProf: "Проста зброя",
+        spells: true,
+        // Параметри чаклування: характеристика — Мудрість; тип — підготовка заклять.
+        // cantripsByLevel — скільки замовлянь відомо на даному рівні персонажа.
+        // preparedFormula — кількість підготовлених заклять = рівень класу + мод. характеристики.
+        spellcasting: {
+            ability: "wis",
+            type: "prepared",
+            cantripsByLevel: { 1: 3, 2: 3, 3: 3, 4: 4, 5: 4, 6: 4, 7: 4, 8: 4, 9: 4, 10: 5,
+                               11: 5, 12: 5, 13: 5, 14: 5, 15: 5, 16: 5, 17: 5, 18: 5, 19: 5, 20: 5 },
+        spellList: ["guidance", "light", "mending", "resistance", "sacred_flame", "spare_the_dying", "thaumaturgy", "bless", "cure_wounds", "detect_magic", "guiding_bolt", "healing_word", "inflict_wounds", "sanctuary", "shield_of_faith", "aid", "augury", "blindness_deafness", "calm_emotions", "continual_flame", "enhance_ability", "find_traps", "gentle_repose", "hold_person", "lesser_restoration", "locate_object", "prayer_of_healing", "protection_from_poison", "silence", "spiritual_weapon", "warding_bond", "zone_of_truth", "animate_dead", "beacon_of_hope", "bestow_curse", "clairvoyance", "create_food_and_water", "daylight", "dispel_magic", "glyph_of_warding", "magic_circle", "mass_healing_word", "meld_into_stone", "protection_from_energy", "remove_curse", "revivify", "sending", "speak_with_dead", "spirit_guardians", "tongues", "water_walk", "banishment", "control_water", "death_ward", "divination", "freedom_of_movement", "guardian_of_faith", "locate_creature", "stone_shape", "commune", "contagion", "dispel_evil_and_good", "flame_strike", "geas", "greater_restoration", "hallow", "insect_plague", "legend_lore", "mass_cure_wounds", "planar_binding", "raise_dead", "scrying", "blade_barrier", "create_undead", "find_the_path", "forbiddance", "harm", "heal", "heroes_feast", "planar_ally", "true_seeing", "word_of_recall", "conjure_celestial", "divine_word", "etherealness", "fire_storm", "plane_shift", "regenerate", "resurrection", "symbol", "antimagic_field", "control_weather", "earthquake", "holy_aura", "astral_projection", "gate", "mass_heal", "true_resurrection"],
+            preparedFormula: "level + wis"
+        },
+        skillsCount: 2,
+        skills: [
+            "Історія",
+            "Проникливість",
+            "Медицина",
+            "Переконання",
+            "Релігія"
+        ],
+        subclasses: [
+            {"id":"war","name":"Домен Війни","heavyArmorProf":true,"martialWeaponProf":true,"grantedSpells":["divine_favor","shield_of_faith","magic_weapon","spiritual_weapon","crusaders_mantle","spirit_guardians","freedom_of_movement","stoneskin","flame_strike","hold_monster"],"features":[{"level":1,"name":"Жрець війни","description":"Бонусною дією ви можете здійснити додаткову атаку зброєю (обмежена кількість разів між відпочинками)."},{"level":1,"name":"Священна зброя","description":"Дією ви наділяєте зброю божественною силою: додаєте модифікатор Харизми до влучань і вона світиться."},{"level":6,"name":"Благословення бога війни","description":"Реакцією через Канал Божественності ви даєте союзнику бонус до кидка влучання."},{"level":8,"name":"Божественний удар","description":"Раз на хід ваші атаки зброєю завдають додаткову промінну шкоду."},{"level":17,"name":"Аватар битви","description":"Ви отримуєте опір до дроблячої, колючої та рубаючої шкоди від немагічної зброї."}]},
+            {"id":"trickery","name":"Домен Підступності","grantedSpells":["charm_person","disguise_self","mirror_image","pass_without_trace","blink","dispel_magic","dimension_door","polymorph","dominate_person","modify_memory"],"features":[{"level":1,"name":"Благословення пустуна","description":"Дотиком ви даєте союзнику перевагу на перевірки Спритності (Скритність) на годину."},{"level":1,"name":"Прикликання дублікату","description":"Дією через Канал Божественності ви створюєте свою ілюзорну копію, що триває до хвилини."},{"level":6,"name":"Плащ тіней","description":"Дублікат дозволяє вам чинити ефекти на відстані, ніби ви на місці копії."},{"level":8,"name":"Божественний удар","description":"Раз на хід ваші атаки зброєю завдають додаткову отруйну шкоду."},{"level":17,"name":"Покращене дублювання","description":"Ви можете створити до чотирьох копій себе одночасно."}]},
+            { id: "life", name: "Домен Життя", heavyArmorProf: true, grantedSpells: ["bless", "cure_wounds", "lesser_restoration", "spiritual_weapon", "beacon_of_hope", "revivify", "death_ward", "guardian_of_faith", "mass_cure_wounds", "raise_dead"], features: [
+                { level: 1, name: "Бонусне володіння (важка броня)", description: "Ви отримуєте володіння важкою бронею." },
+                { level: 1, name: "Учень життя", description: "Ваші зцілювальні закляття відновлюють додатково 2 + рівень закляття хітів." },
+                { level: 2, name: "Канал божественності: Збереження життя", description: "Дією ви відновлюєте істотам у межах 30 футів сумарно хіти, рівні п'ятикратному рівню жерця." },
+                { level: 6, name: "Благословенний цілитель", description: "Зцілюючи заклятям інших, ви також відновлюєте собі 2 + рівень закляття хітів." },
+                { level: 8, name: "Божественний удар", description: "Раз на хід ваша атака зброєю завдає додатково 1d8 променистої шкоди (2d8 з 14-го рівня)." },
+                { level: 17, name: "Верховне зцілення", description: "Замість кидка кісток зцілення ви відновлюєте максимально можливу їх кількість." }
+            ]}, { id: "tempest", name: "Домен Бурі", heavyArmorProf: true, martialWeaponProf: true, grantedSpells: ["fog_cloud", "thunderwave", "gust_of_wind", "shatter", "call_lightning", "sleet_storm"], features: [
+                { level: 1, name: "Бонусні володіння", description: "Ви отримуєте володіння бойовою зброєю та важкою бронею." },
+                { level: 1, name: "Гнів бурі", description: "Коли істота в межах 5 футів влучає по вас атакою, ви можете реакцією завдати їй 2d8 шкоди громом або блискавкою." },
+                { level: 2, name: "Канал божественності: Руйнівний гнів", description: "Ви можете використовувати Канал божественності, щоб завдати максимальну шкоду заклинанням грому або блискавки." },
+                { level: 6, name: "Удар громовиці", description: "Коли ви завдаєте шкоди блискавкою, ви можете відштовхнути ціль на 10 футів." },
+                { level: 8, name: "Божественний удар", description: "Раз на хід ваша атака зброєю завдає додатково 1d8 шкоди громом." },
+                { level: 17, name: "Буревійник", description: "Ви отримуєте швидкість польоту 60 футів, коли перебуваєте на відкритому повітрі." }
+            ]},
+            { id: "light", name: "Домен Світла", grantedSpells: ["light", "burning_hands", "faerie_fire", "flaming_sphere", "scorching_ray", "daylight", "fireball", "guardian_of_faith", "wall_of_fire", "flame_strike", "scrying"], features: [
+                { level: 1, name: "Бонусне замовляння", description: "Ви знаєте замовляння «Світло» і додаткові закляття домену." },
+                { level: 1, name: "Палаючий спалах", description: "Реакцією на атаку ви накладаєте перешкоду атакувальнику серпанком світла (недолік на атаку)." },
+                { level: 2, name: "Канал божественності: Палах сонця", description: "Дією ви випромінюєте сяйво: істоти у 30 футах роблять рятунок Витривалості або отримують променисту шкоду 2d10+." },
+                { level: 6, name: "Покращений палах", description: "Палах сонця можна використовувати, щоб боронити союзників від шкоди реакцією." },
+                { level: 8, name: "Потужне замовляння", description: "Ви додаєте модифікатор Мудрості до шкоди замовлянь жерця." },
+                { level: 17, name: "Коронація сонця", description: "Аура світла 30 футів на 1 хвилину завдає променисту шкоду ворогам та осяює місцевість." }
+            ]}
+        ],
+        subclassLevel: 1,
+        // Список заклять, доступних жерцю для підготовки/вивчення (id з DND_SPELLS).
+                spellList: [
+            // Замовляння (level 0)
+            "guidance", "light", "mending", "resistance", "sacred_flame", "spare_the_dying", "thaumaturgy", "toll_the_dead", "word_of_radiance",
+            // 1-й рівень
+            "bane", "bless", "command", "create_or_destroy_water", "cure_wounds", "detect_evil_and_good", "detect_magic", "detect_poison_and_disease", "guiding_bolt", "healing_word", "inflict_wounds", "protection_from_evil_and_good", "purify_food_and_drink", "sanctuary", "shield_of_faith",
+            // 2-й рівень
+            "aid", "augury", "blindness_deafness", "calm_emotions", "continual_flame", "enhance_ability", "find_traps", "gentle_repose", "hold_person", "lesser_restoration", "locate_object", "prayer_of_healing", "protection_from_poison", "silence", "spiritual_weapon", "warding_bond", "zone_of_truth",
+            // 3-й рівень
+            "animate_dead", "beacon_of_hope", "bestow_curse", "clairvoyance", "create_food_and_water", "daylight", "dispel_magic", "glyph_of_warding", "magic_circle", "mass_healing_word", "meld_into_stone", "protection_from_energy", "remove_curse", "revivify", "sending", "speak_with_dead", "spirit_guardians", "tongues", "water_walk",
+            // 4-й рівень
+            "banishment", "control_water", "death_ward", "divination", "freedom_of_movement", "guardian_of_faith", "locate_creature", "stone_shape",
+            // 5-й рівень
+            "commune", "contagion", "dispel_evil_and_good", "flame_strike", "geas", "greater_restoration", "hallow", "insect_plague", "legend_lore", "mass_cure_wounds", "planar_binding", "raise_dead", "scrying",
+            // 6-й рівень
+            "blade_barrier", "create_undead", "find_the_path", "forbiddance", "harm", "heal", "heroes_feast", "planar_ally", "true_seeing", "word_of_recall",
+            // 7-й рівень
+            "conjure_celestial", "divine_word", "etherealness", "fire_storm", "plane_shift", "regenerate", "resurrection", "symbol",
+            // 8-й рівень
+            "antimagic_field", "control_weather", "earthquake", "holy_aura",
+            // 9-й рівень
+            "astral_projection", "gate", "mass_heal", "true_resurrection"
+        ],
+        features: [
+            { level: 1, name: "Чаклунство", desc: "Ви чаклуєте жрецькі закляття, використовуючи Мудрість як заклинальну характеристику. Підготовлених заклять = рівень жерця + мод. Мудрості." },
+            { level: 1, name: "Божественний домен", desc: "Оберіть домен (підклас), що визначить ваші додаткові закляття та здібності." },
+            { level: 2, name: "Канал божественності (1/відпочинок)", desc: "Ви отримуєте здатність направляти божественну енергію: «Вигнання нежиті» та особливу опцію домену." },
+            { level: 5, name: "Знищення нежиті", desc: "Коли нежить провалює рятунок проти вашого «Вигнання нежиті», слабка нежить миттєво знищується." },
+            { level: 6, name: "Канал божественності (2/відпочинок)", desc: "Ви можете використовувати Канал божественності двічі між відпочинками." },
+            { level: 8, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI: +2/+1+1 або риса." },
+            { level: 10, name: "Божественне втручання", desc: "Ви можете благати своє божество про допомогу; шанс успіху зростає з рівнем." }
+        ]
+        },
+
+    // -------------------- BARD --------------------
+    bard: {
+        id: "bard",
+        name: "Бард",
+        icon: "🎵",
+        hitDice: "1d8",
+        primaryAbility: "Харизма",
+        primaryAbilityKey: "cha",
+        savingThrows: ["dex", "cha"],
+        savingThrowsLabel: "Спритність, Харизма",
+        armorProf: "Легка броня",
+        weaponProf: "Проста зброя, ручні арбалети, довгі мечі, рапіри, короткі мечі",
+        spells: true,
+        spellcasting: {
+            ability: "cha",
+            type: "known",
+            cantripsByLevel: { 1: 2, 2: 2, 3: 2, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 4, 11: 4, 12: 4, 13: 4, 14: 4, 15: 4, 16: 4, 17: 4, 18: 4, 19: 4, 20: 4 },
+        spellList: ["blade_ward", "dancing_lights", "friends", "light", "mage_hand", "mending", "message", "minor_illusion", "prestidigitation", "true_strike", "vicious_mockery", "animal_friendship", "bane", "charm_person", "comprehend_languages", "cure_wounds", "detect_magic", "disguise_self", "faerie_fire", "feather_fall", "healing_word", "heroism", "identify", "illusory_script", "longstrider", "silent_image", "sleep", "speak_with_animals", "tashas_hideous_laughter", "thunderwave", "unseen_servant", "animal_messenger", "blindness_deafness", "calm_emotions", "cloud_of_daggers", "crown_of_madness", "detect_thoughts", "enhance_ability", "enthrall", "heat_metal", "hold_person", "invisibility", "knock", "lesser_restoration", "locate_animals_or_plants", "locate_object", "magic_mouth", "see_invisibility", "shatter", "silence", "suggestion", "zone_of_truth", "bestow_curse", "clairvoyance", "dispel_magic", "fear", "glyph_of_warding", "hypnotic_pattern", "major_image", "nondetection", "plant_growth", "sending", "speak_with_dead", "speak_with_plants", "stinking_cloud", "tongues", "compulsion", "confusion", "dimension_door", "freedom_of_movement", "greater_invisibility", "hallucinatory_terrain", "locate_creature", "polymorph", "animate_objects", "awaken", "dominate_person", "dream", "geas", "greater_restoration", "hold_monster", "legend_lore", "mass_cure_wounds", "mislead", "modify_memory", "planar_binding", "raise_dead", "scrying", "seeming", "teleportation_circle", "eyebite", "find_the_path", "guards_and_wards", "irresistible_dance", "mass_suggestion", "programmed_illusion", "true_seeing", "etherealness", "forcecage", "magnificent_mansion", "mirage_arcane", "project_image", "regenerate", "resurrection", "symbol", "teleport", "dominate_monster", "feeblemind", "glibness", "mind_blank", "power_word_stun", "foresight", "power_word_kill", "true_polymorph"],
+            spellsKnownFormula: "level + 3"
+        },
+        skillsCount: 3,
+        skills: ["Акробатика", "Поводження з тваринами", "Атлетика", "Обман", "Історія", "Проникливість", "Залякування", "Дослідження", "Аркана", "Природа", "Уважність", "Виступ", "Медицина", "Релігія", "Скритність", "Переконання", "Спритність рук", "Виживання"],
+                subclasses: [
+            {"id":"dance","name":"Колегія Танцю","features":[{"level":3,"name":"Запальні кроки","description":"Ви б'єтеся витончено: ваша беззбройна атака використовує Бардівську кістку як шкоду, а поки на вас немає броні, ваш КЗ = 10 + Спритність + Харизма."},{"level":3,"name":"Граційний воїн","description":"Ви рухаєтесь у бою, мов у танці: складніше влучити по вас, коли ви вже атакували цього ходу."},{"level":6,"name":"Несамовита грація","description":"Ваша спритність дарує додаткову рухливість і реакційні переміщення в бою."},{"level":14,"name":"Леза-метелики","description":"Ваші беззбройні удари завдають більше шкоди й можуть зачепити кількох ворогів поруч."}]},
+            {"id":"glamour","name":"Колегія Гламуру","features":[{"level":3,"name":"Мантія натхнення","description":"Бонусною дією ви даруєте союзникам тимчасові хіти й можливість одразу перемістися, не провокуючи атак."},{"level":3,"name":"Чарівна присутність","description":"Дією ви можете зачарувати істот навколо, що бачать вас, на короткий час."},{"level":6,"name":"Чарівна мантія","description":"Реакцією ви змушуєте нападника замість вас атакувати іншу ціль або відступити."},{"level":14,"name":"Незаперечна велич","description":"Раз на короткий відпочинок ви приймаєте велично-жахливий вигляд, відлякуючи ворогів."}]},
+            { id: "lore", name: "Колегія Знань", features: [
+                { level: 3, name: "Бонусні володіння", description: "Володіння 3 навичками на вибір." },
+                { level: 3, name: "Ріжучі слова", description: "Реакція: витратити натхнення, щоб зменшити кидок атаки/перевірки/шкоди істоти на d6-d12." },
+                { level: 6, name: "Додаткові магічні таємниці", description: "Вивчіть 2 закляття будь-якого класу. Вони стають бардськими заклинаннями." },
+                { level: 14, name: "Неперевершена майстерність", description: "Витратити натхнення: перевірка навички з володінням стає мінімум 10 + бонус." }
+            ]},
+            { id: "valor", name: "Колегія Доблесті", martialWeaponProf: true, mediumArmorProf: true, shieldProf: true, features: [
+                { level: 3, name: "Бонусні володіння", description: "Володіння середньою бронею, щитами та бойовою зброєю." },
+                { level: 3, name: "Бойове натхнення", description: "Істота з вашим натхненням може додати кістку до кидка шкоди зброєю або до КЗ проти атаки." },
+                { level: 6, name: "Додаткова атака", description: "Атакуйте двічі, коли робите дію Атака." },
+                { level: 14, name: "Бойова магія", description: "Бонусна дія: атака зброєю після чаклування закляття бонусною дією." }
+            ]}
+        ],
+        subclassLevel: 3,
+        spellList: [],
+        features: [
+            { level: 1, name: "Чаклунство", desc: "Ви чаклуєте бардські закляття, використовуючи Харизму." },
+            { level: 2, name: "Майстер на всі руки", desc: "Ви додаєте половину бонусу майстерності до всіх перевірок характеристик без володіння." },
+            { level: 2, name: "Пісня відпочинку", desc: "Під час короткого відпочинку союзники відновлюють додаткові хіти від вашої музики." },
+            { level: 5, name: "Джерело натхнення", desc: "Ваш бонус натхнення відновлюється після короткого або довгого відпочинку." }
+        ]
+    },
+
+    // -------------------- DRUID --------------------
+    druid: {
+        id: "druid",
+        name: "Друїд",
+        icon: "🌿",
+        hitDice: "1d8",
+        primaryAbility: "Мудрість",
+        primaryAbilityKey: "wis",
+        savingThrows: ["int", "wis"],
+        savingThrowsLabel: "Інтелект, Мудрість",
+        armorProf: "Легка та середня броня, щити (не метал)",
+        weaponProf: "Дубинки, кинджали, дротики, списи, булави, посохи, ятагани, серпи, пращі",
+        spells: true,
+        spellcasting: {
+            ability: "wis",
+            type: "prepared",
+            cantripsByLevel: { 1: 2, 2: 2, 3: 2, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 4, 11: 4, 12: 4, 13: 4, 14: 4, 15: 4, 16: 4, 17: 4, 18: 4, 19: 4, 20: 4 },
+        spellList: ["druidcraft", "guidance", "mending", "poison_spray", "produce_flame", "resistance", "shillelagh", "thorn_whip", "animal_friendship", "charm_person", "create_or_destroy_water", "cure_wounds", "detect_magic", "detect_poison_and_disease", "entangle", "faerie_fire", "fog_cloud", "goodberry", "healing_word", "jump", "longstrider", "purify_food_and_drink", "speak_with_animals", "thunderwave", "animal_messenger", "barkskin", "beast_sense", "darkvision", "enhance_ability", "find_traps", "flame_blade", "flaming_sphere", "gust_of_wind", "heat_metal", "hold_person", "lesser_restoration", "locate_animals_or_plants", "locate_object", "moonbeam", "pass_without_trace", "protection_from_poison", "spike_growth", "call_lightning", "conjure_animals", "daylight", "dispel_magic", "meld_into_stone", "plant_growth", "protection_from_energy", "sleet_storm", "speak_with_plants", "water_breathing", "water_walk", "wind_wall", "blight", "confusion", "conjure_minor_elementals", "conjure_woodland_beings", "control_water", "dominate_beast", "freedom_of_movement", "giant_insect", "grasping_vine", "hallucinatory_terrain", "ice_storm", "locate_creature", "polymorph", "stone_shape", "stoneskin", "wall_of_fire", "antilife_shell", "awaken", "commune_with_nature", "conjure_elemental", "contagion", "geas", "greater_restoration", "insect_plague", "mass_cure_wounds", "planar_binding", "reincarnate", "scrying", "tree_stride", "wall_of_stone", "conjure_fey", "find_the_path", "heal", "heroes_feast", "move_earth", "sunbeam", "transport_via_plants", "wall_of_thorns", "wind_walk", "fire_storm", "mirage_arcane", "plane_shift", "regenerate", "reverse_gravity", "animal_shapes", "antipathy_sympathy", "control_weather", "earthquake", "feeblemind", "sunburst", "tsunami", "foresight", "shapechange", "storm_of_vengeance", "true_resurrection"],
+            preparedFormula: "level + wis"
+        },
+        skillsCount: 2,
+        skills: ["Поводження з тваринами", "Аркана", "Проникливість", "Медицина", "Природа", "Уважність", "Релігія", "Виживання"],
+                subclasses: [
+            {"id":"sea","name":"Коло Моря","features":[{"level":2,"name":"Лють моря","description":"Дією ви прикликаєте вир води й вітру навколо себе, що штовхає й ранить ворогів поблизу."},{"level":6,"name":"Аура припливу","description":"Ваш морський покров дарує вам і союзникам опір до однієї стихії та додаткову рухливість."},{"level":10,"name":"Стіна води","description":"Ви можете створити стіну води, що сповільнює снаряди й ворогів."},{"level":14,"name":"Гнів моря","description":"Ваш морський прояв стає потужнішим, збиваючи ворогів із ніг."}]},
+            {"id":"stars","name":"Коло Зірок","features":[{"level":2,"name":"Зоряна мапа","description":"Ви носите карту зоряного неба, що дарує вам додаткові віщувальні закляття та орієнтацію."},{"level":2,"name":"Зоряна форма","description":"Бонусною дією ви приймаєте сузір'я: Лучник (шкода на відстані), Чаша (зцілення) або Дракон (концентрація)."},{"level":6,"name":"Космічне віщування","description":"Раз на хід ви даєте перевагу або накладаєте перешкоду на кидок поблизу."},{"level":10,"name":"Сяйлива душа","description":"Поки ви у Зоряній формі, ви отримуєте тимчасові хіти на початку кожного ходу."},{"level":14,"name":"Сузір'я-володар","description":"Ваша Зоряна форма стає значно потужнішою для кожного з трьох сузір'їв."}]},
+            { id: "land", name: "Коло Землі", features: [
+                { level: 2, name: "Бонусне замовляння", description: "Замовляння друїда на вибір." },
+                { level: 2, name: "Природне відновлення", description: "Під час короткого відпочинку: відновіть комірки заклинань. Сумарний рівень ≤ половина рівня друїда (округлено вгору)." },
+                { level: 3, name: "Закляття кола", description: "Оберіть місцевість (Арктика, Берег, Ліс, Луки, Гори, Болото, Підземля). Отримайте закляття кола." },
+                { level: 6, name: "Хода землі", description: "Рух по немагічній важкій місцевості без витрат. Прохід крізь немагічні рослини без шкоди та уповільнення." },
+                { level: 10, name: "Захист природи", description: "Імунітет до отрути та хвороб. Імунітет до чарування та страху від елементалів та фей." },
+                { level: 14, name: "Святилище природи", description: "Звірі та рослини не можуть атакувати вас, якщо ви не атакуєте першим. Якщо атакують: рятунок Мудрості або не можуть атакувати." }
+            ]},
+            { id: "moon", name: "Коло Місяця", features: [
+                { level: 2, name: "Бойова дика подоба", description: "Дика подоба бонусною дією. Використовуйте Дику подобу для зцілення себе: витратьте комірку закляття, відновіть 1d8 хітів за рівень комірки." },
+                { level: 2, name: "Форми кола", description: "Перетворюйтеся на звірів з показником небезпеки = рівень друїда / 3 (округлено вниз). Ігноруйте обмеження швидкості плавання/польоту." },
+                { level: 6, name: "Первісний удар", description: "Атаки у формі звіра вважаються магічними для подолання опору та імунітету." },
+                { level: 10, name: "Елементальна дика подоба", description: "Витратьте 2 використання Дикої подоби: перетворіться на повітряного, земляного, вогняного або водяного елементаля." },
+                { level: 14, name: "Тисяча форм", description: "Закляття alter self необмежено без витрати комірки." }
+            ]}
+        ],
+        subclassLevel: 2,
+        spellList: [],
+        features: [
+            { level: 1, name: "Друїдична мова", desc: "Ви знаєте друїдичну — таємну мову друїдів." },
+            { level: 2, name: "Дика подобa", desc: "Ви можете перетворюватися на звірів, яких бачили раніше." },
+            { level: 18, name: "Вічна молодість", desc: "Ви старієте в 10 разів повільніше." },
+            { level: 20, name: "Архідруїд", desc: "Ви можете використовувати Дику подобу необмежену кількість разів." }
+        ]
+    },
+
+    // -------------------- MONK --------------------
+    monk: {
+        id: "monk",
+        name: "Монах",
+        icon: "🥋",
+        hitDice: "1d8",
+        primaryAbility: "Спритність та Мудрість",
+        primaryAbilityKey: "dex",
+        savingThrows: ["str", "dex"],
+        savingThrowsLabel: "Сила, Спритність",
+        armorProf: "Немає",
+        unarmoredDefense: "10 + dex + wis",
+        unarmoredSpeedBonus: 10,
+        resource: "Ki Points",
+        weaponProf: "Проста зброя, короткі мечі",
+        unarmoredDefense: "10 + dex + wis",
+        skillsCount: 2,
+        skills: ["Акробатика", "Атлетика", "Історія", "Проникливість", "Релігія", "Скритність"],
+                subclasses: [
+            {"id":"mercy","name":"Воїн Милосердя","features":[{"level":3,"name":"Руки зцілення та шкоди","description":"Витрачаючи Очко Фокусу, ви можете зцілювати дотиком або завдавати додаткову некротичну шкоду."},{"level":6,"name":"Цілющі техніки","description":"Ваше зцілення дотиком може також знімати стани (отруєння, засліплення тощо)."},{"level":11,"name":"Полегшення страждань","description":"Зціляючи когось, ви також даруєте йому тимчасові хіти."},{"level":17,"name":"Рука смерті/життя","description":"Ваші дотики милосердя стають надзвичайно потужними у зціленні та шкоді."}]},
+            {"id":"shadow","name":"Воїн Тіні","features":[{"level":3,"name":"Мистецтво тіні","description":"За Очки Фокусу ви накладаєте closно: Темрява, Тьмяний зір, Безшумність або Малу ілюзію."},{"level":6,"name":"Тіньовий крок","description":"У тьмяному світлі чи темряві ви бонусною дією телепортуєтеся між тінями з перевагою на наступну атаку."},{"level":11,"name":"Плащ тіней","description":"Ви можете стати невидимим у ділянці тіні, поки не вийдете на світло чи не атакуєте."},{"level":17,"name":"Опортуніст","description":"Коли істота поруч отримує удар від когось іншого, ви можете реакцією атакувати її."}]},
+            {"id":"elements","name":"Воїн Стихій","features":[{"level":3,"name":"Прояв стихій","description":"Ви скеровуєте Очки Фокусу в стихійні прийоми: подовжена досяжність ударів і стихійна шкода."},{"level":6,"name":"Лють стихій","description":"Ваші стихійні прийоми дешевшають, а їхня шкода зростає."},{"level":11,"name":"Поступ стихій","description":"Ви опановуєте потужніші стихійні прояви — поштовх, тяга, рухливість."},{"level":17,"name":"Удар стихій","description":"Ваші стихійні удари здатні приголомшувати й відкидати ворогів."}]},
+            { id: "open_hand", name: "Шлях Відкритої Долоні", flurryOfBlowsEffects: true, features: [
+                { level: 3, name: "Техніка відкритої долоні", description: "Коли ви влучаєте істоту однією з атак, наданих Шквалом ударів, ви можете накласти один з наступних ефектів: ціль повинна пройти рятунок Спритності або бути збитою з ніг; ціль повинна пройти рятунок Сили або бути відштовхнутою на 15 футів; або ціль не може робити реакції до кінця вашого наступного ходу." },
+                { level: 6, name: "Цілюща рука", description: "Дією ви можете витратити 1 очко ки, щоб відновити кількість хітів, рівну киданню вашої кістки бойових мистецтв + модифікатор Мудрості." },
+                { level: 11, name: "Спокій", description: "Ви можете увійти в особливу медитацію, яка оточує вас аурою миру. Наприкінці довгого відпочинку ви отримуєте ефект закляття Святилище, який триває до початку вашого наступного довгого відпочинку." },
+                { level: 17, name: "Дрижаюча долоня", description: "Коли ви влучаєте істоту незброєним ударом, ви можете витратити 3 очки ки, щоб почати непомітні вібрації в тілі істоти. Протягом наступних днів, рівних вашому рівню монаха, ви можете дією завершити вібрації, змусивши істоту впасти до 0 хітів. Істота може пройти рятунок Витривалості, щоб уникнути ефекту." }
+            ]}
+        ],
+        subclassLevel: 3,
+        features: [
+            { level: 1, name: "Незброєний захист", desc: "Без броні ваш КЗ = 10 + Спритність + Мудрість." },
+            { level: 1, name: "Бойові мистецтва", desc: "Ваші незброєні удари та монаше зброя використовують к4 шкоди (зростає з рівнем)." },
+            { level: 2, name: "Ки", desc: "Ви отримуєте очки ки для особливих здібностей." },
+            { level: 2, name: "Незброєний рух", desc: "Ваша швидкість зростає на 10 футів без броні." }
+        ]
+    },
+
+    // -------------------- PALADIN --------------------
+    paladin: {
+        id: "paladin",
+        name: "Паладин",
+        icon: "⚔️",
+        hitDice: "1d10",
+        primaryAbility: "Сила та Харизма",
+        primaryAbilityKey: "str",
+        savingThrows: ["wis", "cha"],
+        savingThrowsLabel: "Мудрість, Харизма",
+        armorProf: "Вся броня, щити",
+        weaponProf: "Проста та бойова зброя",
+        spells: true,
+        spellcasting: {
+            ability: "cha",
+            type: "prepared",
+            cantripsByLevel: {},
+        spellList: ["bless", "command", "compelled_duel", "cure_wounds", "detect_evil_and_good", "detect_magic", "detect_poison_and_disease", "divine_favor", "heroism", "protection_from_evil_and_good", "purify_food_and_drink", "searing_smite", "shield_of_faith", "thunderous_smite", "wrathful_smite", "aid", "branding_smite", "find_steed", "lesser_restoration", "locate_object", "magic_weapon", "protection_from_poison", "zone_of_truth", "aura_of_vitality", "blinding_smite", "create_food_and_water", "crusaders_mantle", "daylight", "dispel_magic", "elemental_weapon", "magic_circle", "remove_curse", "revivify", "aura_of_life", "aura_of_purity", "banishment", "death_ward", "locate_creature", "staggering_smite", "banishing_smite", "circle_of_power", "destructive_wave", "dispel_evil_and_good", "geas", "raise_dead"],
+            preparedFormula: "Math.floor(level / 2) + cha"
+        },
+        skillsCount: 2,
+        skills: ["Атлетика", "Проникливість", "Залякування", "Медицина", "Переконання", "Релігія"],
+                subclasses: [
+            {"id":"glory","name":"Клятва Слави","grantedSpells":["guiding_bolt","heroism","enhance_ability","magic_weapon","haste","protection_from_energy","compulsion","freedom_of_movement"],"features":[{"level":3,"name":"Канал Божественності: Натхненний удар","description":"Завдаючи шкоду атакою, ви можете додати промінну шкоду, що дорівнює вашому рівню."},{"level":3,"name":"Канал Божественності: Миттєвий герой","description":"Бонусною дією ви тимчасово збільшуєте швидкість союзників навколо."},{"level":7,"name":"Аура звитяги","description":"Ви та союзники поруч отримуєте бонус до швидкості."},{"level":15,"name":"Стрімкий захисник","description":"Раз на хід, коли ви влучаєте, ви можете дати союзнику реакційну атаку."},{"level":20,"name":"Живе уособлення слави","description":"Ви випромінюєте божественне сяйво: бонуси до влучань і додаткова шкода на короткий час."}]},
+            { id: "devotion", name: "Клятва Відданості", grantedSpells: ["protection_from_evil_and_good", "sanctuary", "lesser_restoration", "zone_of_truth", "beacon_of_hope", "dispel_magic", "freedom_of_movement", "guardian_of_faith", "commune", "flame_strike"], features: [
+                { level: 3, name: "Священна зброя", description: "Дія: зброя випромінює яскраве світло 20 футів. Додайте модифікатор Харизми до кидків атаки цією зброєю. 1 хвилина." },
+                { level: 3, name: "Канал божественності: Відвернути нечестивих", description: "Дія: фії та нежить в межах 30 футів. Рятунок Мудрості або відвернуті на 1 хвилину." },
+                { level: 7, name: "Аура відданості", description: "Ви та союзники в межах 10 футів не можуть бути зачаровані. 30 футів з 18 рівня." },
+                { level: 15, name: "Чистота духу", description: "Постійний ефект закляття protection from evil and good." },
+                { level: 20, name: "Священний німб", description: "Дія: аура світла 30 футів на 1 хвилину. Яскраве світло. Ворожі істоти мають недолік на рятунки проти ваших заклинань та Каналу божественності. Початок ходу ворога в аурі: 10 променистої шкоди." }
+            ]},
+            { id: "ancients", name: "Клятва Древніх", grantedSpells: ["ensnaring_strike", "speak_with_animals", "moonbeam", "misty_step", "plant_growth", "protection_from_energy", "ice_storm", "stoneskin", "commune_with_nature", "tree_stride"], features: [
+                { level: 3, name: "Канал божественності: Гнів природи", description: "Дія: рослини в межах 10 футів від точки в межах 30 футів оживають. Важка місцевість. Рятунок Сили або обплутаний." },
+                { level: 3, name: "Канал божественності: Відвернути віровідступників", description: "Дія: фії, нежить, елементалі в межах 30 футів. Рятунок Мудрості або відвернуті на 1 хвилину." },
+                { level: 7, name: "Аура палати", description: "Ви та союзники в межах 10 футів маєте опір до шкоди від заклинань. 30 футів з 18 рівня." },
+                { level: 15, name: "Невмирущий страж", description: "Падаючи до 0 хітів: впадіть до 1 хіта замість цього. Раз на довгий відпочинок." },
+                { level: 20, name: "Чемпіон древніх", description: "Дія: форма древньої сили на 1 хвилину. Опір до всієї шкоди. Союзники в межах 10 футів мають перевагу на рятунки проти заклинань та інших магічних ефектів." }
+            ]},
+            { id: "vengeance", name: "Клятва Помсти", grantedSpells: ["bane", "hunters_mark", "hold_person", "misty_step", "haste", "protection_from_energy", "banishment", "dimension_door", "hold_monster", "scrying"], features: [
+                { level: 3, name: "Канал божественності: Клятва ворожнечі", description: "Бонусна дія: оголосіть клятву проти істоти в межах 10 футів. Перевага на кидки атаки проти неї на 1 хвилину або до падіння до 0 хітів." },
+                { level: 3, name: "Канал божественності: Відплата ворогу", description: "Реакція на атаку істоти: атака можливості після атаки істоти. Перевага на атаку." },
+                { level: 7, name: "Невблаганний мститель", description: "Реакція: атака можливості, коли істота в межах 5 футів робить атаку проти цілі, що не ви. Половина вашої швидкості: наблизтеся до істоти як частина реакції." },
+                { level: 15, name: "Душа помсти", description: "Бонусна дія після атаки можливості: телепортуйтеся на 60 футів у вільний простір, який бачите." },
+                { level: 20, name: "Аватар помсти", description: "Дія: форма помсти на 1 хвилину. Перевага на кидки атаки. Істоти в межах 10 футів мають недолік на рятунки проти ваших заклинань та Каналу божественності." }
+            ]}
+        ],
+        subclassLevel: 3,
+        spellList: [],
+        features: [
+            { level: 1, name: "Відчуття божественності", desc: "Ви відчуваєте присутність небожителів, нежиті та істот Нижніх Планів у межах 60 футів." },
+            { level: 1, name: "Накладання рук", desc: "Ви можете зцілювати дотиком, відновлюючи хіти." },
+            { level: 2, name: "Бойовий стиль", desc: "Оберіть бойовий стиль (Захист, Дуелянт, Велика зброя тощо)." },
+            { level: 2, name: "Чаклунство", desc: "Ви отримуєте здатність чаклувати паладинські закляття." }
+        ]
+    },
+
+    // -------------------- RANGER --------------------
+    ranger: {
+        id: "ranger",
+        name: "Рейнджер",
+        icon: "🏹",
+        hitDice: "1d10",
+        primaryAbility: "Спритність та Мудрість",
+        primaryAbilityKey: "dex",
+        savingThrows: ["str", "dex"],
+        savingThrowsLabel: "Сила, Спритність",
+        armorProf: "Легка та середня броня, щити",
+        weaponProf: "Проста та бойова зброя",
+        spells: true,
+        spellcasting: {
+            ability: "wis",
+            type: "known",
+            cantripsByLevel: {},
+        spellList: ["alarm", "animal_friendship", "cure_wounds", "detect_magic", "detect_poison_and_disease", "ensnaring_strike", "fog_cloud", "goodberry", "hail_of_thorns", "hunters_mark", "jump", "longstrider", "speak_with_animals", "animal_messenger", "barkskin", "beast_sense", "cordon_of_arrows", "darkvision", "find_traps", "lesser_restoration", "locate_animals_or_plants", "locate_object", "pass_without_trace", "protection_from_poison", "silence", "spike_growth", "conjure_animals", "conjure_barrage", "daylight", "lightning_arrow", "nondetection", "plant_growth", "protection_from_energy", "speak_with_plants", "water_breathing", "water_walk", "wind_wall", "conjure_woodland_beings", "freedom_of_movement", "grasping_vine", "locate_creature", "stoneskin", "commune_with_nature", "conjure_volley", "swift_quiver", "tree_stride"],
+            spellsKnownFormula: "Math.floor(level / 2) + 1"
+        },
+        skillsCount: 3,
+        skills: ["Поводження з тваринами", "Атлетика", "Проникливість", "Дослідження", "Природа", "Уважність", "Скритність", "Виживання"],
+                subclasses: [
+            {"id":"fey_wanderer","name":"Чарівний Мандрівник","grantedSpells":["charm_person","misty_step","dispel_magic","dimension_door","mislead"],"features":[{"level":3,"name":"Дар Першосвіту","description":"Ваші атаки завдають додаткову психічну шкоду, а ви отримуєте бонус до соціальних перевірок."},{"level":3,"name":"Чарівний поступ","description":"Вас не можна зачарувати, і ви маєте перевагу проти зачарування."},{"level":7,"name":"Звивисті стежки","description":"Бонусною дією ви телепортуєтеся на коротку відстань."},{"level":11,"name":"Сяйлива мана","description":"Ваша психічна шкода вражає кількох ворогів поблизу цілі."},{"level":15,"name":"Зникнення у Феєрії","description":"Реакцією на шкоду ви стаєте невидимими й переміщуєтеся."}]},
+            {"id":"gloom_stalker","name":"Похмурий Переслідувач","grantedSpells":["disguise_self","rope_trick","fear","greater_invisibility","seeming"],"features":[{"level":3,"name":"Грізний нальотчик","description":"У першому раунді бою ви додаєте бонус до швидкості та додаткову атаку з додатковою шкодою."},{"level":3,"name":"Дитя пітьми","description":"Ви бачите в магічній темряві й маєте надзвичайний темний зір."},{"level":7,"name":"Залізний розум","description":"Ви отримуєте профіцієнцію в рятунках Мудрості (або іншому, якщо вже маєте)."},{"level":11,"name":"Раптова атака з пітьми","description":"Промахнувшись по цілі, що вас не бачить, ви можете влучити по іншій."},{"level":15,"name":"Прихований убивця","description":"Ви можете ставати невидимими, коли промахуєтесь, аби сховатися."}]},
+            { id: "hunter", name: "Мисливець", features: [
+                { level: 3, name: "Здобич мисливця", description: "Оберіть: Вбивця колосів (+1d8 шкоди великим істотам), Вбивця орди (додаткова атака при влучанні, якщо поруч інша істота), або Вбивця колосів (ціль має недолік на атаку проти вас до вашого наступного ходу)." },
+                { level: 7, name: "Тактика захисту", description: "Оберіть: Втеча від орди (атаки можливості мають недолік), Захист від багатьох (бонус +2/+4 до КЗ проти атак), або Сталева воля (перевага на рятунки проти страху)." },
+                { level: 11, name: "Багатоатака", description: "Оберіть: Залп (атакуйте двох істот однією атакою), Вихор атак (атака можливості проти будь-якої кількості істот), або Контратака залпом (реакція: атака після промаху істоти)." },
+                { level: 15, name: "Вища захист мисливця", description: "Оберіть: Ухилення (половина шкоди при провалі рятунку Спритності, 0 при успіху), Стояти проти хвилі (реакція: атака можливості проти атакувальника), або Зникнення (бонусна дія: сховатися)." }
+            ]},
+            { id: "beast_master", name: "Повелитель Звірів", features: [
+                { level: 3, name: "Супутник рейнджера", description: "Отримайте звіра-супутника (показник небезпеки ≤ 1/4, без швидкості польоту). Звір діє у ваш хід. Команда: бонусна дія для атаки звіра." },
+                { level: 7, name: "Виняткове тренування", description: "Звір може робити дію Ривок, Відступ, Допомога або Ухилення у свій хід." },
+                { level: 11, name: "Звірина лють", description: "Звір може робити дві атаки, коли ви командуєте йому атакувати." },
+                { level: 15, name: "Спільна чаклунство", description: "Чаклуючи закляття на себе: воно також впливає на звіра, якщо він в межах 30 футів." }
+            ]}
+        ],
+        subclassLevel: 3,
+        spellList: [],
+        features: [
+            { level: 1, name: "Обраний ворог", desc: "Ви маєте перевагу на перевірки для відстеження та знання про обраний тип істот." },
+            { level: 1, name: "Дослідник природи", desc: "Ви маєте переваги в обраному типі місцевості." },
+            { level: 2, name: "Бойовий стиль", desc: "Оберіть бойовий стиль (Стрільба, Захист, Дуелянт тощо)." }
+        ]
+    },
+
+    // -------------------- SORCERER --------------------
+    sorcerer: {
+        id: "sorcerer",
+        name: "Чародій",
+        icon: "✨",
+        hitDice: "1d6",
+        primaryAbility: "Харизма",
+        primaryAbilityKey: "cha",
+        savingThrows: ["con", "cha"],
+        savingThrowsLabel: "Витривалість, Харизма",
+        armorProf: "Немає",
+        resource: "Sorcery Points",
+        weaponProf: "Кинджали, дротики, пращі, посохи, легкі арбалети",
+        spells: true,
+        spellcasting: {
+            ability: "cha",
+            type: "known",
+            cantripsByLevel: { 1: 4, 2: 4, 3: 4, 4: 5, 5: 5, 6: 5, 7: 5, 8: 5, 9: 5, 10: 6, 11: 6, 12: 6, 13: 6, 14: 6, 15: 6, 16: 6, 17: 6, 18: 6, 19: 6, 20: 6 },
+        spellList: ["acid_splash", "blade_ward", "chill_touch", "dancing_lights", "fire_bolt", "friends", "light", "mage_hand", "mending", "message", "minor_illusion", "poison_spray", "prestidigitation", "ray_of_frost", "shocking_grasp", "true_strike", "burning_hands", "charm_person", "chromatic_orb", "color_spray", "comprehend_languages", "detect_magic", "disguise_self", "expeditious_retreat", "false_life", "feather_fall", "fog_cloud", "jump", "mage_armor", "magic_missile", "shield", "silent_image", "sleep", "thunderwave", "witch_bolt", "alter_self", "blindness_deafness", "blur", "cloud_of_daggers", "crown_of_madness", "darkness", "darkvision", "detect_thoughts", "enhance_ability", "enlarge_reduce", "gust_of_wind", "hold_person", "invisibility", "knock", "levitate", "mirror_image", "misty_step", "scorching_ray", "see_invisibility", "shatter", "spider_climb", "suggestion", "web", "blink", "clairvoyance", "counterspell", "daylight", "dispel_magic", "fear", "fireball", "fly", "gaseous_form", "haste", "hypnotic_pattern", "lightning_bolt", "major_image", "protection_from_energy", "sleet_storm", "slow", "stinking_cloud", "tongues", "water_breathing", "water_walk", "banishment", "blight", "confusion", "dimension_door", "dominate_beast", "greater_invisibility", "ice_storm", "polymorph", "stoneskin", "wall_of_fire", "animate_objects", "cloudkill", "cone_of_cold", "creation", "dominate_person", "hold_monster", "insect_plague", "seeming", "telekinesis", "teleportation_circle", "wall_of_stone", "arcane_gate", "chain_lightning", "circle_of_death", "disintegrate", "eyebite", "globe_of_invulnerability", "mass_suggestion", "move_earth", "sunbeam", "true_seeing", "delayed_blast_fireball", "etherealness", "finger_of_death", "fire_storm", "plane_shift", "prismatic_spray", "reverse_gravity", "teleport", "dominate_monster", "earthquake", "incendiary_cloud", "power_word_stun", "sunburst", "gate", "meteor_swarm", "power_word_kill", "time_stop", "wish"],
+            spellsKnownFormula: "level + 1"
+        },
+        skillsCount: 2,
+        skills: ["Аркана", "Обман", "Проникливість", "Залякування", "Переконання", "Релігія"],
+                subclasses: [
+            {"id":"aberrant","name":"Аберантна Магія","grantedSpells":["arms_of_hadar","detect_thoughts","hunger_of_hadar","evards_black_tentacles","telekinesis"],"features":[{"level":1,"name":"Телепатичні відчуття","description":"Ви можете телепатично спілкуватися з істотами поблизу та отримуєте психічні закляття."},{"level":1,"name":"Психічні закляття","description":"Ви можете витрачати Очки Чаклунства, щоб накладати свої психічні закляття без компонентів."},{"level":6,"name":"Психічна стійкість","description":"Ви отримуєте опір до психічної шкоди, а реакцією можете відбити шкоду назад."},{"level":14,"name":"Зброя порядку","description":"Ваші психічні закляття можуть оглушувати або підкоряти ворогів."},{"level":18,"name":"Викривлення реальності","description":"Ваша аберантна сила дозволяє перебудовувати простір навколо."}]},
+            {"id":"clockwork","name":"Годинникова Магія","grantedSpells":["alarm","protection_from_evil_and_good","aid","lesser_restoration","dispel_magic","protection_from_energy","freedom_of_movement","globe_of_invulnerability"],"features":[{"level":1,"name":"Відновлення рівноваги","description":"Реакцією ви можете скасувати перевагу або перешкоду на кидок поблизу."},{"level":1,"name":"Годинникова магія","description":"Ви отримуєте закляття порядку, що завжди підготовлені."},{"level":6,"name":"Бастіон закону","description":"Ви створюєте захисне поле, що поглинає шкоду собі чи союзнику."},{"level":14,"name":"Гонитва часу","description":"Ви можете коротко спотворити час, аби діяти знову."},{"level":18,"name":"Ідеальний порядок","description":"Ваша магія стає бездоганно передбачуваною й потужною."}]},
+            {"id":"wild_magic","name":"Дика Магія","features":[{"level":1,"name":"Сплеск дикої магії","description":"Накладаючи закляття, ви можете спричинити випадковий магічний ефект із таблиці хаосу."},{"level":1,"name":"Припливи хаосу","description":"Раз між відпочинками ви можете отримати перевагу на кидок, провокуючи сплеск дикої магії."},{"level":6,"name":"Згинання талану","description":"Очком Чаклунства ви даєте бонус або штраф на кидок істоти поблизу."},{"level":14,"name":"Контрольований хаос","description":"Спрацьовуючи сплеск, ви можете кидати двічі й обирати ефект."},{"level":18,"name":"Магічна стійкість","description":"Ви отримуєте перевагу на всі рятунки проти заклять."}]},
+            { id: "draconic_bloodline", name: "Драконячий Родовід", baseAC: 13, hpBonusPerLevel: 1, features: [
+                { level: 1, name: "Драконячий предок", description: "Оберіть тип дракона як свого предка. Тип шкоди, пов'язаний з кожним драконом, використовується вашими здібностями." },
+                { level: 1, name: "Драконяча стійкість", description: "Ваш максимум хітів зростає на 1, і зростає на 1 додатково з кожним новим рівнем чародія. Крім того, частини вашої шкіри покриті тонкою лускою. Коли ви не носите броню, ваш КЗ дорівнює 13 + модифікатор Спритності." },
+                { level: 6, name: "Спорідненість стихії", description: "Коли ви чаклуєте закляття, що завдає шкоди типу, пов'язаного з вашим драконячим предком, ви можете додати модифікатор Харизми до одного кидка шкоди цього закляття. Ви також отримуєте опір до цього типу шкоди." },
+                { level: 14, name: "Драконячі крила", description: "Ви отримуєте здатність виростити драконячі крила зі спини, отримуючи швидкість польоту, рівну вашій поточній швидкості. Ви можете створити ці крила бонусною дією у свій хід." },
+                { level: 18, name: "Драконяча присутність", description: "Дією ви можете витратити 5 очок чародійства, щоб створити ауру страху або благоговіння в радіусі 60 футів. Протягом 1 хвилини або до втрати концентрації кожна ворожа істота, що починає свій хід в цій аурі, повинна пройти рятунок Мудрості або стати зачарованою (благоговіння) або наляканою (страх) до закінчення аури." }
+            ]}
+        ],
+        subclassLevel: 1,
+        spellList: [],
+        features: [
+            { level: 1, name: "Чаклунство", desc: "Ви чаклуєте чародійські закляття, використовуючи вроджену магію." },
+            { level: 1, name: "Чародійське походження", desc: "Оберіть джерело вашої магії (Драконяча кров, Дика магія тощо)." },
+            { level: 2, name: "Джерело магії", desc: "Ви отримуєте очки чародійства для метамагії." },
+            { level: 3, name: "Метамагія", desc: "Ви можете змінювати закляття особливими способами." }
+        ]
+    },
+
+    // -------------------- WARLOCK --------------------
+    warlock: {
+        id: "warlock",
+        name: "Колдун",
+        icon: "🔮",
+        hitDice: "1d8",
+        primaryAbility: "Харизма",
+        primaryAbilityKey: "cha",
+        savingThrows: ["wis", "cha"],
+        savingThrowsLabel: "Мудрість, Харизма",
+        armorProf: "Легка броня",
+        weaponProf: "Проста зброя",
+        spells: true,
+        spellcasting: {
+            ability: "cha",
+            type: "known",
+            cantripsByLevel: { 1: 2, 2: 2, 3: 2, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 4, 11: 4, 12: 4, 13: 4, 14: 4, 15: 4, 16: 4, 17: 4, 18: 4, 19: 4, 20: 4 },
+        spellList: ["blade_ward", "chill_touch", "eldritch_blast", "friends", "mage_hand", "minor_illusion", "poison_spray", "prestidigitation", "true_strike", "armor_of_agathys", "arms_of_hadar", "charm_person", "comprehend_languages", "expeditious_retreat", "hellish_rebuke", "hex", "illusory_script", "protection_from_evil_and_good", "unseen_servant", "witch_bolt", "cloud_of_daggers", "crown_of_madness", "darkness", "enthrall", "hold_person", "invisibility", "mirror_image", "misty_step", "ray_of_enfeeblement", "shatter", "spider_climb", "suggestion", "counterspell", "dispel_magic", "fear", "fly", "gaseous_form", "hunger_of_hadar", "hypnotic_pattern", "magic_circle", "major_image", "remove_curse", "tongues", "vampiric_touch", "banishment", "blight", "dimension_door", "hallucinatory_terrain", "contact_other_plane", "dream", "hold_monster", "scrying", "arcane_gate", "circle_of_death", "conjure_fey", "create_undead", "eyebite", "flesh_to_stone", "mass_suggestion", "true_seeing", "etherealness", "finger_of_death", "forcecage", "plane_shift", "demiplane", "dominate_monster", "feeblemind", "glibness", "power_word_stun", "astral_projection", "foresight", "imprisonment", "power_word_kill", "true_polymorph"],
+            spellsKnownFormula: "level + 1"
+        },
+        skillsCount: 2,
+        skills: ["Аркана", "Обман", "Історія", "Залякування", "Дослідження", "Природа", "Релігія"],
+                subclasses: [
+            {"id":"celestial","name":"Небожитель","grantedSpells":["light","sacred_flame","cure_wounds","guiding_bolt","flaming_sphere","lesser_restoration","daylight","revivify","guardian_of_faith","wall_of_fire","greater_restoration","flame_strike"],"features":[{"level":1,"name":"Сяйливі душі","description":"Ви маєте пул кубиків зцілення, якими бонусною дією лікуєте себе чи союзників."},{"level":1,"name":"Цілющий світоч","description":"Ви отримуєте промінні замовляння та додаткові закляття зцілення/світла."},{"level":6,"name":"Промениста душа","description":"Раз на хід ви додаєте свій модифікатор Харизми до промінної чи вогняної шкоди заклять."},{"level":10,"name":"Цілюща аура","description":"На початку ваших ходів союзники поблизу відновлюють трохи хітів."},{"level":14,"name":"Сонячний спалах","description":"Дією ви випускаєте промені світла, що ранять ворогів і засліплюють."}]},
+            { id: "archfey", name: "Архіфея", grantedSpells: ["faerie_fire", "sleep", "calm_emotions", "phantasmal_force", "blink", "plant_growth", "dominate_beast", "greater_invisibility", "dominate_person", "seeming"], features: [
+                { level: 1, name: "Присутність фей", description: "Дія: істоти на вибір в межах 10 футів. Рятунок Мудрості або зачаровані або налякані до кінця вашого наступного ходу." },
+                { level: 6, name: "Туманний втеча", description: "Реакція на отримання шкоди: станьте невидимим, телепортуйтеся на 60 футів. Невидимість до початку наступного ходу або до атаки/чаклування." },
+                { level: 10, name: "Захист від зачарування", description: "Неможливо зачарувати магією." },
+                { level: 14, name: "Темне марення", description: "Дія: зачаруйте істоту. Рятунок Мудрості або зачарована. Поки зачарована: ви та союзники невидимі для неї. Закінчується при шкоді їй або її союзникам." }
+            ]},
+            { id: "fiend", name: "Диявол", grantedSpells: ["burning_hands", "command", "blindness_deafness", "scorching_ray", "fireball", "stinking_cloud", "fire_shield", "wall_of_fire", "flame_strike", "hallow"], features: [
+                { level: 1, name: "Благословення темних", description: "Коли ви зменшуєте ворожу істоту до 0 хітів: відновіть тимчасові хіти = модифікатор Харизми + рівень відьмака." },
+                { level: 6, name: "Власна удача темних", description: "Провалюючи перевірку або рятунок: додайте d10. Якщо це перетворює провал на успіх: не можна використовувати до короткого або довгого відпочинку." },
+                { level: 10, name: "Стійкість диявола", description: "Оберіть тип шкоди при завершенні короткого або довгого відпочинку. Опір до цього типу." },
+                { level: 14, name: "Кидання крізь пекло", description: "Влучивши по істоті атакою: телепортуйте її крізь пекло. Рятунок Мудрості або 10d10 психічної шкоди (половина при успіху)." }
+            ]},
+            { id: "great_old_one", name: "Великий Древній", grantedSpells: ["dissonant_whispers", "tashas_hideous_laughter", "detect_thoughts", "phantasmal_force", "clairvoyance", "sending", "dominate_beast", "evards_black_tentacles", "dominate_person", "telekinesis"], features: [
+                { level: 1, name: "Пробудження розуму", description: "Телепатія 30 футів. Спілкуйтеся з будь-якою істотою, що розуміє хоча б одну мову." },
+                { level: 6, name: "Ентропійна палата", description: "Реакція на отримання шкоди від атаки: накладіть недолік на атаку. Якщо промах: атакувальник отримує шкоду = половина вашого рівня відьмака." },
+                { level: 10, name: "Думковий щит", description: "Опір до психічної шкоди. Істота, що завдає вам психічної шкоди: отримує таку ж шкоду." },
+                { level: 14, name: "Створення трала", description: "Дія: істота, що недієздатна. Рятунок Мудрості або зачарована. Поки зачарована: телепатичний зв'язок. Команда: дія або реакція трала." }
+            ]}
+        ],
+        subclassLevel: 1,
+        spellList: [],
+        features: [
+            { level: 1, name: "Потойбічний покровитель", desc: "Ви уклали угоду з потойбічною істотою." },
+            { level: 1, name: "Чаклунство пакту", desc: "Ви чаклуєте закляття через свій пакт, використовуючи комірки пакту." },
+            { level: 2, name: "Містичні закляття", desc: "Ви отримуєте містичні закляття — особливі магічні здібності." },
+            { level: 3, name: "Дар пакту", desc: "Ваш покровитель дарує вам особливий дар (Пакт клинка, Пакт ланцюга, Пакт фоліанта)." }
+        ]
+    },
+
+    // -------------------- WIZARD --------------------
+    wizard: {
+        id: "wizard",
+        name: "Чарівник",
+        icon: "🧙",
+        hitDice: "1d6",
+        primaryAbility: "Інтелект",
+        primaryAbilityKey: "int",
+        savingThrows: ["int", "wis"],
+        savingThrowsLabel: "Інтелект, Мудрість",
+        armorProf: "Немає",
+        weaponProf: "Кинджали, дротики, пращі, посохи, легкі арбалети",
+        spells: true,
+        spellcasting: {
+            ability: "int",
+            type: "prepared",
+            cantripsByLevel: { 1: 3, 2: 3, 3: 3, 4: 4, 5: 4, 6: 4, 7: 4, 8: 4, 9: 4, 10: 5, 11: 5, 12: 5, 13: 5, 14: 5, 15: 5, 16: 5, 17: 5, 18: 5, 19: 5, 20: 5 },
+        spellList: ["acid_splash", "blade_ward", "chill_touch", "dancing_lights", "fire_bolt", "friends", "light", "mage_hand", "mending", "message", "minor_illusion", "poison_spray", "prestidigitation", "ray_of_frost", "shocking_grasp", "true_strike", "alarm", "burning_hands", "charm_person", "chromatic_orb", "color_spray", "comprehend_languages", "detect_magic", "disguise_self", "expeditious_retreat", "false_life", "feather_fall", "find_familiar", "fog_cloud", "grease", "identify", "illusory_script", "jump", "longstrider", "mage_armor", "magic_missile", "protection_from_evil_and_good", "shield", "silent_image", "sleep", "tensers_floating_disk", "thunderwave", "unseen_servant", "witch_bolt", "arcane_lock", "blindness_deafness", "blur", "cloud_of_daggers", "continual_flame", "darkness", "darkvision", "detect_thoughts", "enlarge_reduce", "flaming_sphere", "gentle_repose", "gust_of_wind", "hold_person", "invisibility", "knock", "levitate", "locate_object", "magic_mouth", "magic_weapon", "mirror_image", "misty_step", "rope_trick", "scorching_ray", "see_invisibility", "shatter", "spider_climb", "suggestion", "web", "animate_dead", "bestow_curse", "blink", "clairvoyance", "counterspell", "dispel_magic", "fear", "fireball", "fly", "gaseous_form", "glyph_of_warding", "haste", "hypnotic_pattern", "lightning_bolt", "magic_circle", "major_image", "nondetection", "phantom_steed", "protection_from_energy", "remove_curse", "sending", "sleet_storm", "slow", "stinking_cloud", "tongues", "vampiric_touch", "water_breathing", "arcane_eye", "banishment", "black_tentacles", "blight", "confusion", "conjure_minor_elementals", "control_water", "dimension_door", "fabricate", "fire_shield", "greater_invisibility", "hallucinatory_terrain", "ice_storm", "locate_creature", "phantasmal_killer", "polymorph", "private_sanctum", "resilient_sphere", "secret_chest", "stone_shape", "stoneskin", "wall_of_fire", "animate_objects", "arcane_hand", "cloudkill", "cone_of_cold", "conjure_elemental", "contact_other_plane", "creation", "dominate_person", "dream", "geas", "hold_monster", "legend_lore", "mislead", "modify_memory", "passwall", "planar_binding", "scrying", "seeming", "telekinesis", "telepathic_bond", "teleportation_circle", "wall_of_force", "wall_of_stone", "arcane_gate", "chain_lightning", "circle_of_death", "contingency", "create_undead", "disintegrate", "eyebite", "flesh_to_stone", "globe_of_invulnerability", "guards_and_wards", "instant_summons", "irresistible_dance", "magic_jar", "mass_suggestion", "move_earth", "programmed_illusion", "sunbeam", "true_seeing", "wall_of_ice", "delayed_blast_fireball", "etherealness", "finger_of_death", "forcecage", "magnificent_mansion", "mirage_arcane", "plane_shift", "prismatic_spray", "project_image", "reverse_gravity", "sequester", "simulacrum", "symbol", "teleport", "antimagic_field", "antipathy_sympathy", "clone", "control_weather", "demiplane", "dominate_monster", "feeblemind", "incendiary_cloud", "maze", "mind_blank", "power_word_stun", "sunburst", "telepathy", "astral_projection", "foresight", "gate", "imprisonment", "meteor_swarm", "power_word_kill", "prismatic_wall", "shapechange", "time_stop", "true_polymorph", "weird", "wish"],
+            preparedFormula: "level + int"
+        },
+        skillsCount: 2,
+        skills: ["Аркана", "Історія", "Проникливість", "Дослідження", "Медицина", "Релігія"],
+                subclasses: [
+            {"id":"divination","name":"Школа Віщування","features":[{"level":2,"name":"Передвістя","description":"Після тривалого відпочинку ви кидаєте два d20 і можете замінити ними майбутні кидки."},{"level":2,"name":"Знавець віщувань","description":"Закляття віщування ви переписуєте дешевше та швидше."},{"level":6,"name":"Досвідчене передвістя","description":"Ви отримуєте третій кубик передвістя."},{"level":10,"name":"Велике передвістя","description":"Ваші кубики передвістя стають потужнішими у застосуванні."},{"level":14,"name":"Третє око","description":"Дією ви отримуєте темний зір, бачення невидимого чи читання думок на короткий час."}]},
+            {"id":"illusion","name":"Школа Ілюзії","features":[{"level":2,"name":"Покращена мала ілюзія","description":"Ви знаєте замовляння «Мала ілюзія» і можете створювати звук та образ одночасно."},{"level":2,"name":"Знавець ілюзій","description":"Закляття ілюзії ви переписуєте дешевше та швидше."},{"level":6,"name":"Оманлива творчість","description":"Дією ви можете оживити частину ілюзії, надавши їй фізичних властивостей."},{"level":10,"name":"Видима ілюзія","description":"Ваші ілюзії стають переконливішими й важчими для викриття."},{"level":14,"name":"Ілюзорна реальність","description":"На мить ви робите частину ілюзії справжньою."}]},
+            { id: "abjuration", name: "Школа Убезпечення", features: [
+                { level: 2, name: "Учень убезпечення", description: "Час і золото для копіювання заклинань убезпечення зменшено вдвічі." },
+                { level: 2, name: "Аркана палата", description: "Створіть магічну палату. Хіти палати = подвійний рівень чарівника + модифікатор Інтелекту. Відновлюється після довгого відпочинку або чаклування закляття убезпечення." },
+                { level: 6, name: "Проектована палата", description: "Реакція: надайте істоті в межах 30 футів опір до шкоди. Аркана палата втрачає хіти, рівні завданій шкоді." },
+                { level: 10, name: "Покращена аркана палата", description: "Аркана палата отримує опір до шкоди від заклинань. Ви отримуєте опір до шкоди від заклинань, поки палата активна." },
+                { level: 14, name: "Опір заклинанням", description: "Перевага на рятунки проти заклинань. Опір до шкоди від заклинань." }
+            ]},
+            { id: "evocation", name: "Школа Втілення", sculptSpells: true, features: [
+                { level: 2, name: "Скульптор заклинань", description: "Ви можете створювати кишені відносної безпеки в межах ефектів ваших заклинань втілення. Коли ви чаклуєте закляття втілення, ви можете обрати кількість істот, яку бачите, рівну 1 + рівень закляття. Обрані істоти автоматично проходять рятунок проти закляття і не отримують шкоди, якщо зазвичай отримували б половину при успішному рятунку." },
+                { level: 6, name: "Потужне замовляння", description: "Ваші замовляння, що завдають шкоди, впливають навіть на істот, які уникають основного ефекту. Коли істота проходить рятунок проти вашого замовляння або промахується по ній, вона все одно отримує половину шкоди замовляння, але не отримує додаткових ефектів." },
+                { level: 10, name: "Посилене втілення", description: "Ви можете додати модифікатор Інтелекту до одного кидка шкоди будь-якого закляття втілення чарівника, яке ви чаклуєте." },
+                { level: 14, name: "Надзаряд", description: "Ви можете збільшити силу простіших заклинань. Коли ви чаклуєте закляття чарівника 1–5 рівня, що завдає шкоди, ви можете завдати максимальну шкоду цим заклинанням. Ви можете використовувати цю здатність один раз, і відновлюєте її після довгого відпочинку." }
+            ]}
+        ],
+        subclassLevel: 2,
+        spellList: [],
+        features: [
+            { level: 1, name: "Чаклунство", desc: "Ви чаклуєте чарівницькі закляття через вивчення та практику." },
+            { level: 1, name: "Відновлення аркани", desc: "Раз на день під час короткого відпочинку ви відновлюєте комірки заклинань." },
+            { level: 2, name: "Аркана традиція", desc: "Оберіть школу магії для спеціалізації." },
+            { level: 18, name: "Майстерність заклинань", desc: "Ви можете чаклувати деякі закляття 1-го та 2-го рівня необмежено." }
+        ]
     }
 };
 
+// ====================================================================
+// РАСИ D&D 5e (v2) — без фіксованих бонусів характеристик.
+// Підвищення характеристик гравець обирає сам через Origin ASI
+// (+2/+1 або +1/+1/+1). Категорії: "Звичайні", "Екзотичні", "Чудовиська".
+// Деякі раси мають `subraces` (підраси) з власними рисами.
+// ====================================================================
 const DND_RACES = {
+    // ==================== ЗВИЧАЙНІ (PHB 2024) ====================
     human: {
         id: "human",
         name: "Людина",
         icon: "🧑",
+        category: "Звичайні (PHB 2024)",
+        desc: "Найадаптивніший народ світу — амбітні, винахідливі та повсюдні.",
         speed: 30,
-        size: "Середня",
-        languages: "Загальна та одна додаткова мова на вибір",
-        bonuses: { str: 1, dex: 1, con: 1, int: 1, wis: 1, cha: 1 },
-        bonusesLabel: "+1 до всіх характеристик",
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 1, from: "any" },
         traits: [
-            { name: "Універсальність", desc: "Люди — найрізноманітніша та найадаптивніша раса. Усі базові характеристики отримують +1." },
-            { name: "Додаткова мова", desc: "Ви знаєте одну додаткову мову на свій вибір." }
+            { name: "Винахідливість (Resourceful)", desc: "Наприкінці кожного тривалого відпочинку ви отримуєте Героїчне натхнення." },
+            { name: "Вправність (Skillful)", desc: "Володіння однією навичкою на вибір." },
+            { name: "Багатогранність (Versatile)", desc: "Одна риса походження (Origin feat) на вибір." }
         ]
     },
     elf: {
         id: "elf",
         name: "Ельф",
         icon: "🧝",
+        category: "Звичайні (PHB 2024)",
+        desc: "Граційний довговічний народ фейського походження.",
         speed: 30,
         size: "Середня",
-        languages: "Загальна, Ельфійська",
-        bonuses: { dex: 2, wis: 1 },
-        bonusesLabel: "+2 Спритність, +1 Мудрість",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 1, from: ["Проникливість", "Уважність", "Виживання"] },
         traits: [
-            { name: "Темний зір", desc: "Ви бачите у тьмяному світлі на відстань 60 футів так, ніби це яскраве світло, а у темряві — як у тьмяному світлі (тільки відтінки сірого)." },
-            { name: "Загострені почуття", desc: "Ви маєте володіння навичкою Уважність." },
-            { name: "Транс", desc: "Ельфи не сплять — натомість медитують 4 години для повноцінного довгого відпочинку." },
-            { name: "Стійкість фейрі", desc: "Ви маєте перевагу на рятунки проти чарування, і вас не можна магічно усипити." }
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Спадок фейрі (Fey Ancestry)", desc: "Перевага на рятунки проти стану Зачарований." },
+            { name: "Загострені почуття (Keen Senses)", desc: "Володіння однією навичкою: Проникливість, Уважність або Виживання." },
+            { name: "Транс (Trance)", desc: "Не спите; тривалий відпочинок — 4 години медитації." },
+            { name: "Ельфійський родовід (Elven Lineage)", desc: "Оберіть родовід нижче — він дає закляття (характеристика: Інт/Мдр/Хар)." }
+        ],
+        subraces: [
+            { id: "highelf", name: "Високий ельф", grantedSpells: ["prestidigitation"], bonusCantripChoices: 1, traits: [
+                { name: "Фокус", desc: "Знаєте «Витівка»; на тривалому відпочинку можете замінити його іншим фокусом чарівника." },
+                { name: "Закляття родоводу", desc: "З 3-го рівня — «Виявлення магії»; з 5-го — «Туманний крок»." }
+            ]},
+            { id: "woodelf", name: "Лісовий ельф", grantedSpells: ["druidcraft"], traits: [
+                { name: "Прудкість", desc: "Швидкість 35 футів." },
+                { name: "Закляття родоводу", desc: "Знаєте «Друїдизм»; з 3-го — «Довгий крок»; з 5-го — «Без сліду»." }
+            ]},
+            { id: "drow", name: "Дроу", grantedSpells: ["dancing_lights"], traits: [
+                { name: "Покращений темний зір", desc: "Дальність 120 футів." },
+                { name: "Закляття родоводу", desc: "Знаєте «Танцюючі вогники»; з 3-го — «Вогні фейрі»; з 5-го — «Темрява»." }
+            ]}
         ]
     },
     dwarf: {
         id: "dwarf",
         name: "Дворф",
         icon: "🧔",
-        speed: 25,
+        category: "Звичайні (PHB 2024)",
+        desc: "Витривалий народ гір і підземних твердинь, майстри каменю.",
+        speed: 30,
         size: "Середня",
-        languages: "Загальна, Дворфійська",
-        bonuses: { con: 2, str: 1 },
-        bonusesLabel: "+2 Витривалість, +1 Сила",
+        languages: "Загальна + 2 мови від передісторії",
         traits: [
-            { name: "Темний зір", desc: "Ви бачите у тьмяному світлі на відстань 60 футів так, ніби це яскраве світло." },
-            { name: "Дворфійська стійкість", desc: "Ви маєте перевагу на рятунки проти отрути та опір шкоді від отрути." },
-            { name: "Дворфійський бойовий тренінг", desc: "Ви маєте володіння бойовими сокирами, ручними сокирами, легкими молотами та бойовими молотами." },
-            { name: "Камінний інстинкт", desc: "Перевірки Історії стосовно каменю, що пов'язані з кам'яною роботою, ви здійснюєте з бонусом володіння подвоєним." }
+            { name: "Темний зір", desc: "Дальність 120 футів." },
+            { name: "Дворфійська стійкість", desc: "Опір шкоді отрутою та перевага на рятунки проти стану Отруєний." },
+            { name: "Дворфійська витривалість", desc: "Максимум хітів +1 та додатково +1 за кожен рівень." },
+            { name: "Камінне чуття (Stonecunning)", desc: "Бонусною дією — трясучий зір 60 фт на 10 хв. Використань = бонус володіння." }
+        ]
+    },
+    halfling: {
+        id: "halfling",
+        name: "Напіврослик",
+        icon: "🧒",
+        category: "Звичайні (PHB 2024)",
+        desc: "Маленький життєрадісний народ, що цінує дім і спокій.",
+        speed: 30,
+        size: "Маленька",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Хоробрість (Brave)", desc: "Перевага на рятунки проти стану Наляканий." },
+            { name: "Напіврослицька спритність", desc: "Можете проходити крізь простір більших істот." },
+            { name: "Щасливчик (Luck)", desc: "Якщо на d20 випадає 1, перекиньте кістку." },
+            { name: "Природна скритність", desc: "Можете ховатися за істотою, більшою за вас." }
+        ]
+    },
+    gnome: {
+        id: "gnome",
+        name: "Гном",
+        icon: "🧙",
+        category: "Звичайні (PHB 2024)",
+        desc: "Маленькі винахідливі непосиди з любов'ю до механізмів.",
+        speed: 30,
+        size: "Маленька",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Гномська кмітливість", desc: "Перевага на рятунки Інтелекту, Мудрості та Харизми." },
+            { name: "Гномський родовід", desc: "Оберіть родовід нижче. Характеристика: Інт/Мдр/Хар." }
+        ],
+        subraces: [
+            { id: "forestgnome", name: "Лісовий гном", grantedSpells: ["minor_illusion", "speak_with_animals"], traits: [
+                { name: "Магія родоводу", desc: "Знаєте «Мала ілюзія» та можете розмовляти з малими звірами." }
+            ]},
+            { id: "rockgnome", name: "Скельний гном", grantedSpells: ["mending", "prestidigitation"], traits: [
+                { name: "Майстровитість", desc: "Знаєте «Лагодження» та «Витівка»." },
+                { name: "Годинниковий пристрій", desc: "Можете спорудити крихітний механічний пристрій (КЗ 5, 1 хіт)." }
+            ]}
+        ]
+    },
+    dragonborn: {
+        id: "dragonborn",
+        name: "Драконороджений",
+        icon: "🐉",
+        category: "Звичайні (PHB 2024)",
+        desc: "Горді нащадки драконів, чиє дихання відображає їхній рід.",
+        speed: 30,
+        size: "Середня",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Драконяча спадковість", desc: "Оберіть тип дракона — він визначає тип шкоди (Кислота/Блискавка/Вогонь/Отрута/Холод)." },
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Зброя дихання (Breath Weapon)", desc: "Замість атаки: конус 15 фт або лінія 30 фт, рятунок Спритності (КС 8 + мод. Витривалості + бонус володіння), 1d10 шкоди (зростає до 2d10/3d10/4d10 на 5/11/17 рівнях). Використань = бонус володіння." },
+            { name: "Опір шкоді", desc: "Опір типу шкоди вашої спадковості." },
+            { name: "Драконячий політ (Draconic Flight)", desc: "З 5-го рівня бонусною дією — крила: політ = швидкості на 10 хв. Раз на тривалий відпочинок." }
+        ]
+    },
+    orc: {
+        id: "orc",
+        name: "Орк",
+        icon: "👹",
+        category: "Звичайні (PHB 2024)",
+        desc: "Дужі й невтомні нащадки Груумша, створені для витривалості.",
+        speed: 30,
+        size: "Середня",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Сплеск адреналіну (Adrenaline Rush)", desc: "Берете дію Ривок бонусною дією й отримуєте тимчасові хіти = бонусу володіння. Відновлення на короткий або тривалий відпочинок." },
+            { name: "Темний зір", desc: "Дальність 120 футів." },
+            { name: "Невблаганна витривалість", desc: "Впавши до 0 хітів (але не вбиті), лишаєтесь з 1 хітом. Раз на тривалий відпочинок." }
+        ]
+    },
+    tiefling: {
+        id: "tiefling",
+        name: "Тіфлінг",
+        icon: "😈",
+        category: "Звичайні (PHB 2024)",
+        desc: "Нащадки інфернального спадку, позначені рогами й хвостом.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["thaumaturgy"],
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Потойбічна присутність", desc: "Знаєте фокус «Чаклунство» (Thaumaturgy). Характеристика: Інт/Мдр/Хар." },
+            { name: "Інфернальний спадок (Fiendish Legacy)", desc: "Оберіть спадок нижче — він дає опір і закляття." }
+        ],
+        subraces: [
+            { id: "infernal", name: "Інфернальний", grantedSpells: ["fire_bolt"], traits: [
+                { name: "Спадок", desc: "Опір вогнем. Знаєте «Вогняний снаряд»; з 3-го — «Пекельний докір»; з 5-го — «Темрява»." }
+            ]},
+            { id: "chthonic", name: "Хтонічний", grantedSpells: ["chill_touch"], traits: [
+                { name: "Спадок", desc: "Опір некрозом. Знаєте «Холодний дотик»; з 3-го — «Хибне життя»; з 5-го — «Промінь виснаження»." }
+            ]},
+            { id: "abyssal", name: "Безодній", traits: [
+                { name: "Спадок", desc: "Опір отрутою. Знаєте «Бризки отрути»; з 3-го — «Промінь нездужання»; з 5-го — «Утримання особи»." }
+            ]}
+        ]
+    },
+    aasimar: {
+        id: "aasimar",
+        name: "Аасімар",
+        icon: "😇",
+        category: "Звичайні (PHB 2024)",
+        desc: "Носії небесної іскри, позначені впливом вищих планів.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["light"],
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Небесний опір", desc: "Опір шкоді некрозом і промінням." },
+            { name: "Цілющі руки (Healing Hands)", desc: "Дією торкаєтесь істоти й кидаєте d4 числом = бонусу володіння, відновлюючи хіти. Раз на тривалий відпочинок." },
+            { name: "Світоносець (Light Bearer)", desc: "Знаєте фокус «Світло» (Харизма)." },
+            { name: "Небесне одкровення (Celestial Revelation)", desc: "З 3-го рівня оберіть форму нижче; бонусною дією на 1 хв додаєте +бонус володіння шкоди раз на хід. Раз на тривалий відпочинок." }
+        ],
+        subraces: [
+            { id: "heavenlywings", name: "Небесні крила", traits: [ { name: "Одкровення", desc: "Крила: політ = швидкості на час перетворення." } ]},
+            { id: "innerradiance", name: "Внутрішнє сяйво", traits: [ { name: "Одкровення", desc: "Сяйво (світло 10 фт); вороги поруч отримують промінну шкоду." } ]},
+            { id: "necroticshroud", name: "Некротична запона", traits: [ { name: "Одкровення", desc: "Примарні крила лякають ворогів поруч; додаткова шкода некрозом." } ]}
+        ]
+    },
+    goliath: {
+        id: "goliath",
+        name: "Голіаф",
+        icon: "🗿",
+        category: "Звичайні (PHB 2024)",
+        desc: "Велетенський народ високогір'я з краплею крові велетнів.",
+        speed: 35,
+        size: "Середня",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Спадок велетнів (Giant Ancestry)", desc: "Оберіть дар велетня нижче. Використань = бонус володіння." },
+            { name: "Велика подоба (Large Form)", desc: "З 5-го рівня бонусною дією стаєте Великим на 10 хв (перевага на Силу, +10 фт швидкості). Раз на тривалий відпочинок." },
+            { name: "Потужна статура (Powerful Build)", desc: "Перевага проти стану Схоплений і рахуєтесь на розмір більшим для перенесення ваги." }
+        ],
+        subraces: [
+            { id: "cloud", name: "Стрибок хмари", traits: [ { name: "Дар", desc: "Бонусною дією телепортуєтесь на 30 фт." } ]},
+            { id: "fire", name: "Полум'я вогню", traits: [ { name: "Дар", desc: "Влучивши атакою, додаєте 1d10 шкоди вогнем." } ]},
+            { id: "frost", name: "Холод криги", traits: [ { name: "Дар", desc: "Влучивши атакою, додаєте 1d6 шкоди холодом і зменшуєте швидкість цілі на 10 фт." } ]},
+            { id: "hill", name: "Падіння пагорба", traits: [ { name: "Дар", desc: "Влучивши атакою, можете збити ціль з ніг (Prone)." } ]},
+            { id: "stone", name: "Стійкість каменю", traits: [ { name: "Дар", desc: "Реакцією зменшуєте отриману шкоду на 1d12 + мод. Витривалості." } ]},
+            { id: "storm", name: "Грім бурі", traits: [ { name: "Дар", desc: "Реакцією, отримавши шкоду, завдаєте 1d8 шкоди громом істоті поруч." } ]}
+        ]
+    },
+
+    // ==================== ЕБЕРРОН ====================
+    changeling: {
+        id: "changeling",
+        name: "Перевертень (Changeling)",
+        icon: "🎭",
+        category: "Еберрон",
+        desc: "Фейські шейпшифтери, що можуть набути будь-якого обличчя. Джерело: Eberron.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 2, from: ["Обман", "Проникливість", "Залякування", "Виступ", "Переконання"] },
+        traits: [
+            { name: "Інстинкти перевертня", desc: "Володіння двома навичками: Обман, Проникливість, Залякування, Виступ або Переконання." },
+            { name: "Зміна форми (Shape-Shifter)", desc: "Дією змінюєте зовнішність і голос (зріст, стать, розмір Середній–Маленький, вигляд іншого виду). Поки змінені — перевага на перевірки Харизми. Спорядження не змінюється." }
+        ]
+    },
+    kalashtar: {
+        id: "kalashtar",
+        name: "Калаштар (Kalashtar)",
+        icon: "🧠",
+        category: "Еберрон",
+        desc: "Союз людей і духів квор зі снів. Аберація. Джерело: Eberron.",
+        speed: 30,
+        size: "Середня",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 1, from: "any" },
+        traits: [
+            { name: "Подвійний розум (Dual Mind)", desc: "Перевага на рятунки Мудрості та Харизми." },
+            { name: "Ментальна дисципліна", desc: "Опір психічній шкоді." },
+            { name: "Ментальний зв'язок (Mind Link)", desc: "Телепатія в радіусі 10 фт × ваш рівень; можете дозволити істоті відповідати телепатично 1 годину." },
+            { name: "Відрізаний від снів", desc: "Не можете бути ціллю закляття «Сон»; після тривалого відпочинку отримуєте володіння однією навичкою на вибір." }
+        ]
+    },
+    khoravar: {
+        id: "khoravar",
+        name: "Хоравар (Khoravar)",
+        icon: "🧝‍♂️",
+        category: "Еберрон",
+        desc: "Нащадки людей і ельфів Кхорвейру («діти Кхорвейру»). Еберронський аналог напівельфа. Джерело: Eberron.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["friends"],
+        skillChoices: { count: 1, from: "any" },
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Спадок фейрі (Fey Ancestry)", desc: "Перевага на рятунки проти стану Зачарований." },
+            { name: "Дар фейрі (Fey Gift)", desc: "Знаєте фокус «Друзі»; на тривалому відпочинку можете замінити його фокусом жерця, друїда або чарівника." },
+            { name: "Опір летаргії", desc: "Провал рятунку проти стану Непритомний можна вважати успіхом. Повторно — після 1d4 тривалих відпочинків." },
+            { name: "Багатогранність навичок", desc: "Володіння однією навичкою або інструментом; можна змінювати на тривалому відпочинку." }
+        ]
+    },
+    shifter: {
+        id: "shifter",
+        name: "Перевертень-звір (Shifter)",
+        icon: "🐺",
+        category: "Еберрон",
+        desc: "Нащадки лікантропів, що можуть тимчасово підсилювати звірині риси. Джерело: Eberron.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 1, from: ["Акробатика", "Атлетика", "Залякування", "Виживання"] },
+        traits: [
+            { name: "Звірині інстинкти", desc: "Володіння однією навичкою: Акробатика, Атлетика, Залякування або Виживання." },
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Звертання (Shifting)", desc: "Бонусною дією на 1 хв набуваєте звіриної подоби; тимчасові хіти = 2 × бонус володіння. Використань = бонус володіння. Оберіть тип нижче." }
+        ],
+        subraces: [
+            { id: "beasthide", name: "Звірошкірий", traits: [ { name: "Звертання", desc: "+1d6 тимчасових хітів і +1 КЗ поки звернені." } ]},
+            { id: "longtooth", name: "Довгоіклий", traits: [ { name: "Звертання", desc: "Бонусною дією робите Беззбройний удар іклами: 1d6 + мод. Сили колючої шкоди." } ]},
+            { id: "swiftstride", name: "Прудкокрокий", traits: [ { name: "Звертання", desc: "+10 фт швидкості; реакцією рухаєтесь до 10 фт, коли ворог завершує хід поруч." } ]},
+            { id: "wildhunt", name: "Дикий мисливець", traits: [ { name: "Звертання", desc: "Перевага на перевірки Мудрості; вороги не мають переваги на атаки по вас." } ]}
+        ]
+    },
+    warforged: {
+        id: "warforged",
+        name: "Ковані (Warforged)",
+        icon: "🤖",
+        category: "Еберрон",
+        desc: "Розумні конструкти з дерева й металу, створені для Останньої війни. Джерело: Eberron.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        skillChoices: { count: 1, from: "any" },
+        traits: [
+            { name: "Конструктна стійкість", desc: "Опір шкоді отрутою та перевага на рятунки проти стану Отруєний." },
+            { name: "Вбудований захист (Integrated Protection)", desc: "+1 до КЗ; одягнений обладунок не може бути знятий проти вашої волі." },
+            { name: "Спочинок вартового (Sentry's Rest)", desc: "Не спите; тривалий відпочинок — 6 годин у нерухомому, але притомному стані. Магія не може вас приспати." },
+            { name: "Спеціалізована конструкція", desc: "Володіння однією навичкою (на вибір) та одним набором інструментів." },
+            { name: "Невтомність (Tireless)", desc: "Не отримуєте рівнів Виснаження від спраги, голоду чи задухи." }
+        ]
+    },
+
+    // ==================== ЛОРВІН ====================
+    boggart: {
+        id: "boggart",
+        name: "Боґґарт (Boggart)",
+        icon: "🦦",
+        category: "Лорвін",
+        desc: "Маленькі ґобліноїди-алхіміки з Лорвіна. Джерело: Lorwyn.",
+        speed: 30,
+        size: "Маленька",
+        languages: "Загальна + 2 мови від передісторії",
+        traits: [
+            { name: "Тип істоти", desc: "Гуманоїд; також вважаєтесь ґобліноїдом для відповідних ефектів." },
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Спадок фейрі (Fey Ancestry)", desc: "Перевага на рятунки проти стану Зачарований." },
+            { name: "Лють малих (Fury of the Small)", desc: "Завдавши шкоди істоті, більшій за вас, додаєте шкоду = бонусу володіння (раз на хід). Використань = бонус володіння." },
+            { name: "Спритна втеча (Nimble Escape)", desc: "Можете брати дію Відступ або Сховатися бонусною дією щоходу." }
+        ]
+    },
+    faerie: {
+        id: "faerie",
+        name: "Феєрі (Faerie)",
+        icon: "🧚",
+        category: "Лорвін",
+        desc: "Крихітні крилаті пустуни, народжені з квітів, з вродженою магією. Джерело: Lorwyn.",
+        speed: 30,
+        flySpeed: 30,
+        size: "Маленька",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["druidcraft"],
+        grantedSpellsByLevel: { "3": ["faerie_fire"], "5": ["enlarge_reduce"] },
+        traits: [
+            { name: "Магія феєрі (Fairy Magic)", desc: "Знаєте фокус «Друїдизм». З 3-го рівня — «Вогні фейрі»; з 5-го — «Збільшення/Зменшення». Характеристика: Інт/Мдр/Хар." },
+            { name: "Політ (Flight)", desc: "Швидкість польоту = швидкості ходьби. Не діє в середній або важкій броні." }
+        ]
+    },
+    flamekin: {
+        id: "flamekin",
+        name: "Полум'яні (Flamekin)",
+        icon: "🔥",
+        category: "Лорвін",
+        desc: "Народ із вогню та каменю, тіла яких випромінюють нешкідливе магічне полум'я. Джерело: Lorwyn.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["produce_flame"],
+        grantedSpellsByLevel: { "3": ["burning_hands"], "5": ["flame_blade"] },
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Опір вогню", desc: "Опір шкоді вогнем." },
+            { name: "Сягання до полум'я", desc: "Знаєте фокус «Створення полум'я». З 3-го рівня — «Палаючі руки»; з 5-го — «Вогняний клинок». Характеристика: Інт/Мдр/Хар." }
+        ]
+    },
+    lorwynchangeling: {
+        id: "lorwynchangeling",
+        name: "Лорвінський перевертень",
+        icon: "🎴",
+        category: "Лорвін",
+        desc: "Чарівні шейпшифтери Лорвіна, що грубо імітують форми істот і рослин. Джерело: Lorwyn.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        skillProficiencies: ["Виступ"],
+        traits: [
+            { name: "Зміна тіла (Shape Self)", desc: "Дією набуваєте двоногої гуманоїдної або чотириногої звіриної форми." },
+            { name: "Темний зір", desc: "Дальність 120 футів." },
+            { name: "Чарівний імітатор", desc: "Володіння навичкою Виступ." },
+            { name: "Непередбачуваний рух", desc: "Кидаючи ініціативу без Недоліку, можете взяти дію Ривок як реакцію." }
+        ]
+    },
+    rimekin: {
+        id: "rimekin",
+        name: "Крижані (Rimekin)",
+        icon: "❄️",
+        category: "Лорвін",
+        desc: "Полум'яні, чий вогонь став крижаним; їхнє «полум'я» палає крижаною блакиттю. Джерело: Lorwyn.",
+        speed: 30,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        grantedSpells: ["ray_of_frost"],
+        traits: [
+            { name: "Магія холодного вогню", desc: "Знаєте фокус «Промінь холоду». З 3-го — «Крижаний ніж»; з 5-го — «Вогняний клинок» (завдає шкоди холодом). Характеристика: Інт/Мдр/Хар." },
+            { name: "Опір холоду", desc: "Опір шкоді холодом." },
+            { name: "Темний зір", desc: "Дальність 60 футів." }
+        ]
+    },
+
+    // ==================== ЕКЗОТИЧНІ ====================
+    dhampir: {
+        id: "dhampir",
+        name: "Дампір (Dhampir)",
+        icon: "🧛",
+        category: "Екзотичні",
+        desc: "Живі люди з вампірськими здібностями, прокляті макабричним голодом. Джерело: Astarion's Book of Hungers.",
+        speed: 35,
+        size: "Середня або Маленька (на вибір)",
+        languages: "Загальна + 2 мови від передісторії",
+        climbSpeed: 35,
+        traits: [
+            { name: "Темний зір", desc: "Дальність 60 футів." },
+            { name: "Павуче лазіння (Spider Climb)", desc: "Швидкість лазіння = швидкості. З 3-го рівня можете рухатись по вертикальних поверхнях і стелях, не звільняючи руки." },
+            { name: "Слід нежиті", desc: "Опір шкоді некрозом." },
+            { name: "Вампірський укус (Vampiric Bite)", desc: "Беззбройним ударом кусаєте: 1d4 + мод. Витривалості колючої шкоди. Завдавши шкоди (не конструкту/нежиті), або відновлюєте стільки ж хітів, або отримуєте бонус до наступної перевірки/атаки. Використань = бонус володіння." }
         ]
     }
 };
@@ -209,6 +1127,45 @@ const BACKGROUNDS = [
 ];
 
 const STANDARD_ARRAY = [15, 14, 13, 12, 10, 8];
+
+// ====================================================================
+// Module 2 — Origin ASI (підвищення характеристик від походження, 2024 PHB).
+// Раси v2 не дають фіксованих бонусів; гравець обирає режим розподілу.
+//   - "two-one":    +2 до однієї та +1 до іншої характеристики
+//   - "three-ones": +1 до трьох різних характеристик
+// pattern — відсортований за спаданням список очікуваних значень по
+// ненульових характеристиках; total — сумарний бюджет очок.
+// ====================================================================
+const ORIGIN_ASI_MODES = [
+    {
+        id: "two-one",
+        name: "+2 / +1",
+        desc: "+2 до однієї характеристики та +1 до іншої.",
+        total: 3,
+        slots: 2,
+        pattern: [2, 1]
+    },
+    {
+        id: "three-ones",
+        name: "+1 / +1 / +1",
+        desc: "+1 до трьох різних характеристик.",
+        total: 3,
+        slots: 3,
+        pattern: [1, 1, 1]
+    }
+];
+
+// Перевіряє, чи відповідає розподіл обраному режиму походження.
+function isOriginAllocationValid(modeId, allocations) {
+    const mode = ORIGIN_ASI_MODES.find(m => m.id === modeId);
+    if (!mode) return false;
+    const vals = ABILITY_KEYS
+        .map(k => parseInt(allocations[k]) || 0)
+        .filter(v => v > 0)
+        .sort((a, b) => b - a);
+    if (vals.length !== mode.pattern.length) return false;
+    return vals.every((v, i) => v === mode.pattern[i]);
+}
 
 // ====================================================================
 // Прогресія підвищень характеристик (ASI / Feats) за рівнями
@@ -275,6 +1232,21 @@ const CLASS_FEATURES_BY_LEVEL = {
         { level: 18, name: "Невловимість", desc: "Жодна атака не має переваги проти вас, поки ви бачите того, хто атакує." },
         { level: 19, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
         { level: 20, name: "Безжальна удача", desc: "Якщо ви провалили перевірку здібностей чи атаку — можете перекинути її один раз за хід." }
+    ],
+    cleric: [
+        { level: 2, name: "Канал божественності (1/відпочинок)", desc: "Вигнання нежиті та опція домену." },
+        { level: 4, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
+        { level: 5, name: "Знищення нежиті (КР 1/2)", desc: "Слабка нежить знищується, провалюючи рятунок проти Вигнання." },
+        { level: 8, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
+        { level: 8, name: "Знищення нежиті (КР 1)", desc: "Поріг знищення нежиті зростає." },
+        { level: 10, name: "Божественне втручання", desc: "Ви благаєте божество про пряму допомогу." },
+        { level: 11, name: "Знищення нежиті (КР 2)", desc: "Поріг знищення нежиті зростає." },
+        { level: 12, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
+        { level: 14, name: "Знищення нежиті (КР 3)", desc: "Поріг знищення нежиті зростає." },
+        { level: 16, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
+        { level: 17, name: "Знищення нежиті (КР 4)", desc: "Поріг знищення нежиті зростає." },
+        { level: 19, name: "Підвищення характеристик / Риса", desc: "Стандартне ASI або риса." },
+        { level: 20, name: "Покращене божественне втручання", desc: "Ваше прохання про втручання спрацьовує автоматично." }
     ]
 };
 
@@ -434,23 +1406,23 @@ const DND_WEAPONS = [
 // ====================================================================
 const DND_FEATS = [
     { id: "alert",          name: "Уважний",                 description: "Завжди настороже: +5 до ініціативи, вас не можна заскочити зненацька, поки ви при свідомості, та невидимі істоти не отримують переваги на атаки по вас." },
-    { id: "athlete",        name: "Атлет",                   description: "Підвищте Силу або Спритність на 1. Підйом з простягнутого положення коштує лише 5 футів руху, а лазіння не зменшує швидкість. Стрибок з місця — повна відстань." },
-    { id: "actor",          name: "Актор",                   description: "Підвищте Харизму на 1. Маєте перевагу на перевірки Обману та Виступу при імітації мови або поведінки інших." },
+    { id: "athlete",        name: "Атлет",                   bonusChoice: ["str", "dex"],                   description: "Підвищте Силу або Спритність на 1. Підйом з простягнутого положення коштує лише 5 футів руху, а лазіння не зменшує швидкість. Стрибок з місця — повна відстань." },
+    { id: "actor",          name: "Актор", bonuses: { cha: 1 },                   description: "Підвищте Харизму на 1. Маєте перевагу на перевірки Обману та Виступу при імітації мови або поведінки інших." },
     { id: "charger",        name: "Атакуючий",               description: "Якщо ви здійснили дію Ривок, бонусною дією можете виконати атаку ближнього бою або поштовх на 10 футів — з +5 шкоди при влучанні." },
     { id: "crossbowexpert", name: "Майстер арбалета",        description: "Ігноруйте властивість «зарядка» арбалетів. Не маєте недоліку за стрільбу в ближньому бою. Бонусна атака ручним арбалетом після основної." },
-    { id: "defensive",      name: "Захисний боєць",          description: "Підвищте Силу або Спритність на 1. Ви маєте +1 до КЗ, поки тримаєте щит." },
+    { id: "defensive",      name: "Захисний боєць",          bonusChoice: ["str", "dex"],          description: "Підвищте Силу або Спритність на 1. Ви маєте +1 до КЗ, поки тримаєте щит." },
     { id: "dualwielder",    name: "Дворукий боєць",          description: "+1 до КЗ при двох зброях. Можете двозбройно бити недрібною зброєю. Можете швидко дістати або сховати дві зброї одночасно." },
-    { id: "durable",        name: "Витривалий",              description: "Підвищте Витривалість на 1. Кидаючи кістку хітів для відновлення HP, мінімум — подвоєний модифікатор Витривалості (мін. 2)." },
+    { id: "durable",        name: "Витривалий", bonuses: { con: 1 },              description: "Підвищте Витривалість на 1. Кидаючи кістку хітів для відновлення HP, мінімум — подвоєний модифікатор Витривалості (мін. 2)." },
     { id: "elementaladept", name: "Стихійний адепт",         description: "Ваші заклинання обраного типу шкоди ігнорують опір та трактують 1 на кістках шкоди як 2." },
     { id: "greatweapon",    name: "Майстер великої зброї",   description: "При критичному попаданні або вбитті ворога зброєю — бонусна атака. На двосторонніх важких зброях: можете перекинути 1-2 на кістках шкоди. -5 до влучання за +10 до шкоди (опціонально)." },
     { id: "healer",         name: "Цілитель",                description: "Перев'язавши когось набором цілителя, відновлюєте йому 1d6 + 4 + рівні істоти HP. Істота не може отримати знову, поки не відпочине." },
-    { id: "heavyarmor",     name: "Майстер важкої броні",    description: "Підвищте Силу на 1. У важкій броні: дробляча, колюча та рубаюча немагічна шкода від атак зменшується на 3." },
-    { id: "inspiring",      name: "Натхненний лідер",        description: "Підвищте Харизму на 1. 10 хв надихаючої промови дають до 6 союзникам тимчасові HP = ваш рівень + Харизма мод." },
+    { id: "heavyarmor",     name: "Майстер важкої броні",    bonuses: { str: 1 },    description: "Підвищте Силу на 1. У важкій броні: дробляча, колюча та рубаюча немагічна шкода від атак зменшується на 3." },
+    { id: "inspiring",      name: "Натхненний лідер",        bonuses: { cha: 1 },        description: "Підвищте Харизму на 1. 10 хв надихаючої промови дають до 6 союзникам тимчасові HP = ваш рівень + Харизма мод." },
     { id: "lucky",          name: "Удачливий",               description: "3 «очка удачі» за день: перекидаєте атаку, перевірку, рятунок або форсуєте перекидання ворожої атаки по вас." },
     { id: "magicinit",      name: "Початківець магії",       description: "Вивчіть 2 фокуси та одне закляття 1-го рівня з обраного класу. Закляття 1-го рівня кастується раз на день безкоштовно." },
     { id: "mobile",         name: "Рухливий",                description: "Швидкість +10 футів. Після Ривка важкий рельєф не сповільнює до кінця ходу. Атака ближнього бою не провокує реакцію цілі цього ходу." },
     { id: "polearm",        name: "Майстер дрюків",          description: "Бонусна атака рукояттю на 1d4 при атаці глефою/алебардою/посохом/спису. Можливість реакції-атаки, коли ворог заходить у вашу досяжність." },
-    { id: "resilient",      name: "Стійкий",                 description: "Підвищте обрану характеристику на 1 та отримайте володіння рятунками з нею." },
+    { id: "resilient",      name: "Стійкий",                 bonusChoice: ["str", "dex", "con", "int", "wis", "cha"],                 description: "Підвищте обрану характеристику на 1 та отримайте володіння рятунками з нею." },
     { id: "savagebowman",   name: "Меткий лучник",           description: "Стрільба у ближньому бою не дає недоліку. Дальня дистанція не дає недоліку. -5 до влучання за +10 до шкоди (опціонально)." },
     { id: "sentinel",       name: "Страж",                   description: "При вашій реакції-атаці швидкість цілі стає 0 до кінця ходу. Союзник поруч — і ви атакуєте реакцією за ціль, що атакує його." },
     { id: "sharpshooter",   name: "Влучний стрілець",        description: "Дальня дистанція не дає недоліку. Атаки ігнорують укриття на ½ та ¾. -5 до влучання за +10 до шкоди (опціонально)." },
@@ -460,3 +1432,241 @@ const DND_FEATS = [
     { id: "toughness",      name: "Загартований",            description: "Ваш максимум HP збільшується на 2 за кожен рівень персонажа (мінімум +2 при отриманні риси)." },
     { id: "warcaster",      name: "Бойовий заклинач",        description: "Перевага на рятунки Витривалості для збереження концентрації. Можете кастувати соматичні закляття з зайнятими руками. Реакція-атака може бути замінена на закляття цілі." }
 ];
+
+// ====================================================================
+// КОМІРКИ ЗАКЛЯНЬ (Spell Slots) для повних чаклунів (Жрець, Друїд, Чарівник,
+// Маг, Бард). Індекс — рівень персонажа (1–20); масив — слоти заклять
+// 1-9 рівнів. Напівчаклуни (Паладин/Рейнджер) матимуть окрему таблицю.
+// ====================================================================
+const SPELL_SLOTS_FULL = {
+    1:  [2, 0, 0, 0, 0, 0, 0, 0, 0],
+    2:  [3, 0, 0, 0, 0, 0, 0, 0, 0],
+    3:  [4, 2, 0, 0, 0, 0, 0, 0, 0],
+    4:  [4, 3, 0, 0, 0, 0, 0, 0, 0],
+    5:  [4, 3, 2, 0, 0, 0, 0, 0, 0],
+    6:  [4, 3, 3, 0, 0, 0, 0, 0, 0],
+    7:  [4, 3, 3, 1, 0, 0, 0, 0, 0],
+    8:  [4, 3, 3, 2, 0, 0, 0, 0, 0],
+    9:  [4, 3, 3, 3, 1, 0, 0, 0, 0],
+    10: [4, 3, 3, 3, 2, 0, 0, 0, 0],
+    11: [4, 3, 3, 3, 2, 1, 0, 0, 0],
+    12: [4, 3, 3, 3, 2, 1, 0, 0, 0],
+    13: [4, 3, 3, 3, 2, 1, 1, 0, 0],
+    14: [4, 3, 3, 3, 2, 1, 1, 0, 0],
+    15: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+    16: [4, 3, 3, 3, 2, 1, 1, 1, 0],
+    17: [4, 3, 3, 3, 2, 1, 1, 1, 1],
+    18: [4, 3, 3, 3, 3, 1, 1, 1, 1],
+    19: [4, 3, 3, 3, 3, 2, 1, 1, 1],
+    20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
+};
+
+// Який прогрес комірок використовує клас. Поки що повний — лише Жрець.
+const CASTER_PROGRESSION = {
+    cleric: "full"
+};
+
+function getSpellSlots(classId, level) {
+    const prog = CASTER_PROGRESSION[classId];
+    const lvl = Math.max(1, Math.min(20, level || 1));
+    if (prog === "full") return SPELL_SLOTS_FULL[lvl].slice();
+    return [0, 0, 0, 0, 0, 0, 0, 0, 0];
+}
+
+// ====================================================================
+// ЗАКЛЯННЯ (Spells). Локалізовано українською за термінологією spells.html.
+// Поля: id, level (0 = замовляння), name (UA), nameEn, school (UA+EN),
+// castingTime, range, components, duration, concentration, ritual, description.
+// Наразі — батч заклять Жерця (замовляння – 3 рівень) для тестування системи.
+// ====================================================================
+// DND_SPELLS moved to spells-data.js
+
+// Швидкий доступ до закляття за id.
+function getSpellById(id) {
+    return DND_SPELLS.find(s => s.id === id) || null;
+}
+
+// Усі закляття, доступні класу (за class.spellList), згруповані можуть бути в UI.
+function getClassSpellList(classId) {
+    const cls = (typeof DND_CLASSES !== "undefined") ? DND_CLASSES[classId] : null;
+    if (!cls || !Array.isArray(cls.spellList)) return [];
+    return cls.spellList.map(getSpellById).filter(Boolean);
+}
+
+// ====================================================================
+// ВОЛОДІННЯ ЗБРОЄЮ ТА БРОНЕЮ ЗА КЛАСОМ (5e). 
+//   armor: типи броні, якими володіє клас: "light"/"medium"/"heavy"/"shield".
+//   weaponCats: категорії зброї: "simple" (Проста) / "martial" (Бойова).
+//   weaponIds: конкретні id зброї понад категорії (для класів типу шахрая/чарівника).
+//   noMetal: true — обмеження друїда (не носить металеву броню/щит).
+// ====================================================================
+const CLASS_PROFICIENCY = {
+    barbarian: { armor: ["light", "medium", "shield"],          weaponCats: ["simple", "martial"], weaponIds: [] },
+    fighter:   { armor: ["light", "medium", "heavy", "shield"], weaponCats: ["simple", "martial"], weaponIds: [] },
+    paladin:   { armor: ["light", "medium", "heavy", "shield"], weaponCats: ["simple", "martial"], weaponIds: [] },
+    ranger:    { armor: ["light", "medium", "shield"],          weaponCats: ["simple", "martial"], weaponIds: [] },
+    cleric:    { armor: ["light", "medium", "shield"],          weaponCats: ["simple"],            weaponIds: [] },
+    druid:     { armor: ["light", "medium", "shield"],          weaponCats: [],                    weaponIds: ["club", "dagger", "dart", "javelin", "spear", "mace", "quarterstaff", "scimitar", "sickle", "sling"], noMetal: true },
+    rogue:     { armor: ["light"],                              weaponCats: ["simple"],            weaponIds: ["crossbowhand", "longsword", "rapier", "shortsword"] },
+    bard:      { armor: ["light"],                              weaponCats: ["simple"],            weaponIds: ["crossbowhand", "longsword", "rapier", "shortsword"] },
+    warlock:   { armor: ["light"],                              weaponCats: ["simple"],            weaponIds: [] },
+    monk:      { armor: [],                                     weaponCats: ["simple"],            weaponIds: ["shortsword"] },
+    sorcerer:  { armor: [],                                     weaponCats: [],                    weaponIds: ["dagger", "dart", "sling", "quarterstaff", "crossbowlight"] },
+    wizard:    { armor: [],                                     weaponCats: [],                    weaponIds: ["dagger", "dart", "sling", "quarterstaff", "crossbowlight"] }
+};
+
+// Класи з рисою «Додаткова атака» (Extra Attack). Значення — рівень її отримання.
+// Воїн отримує більше атак на 11 та 20 рівнях (обробляється у extraAttackCount).
+const EXTRA_ATTACK_CLASSES = { barbarian: 5, fighter: 5, monk: 5, paladin: 5, ranger: 5 };
+
+
+// ====================================================================
+// Епічні дарунки (Epic Boons) — відкриваються на 19 рівні (D&D 2024).
+// Кожен дарунок впливає на персонажа: підвищує характеристику (макс. 30)
+// та/або дає механічний ефект (швидкість, ХП тощо).
+// ====================================================================
+const DND_EPIC_BOONS = [
+    { id: "boon_combat_prowess", name: "Дарунок бойової майстерності", bonuses: { str: 1 }, description: "Сила +1 (макс. 30). Якщо ви промахуєтесь атакою зброєю ближнього бою, можете влучити натомість (1 раз за хід)." },
+    { id: "boon_irresistible_offense", name: "Дарунок нездоланного нападу", bonusChoice: ["str", "dex"], description: "+1 до Сили або Спритності (макс. 30). Ваші атаки зброєю ігнорують опір до дробильної/колючої/рубаючої шкоди та додають шкоду, рівну модифікатору Сили." },
+    { id: "boon_fortitude", name: "Дарунок витривалості", bonuses: { con: 1 }, hpBonus: 40, description: "Витривалість +1 (макс. 30) та максимум ХП +40. Раз за хід, відновлюючи ХП, додайте свій модифікатор Витривалості." },
+    { id: "boon_speed", name: "Дарунок швидкості", bonuses: { dex: 1 }, speedBonus: 30, description: "Спритність +1 (макс. 30) та швидкість пересування +30 футів. Бонусною дією можна зняти стан Схоплення." },
+    { id: "boon_truesight", name: "Дарунок істинного зору", bonuses: { wis: 1 }, description: "Мудрість +1 (макс. 30). Ви маєте істинний зір у радіусі 60 футів." },
+    { id: "boon_dimensional_travel", name: "Дарунок просторової подорожі", bonusChoice: ["str", "dex", "con"], description: "+1 до Сили, Спритності або Витривалості (макс. 30). Дією можна телепортуватися (Misty Step) без витрати слоту." },
+    { id: "boon_fate", name: "Дарунок долі", bonuses: { cha: 1 }, description: "Харизма +1 (макс. 30). Кілька разів на день додайте 2d4 до перевірки, рятунку чи атаки істоти в межах 60 футів." },
+    { id: "boon_spell_recall", name: "Дарунок пригадування заклять", bonuses: { int: 1 }, description: "Інтелект +1 (макс. 30). Творячи закляття слотом, ви можете не витрачати слот (обмежена кількість разів)." },
+    { id: "boon_energy_resistance", name: "Дарунок опору енергії", bonusChoice: ["con", "dex"], description: "+1 до Витривалості або Спритності (макс. 30). Ви отримуєте опір до двох типів шкоди на вибір та можете додавати шкоду тим типом до атак." },
+    { id: "boon_recovery", name: "Дарунок відновлення", bonuses: { con: 1 }, description: "Витривалість +1 (макс. 30). Раз за бій бонусною дією відновіть половину максимуму ХП." },
+    { id: "boon_skill", name: "Дарунок умінь", bonusChoice: ["str", "dex", "con", "int", "wis", "cha"], description: "+1 до будь-якої характеристики на вибір (макс. 30). Ви здобуваєте володіння всіма навичками та подвійний бонус майстерності для однієї з них." },
+    { id: "boon_night_spirit", name: "Дарунок нічного духа", bonuses: { dex: 1 }, description: "Спритність +1 (макс. 30). У тьмяному світлі чи темряві ви можете ставати невидимими та переміщатися крізь істот." }
+];
+
+
+// ====================================================================
+// Доповнення передісторій: описи (що вони значать) + відсутні стандартні передісторії.
+// const дозволяє мутацію об'єкта/масиву (не реасайн).
+// ====================================================================
+(function () {
+    const descriptions = {
+        "Аколіт": "Ви присвятили життя служінню богам у храмі. Ви — посередник між звичайними людьми та вищими силами.",
+        "Шахрай": "Ви живете поза законом: крадіжки, контрабанда чи вимагання. Ви знаєте мову вулиць та злочинного світу.",
+        "Народний герой": "Ви вийшли з простого люду, але доля покликала вас до великих справ. Звичайні люди вважають вас своїм захисником.",
+        "Шляхтич": "Ви народилися у привілейованій родині. Багатство, освіта та зв'язки відкривають перед вами двері.",
+        "Мудрець": "Роки ви провели серед книг та сувоїв. Ви — джерело знань про історію, магію та таємниці світу.",
+        "Солдат": "Ви служили у війську: муштра, битви та дисципліна сформували вас. Ви знаєте ціну наказу й товариства.",
+        "Відлюдник": "Ви жили у відлюдді, далеко від суспільства, у пошуках просвітлення чи спокою. Самотність дала вам унікальне відкриття.",
+        "Розважальник": "Сцена — ваше життя. Музика, акробатика чи акторство приносять вам захоплення натовпу.",
+        "Моряк": "Ви провели роки в морі. Палуба корабля — ваш дім, а солона вода — у крові.",
+        "Ремісник": "Ви — майстер свого ремесла, член гільдії. Праця руками та чесна торгівля визначають ваше життя."
+    };
+    if (typeof BACKGROUND_DATA !== "undefined") {
+        Object.keys(descriptions).forEach(k => {
+            if (BACKGROUND_DATA[k]) BACKGROUND_DATA[k].description = descriptions[k];
+        });
+
+        const extra = {
+            "Шарлатан": {
+                description: "Ви живете обманом і харизмою: фальшиві ліки, шахрайські оборудки та вдавані личини. Люди вірять вам — і це ваша зброя.",
+                skills: ["Обман", "Спритність рук"],
+                languages: 0,
+                tools: ["Набір підробника", "Набір переодягання"],
+                feature: "Фальшива особистість — ви створили собі друге ім'я з документами та біографією."
+            },
+            "Чужинець": {
+                description: "Ви виросли в дикій глушині, далеко від цивілізації. Ви знаєте, як вижити там, де інші гинуть.",
+                skills: ["Атлетика", "Виживання"],
+                languages: 1,
+                tools: ["Музичний інструмент"],
+                feature: "Мандрівник — ви чудово орієнтуєтесь та завжди знайдете їжу й воду для себе та супутників."
+            },
+            "Безпритульник": {
+                description: "Ви виросли на вулицях міста сиротою, виживаючи крадіжками та хитрістю. Місто — ваші джунглі.",
+                skills: ["Спритність рук", "Скритність"],
+                languages: 0,
+                tools: ["Набір злодія", "Набір переодягання"],
+                feature: "Таємні стежки міста — ви вдвічі швидше пересуваєтесь таємними провулками між будь-якими точками міста."
+            }
+        };
+        Object.keys(extra).forEach(k => {
+            if (!BACKGROUND_DATA[k]) BACKGROUND_DATA[k] = extra[k];
+            if (typeof BACKGROUNDS !== "undefined" && !BACKGROUNDS.includes(k)) BACKGROUNDS.push(k);
+        });
+    }
+})();
+
+/* === КЛАСОВІ РЕСУРСИ (Request #13) === */
+(function () {
+  function band(level, pairs, dflt) {
+    for (var i = 0; i < pairs.length; i++) { if (level >= pairs[i][0]) return pairs[i][1]; }
+    return dflt;
+  }
+  function computeClassResources(classId, level, mods, pb) {
+    level = level || 1; mods = mods || {}; pb = pb || 2;
+    var m = function (k) { return typeof mods[k] === "number" ? mods[k] : 0; };
+    var out = [];
+    switch (classId) {
+      case "barbarian": {
+        var rage = band(level, [[20, "Необмежено"], [17, 6], [12, 5], [6, 4], [3, 3]], 2);
+        var rdmg = band(level, [[16, 4], [9, 3]], 2);
+        out.push({ name: "Люті (Rage)", value: rage, recharge: "тривалий відпочинок", note: "Бонус шкоди +" + rdmg });
+        break;
+      }
+      case "bard": {
+        var bi = Math.max(1, m("cha"));
+        var die = band(level, [[15, "d12"], [10, "d10"], [5, "d8"]], "d6");
+        out.push({ name: "Бардівське натхнення", value: bi, recharge: (level >= 5 ? "короткий/тривалий" : "тривалий відпочинок"), note: "Кубик: " + die });
+        break;
+      }
+      case "cleric": {
+        var cd = band(level, [[18, 3], [6, 2]], 1);
+        if (level >= 2) out.push({ name: "Канал Божественності", value: cd, recharge: "короткий/тривалий" });
+        break;
+      }
+      case "druid": {
+        if (level >= 2) out.push({ name: "Дика форма", value: 2, recharge: "короткий/тривалий", note: "2 використання" });
+        break;
+      }
+      case "fighter": {
+        out.push({ name: "Друге дихання", value: 1, recharge: "короткий/тривалий", note: "Відновлює 1d10+рівень ХП" });
+        var as = band(level, [[17, 2]], 1);
+        if (level >= 2) out.push({ name: "Сплеск дії (Action Surge)", value: as, recharge: "короткий/тривалий" });
+        var ind = band(level, [[17, 3], [13, 2]], 1);
+        if (level >= 9) out.push({ name: "Незламність (Indomitable)", value: ind, recharge: "тривалий відпочинок" });
+        break;
+      }
+      case "monk": {
+        if (level >= 2) out.push({ name: "Очки Ці (Focus)", value: level, recharge: "короткий/тривалий" });
+        var md = band(level, [[17, "d12"], [11, "d10"], [5, "d8"]], "d6");
+        out.push({ name: "Кубик бойових мистецтв", value: md, recharge: "", note: "Кубик беззбройного удару" });
+        break;
+      }
+      case "paladin": {
+        out.push({ name: "Накладання рук (запас)", value: 5 * level, recharge: "тривалий відпочинок", note: "ХП лікування" });
+        if (level >= 3) out.push({ name: "Канал Божественності", value: 1, recharge: "короткий/тривалий" });
+        out.push({ name: "Божественне чуття", value: 1 + Math.max(0, m("cha")), recharge: "тривалий відпочинок" });
+        break;
+      }
+      case "ranger": {
+        out.push({ name: "Мітка мисливця / Улюблений ворог", value: pb, recharge: "тривалий відпочинок", note: "Використань = бонус майстерності" });
+        break;
+      }
+      case "sorcerer": {
+        if (level >= 2) out.push({ name: "Чари-очки (Sorcery Points)", value: level, recharge: "тривалий відпочинок" });
+        break;
+      }
+      case "warlock": {
+        var inv = band(level, [[18, 8], [15, 7], [12, 6], [9, 5], [7, 4], [5, 3], [2, 2]], 0);
+        if (inv > 0) out.push({ name: "Таємничі закляття (Invocations)", value: inv, recharge: "", note: "Відомих заклинань-інвокацій" });
+        out.push({ name: "Пактова магія", value: "див. слоти", recharge: "короткий/тривалий", note: "Усі слоти одного рівня, відновлюються на короткому відпочинку" });
+        break;
+      }
+      case "wizard": {
+        out.push({ name: "Відновлення магії (Arcane Recovery)", value: Math.ceil(level / 2), recharge: "тривалий відпочинок", note: "Сумарних рівнів комірок (1×/день)" });
+        break;
+      }
+      default: break;
+    }
+    return out;
+  }
+  if (typeof window !== "undefined") { window.computeClassResources = computeClassResources; }
+  if (typeof globalThis !== "undefined") { globalThis.computeClassResources = computeClassResources; }
+})();
