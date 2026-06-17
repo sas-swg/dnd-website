@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила та Механіки - D&D 5e</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
+                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .feat-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .feat-content.open {
+            grid-template-rows: 1fr;
+        }
+        .feat-inner {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="site-common.css">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
+                    D&D 5e База Знань
+                </h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
+            </nav>
+        </div>
+    </header>  
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        
+        <!-- Заголовок та Фільтри -->
+        <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+            <div>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Правила та Механіки</h1>
+                <p class="text-slate-600">Шпаргалка по базових правилах гри Dungeons & Dragons.</p>
+            </div>
+            
+            <!-- Панель фільтрів -->
+            <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                
+                <!-- Фільтр за категорією -->
+                <select id="categoryFilter" onchange="filterRules()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
+                    <option value="">Всі категорії</option>
+                    <option value="основи">Основи</option>
+                    <option value="бій">Бій та Дії</option>
+                    <option value="магія">Магія</option>
+                    <option value="стани">Стани (Conditions)</option>
+                    <option value="відпочинок">Відпочинок та Здоров'я</option>
+                    <option value="бій-маневри">Бій: Маневри</option>
+                    <option value="оточення">Подорожі та Оточення</option>
+                    <option value="стани-додатково">Стани: Додатково</option>
+                </select>
+
+                <!-- Текстовий пошук -->
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="searchInput" onkeyup="filterRules()" placeholder="Шукати правило..." 
+                        class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
+                    <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контейнер для всіх розділів -->
+        <div id="rulesContainer">
+            
+            <!-- ================= КАТЕГОРІЯ: ОСНОВИ ================= -->
+            <div class="category-section mb-12" data-category="основи">
+                <!-- Яскравий заголовок розділу -->
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">📚</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Основи гри</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Перевага та Завада</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Основи</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Як кидати кубики в сприятливих чи поганих умовах
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Іноді особлива здатність або заклинання вказують, що ви маєте <strong>перевагу (advantage)</strong> або <strong>заваду (disadvantage)</strong> під час кидка атаки, рятівного кидка або перевірки характеристики.</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Перевага:</strong> Ви кидаєте другий кубик d20 і використовуєте <strong>вищий</strong> з двох результатів.</li>
+                                        <li><strong>Завада:</strong> Ви кидаєте другий кубик d20 і використовуєте <strong>нижчий</strong> з двох результатів.</li>
+                                    </ul>
+                                    <p><strong>Важливе правило:</strong> Якщо ви одночасно маєте перевагу і заваду на один і той самий кидок, вони скасовують одне одного. Навіть якщо у вас є дві переваги і одна завада — ви все одно робите звичайний кидок (кидаєте один d20).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Перевірки Характеристик (Навички)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Основи</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Як робити перевірки навичок поза боєм
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Коли ви намагаєтесь зробити щось, що має шанс на провал, Майстер гри (DM) просить зробити перевірку характеристики. Кожна навичка прив'язана до однієї з 6 базових характеристик.</p>
+                                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                        <strong>Формула кидка:</strong><br>
+                                        <code>d20 + Модифікатор характеристики + Бонус майстерності (якщо володієте навичкою)</code>
+                                    </div>
+                                    <p><strong>Складність (DC):</strong> Майстер встановлює Клас Складності. Наприклад: Легко (10), Середньо (15), Складно (20), Дуже складно (25), Майже неможливо (30).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= КАТЕГОРІЯ: БІЙ ================= -->
+            <div class="category-section mb-12" data-category="бій">
+                <!-- Яскравий заголовок розділу -->
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">⚔️</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Бій та Дії</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Структура Ходу в бою</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Що ви можете зробити за один свій хід
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Бій поділяється на раунди (1 раунд = 6 секунд ігрового світу). Під час свого ходу ви маєте в розпорядженні наступне:</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Переміщення (Movement):</strong> Ви можете рухатись на відстань вашої швидкості. Рух можна розбивати на частини до і після вашої дії.</li>
+                                        <li><strong>Дія (Action):</strong> Основна річ, яку ви робите. Атака, застосування заклинання, ривок, допомога тощо.</li>
+                                        <li><strong>Бонусна дія (Bonus Action):</strong> Додаткова швидка дія. Ви можете зробити її <strong>лише тоді</strong>, коли у вас є класова здатність, заклинання або риса, яка прямо каже, що це бонусна дія (наприклад, пити зілля, заклинання "Лікувальне слово").</li>
+                                        <li><strong>Реакція (Reaction):</strong> Здійснюється не в ваш хід, а у відповідь на певну подію (наприклад, атака по можливості, заклинання "Щит"). У вас є лише 1 реакція на раунд.</li>
+                                        <li><strong>Вільна взаємодія (Free Object Interaction):</strong> Витягти меч, відчинити двері, підняти річ. Одна така взаємодія за хід безкоштовна.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Види Дій у бою (Actions)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Атака, Ривок, Відхід, Схованка, Допомога та інші
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Коли настає ваш хід, ви можете витратити свою Дію на одне з наступного:</p>
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li><strong>Атака (Attack):</strong> Вдарити зброєю ближнього або дальнього бою. Деякі класи (Воїн) дозволяють зробити кілька ударів за одну дію Атаки.</li>
+                                        <li><strong>Чаклування (Cast a Spell):</strong> Накласти заклинання, час застосування якого — "1 дія".</li>
+                                        <li><strong>Ривок (Dash):</strong> Ваша швидкість переміщення подвоюється на цей хід.</li>
+                                        <li><strong>Відхід (Disengage):</strong> До кінця ходу ваше переміщення не провокує атак по можливості від ворогів.</li>
+                                        <li><strong>Ухилення (Dodge):</strong> До вашого наступного ходу будь-які атаки по вас робляться із завадою, а ви маєте перевагу на рятунки Спритності.</li>
+                                        <li><strong>Допомога (Help):</strong> Ви даєте перевагу союзнику на його наступну перевірку характеристики або кидок атаки по ворогу поруч із вами.</li>
+                                        <li><strong>Схованка (Hide):</strong> Ви робите перевірку Спритності (Скритність), щоб сховатися від ворогів, які вас не бачать.</li>
+                                        <li><strong>Підготовка (Ready):</strong> Ви відкладаєте свою дію до настання певної умови (наприклад: "Якщо гоблін вийде з-за кута, я стріляю"). Коли умова настає, ви використовуєте свою <em>Реакцію</em>, щоб виконати дію.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Атака по можливості (Opportunity Attack)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Як і коли ви можете вдарити ворога, що тікає
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Ви рідко можете спокійно пройти повз ворога без наслідків. Якщо ворог, якого ви бачите, виходить за межі вашої досяжності ближнього бою (зазвичай це більше 5 футів), він провокує від вас атаку по можливості.</p>
+                                    <p><strong>Як це працює:</strong> Ви використовуєте свою <strong>Реакцію</strong>, щоб зробити <strong>одну</strong> рукопашну атаку зброєю по цьому ворогу. Атака відбувається прямо перед тим, як він покине вашу зону досяжності.</p>
+                                    <p><strong>Винятки:</strong> Ви не можете зробити цю атаку, якщо ворог використав дію "Відхід" (Disengage), або якщо його хтось перемістив магією чи відштовхнув проти його волі.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= КАТЕГОРІЯ: МАГІЯ ================= -->
+            <div class="category-section mb-12" data-category="магія">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">✨</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Магія та Заклинання</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Магія та Концентрація</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Магія</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Правила підтримки магічних ефектів
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Деякі заклинання вимагають концентрації, щоб підтримувати їхню дію. Це означає, що вам потрібно зосередитися на магії. Ви можете закінчити концентрацію в будь-який момент (це не потребує дії).</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Одне заклинання:</strong> Ви не можете концентруватися на двох заклинаннях одночасно. Якщо ви кастуєте нове заклинання з концентрацією, старе миттєво зникає.</li>
+                                        <li><strong>Отримання шкоди:</strong> Якщо під час концентрації ви отримуєте шкоду, ви повинні зробити рятувальний кидок Витривалості (Constitution). Клас Складності (DC) дорівнює 10 або половині отриманої шкоди, залежно від того, що більше.</li>
+                                        <li><strong>Втрата свідомості:</strong> Якщо ви падаєте до 0 хітів або вас приголомшують, концентрація автоматично переривається.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Магічні Компоненти (В, С, М)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Магія</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Що потрібно для кастування заклинань
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Кожне заклинання вимагає наявності певних компонентів для застосування:</p>
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Вербальний (В / V):</strong> Специфічні містичні слова. Ви не можете чаклувати, якщо у вас кляп, ви під водою (без можливості дихати) або знаходитесь у зоні заклинання "Тиша".</li>
+                                        <li><strong>Соматичний (С / S):</strong> Складні жести руками. У вас має бути принаймні одна вільна рука для виконання жестів.</li>
+                                        <li><strong>Матеріальний (М / M):</strong> Фізичні предмети. Якщо в заклинання не вказана ціна компонента (напр. "пір'їнка"), ви можете використати Мішечок з компонентами (Component Pouch) або Магічний фокус (Arcane Focus) замість них. Якщо ціна вказана (напр. "діамант на 50 зм"), вам потрібен саме цей предмет. Рука, що тримає фокус/матеріал, може виконувати і соматичні жести.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= КАТЕГОРІЯ: СТАНИ ================= -->
+            <div class="category-section mb-12" data-category="стани">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">😵</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Стани (Conditions)</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Сліпота, Глухота, Невидимість</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Наслідки втрати почуттів або зору
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Осліплений (Blinded):</strong> Істота не бачить і автоматично провалює будь-які перевірки, що залежать від зору. Її атаки робляться із <strong>завадою</strong>. Атаки інших істот по ній робляться з <strong>перевагою</strong>.</li>
+                                        <li><strong>Оглухлий (Deafened):</strong> Істота нічого не чує і автоматично провалює перевірки на слух.</li>
+                                        <li><strong>Невидимий (Invisible):</strong> Істота невидима (хоча її можна виявити по звуках і слідах). Атаки невидимої істоти робляться з <strong>перевагою</strong>, а атаки по ній — із <strong>завадою</strong>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Збитий з ніг (Prone)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Що стається, коли ви лежите на землі
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Коли вас збивають з ніг або ви падаєте добровільно, ви стаєте "Збитим з ніг" (Prone).</p>
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li>Ваш єдиний варіант руху — це повзати (кожен 1 фут руху коштує 2 фути).</li>
+                                        <li>Щоб встати, вам потрібно витратити <strong>половину своєї максимальної швидкості</strong> (наприклад, 15 футів, якщо ваша швидкість 30).</li>
+                                        <li>Ви маєте <strong>заваду</strong> на всі ваші власні кидки атаки.</li>
+                                        <li>Атаки по вас <strong>у ближньому бою</strong> (в межах 5 футів) робляться з <strong>перевагою</strong>.</li>
+                                        <li>Атаки по вас <strong>здалеку</strong> (стріли, магія здалеку) робляться із <strong>завадою</strong>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Зачарований та Наляканий</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Психологічні ефекти магії і монстрів
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Зачарований (Charmed):</strong> Зачарована істота не може атакувати того, хто її зачарував, або цілитися в нього шкідливими магічними ефектами. Той, хто зачарував, має <strong>перевагу</strong> на будь-які соціальні перевірки проти цієї істоти.</li>
+                                        <li><strong>Наляканий (Frightened):</strong> Налякана істота має <strong>заваду</strong> на перевірки характеристик і кидки атаки, доки джерело її страху знаходиться в полі її зору. Крім того, істота не може добровільно рухатися ближче до джерела свого страху.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Спутаний, Приголомшений, Паралізований</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Найнебезпечніші ефекти в грі
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <ul class="list-disc pl-5 space-y-2 text-sm">
+                                        <li><strong>Спутаний (Restrained):</strong> Швидкість дорівнює 0. Ваші атаки мають заваду. Атаки по вас мають перевагу. Ви маєте заваду на рятунки Спритності.</li>
+                                        <li><strong>Приголомшений (Stunned):</strong> Ви недієздатні (не можете робити дії/реакції). Ваша швидкість 0, ви можете лише мимрити. Ви автоматично провалюєте рятунки Сили та Спритності. Атаки по вас мають перевагу.</li>
+                                        <li><strong>Паралізований (Paralyzed):</strong> Те саме, що й Приголомшений, АЛЕ: будь-яка атака, яка влучає в вас у ближньому бою (в межах 5 футів), <strong>автоматично стає критичним влучанням</strong>. Це смертельно небезпечно!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= КАТЕГОРІЯ: ВІДПОЧИНОК ================= -->
+            <div class="category-section mb-12" data-category="відпочинок">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🏕️</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Відпочинок та Здоров'я</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Короткий та Тривалий відпочинок</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Відпочинок</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Як відновлювати сили між битвами
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <ul class="list-disc pl-5 space-y-3">
+                                        <li><strong>Короткий відпочинок (Short Rest):</strong> Триває щонайменше 1 годину без навантажень (їжа, читання, перев'язка). Наприкінці ви можете витратити свої <em>Кістки Хітів (Hit Dice)</em>, щоб полікуватися. Також відновлюються деякі класові здібності (як-от магія Чаклуна чи Ki Монаха).</li>
+                                        <li><strong>Тривалий відпочинок (Long Rest):</strong> Триває 8 годин, з яких мінімум 6 годин сну і не більше 2 годин легких справ (варта). Наприкінці ви повністю відновлюєте всі свої Хіти, всі комірки заклинань, а також відновлюєте витрачені Кістки Хітів у розмірі половини від вашого рівня.</li>
+                                    </ul>
+                                    <p class="text-xs text-slate-500 mt-2">Персонаж не може отримувати переваги більше ніж одного Тривалого відпочинку протягом 24 годин. Для відпочинку потрібно мати хоча б 1 хіт.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Смерть та Врятування від смерті</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Відпочинок</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                                Що стається, коли хіти падають до нуля
+                            </div>
+                        </div>
+                        <div class="feat-content">
+                            <div class="feat-inner">
+                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                    <p>Якщо ваші хіти (ХП) падають до 0, ви не вмираєте відразу, а втрачаєте свідомість і падаєте на землю.</p>
+                                    <p>На початку кожного свого ходу ви повинні робити <strong>Рятівний кидок від смерті (Death Saving Throw)</strong>. Ви кидаєте 1d20 без жодних модифікаторів:</p>
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li><strong>10 або вище:</strong> Це успіх. Якщо ви назбираєте 3 успіхи — ви стабілізуєтесь і більше не вмираєте (але залишаєтесь без свідомості з 0 ХП).</li>
+                                        <li><strong>9 або нижче:</strong> Це провал. Якщо ви назбираєте 3 провали — ваш персонаж помирає назавжди.</li>
+                                        <li><strong>Випадає 1:</strong> Це вважається як ДВА провали.</li>
+                                        <li><strong>Випадає 20:</strong> Ви миттєво повертаєтесь до тями і отримуєте 1 Хіт. Ви можете продовжувати бій!</li>
+                                    </ul>
+                                    <p><strong>Отримання шкоди:</strong> Якщо вас б'ють, коли у вас 0 ХП, ви автоматично отримуєте 1 провал (або 2 провали, якщо ворог вдарив вас у ближньому бою — це рахується як критичне влучання). Якщо будь-яке лікування повертає вам хоча б 1 ХП, всі ваші успіхи і провали анулюються і ви прокидаєтеся.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="бій-маневри">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🛡️</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Бій: Маневри</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Беззбройний удар (Unarmed Strike) 2024</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Три опції: Шкода, Захоплення або Поштовх</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>У редакції 2024 беззбройний удар — це не лише шкода. Замість атаки зброєю ви можете виконати беззбройний удар і обрати <strong>одну</strong> з трьох опцій:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Шкода:</strong> 1 + модифікатор Сили дробильної шкоди.</li><li><strong>Захоплення (Grapple):</strong> схопити ціль (див. нижче).</li><li><strong>Поштовх (Shove):</strong> штовхнути ціль (див. нижче).</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Захоплення (Grapple) 2024</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Як схопити супротивника беззбройним ударом</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Обравши опцію <strong>Захоплення</strong>, ви намагаєтесь схопити ціль (не більше ніж на розмір більшу за вас і в межах досяжності).</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Рятунок цілі:</strong><br><code>Рятунок Сили або Спритності (на вибір цілі) проти СК = 8 + ваш мод. Сили + бонус майстерності</code></div><p>У разі провалу ціль отримує стан <strong>Схоплена (Grappled)</strong>: її швидкість стає 0. Захоплення закінчується, якщо ви недієздатні або ціль виходить за межі вашої досяжності (наприклад, її відштовхнули).</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Поштовх (Shove) 2024</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Збити з ніг або відштовхнути на 5 футів</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Обравши опцію <strong>Поштовх</strong>, ви штовхаєте ціль у межах досяжності (не більше ніж на розмір більшу за вас).</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Рятунок цілі:</strong><br><code>Рятунок Сили або Спритності проти СК = 8 + ваш мод. Сили + бонус майстерності</code></div><p>У разі провалу ви або <strong>збиваєте ціль з ніг</strong> (стан Лежача), або <strong>відштовхуєте</strong> її на 5 футів від себе (на ваш вибір).</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Бій двома зброями (Two-Weapon Fighting)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Додаткова атака другою легкою зброєю</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Якщо ви атакуєте дією Атака зброєю ближнього бою з властивістю <strong>Легка (Light)</strong>, ви можете <strong>бонусною дією</strong> атакувати іншою легкою зброєю, яку тримаєте в другій руці.</p><ul class="list-disc pl-5 space-y-1"><li>Ви <strong>не додаєте</strong> модифікатор характеристики до шкоди цієї бонусної атаки (крім випадку, коли він від’ємний).</li><li>Стиль бою «Бій двома зброями» дозволяє додавати модифікатор і до цієї атаки.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Критичне влучання (Critical Hit)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Що відбувається при кидку «20» на атаку</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Коли на кидку атаки випадає <strong>натуральна 20</strong> (саме число на кубику, до модифікаторів), це <strong>критичне влучання</strong>: атака автоматично влучає незалежно від КЗ.</p><ul class="list-disc pl-5 space-y-1"><li>Ви кидаєте <strong>всі кубики шкоди двічі</strong> й додаєте їх разом, а вже потім додаєте модифікатори.</li><li>Додаткові кубики шкоди (наприклад, від Підступної атаки) теж подвоюються.</li><li>У редакції 2024 критично влучати й критично «пропускати» можуть лише кидки <strong>атаки</strong> — перевірки та рятунки крит не дають.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Несподіванка (Surprise) 2024</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Бій: Маневри</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Як працює раптовий напад у новій редакції</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>У редакції 2024 «несподіванка» працює простіше. Якщо істота не помітила загрози на початку бою (наприклад, програла Скритність проти Уважності), вона <strong>не пропускає хід</strong>, як раніше.</p><p>Натомість така істота отримує <strong>заваду (disadvantage)</strong> на кидок ініціативи. Це робить підготовлену засідку цінною, але не настільки руйнівною.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="оточення">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🧭</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Подорожі та Оточення</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Прикриття (Cover)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Бонуси до КЗ за укриттям</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Перешкоди між атакувальником і ціллю дають <strong>прикриття</strong>. Береться найвигідніше:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Половинне (1/2):</strong> +2 до КЗ та рятунків Спритності (низька стінка, меблі, інша істота).</li><li><strong>На три чверті (3/4):</strong> +5 до КЗ та рятунків Спритності (бійниця, стовбур дерева).</li><li><strong>Повне:</strong> ціль не можна атакувати напряму й націлити на неї заклинання.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Освітлення та Видимість</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Яскраве, тьмяне світло й темрява</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Освітлення впливає на те, наскільки добре видно:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Яскраве світло:</strong> звичайна видимість.</li><li><strong>Тьмяне світло (слабко затемнено):</strong> завада на перевірки Уважності, що покладаються на зір.</li><li><strong>Темрява (сильно затемнено):</strong> зона фактично сліпа — істоти мають стан <em>Засліплена</em> щодо цілей у ній.</li></ul><p><strong>Темний зір (Darkvision):</strong> дозволяє бачити в темряві як у тьмяному світлі в межах своєї дальності (зазвичай 60 або 120 футів), але лише у відтінках сірого.</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Складна місцевість (Difficult Terrain)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Чому рух уповільнюється вдвічі</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Уламки, густий ліс, сніг, багно, сходи натовпом тощо — це <strong>складна місцевість</strong>. Кожен фут руху нею коштує <strong>2 фути</strong> переміщення.</p><p>Тобто за швидкості 30 футів ви пройдете складною місцевістю лише 15 футів. Ефекти складної місцевості не складаються між собою.</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Стрибки (Jumping)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Формули довгого та високого стрибка</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li><strong>Довгий стрибок:</strong> з розбігу (мін. 10 футів) ви долаєте відстань у футах, що дорівнює вашому <strong>значенню Сили</strong>. Без розбігу — вдвічі менше.</li><li><strong>Високий стрибок:</strong> з розбігу ви підстрибуєте вгору на <strong>3 + модифікатор Сили</strong> футів. Без розбігу — вдвічі менше.</li></ul><p>Кожен фут стрибка коштує фут переміщення.</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Падіння (Falling)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Шкода від падіння з висоти</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Падіння завдає <strong>1d6 дробильної шкоди за кожні 10 футів</strong> падіння, максимум <strong>20d6</strong> (тобто зі 200 футів і вище).</p><p>Істота, що впала, опиняється в стані <strong>Лежача (Prone)</strong>, якщо не уникнула шкоди взагалі (наприклад, заклинанням Уповільнення падіння).</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Затримка дихання та Задуха</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Скільки можна протриматися без повітря</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Істота може затримати дихання на <strong>1 + модифікатор Витривалості</strong> хвилин (мінімум 30 секунд).</p><p>Коли повітря закінчилось, істота може протриматися ще кількість <strong>раундів, що дорівнює її модифікатору Витривалості</strong> (мінімум 1). На початку наступного ходу вона падає до <strong>0 хітів</strong> і починає вмирати — й не може відновлювати хіти, доки не задихає.</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Вантажопідйомність (Carrying Capacity)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Оточення</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Скільки ваги можна нести</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Ваша <strong>вантажопідйомність</strong> у фунтах = <strong>значення Сили × 15</strong>. У цих межах вага спорядження зазвичай не заважає.</p><p>Ви можете тягнути, піднімати або штовхати вдвічі більшу вагу (Сила × 30), але рух нею перетворює простір на складну місцевість. Малі істоти несуть стільки ж, а от великі — більше.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="стани-додатково">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">☠️</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Стани: Додатково</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Схоплена (Grappled)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Стан від вдалого захоплення</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Швидкість істоти стає <strong>0</strong>, вона не може отримувати бонуси до швидкості.</li><li><strong>Завада</strong> на кидки атаки проти будь-кого, крім того, хто її схопив.</li><li>Стан закінчується, якщо той, хто схопив, недієздатний або їх розділили.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Недієздатна (Incapacitated)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Не можна діяти й реагувати</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Істота не може виконувати <strong>дії, бонусні дії та реакції</strong>.</li><li>Не може говорити й концентруватися на заклинаннях.</li><li>Цей стан часто є складовою інших (Оглушена, Паралізована, Непритомна).</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Отруєна (Poisoned)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Поширений негативний стан</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Істота в стані <strong>Отруєна</strong> має <strong>заваду</strong> на всі кидки атаки та перевірки характеристик. Багато отрут і хвороб накладають саме цей стан на певний час.</p>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Скам’яніла (Petrified)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Перетворення на камінь</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Істота й усе, що вона несе, перетворюється на тверду речовину (камінь): вага ×10, вона перестає старіти.</li><li>Вона <strong>недієздатна</strong>, не усвідомлює оточення й не може рухатися чи говорити.</li><li><strong>Опір усій шкоді</strong>, імунітет до отрути й хвороб, автоматичний провал рятунків Сили та Спритності.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Непритомна (Unconscious)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Втрата свідомості</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Істота <strong>недієздатна</strong>, не усвідомлює оточення, випускає предмети й падає (стан Лежача).</li><li>Автоматичний провал рятунків Сили та Спритності.</li><li>Атаки проти неї мають <strong>перевагу</strong>, а будь-яке влучання зблизька — це <strong>критичне</strong>.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Виснаження (Exhaustion) 2024</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Категорія: Стани</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Оновлена шкала виснаження</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>У редакції 2024 виснаження стало простішим і має <strong>6 рівнів</strong>. За кожен рівень:</p><ul class="list-disc pl-5 space-y-1"><li><strong>−2 за рівень</strong> до всіх кидків d20 (атаки, перевірки, рятунки).</li><li><strong>−5 футів × рівень</strong> до швидкості.</li></ul><p>На <strong>6 рівні</strong> істота гине. Кожен тривалий відпочинок знімає <strong>1 рівень</strong> виснаження.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function toggleSingle(element) {
+            const card = element.closest('.feat-card');
+            const content = card.querySelector('.feat-content');
+            const title = card.querySelector('.feat-name');
+            const isOpen = content.classList.contains('open');
+
+            document.querySelectorAll('.feat-content.open').forEach(el => {
+                el.classList.remove('open');
+                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
+            });
+
+            if (!isOpen) {
+                content.classList.add('open');
+                title.classList.replace('text-black', 'text-forest');
+                
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+
+        // Покращений пошук, який також ховає порожні категорії
+        function filterRules() {
+            let textInput = document.getElementById('searchInput').value.toLowerCase();
+            let categoryInput = document.getElementById('categoryFilter').value.toLowerCase();
+            
+            // Отримуємо всі блоки категорій
+            let sections = document.getElementsByClassName('category-section');
+
+            for (let s = 0; s < sections.length; s++) {
+                let section = sections[s];
+                let sectionCategory = section.getAttribute('data-category');
+                let cards = section.getElementsByClassName('feat-card');
+                let hasVisibleCards = false;
+
+                // Перевіряємо кожну картку всередині категорії
+                for (let i = 0; i < cards.length; i++) {
+                    let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
+                    let summary = cards[i].querySelector('.feat-summary').innerText.toLowerCase();
+                    let inner = cards[i].querySelector('.feat-inner').innerText.toLowerCase();
+                    
+                    let matchesText = name.includes(textInput) || summary.includes(textInput) || inner.includes(textInput);
+                    let matchesCategory = categoryInput === "" || sectionCategory === categoryInput;
+                    
+                    if (matchesText && matchesCategory) {
+                        cards[i].style.display = "";
+                        hasVisibleCards = true; // Якщо хоч одна картка видима
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+
+                // Ховаємо весь блок категорії (включно з великим заголовком), якщо немає результатів
+                if (hasVisibleCards) {
+                    section.style.display = "";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script src="search-index.js"></script>
+    <script src="site-common.js"></script>
+</body>
+</html>
