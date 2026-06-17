@@ -8,7 +8,7 @@
 
 Неофіційний україномовний довідник за п'ятою редакцією *Dungeons & Dragons*.
 Містить класи, раси, передісторії, заклинання, риси (feats), правила, а також
-генератор персонажів з експортом у PDF. Працює повністю **офлайн**.
+генератор персонажів з експортом у PDF.
 
 ### Можливості
 - 📖 Класи, раси, передісторії, заклинання, риси та правила
@@ -34,7 +34,7 @@
 
 An unofficial Ukrainian-language reference for *Dungeons & Dragons* 5th Edition.
 Includes classes, races, backgrounds, spells, feats, rules, and a character
-builder with PDF export. Works fully **offline**.
+builder with PDF export.
 
 ### Features
 - 📖 Classes, races, backgrounds, spells, feats, and rules
