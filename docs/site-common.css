@@ -1,0 +1,456 @@
+/* ============================================================
+   D&D 5e База Знань — спільні стилі
+   Темна тема, мобільне меню, доступність (a11y), глобальний пошук
+   ============================================================ */
+
+/* ---------- Фокус для доступності ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #22C55E;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Мобільне меню ---------- */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+#mobile-menu.open {
+  max-height: 520px;
+}
+
+/* ---------- Глобальний пошук (оверлей) ---------- */
+#global-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  padding-top: 10vh;
+}
+#global-search-overlay.open { display: block; }
+#global-search-box {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  overflow: hidden;
+}
+#global-search-input {
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 1.05rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1E293B;
+}
+#global-search-results {
+  max-height: 56vh;
+  overflow-y: auto;
+  border-top: 1px solid #E2E8F0;
+}
+.gs-result {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 20px;
+  border-bottom: 1px solid #F1F5F9;
+  cursor: pointer;
+  text-decoration: none;
+  color: #1E293B;
+}
+.gs-result:hover,
+.gs-result.active {
+  background: #F0FDF4;
+}
+.gs-result .gs-title { font-weight: 600; }
+.gs-result .gs-cat {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: #14532D;
+  padding: 2px 7px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.gs-empty { padding: 22px 20px; color: #64748B; text-align: center; }
+.gs-hint { padding: 8px 20px; font-size: 0.72rem; color: #94A3B8; background: #F8FAFC; }
+
+/* ============================================================
+   ТЕМНА ТЕМА — застосовується через клас .dark на <html>
+   ============================================================ */
+html.dark body { background-color: #0F172A !important; color: #E2E8F0; }
+
+html.dark .bg-white { background-color: #1E293B !important; }
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 { background-color: #243449 !important; }
+html.dark .bg-surface,
+html.dark .bg-surface-light { background-color: #0F172A !important; }
+
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-ui-text { color: #E2E8F0 !important; }
+html.dark .text-slate-700 { color: #CBD5E1 !important; }
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-ui-muted { color: #94A3B8 !important; }
+
+html.dark .border-slate-200,
+html.dark .border-slate-100 { border-color: #334155 !important; }
+
+/* Зберігаємо зелений бренд-колір у шапці/кнопках, лише трохи темніший фон сторінки */
+html.dark .icon-box { filter: brightness(1.05); }
+html.dark .nav-card { background-color: #1E293B !important; border-color: #334155 !important; }
+html.dark .nav-card:hover { border-color: #22C55E !important; }
+
+/* Таблиці */
+html.dark table { border-color: #334155 !important; }
+html.dark th, html.dark td { border-color: #334155 !important; }
+html.dark thead, html.dark .bg-slate-100 { background-color: #243449 !important; }
+
+/* Пошук у темній темі */
+html.dark #global-search-box { background: #1E293B; }
+html.dark #global-search-input { color: #E2E8F0; }
+html.dark #global-search-results { border-top-color: #334155; }
+html.dark .gs-result { color: #E2E8F0; border-bottom-color: #243449; }
+html.dark .gs-result:hover, html.dark .gs-result.active { background: #14532D; }
+html.dark .gs-hint { background: #243449; color: #64748B; }
+
+/* Інпути/селекти у темній темі (фільтри на сторінках) */
+html.dark input[type="text"],
+html.dark input[type="search"],
+html.dark select,
+html.dark textarea {
+  background-color: #243449 !important;
+  color: #E2E8F0 !important;
+  border-color: #334155 !important;
+}
+html.dark input::placeholder { color: #64748B !important; }
+
+
+/* ============================================================
+   DARK-FIX v2 — бежеві плашки, чорний текст, округлення, таблиці класів
+   ============================================================ */
+
+/* Бежеві плашки (шапки карток, рядки) */
+html.dark .bg-dnd-beige { background-color: #243449 !important; }
+html.dark .bg-dnd-beigedark,
+html.dark .hover\:bg-dnd-beigedark:hover { background-color: #30435f !important; }
+
+/* Чорний/темний текст -> світлий */
+html.dark .text-black,
+html.dark .text-dnd-text { color: #E2E8F0 !important; }
+html.dark .text-dnd-muted { color: #94A3B8 !important; }
+html.dark .text-slate-400 { color: #64748B !important; }
+html.dark .border-slate-300 { border-color: #334155 !important; }
+
+/* Світлі довільні фони */
+html.dark .bg-\[\#F8FAFC\] { background-color: #0F172A !important; }
+html.dark .bg-\[\#F4F2EC\] { background-color: #243449 !important; }
+
+/* Округлення: кліпаємо квадратні кути внутрішніх шапок */
+.feat-card { overflow: hidden; }
+html.dark .feat-card { background-color: #1E293B !important; border-color: #334155 !important; }
+
+/* Роздільники рядків (divide-y) */
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #334155 !important; }
+
+/* Таблиця класів */
+html.dark .class-table th { background-color: #0f3d21 !important; }
+html.dark .class-table td { border-bottom-color: #334155 !important; color: #E2E8F0; }
+html.dark .class-table .slot-col { border-left-color: #334155 !important; }
+html.dark .class-table tr:nth-child(even) { background-color: #243449 !important; }
+html.dark .class-table tr:hover { background-color: #14532D !important; }
+
+
+/* ============================================================
+   DARK-FIX v3 — saturated text colors, generic tables, tints
+   ============================================================ */
+
+/* Saturated label/heading text -> lighter shades on dark bg */
+html.dark .text-amber-700, html.dark .text-amber-800, html.dark .text-amber-900 { color: #FCD34D !important; }
+html.dark .text-orange-800, html.dark .text-orange-900 { color: #FDBA74 !important; }
+html.dark .text-red-500 { color: #F87171 !important; }
+html.dark .text-red-700, html.dark .text-red-800, html.dark .text-red-900 { color: #FCA5A5 !important; }
+html.dark .text-rose-800, html.dark .text-rose-900 { color: #FDA4AF !important; }
+html.dark .text-pink-800, html.dark .text-pink-900 { color: #F9A8D4 !important; }
+html.dark .text-fuchsia-800, html.dark .text-fuchsia-900 { color: #F0ABFC !important; }
+html.dark .text-purple-600 { color: #C084FC !important; }
+html.dark .text-purple-800, html.dark .text-purple-900 { color: #D8B4FE !important; }
+html.dark .text-indigo-800, html.dark .text-indigo-900 { color: #A5B4FC !important; }
+html.dark .text-blue-800, html.dark .text-blue-900 { color: #93C5FD !important; }
+html.dark .text-sky-800 { color: #7DD3FC !important; }
+html.dark .text-cyan-800 { color: #67E8F9 !important; }
+html.dark .text-teal-800 { color: #5EEAD4 !important; }
+html.dark .text-green-800, html.dark .text-green-900 { color: #86EFAC !important; }
+html.dark .text-gray-800, html.dark .text-zinc-800 { color: #E2E8F0 !important; }
+
+/* Light green dice button */
+html.dark .bg-green-100 { background-color: #14532D !important; }
+html.dark .border-green-300 { border-color: #166534 !important; }
+
+/* Generic tables in dark mode (not only .class-table) */
+html.dark thead tr { background-color: #0f3d21 !important; }
+html.dark th { color: #F1F5F9 !important; }
+html.dark td { color: #E2E8F0 !important; border-color: #334155 !important; }
+html.dark tbody tr:nth-child(even) { background-color: #243449 !important; }
+html.dark tbody tr:nth-child(odd) { background-color: transparent !important; }
+html.dark tbody tr:hover { background-color: #14532D !important; }
+
+
+/* ============================================================
+   DARK-FIX v4 — character creator app (tints, buttons, tabs)
+   ============================================================ */
+
+/* Colored tint backgrounds -> dark tinted */
+html.dark .bg-amber-50, html.dark .bg-amber-100 { background-color: #3a2e12 !important; }
+html.dark .bg-green-50 { background-color: #0f3d21 !important; }
+html.dark .bg-emerald-100 { background-color: #0f3d2a !important; }
+html.dark .bg-indigo-50, html.dark .bg-indigo-100 { background-color: #1e1b4b !important; }
+html.dark .bg-purple-100 { background-color: #2e1065 !important; }
+html.dark .bg-red-100 { background-color: #450a0a !important; }
+html.dark .bg-sky-50 { background-color: #0c2a3a !important; }
+html.dark .bg-slate-200 { background-color: #334155 !important; }
+
+/* Remaining saturated text shades -> lighter on dark */
+html.dark .text-amber-500, html.dark .text-amber-600 { color: #FBBF24 !important; }
+html.dark .text-green-600, html.dark .text-green-700 { color: #86EFAC !important; }
+html.dark .text-emerald-700 { color: #6EE7B7 !important; }
+html.dark .text-indigo-600, html.dark .text-indigo-700 { color: #A5B4FC !important; }
+html.dark .text-purple-700 { color: #D8B4FE !important; }
+html.dark .text-sky-500, html.dark .text-sky-600, html.dark .text-sky-700 { color: #7DD3FC !important; }
+html.dark .text-red-600 { color: #FCA5A5 !important; }
+
+/* Creator tabs + selectable class/race buttons */
+html.dark .tab-btn.active { color: #22C55E !important; border-bottom-color: #22C55E !important; }
+html.dark .tab-btn:hover { color: #22C55E !important; }
+html.dark .class-btn.active, html.dark .race-btn.active { background-color: #243449 !important; border-color: #22C55E !important; box-shadow: 0 2px 4px rgba(0,0,0,0.4) !important; }
+
+/* Creator scrollbars in dark */
+html.dark ::-webkit-scrollbar-track { background: #1E293B; }
+html.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+
+/* ============================================================
+   DARK-FIX v5 — full character-creator coverage:
+   brand-green text, translucent whites/tints, light gradients,
+   pastel borders. Keeps brand green for buttons/header/rings.
+   ============================================================ */
+
+/* Brand dark-green text (#14532D) is unreadable on dark cards -> brighten */
+html.dark .text-forest { color: #4ADE80 !important; }
+html.dark .text-forest-accent { color: #4ADE80 !important; }
+html.dark .border-forest { border-color: #22C55E !important; }
+html.dark .border-forest\/40 { border-color: rgba(34,197,94,0.45) !important; }
+html.dark .border-forest\/20 { border-color: rgba(34,197,94,0.28) !important; }
+
+/* Translucent white surfaces (not matched by .bg-white) */
+html.dark .bg-white\/70 { background-color: rgba(30,41,59,0.72) !important; }
+html.dark .bg-white\/60 { background-color: rgba(30,41,59,0.62) !important; }
+html.dark .hover\:bg-white:hover { background-color: #2b3a52 !important; }
+
+/* Translucent colored tints */
+html.dark .bg-amber-50\/60 { background-color: rgba(58,46,18,0.55) !important; }
+html.dark .bg-slate-50\/60 { background-color: rgba(36,52,73,0.62) !important; }
+html.dark .bg-indigo-50\/60 { background-color: rgba(30,27,75,0.55) !important; }
+html.dark .bg-rose-50\/60 { background-color: rgba(69,10,30,0.5) !important; }
+
+/* Light gradients -> dark (Tailwind v3 gradient custom props) */
+html.dark .from-sky-50 {
+  --tw-gradient-from: #0c2a3a var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(12 42 58 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+html.dark .from-amber-50 {
+  --tw-gradient-from: #2a2410 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(42 36 16 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+html.dark .to-white { --tw-gradient-to: #1E293B var(--tw-gradient-to-position) !important; }
+html.dark .to-yellow-50 { --tw-gradient-to: #2a2410 var(--tw-gradient-to-position) !important; }
+
+/* Pastel borders -> muted dark borders */
+html.dark .border-sky-100 { border-color: #1e3a4a !important; }
+html.dark .border-sky-200 { border-color: #235168 !important; }
+html.dark .border-amber-200 { border-color: #4a3c18 !important; }
+html.dark .border-amber-300 { border-color: #5c4a1d !important; }
+html.dark .border-indigo-200 { border-color: #312e81 !important; }
+html.dark .border-purple-200 { border-color: #4c1d95 !important; }
+html.dark .border-rose-200 { border-color: #7f1d3a !important; }
+html.dark .border-green-200, html.dark .border-emerald-200 { border-color: #166534 !important; }
+html.dark .border-red-200 { border-color: #7f1d1d !important; }
+
+/* Remaining saturated text not covered earlier */
+html.dark .text-rose-700 { color: #FDA4AF !important; }
+
+
+/* ============================================================
+   DARK-FIX v6 — number inputs (HP, coins) + arbitrary-value
+   dice colors (d20 was green-on-green, invisible)
+   ============================================================ */
+
+/* number inputs were not covered (only text/search/select/textarea) */
+html.dark input[type="number"] {
+  background-color: #243449 !important;
+  color: #E2E8F0 !important;
+  border-color: #334155 !important;
+}
+html.dark input[type="number"]::placeholder { color: #64748B !important; }
+
+/* Arbitrary brand colors used by dice buttons */
+html.dark .text-\[\#14532D\] { color: #86EFAC !important; }
+html.dark .hover\:text-\[\#14532D\]:hover { color: #86EFAC !important; }
+
+/* ===== DARK-FIX v7 (#30): translucent green granted-spell cards ===== */
+html.dark .bg-green-50\/70 { background-color: rgba(15, 61, 33, 0.55) !important; }
+html.dark .bg-green-50\/60 { background-color: rgba(15, 61, 33, 0.50) !important; }
+html.dark .bg-green-50\/50 { background-color: rgba(15, 61, 33, 0.45) !important; }
+
+/* ===== DARK-FIX v8 (#30): hover backgrounds must stay dark ===== */
+html.dark .hover\:bg-white:hover { background-color: #243449 !important; }
+html.dark .hover\:bg-slate-50:hover { background-color: #243449 !important; }
+html.dark .hover\:bg-slate-100:hover { background-color: #2b3b52 !important; }
+html.dark .hover\:bg-slate-200:hover { background-color: #334155 !important; }
+html.dark .hover\:bg-gray-50:hover { background-color: #243449 !important; }
+html.dark .hover\:bg-amber-50:hover { background-color: rgba(120, 53, 15, 0.35) !important; }
+
+/* ============================================================
+   Пошук: фільтр-чіпи, лічильник, підсвітка + кнопка «нагору»
+   ============================================================ */
+#global-search-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #E2E8F0;
+}
+.gs-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #CBD5E1;
+  background: #F8FAFC;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.gs-chip:hover { border-color: #22C55E; color: #14532D; }
+.gs-chip.active {
+  background: #14532D;
+  border-color: #14532D;
+  color: #fff;
+}
+.gs-count {
+  padding: 8px 20px 4px;
+  font-size: 0.72rem;
+  color: #94A3B8;
+}
+.gs-result mark {
+  background: #FEF08A;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+#back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #14532D;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.15s ease;
+  z-index: 50;
+}
+#back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#back-to-top:hover { background: #166534; }
+
+/* Темна тема для нових елементів */
+html.dark #global-search-cats { border-bottom-color: #334155; }
+html.dark .gs-chip { background: #243449; border-color: #334155; color: #CBD5E1; }
+html.dark .gs-chip:hover { border-color: #22C55E; color: #22C55E; }
+html.dark .gs-chip.active { background: #22C55E; border-color: #22C55E; color: #0F172A; }
+html.dark .gs-count { color: #64748B; }
+html.dark .gs-result mark { background: #ca8a04; color: #0F172A; }
+html.dark #back-to-top { background: #22C55E; color: #0F172A; }
+html.dark #back-to-top:hover { background: #16A34A; }
+
+/* Доступність: більші тап-зони на мобільних */
+@media (max-width: 640px) {
+  #global-search-box { width: 94vw; }
+  .gs-result { padding-top: 12px; padding-bottom: 12px; }
+}
+
+/* ============================================================
+   Полірування UX/дизайну + мобільна адаптація
+   ============================================================ */
+html { scroll-behavior: smooth; }
+
+/* Помітні фокус-стилі для доступності (клавіатура) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #22C55E;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Легкий ефект підняття карток */
+.nav-card { transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+.nav-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20,83,45,0.12); }
+
+/* Горизонтальна прокрутка широких таблиць на вузьких екранах */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -2px;
+}
+.table-scroll > table { min-width: 480px; }
+
+/* Плавна прокрутка до якорів без прилипання під sticky-шапку */
+:target { scroll-margin-top: 80px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav-card:hover { transform: none; }
+}
+
+/* ============================================================
+   Підсвічування знайденого елемента після переходу з пошуку
+   ============================================================ */
+.search-flash {
+  animation: searchFlash 2.6s ease-out;
+  border-radius: 10px;
+}
+@keyframes searchFlash {
+  0%   { box-shadow: 0 0 0 3px rgba(34,197,94,0.0), 0 0 0 9999px rgba(34,197,94,0.0); }
+  12%  { box-shadow: 0 0 0 3px rgba(34,197,94,0.9), 0 0 22px 4px rgba(34,197,94,0.45); }
+  70%  { box-shadow: 0 0 0 3px rgba(34,197,94,0.7), 0 0 18px 3px rgba(34,197,94,0.30); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .search-flash { animation: none; box-shadow: 0 0 0 3px rgba(34,197,94,0.8); }
+}

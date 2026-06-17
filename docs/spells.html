@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spells - D&D 5e</title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
+                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .feat-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .feat-content.open {
+            grid-template-rows: 1fr;
+        }
+        .feat-inner {
+            overflow: hidden;
+        }
+        .feat-card.active-card {
+            border-color: #14532D;
+            box-shadow: 0 4px 12px rgba(20, 83, 45, 0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="site-common.css">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+<!-- Header -->
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
+                    D&D 5e Knowledge Base
+                </h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+
+        <div class="mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Spells</h1>
+            <p class="text-sm text-slate-500 mt-2">Use the filters below to find the spell you need. Click a card to expand the description.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full mb-4">
+
+            <select id="levelFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
+                <option value="">All Levels</option>
+                <option value="cantrip">Cantrip (0)</option>
+                <option value="1st level">1st Level</option>
+                <option value="2nd level">2nd Level</option>
+                <option value="3rd level">3rd Level</option>
+                <option value="4th level">4th Level</option>
+                <option value="5th level">5th Level</option>
+                <option value="6th level">6th Level</option>
+                <option value="7th level">7th Level</option>
+                <option value="8th level">8th Level</option>
+                <option value="9th level">9th Level</option>
+            </select>
+
+            <select id="schoolFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
+                <option value="">All Schools</option>
+                <option value="abjuration">Abjuration</option>
+                <option value="conjuration">Conjuration</option>
+                <option value="divination">Divination</option>
+                <option value="enchantment">Enchantment</option>
+                <option value="evocation">Evocation</option>
+                <option value="illusion">Illusion</option>
+                <option value="necromancy">Necromancy</option>
+                <option value="transmutation">Transmutation</option>
+            </select>
+
+            <select id="classFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
+                <option value="">All Classes</option>
+                <option value="bard">Bard</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="wizard">Wizard</option>
+                <option value="warlock">Warlock</option>
+                <option value="artificer">Artificer</option>
+            </select>
+
+            <div class="relative flex-grow sm:w-64 lg:w-auto">
+                <input type="text" id="searchInput" onkeyup="filterSpells()" placeholder="Search by keyword..."
+                    class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
+                <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mb-4">
+            <p id="resultCount" class="text-xs text-slate-400"></p>
+            <button id="resetFilters" onclick="resetSpellFilters()" class="text-xs font-semibold text-forest hover:text-forest-hover hidden">Reset</button>
+        </div>
+
+        <div id="spell-list" class="space-y-3"></div>
+
+        <div id="emptyState" class="hidden text-center py-16 text-slate-400">
+            <div class="text-4xl mb-3">🪄</div>
+            <p class="font-semibold">Nothing found</p>
+            <p class="text-sm mt-1">Try changing the filters or search query.</p>
+        </div>
+
+    </main>
+
+<script src="spell-classes.js"></script>
+<script src="spells-data.js"></script>
+<script>
+    // Open/close card
+    function toggleSingle(element) {
+        const card = element.closest('.feat-card');
+        const content = card.querySelector('.feat-content');
+        const title = card.querySelector('.feat-name');
+        const isOpen = content.classList.contains('open');
+        document.querySelectorAll('.feat-content.open').forEach(el => {
+            if (el !== content) {
+                el.classList.remove('open');
+                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
+                el.closest('.feat-card').classList.remove('active-card');
+            }
+        });
+        if (isOpen) {
+            content.classList.remove('open');
+            title.classList.replace('text-forest', 'text-black');
+            card.classList.remove('active-card');
+        } else {
+            content.classList.add('open');
+            title.classList.replace('text-black', 'text-forest');
+            card.classList.add('active-card');
+            setTimeout(() => { card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+        }
+    }
+
+    function esc(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function levelLabel(lvl) {
+        return lvl === 0 ? 'Cantrip' : (lvl + (lvl === 1 ? 'st' : lvl === 2 ? 'nd' : lvl === 3 ? 'rd' : 'th') + ' Level');
+    }
+
+    // Render all cards from DND_SPELLS
+    function renderSpells() {
+        const list = document.getElementById('spell-list');
+        const spells = (typeof DND_SPELLS !== 'undefined' ? DND_SPELLS : []).slice();
+        spells.sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name, 'uk'));
+        const html = spells.map(function (sp) {
+            const lvlLabel = levelLabel(sp.level);
+            const subtitle = lvlLabel + ', ' + sp.school + (sp.ritual ? ' · Ritual' : '');
+            const summaryParts = [sp.castingTime, sp.range, sp.duration].filter(Boolean);
+            const summary = (sp.concentration ? 'Concentration · ' : '') + summaryParts.join(' | ');
+            const engName = (sp.nameEn || '').toLowerCase();
+            const fullName = sp.name + ' (' + (sp.nameEn || '') + ')';
+            const paras = String(sp.description || '').split(/\n+/).filter(function (p) { return p.trim(); })
+                .map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+            const searchText = (fullName + ' ' + sp.school + ' ' + (sp.description || '')).toLowerCase();
+            const badges = [];
+            if (sp.concentration) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-700">Concentration</span>');
+            if (sp.ritual) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-700">Ritual</span>');
+            return '' +
+            '<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm"' +
+                ' data-level-label="' + esc(lvlLabel.toLowerCase()) + '"' +
+                ' data-school="' + esc(sp.school.toLowerCase()) + '"' +
+                ' data-eng="' + esc(engName) + '"' +
+                ' data-search="' + esc(searchText) + '">' +
+                '<div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">' +
+                    '<div class="flex flex-col mb-2 md:mb-0">' +
+                        '<span class="font-bold text-lg leading-tight feat-name text-black transition-colors">' + esc(fullName) + '</span>' +
+                        '<span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">' + esc(subtitle) + '</span>' +
+                    '</div>' +
+                    '<div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">' + esc(summary) + '</div>' +
+                '</div>' +
+                '<div class="feat-content"><div class="feat-inner">' +
+                    '<div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">' +
+                        (badges.length ? '<div class="flex gap-2 flex-wrap">' + badges.join('') + '</div>' : '') +
+                        '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs bg-slate-50 p-3 rounded border border-slate-100">' +
+                            '<div><strong class="text-forest">Casting Time:</strong> ' + esc(sp.castingTime) + '</div>' +
+                            '<div><strong class="text-forest">Range:</strong> ' + esc(sp.range) + '</div>' +
+                            '<div><strong class="text-forest">Components:</strong> ' + esc(sp.components) + '</div>' +
+                            '<div><strong class="text-forest">Duration:</strong> ' + esc(sp.duration) + '</div>' +
+                        '</div>' +
+                        paras +
+                    '</div>' +
+                '</div></div>' +
+            '</div>';
+        }).join('');
+        list.innerHTML = html;
+    }
+
+    // Filter and search
+    function filterSpells() {
+        const textInput = document.getElementById('searchInput').value.toLowerCase().trim();
+        const levelInput = document.getElementById('levelFilter').value.toLowerCase();
+        const schoolInput = document.getElementById('schoolFilter').value.toLowerCase();
+        const classInput = document.getElementById('classFilter').value.toLowerCase();
+        const cards = document.getElementsByClassName('feat-card');
+        let visible = 0;
+        for (let i = 0; i < cards.length; i++) {
+            const c = cards[i];
+            const search = c.getAttribute('data-search') || '';
+            const levelLbl = c.getAttribute('data-level-label') || '';
+            const school = c.getAttribute('data-school') || '';
+            const eng = c.getAttribute('data-eng') || '';
+            const matchesText = textInput === '' || search.includes(textInput);
+            const matchesLevel = levelInput === '' || levelLbl === levelInput;
+            const matchesSchool = schoolInput === '' || school.includes(schoolInput);
+            let matchesClass = true;
+            if (classInput !== '') {
+                matchesClass = false;
+                if (typeof spellClassesDB !== 'undefined' && spellClassesDB[eng]) {
+                    matchesClass = spellClassesDB[eng].includes(classInput);
+                } else {
+                    matchesClass = search.includes(classInput);
+                }
+            }
+            if (matchesText && matchesLevel && matchesSchool && matchesClass) {
+                c.style.display = '';
+                visible++;
+            } else {
+                c.style.display = 'none';
+            }
+        }
+        const total = cards.length;
+        const counter = document.getElementById('resultCount');
+        if (counter) counter.textContent = 'Showing ' + visible + ' of ' + total + ' spells';
+        const empty = document.getElementById('emptyState');
+        if (empty) empty.classList.toggle('hidden', visible !== 0);
+        const hasFilters = textInput || levelInput || schoolInput || classInput;
+        const reset = document.getElementById('resetFilters');
+        if (reset) reset.classList.toggle('hidden', !hasFilters);
+    }
+
+    function resetSpellFilters() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('levelFilter').value = '';
+        document.getElementById('schoolFilter').value = '';
+        document.getElementById('classFilter').value = '';
+        filterSpells();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        renderSpells();
+        filterSpells();
+    });
+</script>
+<script src="search-index.js"></script>
+<script src="site-common.js"></script>
+</body>
+</html>

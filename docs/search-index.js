@@ -1,0 +1,4167 @@
+/* Автогенеровано з search-index.json. Підключається через <script>, щоб пошук працював і при відкритті файлів локально (file://). */
+window.SEARCH_INDEX = [
+ {
+  "title": "Астральна проєкція (Astral Projection)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Аура життя (Aura of Life)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Аура життєвості (Aura of Vitality)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Аура чистоти (Aura of Purity)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Бажання (Wish)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Бар'єр клинків (Blade Barrier)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Бачення невидимого (See Invisibility)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Безслідний хід (Pass without Trace)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Бенкет героїв (Heroes' Feast)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Благословення (Bless)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Блискавичний ласо (Lightning Lure)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Блискавка (Lightning Bolt)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Божественна милість (Divine Favor)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Божественне слово (Divine Word)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Брама (Gate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "В'янення (Blight)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вампірський дотик (Vampiric Touch)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Велетенська комаха (Giant Insect)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Велика ілюзія (Major Image)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вибух мечів (Sword Burst)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вигнання (Banishment)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виготовлення (Fabricate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Conjuration блискавки (Call Lightning)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Conjuration звіра (Summon Beast)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Conjuration страху (Cause Fear)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вир (Maelstrom)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виснаження (Enervation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вища невидимість (Greater Invisibility)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вище відновлення (Greater Restoration)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виявлення добра і зла (Detect Evil and Good)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виявлення думок (Detect Thoughts)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виявлення магії (Detect Magic)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Виявлення отрути та хвороб (Detect Poison and Disease)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вказівка (Guidance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Влучний удар (True Strike)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняна куля (Fireball)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняна куля з затримкою (Delayed Blast Fireball)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняна сфера (Flaming Sphere)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняний клинок (Flame Blade)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняний снаряд (Fire Bolt)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняний удар (Flame Strike)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняний шторм (Fire Storm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогняний щит (Fire Shield)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вогонь фей (Faerie Fire)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Воскресіння (Resurrection)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Воскресіння (Revivify)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вроки (Hex)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Відчуття звіра (Beast Sense)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Відьмацька стріла (Witch Bolt)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Вірний гончак Морденкайнена (Mordenkainen's Faithful Hound)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Divination (Divination)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Газоподібна форма (Gaseous Form)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Галюциногенний ландшафт (Hallucinatory Terrain)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Героїзм (Heroism)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Гнів природи (Wrath of Nature)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Гнівна кара (Wrathful Smite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Голод Гадара (Hunger of Hadar)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Град колючок (Hail of Thorns)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Громова хвиля (Thunderwave)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Громовий крок (Thunder Step)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Громохка кара (Thunderous Smite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Гуркотливий клинок (Booming Blade)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Гуркіт грому (Thunderclap)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Гіпнотичний візерунок (Hypnotic Pattern)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Далекий крок (Far Step)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дезінтеграція (Disintegrate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Денне світло (Daylight)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дзвін за мертвими (Toll the Dead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дзеркальне відображення (Mirror Image)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дисонуючий шепіт (Dissonant Whispers)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Допомога (Aid)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Друзі (Friends)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Druidське мистецтво (Druidcraft)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дрібні метеори Мелфа (Melf's Minute Meteors)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Дубова шкіра (Barkskin)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Духовна зброя (Spiritual Weapon)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ефірність (Etherealness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Жах (Weird)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Заборона (Forbiddance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Завдавання ран (Inflict Wounds)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Заплутування (Entangle)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зараження (Contagion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зараження (Infestation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Заспокоєння емоцій (Calm Emotions)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Defense від добра і зла (Protection from Evil and Good)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Defense від енергії (Protection from Energy)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Defense від отрути (Protection from Poison)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зачаровування (Enthrall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Enchantment особи (Charm Person)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Збільшення/Зменшення (Enlarge/Reduce)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зв'язок з іншим планом (Contact Other Plane)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зв'язування землею (Earthbind)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зворотна гравітація (Reverse Gravity)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Злиття з каменем (Meld into Stone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Злісна насмішка (Vicious Mockery)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зміна пам'яті (Modify Memory)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зміна подоби (Alter Self)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зміна форми (Polymorph)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Знайти пастки (Find Traps)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Знайти скакуна (Find Steed)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Знайти фамільяра (Find Familiar)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Знайти шлях (Find the Path)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зняття прокляття (Remove Curse)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зона правди (Zone of Truth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зсув землі (Move Earth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зсув планів (Plane Shift)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зуврочення (Eyebite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Зцілення (Heal)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кам'яна стіна (Wall of Stone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кам'яна шкіра (Stoneskin)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Катапульта (Catapult)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кислотна стріла Мелфа (Melf's Acid Arrow)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Клинок зеленого полум'я (Green-Flame Blade)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Клинок катастрофи (Blade of Disaster)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Клон (Clone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Клітка душі (Soul Cage)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Коло смерті (Circle of Death)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Коло телепортації (Teleportation Circle)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кольорові бризки (Color Spray)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Контрзаклинання (Counterspell)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Контроль води (Control Water)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Контроль вітрів (Control Winds)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Контроль полум'я (Control Flames)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Конус холоду (Cone of Cold)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кордон стріл (Cordon of Arrows)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Корона безумства (Crown of Madness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Корона зірок (Crown of Stars)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Красномовство (Glibness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Крижана стіна (Wall of Ice)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Крижана сфера Отілюка (Otiluke's Freezing Sphere)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Крижаний ніж (Ice Knife)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Крижаний шторм (Ice Storm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Крок крізь дерева (Tree Stride)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Кістки землі (Bones of the Earth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Лабіринт (Maze)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Лагодження (Mending)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ланцюгова блискавка (Chain Lightning)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Левітація (Levitate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Легенди та перекази (Legend Lore)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Льодяний шторм (Sleet Storm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Лікувальне слово (Healing Word)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Лікування ран (Cure Wounds)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Літаючий диск Тенсера (Tenser's Floating Disk)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічна зброя (Magic Weapon)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічна рука (Mage Hand)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічна стріла (Magic Missile)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічне коло (Magic Circle)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічний глек (Magic Jar)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічний камінь (Magic Stone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічний обладунок (Mage Armor)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Магічні вуста (Magic Mouth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мала ілюзія (Minor Illusion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мале відновлення (Lesser Restoration)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мантія хрестоносця (Crusader's Mantle)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Марево (Mirage Arcane)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Маскування (Disguise Self)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Масове зцілення (Mass Heal)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Масове лікувальне слово (Mass Healing Word)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Масове лікування ран (Mass Cure Wounds)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Масове навіювання (Mass Suggestion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мастило (Grease)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ментальна в'язниця (Mental Prison)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ментальне лозино Таші (Tasha's Mind Whip)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ментальний скалок (Mind Sliver)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мерехтіння (Blink)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Метеоритний дощ (Meteor Swarm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Меч Морденкайнена (Mordenkainen's Sword)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Миттєвий виклик Дроуміжа (Drawmij's Instant Summons)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мовчазна ілюзія (Silent Image)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Могутня фортеця (Mighty Fortress)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Моторошний дотик (Chill Touch)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Містична брама (Arcane Gate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Містичне око (Arcane Eye)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Містичний вибух (Eldritch Blast)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Містичний замок (Arcane Lock)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Місячний промінь (Moonbeam)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Мітка мисливця (Hunter's Mark)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Навіювання (Suggestion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Наказ (Command)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Накладання прокляття (Bestow Curse)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Напис у небі (Skywrite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Наповнення вітром (Investiture of Wind)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Наповнення каменем (Investiture of Stone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Наповнення льодом (Investiture of Ice)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Наповнення полум'ям (Investiture of Flame)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Нашестя комах (Insect Plague)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Невидимий слуга (Unseen Servant)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Невидимість (Invisibility)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Невиявлення (Nondetection)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Негасиме полум'я (Continual Flame)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Нестримний танець Отто (Otto's Irresistible Dance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Noжний спочинок (Gentle Repose)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Оберіг від зброї (Blade Ward)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Оберіг від смерті (Death Ward)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Обладунок Аґатіса (Armor of Agathys)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Обмороження (Frostbite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Обітниця (Geas)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Огидний сміх Таші (Tasha's Hideous Laughter)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Оживлення предметів (Animate Objects)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Омана (Mislead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Оплутуючий удар (Ensnaring Strike)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Опір (Resistance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Освячення (Hallow)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Отруйні бризки (Poison Spray)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охорона та варта (Guards and Wards)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охоронець віри (Guardian of Faith)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охоронний вітер (Warding Wind)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охоронний зв'язок (Warding Bond)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охоронний символ (Glyph of Warding)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Охоронні духи (Spirit Guardians)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Очищення їжі та води (Purify Food and Drink)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Павутиння (Web)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Павуче лазіння (Spider Climb)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Палаючі руки (Burning Hands)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Палець смерті (Finger of Death)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Палюча кара (Searing Smite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Палючий промінь (Scorching Ray)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пастка (Snare)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пекельна відплата (Hellish Rebuke)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пекельний виклик (Infernal Calling)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Первісна жорстокість (Primal Savagery)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Первісний оберіг (Primordial Ward)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Передбачення (Foresight)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Transmutation (Shapechange)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Transmutation каменю (Transmute Rock)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Transmutation Тенсера (Tenser's Transformation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пиловий диявол (Dust Devil)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Плавне падіння (Feather Fall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Планарне зв'язування (Planar Binding)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Планарний союзник (Planar Ally)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Плоть у камінь (Flesh to Stone)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Плутанина (Confusion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Повернення до життя (Raise Dead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Повідомлення (Message)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Подих дракона (Dragon's Breath)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Подоба (Seeming)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Покращення характеристики (Enhance Ability)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Покров духів (Spirit Shroud)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Поле антимагії (Antimagic Field)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Політ (Fly)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Порив вітру (Gust of Wind)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Порив вітру (Gust)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Порятунок від смерті (Spare the Dying)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Посилення навичок (Skill Empowerment)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Послання (Sending)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Поспіх (Haste)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Потойбічна подоба Таші (Tasha's Otherworldly Guise)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Потік негативної енергії (Negative Energy Flood)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пошук предмета (Locate Object)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пошук тварин або рослин (Locate Animals or Plants)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пошук істоти (Locate Creature)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приватне святилище Морденкайнена (Private Sanctum)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Призматична стіна (Prismatic Wall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Призматичні бризки (Prismatic Spray)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик елементаля (Conjure Elemental)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик залпу (Conjure Volley)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик лісових істот (Conjure Woodland Beings)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик малих демонів (Summon Lesser Demons)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик малих елементалів (Conjure Minor Elementals)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик тварин (Conjure Animals)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик фіенда (Summon Fiend)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Приклик шквалу (Conjure Barrage)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Примарний скакун (Phantom Steed)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Примус (Compulsion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Примусовий поєдинок (Compelled Duel)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пробудження (Awaken)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Провіщування (Augury)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Програмована ілюзія (Programmed Illusion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Промінь слабкості (Ray of Enfeeblement)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Промінь хвороби (Ray of Sickness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Промінь холоду (Ray of Frost)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Просторовий вимір (Dimension Door)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Прохід крізь стіну (Passwall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Проєкція образу (Project Image)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Прудконогий (Longstrider)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Пружна сфера Отілюка (Otiluke's Resilient Sphere)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Психічний крик (Psychic Scream)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Підкорення звіра (Dominate Beast)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Підкорення монстра (Dominate Monster)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Підкорення особи (Dominate Person)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Регенерація (Regenerate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Реінкарнація (Reincarnate)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розкидання (Scatter)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розмиття (Blur)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розмова з мертвими (Speak with Dead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розмова з рослинами (Speak with Plants)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розмова з тваринами (Speak with Animals)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розпечений метал (Heat Metal)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розсіювання добра і зла (Dispel Evil and Good)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розсіювання магії (Dispel Magic)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розтрощення (Shatter)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Розуміння мов (Comprehend Languages)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Руйнівна хвиля (Destructive Wave)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Рука Біґбі (Bigby's Hand)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Рій сніжок Сніллока (Snilloc's Snowball Swarm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ріст колючок (Spike Growth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ріст рослин (Plant Growth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Свобода рухів (Freedom of Movement)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Свята аура (Holy Aura)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Свята зброя (Holy Weapon)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Святилище (Sanctuary)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Священне полум'я (Sacred Flame)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Світанок (Dawn)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Світло (Light)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Світоч надії (Beacon of Hope)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Силова клітка (Forcecage)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Симулякр (Simulacrum)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Синаптичні перешкоди (Synaptic Static)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Скеровуючий снаряд (Guiding Bolt)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слабкий розум (Feeblemind)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слово влади: Зцілення (Power Word Heal)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слово влади: Приголомшення (Power Word Stun)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слово влади: Смерть (Power Word Kill)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слово повернення (Word of Recall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Слово сяйва (Word of Radiance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сліпота/Глухота (Blindness/Deafness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сон (Sleep)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сон синьої завіси (Dream of the Blue Veil)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сон-видіння (Dream)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сонячний вибух (Sunburst)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сонячний промінь (Sunbeam)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Спалення (Immolation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Спопелювач Аґанадзара (Aganazzar's Scorcher)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Спостереження (Scrying)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення (Creation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення або знищення води (Create or Destroy Water)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення багаття (Create Bonfire)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення вищої нежиті (Create Undead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення нежиті (Animate Dead)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення полум'я (Produce Flame)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Створення їжі та води (Create Food and Water)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стихійна зброя (Elemental Weapon)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Страх (Fear)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стрибок (Jump)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Струс землі (Earth Tremor)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стріла блискавки (Lightning Arrow)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стріла хаосу (Chaos Bolt)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стук (Knock)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стіна вогню (Wall of Fire)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стіна вітру (Wind Wall)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стіна колючок (Wall of Thorns)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стіна світла (Wall of Light)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Стіна сили (Wall of Force)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Сфера невразливості (Globe of Invulnerability)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тавматургія (Thaumaturgy)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тавруюча кара (Branding Smite)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Танець смерті (Danse Macabre)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Танцюючі вогники (Dancing Lights)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тваринний посланець (Animal Messenger)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тваринні форми (Animal Shapes)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Телекінез (Telekinesis)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Телепатичний зв'язок Рарі (Rary's Telepathic Bond)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Телепатія (Telepathy)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Телепортація (Teleport)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Темний зір (Darkvision)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Темрява (Darkness)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Терновий батіг (Thorn Whip)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тиша (Silence)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Транспорт через рослини (Transport via Plants)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тривога (Alarm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Туманний крок (Misty Step)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Тіньовий клинок (Shadow Blade)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ув'язнення (Imprisonment)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Удавана смерть (Feign Death)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Удар зефіру (Zephyr Strike)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Удар сталевого вітру (Steel Wind Strike)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Умова (Contingency)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Уповільнення (Slow)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Утримання монстра (Hold Monster)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Утримання особи (Hold Person)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Фальшиве життя (False Life)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Фантастична сила (Phantasmal Force)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Фантастичний вбивця (Phantasmal Killer)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Фокус (Prestidigitation)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Фокус з мотузкою (Rope Trick)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Формування води (Shape Water)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Формування землі (Mold Earth)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Формування каменю (Stone Shape)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хапаюча лоза (Grasping Vine)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хмара кинджалів (Cloud of Daggers)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хмара смерті (Cloudkill)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хмара туману (Fog Cloud)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хода вітру (Wind Walk)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Хроматична сфера (Chromatic Orb)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Церемонія (Ceremony)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Цунамі (Tsunami)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Чистий розум (Mind Blank)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Чорні щупальця Еварда (Evard's Black Tentacles)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Чудо-ягоди (Goodberry)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Чудовий маєток Морденкайнена (Mordenkainen's Magnificent Mansion)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Швидкий відступ (Expeditious Retreat)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Швидкий сагайдак (Swift Quiver)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Шилела / Дубинка (Shillelagh)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Шкода (Harm)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Шокуючий дотик (Shocking Grasp)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Shield (Shield)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Shield віри (Shield of Faith)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ясновидіння (Clairvoyance)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ідентифікація (Identify)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Ілюзорний шрифт (Illusory Script)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Істинна зміна форми (True Polymorph)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Істинне воскресіння (True Resurrection)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Істинний зір (True Seeing)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Їдке вариво Таші (Tasha's Caustic Brew)",
+  "page": "spells.html",
+  "cat": "Заклинання",
+  "anchor": ""
+ },
+ {
+  "title": "Акробатичний рух - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Арканне відновлення - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Арканний апофеоз - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Архетипи Rangerа (Ranger Archetypes)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-ranger"
+ },
+ {
+  "title": "Архетипи Шахрая (Rogue Archetypes)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-rogue"
+ },
+ {
+  "title": "Аура захисту (Aura of Protection) - Level 6",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Bard (Bard)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-bard"
+ },
+ {
+  "title": "Благословенні удари - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Божественна кара (Paladin's Smite) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Божественне втручання - Level 10",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Божественний канал (Channel Divinity) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Божественний канал - Level 3",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Божественний орден (Divine Order) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Бойовий стиль (Fighting Style) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Бойові Архетипи (Fighter Subclasses)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-fighter"
+ },
+ {
+  "title": "Бойові мистецтва (Martial Arts) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Barbarian (Barbarian)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-barbarian"
+ },
+ {
+  "title": "Верховний друїд (Archdruid) - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вивчені атаки (Studied Attacks) - Level 13",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вище Божественне втручання - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вище Натхнення - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Возложення рук (Lay on Hands) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Володіння (Proficiencies)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Fighter (Fighter)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-fighter"
+ },
+ {
+  "title": "Вправний дослідник - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вроджене чаклунство (Innate Sorcery) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Evocation чаклунства - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вчений (Scholar) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Відбиття атак (Deflect Attacks) - Level 3",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Відчуття небезпеки (Danger Sense) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вірний приціл (Steady Aim) - Level 3",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Вірний скакун (Faithful Steed) - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Джерело магії (Font of Magic) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Джерело натхнення - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дика форма (Wild Shape) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дике відродження (Wild Resurgence) - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дикий супутник (Wild Companion) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дикий інстинкт - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дикі чуття (Feral Senses) - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Дисциплінований вцілілий - Level 14",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Додаткова атака - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Додаткова атака - Level 5, 11, 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Домени Жерців (Cleric Domains)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-cleric"
+ },
+ {
+  "title": "Друге дихання (Second Wind) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Druid (Druid)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-druid"
+ },
+ {
+  "title": "Експертиза (Expertise) - Level 1 і 6",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Експертиза (Expertise) - Level 2 і 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Експертиза (Expertise) - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Жорстокий удар - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Cleric (Cleric)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-cleric"
+ },
+ {
+  "title": "Заклинання звіра - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Запам'ятовування заклинань - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Defense без обладунків (Unarmored Defense) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Знищення нежиті - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Ключові вміння класу",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-barbarian"
+ },
+ {
+  "title": "Кола Druidів (Druid Circles)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-druid"
+ },
+ {
+  "title": "Колегії Bardів (Bard Colleges)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-bard"
+ },
+ {
+  "title": "Контакт з Покровителем - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Контрчари (Countercharm) - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Лють (Rage) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Магічна хитрість (Magical Cunning) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Магічні секрети - Level 10",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Магічні Традиції (Wizard Subclasses)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-wizard"
+ },
+ {
+  "title": "Magic Договору (Pact Magic) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Майстер на всі руки (Jack of All Trades) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Майстерність заклинань - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Майстерність зброї (Weapon Mastery) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Майстерність зброї - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Майстерність зброї та Бойовий стиль - Level 1 і 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Мандрівник (Roving) - Level 6",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Метамагія (Metamagic) - Level 2, 10, 13, 17",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Монастирські Традиції (Monk Subclasses)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-monk"
+ },
+ {
+  "title": "Monk (Monk)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-monk"
+ },
+ {
+  "title": "Містичний Арканум (Mystic Arcanum) - Level 11, 13, 15, 17",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Надприродний метаболізм - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Надійний талант - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Натхнення барда (Bardic Inspiration) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Невловимий (Elusive) - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Невпинна лють - Level 11",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Невтомний (Tireless) - Level 10",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Незламна міць - Level 18",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Неймовірне ухилення - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Неприборканий (Indomitable) - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Нерозважлива атака (Reckless Attack) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Paladin (Paladin)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-paladin"
+ },
+ {
+  "title": "Первісний орден (Primal Order) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Первісний чемпіон - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Первісні знання (Primal Knowledge) - Level 3",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Повелитель Елдричу (Eldritch Master) - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Покращена Стихійна лють - Level 15",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Покращений Хитрий удар - Level 11",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Покращені Благословенні удари - Level 14",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Покров природи (Nature's Veil) - Level 14",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Покровителі (Warlock Patrons)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-warlock"
+ },
+ {
+  "title": "Потойбічні Відозви (Eldritch Invocations) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Приголомшливий удар - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Прихована атака (Sneak Attack) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Підвищений Фокус - Level 10",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Subclassи Barbarianа (Barbarian Subclasses)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-barbarian"
+ },
+ {
+  "title": "Підступні удари (Devious Strikes) - Level 14",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Священні Клятви (Paladin Oaths)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-paladin"
+ },
+ {
+  "title": "Слизький розум - Level 15",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Слова Творіння (Words of Creation) - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Ranger (Ranger)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-ranger"
+ },
+ {
+  "title": "Сплеск дій (Action Surge) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Стихійна лють - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Стійка лють - Level 15",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Сяючий удар - Level 11",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Таблиця: Bard (Bard)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-bard"
+ },
+ {
+  "title": "Таблиця: Barbarian (Barbarian)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-barbarian"
+ },
+ {
+  "title": "Таблиця: Fighter (Fighter)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-fighter"
+ },
+ {
+  "title": "Таблиця: Druid (Druid)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-druid"
+ },
+ {
+  "title": "Таблиця: Cleric (Cleric)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-cleric"
+ },
+ {
+  "title": "Таблиця: Monk (Monk)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-monk"
+ },
+ {
+  "title": "Таблиця: Paladin (Paladin)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-paladin"
+ },
+ {
+  "title": "Таблиця: Ranger (Ranger)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-ranger"
+ },
+ {
+  "title": "Таблиця: Sorcerer (Sorcerer)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-sorcerer"
+ },
+ {
+  "title": "Таблиця: Wizard (Wizard)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-wizard"
+ },
+ {
+  "title": "Таблиця: Warlock (Warlock)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-warlock"
+ },
+ {
+  "title": "Таблиця: Rogue (Rogue)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-rogue"
+ },
+ {
+  "title": "Yesтичний зсув (Tactical Shift) - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Yesтичний майстер (Tactical Master) - Level 9",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Yesтичний розум (Tactical Mind) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Тіло і Розум - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Удар удачі (Stroke of Luck) - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Улюблений ворог (Favored Enemy) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Ухилення (Evasion) - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Фокус Monkа (Monk's Focus) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Фірмові заклинання (Signature Spells) - Level 20",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Хитра дія (Cunning Action) - Level 2",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Хитрий удар (Cunning Strike) - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Hit Points (Hit Points)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Чаклування (Spellcasting) - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Чаклування та Книга заклинань - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Чаклування та Мова - Level 1",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Sorcerer (Sorcerer)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-sorcerer"
+ },
+ {
+  "title": "Sorcererське відновлення - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Sorcererське походження (Sorcerous Origins)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-sorcerer"
+ },
+ {
+  "title": "Wizard (Wizard)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-wizard"
+ },
+ {
+  "title": "Warlock (Warlock)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-warlock"
+ },
+ {
+  "title": "Rogue (Rogue)",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": "class-rogue"
+ },
+ {
+  "title": "Швидкий рух - Level 5",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Інстинктивний стрибок - Level 7",
+  "page": "classes.html",
+  "cat": "Classes",
+  "anchor": ""
+ },
+ {
+  "title": "Артист (Entertainer)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Відлюдник (Hermit)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Дворянин (Noble)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Злочинець (Criminal)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Мандрівник / Безхатько (Wayfarer)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Моряк (Sailor)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Мудрець (Sage)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Охоронець (Guard)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Писар (Scribe)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Прислужник (Acolyte)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Провідник (Guide)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Ремісник (Artisan)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Солдат (Soldier)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Торговець (Merchant)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Фермер (Farmer)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Шарлатан (Charlatan)",
+  "page": "backgrounds.html",
+  "cat": "Backgrounds",
+  "anchor": "backgroundsGrid"
+ },
+ {
+  "title": "Атака по можливості (Opportunity Attack)",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Combat & Actions",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": "rulesContainer"
+ },
+ {
+  "title": "Види Дій у бою (Actions)",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Rest & Health",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": "rulesContainer"
+ },
+ {
+  "title": "Зачарований та Наляканий",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Збитий з ніг (Prone)",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Короткий та Тривалий відпочинок",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Магічні Компоненти (В, С, М)",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Magic та Заклинання",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": "rulesContainer"
+ },
+ {
+  "title": "Magic та Концентрація",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Basics гри",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": "rulesContainer"
+ },
+ {
+  "title": "Перевага та Завада",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Перевірки Характеристик (Skills)",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Сліпота, Глухота, Невидимість",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Смерть та Врятування від смерті",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Спутаний, Приголомшений, Паралізований",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Conditions",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": "rulesContainer"
+ },
+ {
+  "title": "Структура Ходу в бою",
+  "page": "rules.html",
+  "cat": "Rules",
+  "anchor": ""
+ },
+ {
+  "title": "Адепт метамагії (Metamagic Adept)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Адепт стихій (Elemental Adept)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Адепт-артифіцер (Artificer Initiate)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Бойовий заклинатель (War Caster)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Борець (Grappler)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Важкоброньований (Heavily Armored)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Вартовий (Sentinel)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Вбивця магів (Mage Slayer)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Верховий боєць (Mounted Combatant)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Витривалий (Durable)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Вища магія дроу (Drow High Magic)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Влучний стрілець (Sharpshooter)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Fighter богів (Warrior of the Gods)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Гострий розум (Keen Mind)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Дарунок дорогоцінного дракона (Gift of the Gem Dragon)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Дарунок металевого дракона (Gift of the Metallic Dragon)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Дарунок хроматичного дракона (Gift of the Chromatic Dragon)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Дикий талант (Wild Talent)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Дослідник підземель (Dungeon Delver)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Драконяча шкіра (Dragon Hide)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Драконячий страх (Dragon Fear)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Другий шанс (Second Chance)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Душа штормового велетня (Soul of the Storm Giant)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Експерт з арбалетів (Crossbow Expert)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Експерт навичок (Skill Expert)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Ельфійська влучність (Elven Accuracy)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Енергія пагорбового велетня (Vigor of the Hill Giant)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Збройоносець Соламнії (Squire of Solamnia)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Карликова стійкість (Dwarf Fortitude)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Клинок ревенанта (Revenant Blade)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Кухар (Chef)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Легкоброньований (Lightly Armored)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Лютий нападник (Savage Attacker)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Магічний снайпер (Spell Sniper)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Magic лісових ельфів (Wood Elf Magic)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер бойових мистецтв (Martial Adept)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер важких обладунків (Heavy Armor Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер великої зброї (Great Weapon Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер древкової зброї (Polearm Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер зброї (Weapon Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер парної зброї (Dual Wielder)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер ритуалів (Ritual Caster)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер середніх обладунків (Medium Armor Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Майстер щитів (Shield Master)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Мобільний (Mobile)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Міський слідчий (Investigator)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Міцна статура (Powerful Build / Giant Foundling)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Міцний (Tough)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Надихаючий лідер (Inspiring Leader)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Натиск (Charger)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Нищівник (Crusher)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Обдарований (Prodigy)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Обдарований боєць (Fighting Initiate)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Оборонний дуелянт (Defensive Duelist)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Орча лють (Orcish Fury)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Отруйник (Poisoner)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Пекельна статура (Infernal Constitution)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Полум'я Флегетоса (Flames of Phlegethos)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Потойбічний адепт (Eldritch Adept)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Приземкувата спритність (Squat Nimbleness)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Пронизувач (Piercer)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Рубака (Slasher)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Середньоброньований (Moderately Armored)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Спостережливий (Observant)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Стрілець (Gunner)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Студент Візерблуму (Witherbloom Student)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Стійкий (Resilient)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Творець див (Wonder Maker)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Телекінетик (Telekinetic)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Телепат (Telepathic)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Торкнутий тінню (Shadow Touched)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Удар велетнів (Strike of the Giants)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Умілий (Skilled)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Цілитель (Healer)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Шинкарський боєць (Tavern Brawler)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Щасливчик (Lucky)",
+  "page": "feats.html",
+  "cat": "Feats",
+  "anchor": "feats-list"
+ },
+ {
+  "title": "Людина",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Ельф",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Ельф — Високий ельф",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Ельф — Лісовий ельф",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Ельф — Дроу",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Дворф",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Напіврослик",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Гном",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Гном — Лісовий гном",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Гном — Скельний гном",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Драконороджений",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Орк",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Тіфлінг",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Тіфлінг — Інфернальний",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Тіфлінг — Хтонічний",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Тіфлінг — Безодній",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Аасімар",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Аасімар — Небесні крила",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Аасімар — Внутрішнє сяйво",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Аасімар — Некротична запона",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Стрибок хмари",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Полум'я вогню",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Холод криги",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Падіння пагорба",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Стійкість каменю",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Голіаф — Грім бурі",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень (Changeling)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Калаштар (Kalashtar)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Хоравар (Khoravar)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень-звір (Shifter)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень-звір — Звірошкірий",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень-звір — Довгоіклий",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень-звір — Прудкокрокий",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Перевертень-звір — Дикий мисливець",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Ковані (Warforged)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ },
+ {
+  "title": "Дампір (Dhampir)",
+  "page": "races.html",
+  "cat": "Races",
+  "anchor": ""
+ }
+];
