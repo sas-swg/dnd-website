@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feats - D&D 5e</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Modern fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
+                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .feat-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .feat-content.open {
+            grid-template-rows: 1fr;
+        }
+        .feat-inner {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="site-common.css">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
+                    D&D 5e Knowledge Base
+                </h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+            </nav>
+        </div>
+    </header>    
+              
+<!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        
+        <!-- Title and Search -->
+        <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2">Feats</h1>
+                <p class="text-slate-600">A complete list of feats, fighting styles, and epic boons (2024 rules).</p>
+            </div>
+            <div class="w-full md:w-80 relative">
+                <input type="text" id="searchInput" onkeyup="searchFeats()" placeholder="Search by name or effect..." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm">
+                <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+            </div>
+        </div>
+
+        <!-- Feat list -->
+        <div id="feats-list" class="space-y-3">
+            
+           <div class="space-y-6">
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Artificer Initiate</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            1 cantrip and spell from the artificer list, tool proficiency
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Magical Training.</strong> You learn one cantrip and one 1st-level spell from the artificer spell list. Intelligence is your spellcasting ability for these spells.</li>
+                    <li><strong class="font-bold text-black">Free Use.</strong> You can cast this 1st-level spell once without expending a spell slot (recharges after a long rest).</li>
+                    <li><strong class="font-bold text-black">Tool Master.</strong> You gain proficiency with one type of artisan's tools of your choice.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Charger</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Bonus attack or shove after a Dash
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="mb-4">If you use the Dash action, you can make one melee weapon attack or shove a creature as a bonus action.</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Powerful Blow.</strong> If you move at least 10 feet in a straight line before the attack, you add +5 to the damage or push the target 10 feet away from you.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Chef</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Con/Wis, cook food for healing and temporary HP
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution or Wisdom by 1.</li>
+                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with cook's utensils.</li>
+                    <li><strong class="font-bold text-black">Nourishing Food.</strong> During a short rest, you prepare food that lets allies regain an extra 1d8 HP.</li>
+                    <li><strong class="font-bold text-black">Treats.</strong> You can prepare treats that grant temporary HP equal to your proficiency bonus.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Crossbow Expert</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Ignore loading, point-blank shots, bonus attack with a hand crossbow
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Rapid Reload.</strong> You ignore the loading property of crossbows you're proficient with.</li>
+                    <li><strong class="font-bold text-black">Close Quarters.</strong> Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attacks.</li>
+                    <li><strong class="font-bold text-black">Double Shot.</strong> If you attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Crusher</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con, move enemy on hit, advantage on crit
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Shove.</strong> Once per turn when you deal bludgeoning damage, you can move the creature 5 feet to an unoccupied space.</li>
+                    <li><strong class="font-bold text-black">Staggering Crit.</strong> On a critical hit with bludgeoning damage, all attacks against that creature have advantage until the end of your next turn.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Defensive Duelist</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Proficiency bonus to AC as a reaction
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Dexterity 13+).</p>
+                <p class="mb-4">When you're wielding a finesse weapon you're proficient with and another creature hits you with a melee attack, you can use your reaction.</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Parry.</strong> Add your proficiency bonus to your AC against that attack, potentially causing it to miss.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Dragon Fear</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con/Cha, replace your breath with a frightful roar
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dragonborn).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Frightful Roar.</strong> Instead of using your Breath Weapon, you can let out a roar. Each creature of your choice within 30 feet must make a Wisdom saving throw or be Frightened for 1 minute.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Dragon Hide</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con/Cha, AC 13+Dex without armor, claws
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dragonborn).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Scaled Skin.</strong> Your skin hardens. While you wear no armor, your AC equals 13 + your Dexterity modifier.</li>
+                    <li><strong class="font-bold text-black">Claws.</strong> You grow claws. Your unarmed strikes deal 1d4 + your Strength modifier slashing damage.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Drow High Magic</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Detect Magic (unlimited), Levitate and Dispel Magic
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf (Drow)).</p>
+                <p class="mb-4">You master the ancient magic of your people. You learn the following spells:</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Detect Magic.</strong> You can cast it an unlimited number of times without expending spell slots.</li>
+                    <li><strong class="font-bold text-black">Levitate and Dispel Magic.</strong> You can cast each of these spells once (recharges after a long rest).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Dual Wielder</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 AC, use non-light weapons, quick draw
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Two-Weapon Defense.</strong> You gain +1 AC while wielding a separate melee weapon in each hand.</li>
+                    <li><strong class="font-bold text-black">Heavy Pairing.</strong> You can use two-weapon fighting even if the weapons aren't "light" (but they must still be one-handed).</li>
+                    <li><strong class="font-bold text-black">Quick Draw.</strong> You can draw or stow two one-handed weapons instead of one.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Dungeon Delver</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Advantage to find traps, resistance to their damage
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Seeker's Eye.</strong> Advantage on Perception and Investigation checks to find hidden doors and traps.</li>
+                    <li><strong class="font-bold text-black">Trap Resilience.</strong> Advantage on saving throws to avoid traps and resistance to the damage they deal.</li>
+                    <li><strong class="font-bold text-black">Quick Search.</strong> You can search for traps while moving at your normal speed.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Durable</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Con, more effective Hit Dice healing
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Tough Health.</strong> When you roll a Hit Die to regain HP, the minimum amount you regain per die equals twice your Constitution modifier.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Dwarf Fortitude</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Con, healing while Dodging
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dwarf).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Combat Recovery.</strong> Whenever you use the Dodge action in combat, you can spend one Hit Die to regain hit points.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Eldritch Adept</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Gain one Eldritch Invocation
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Spellcasting ability).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Eldritch Invocation.</strong> You learn one Eldritch Invocation of your choice from the Warlock list. If the invocation has prerequisites, you must meet them.</li>
+                    <li><strong class="font-bold text-black">Flexibility.</strong> Whenever you gain a level, you can replace this invocation with another.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Elemental Adept</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Ignore elemental resistance, minimum 2 damage on dice
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Ability to cast at least one spell).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Resistance Breaker.</strong> Choose a damage type: acid, cold, fire, lightning, or thunder. Your spells ignore resistance to that damage type.</li>
+                    <li><strong class="font-bold text-black">Stable Damage.</strong> When you roll damage dice for a spell of the chosen type, any "1" on a die counts as a "2".</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Elven Accuracy</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Dex/Int/Wis/Cha, reroll a die when you have advantage
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf or Half-Elf).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity, Intelligence, Wisdom, or Charisma by 1 (to a maximum of 20).</li>
+                    <li><strong class="font-bold text-black">Extraordinary Accuracy.</strong> When you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the advantage dice.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Fighting Initiate</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Gain one Fighter Fighting Style
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with a martial weapon).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Fighting Style.</strong> You choose one Fighting Style option from the Fighter class list.</li>
+                    <li><strong class="font-bold text-black">Style Change.</strong> Whenever you gain a level that grants an ability score improvement, you can replace this style with another.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Flames of Phlegethos</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Cha, reroll fire damage, fire aura
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Tiefling).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Hellish Flames.</strong> When you roll fire damage for a spell, you can reroll any "1" on the dice.</li>
+                    <li><strong class="font-bold text-black">Aura of Fire.</strong> When you cast a fire spell, you wreathe yourself in flames until the end of your next turn. It sheds light and deals 1d4 fire damage to anyone who hits you with a melee attack.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Gift of the Chromatic Dragon</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Extra elemental weapon damage, reactive resistance
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Weapon Infusion.</strong> As a bonus action, you can infuse a weapon with elemental energy (acid, cold, fire, lightning, or poison) for 1 minute. The weapon deals an extra 1d4 damage of the chosen type.</li>
+                    <li><strong class="font-bold text-black">Reactive Resistance.</strong> When you take elemental damage, you can use your reaction to gain resistance to that attack.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Gift of the Gem Dragon</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis/Cha, telekinetic repulsion
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Telekinetic Reprisal.</strong> When a creature within 10 feet deals damage to you, you can use your reaction to force it to make a Strength saving throw. On a failure, it takes 2d8 force damage and is pushed 10 feet away.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Gift of the Metallic Dragon</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Healing spell, protective wings (bonus to AC)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Draconic Healing.</strong> You learn the spell <span class="italic text-forest">Cure Wounds</span>. You can cast it for free once per long rest.</li>
+                    <li><strong class="font-bold text-black">Protective Wings.</strong> When you or a creature near you is hit, you can use your reaction to manifest spectral wings, adding your proficiency bonus to AC against that attack.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Grappler</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Advantage on attacks against a grappled target, ability to pin the enemy
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Strength 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Grappler's Advantage.</strong> You have advantage on attack rolls against a creature you are grappling.</li>
+                    <li><strong class="font-bold text-black">Pin.</strong> You can try to pin a creature. Make another grapple check; on a success, you both become Restrained until the grapple ends.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Great Weapon Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Bonus attack on a crit/kill, -5 to attack for +10 damage
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Cleave.</strong> When you score a critical hit or drop a creature to 0 HP with a heavy weapon, you can make one melee attack as a bonus action.</li>
+                    <li><strong class="font-bold text-black">Powerful Attack.</strong> Before attacking with a heavy weapon, you can take a -5 penalty to the attack roll. If the attack hits, add +10 to the damage.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Gunner</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Dex, firearm proficiency, point-blank shooting
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Weapon Mastery.</strong> You gain proficiency with firearms and ignore their loading property.</li>
+                    <li><strong class="font-bold text-black">Close Quarters.</strong> An enemy being within 5 feet doesn't impose disadvantage on your ranged attacks.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Healer</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Stabilize with 1 HP, healing with a healer's kit
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">First Aid.</strong> When you stabilize a creature with a healer's kit, it also regains 1 HP.</li>
+                    <li><strong class="font-bold text-black">Field Medicine.</strong> As an action, you can use a healer's kit to heal a creature for 1d6 + 4 + its number of Hit Dice. The creature can't regain HP this way again until it finishes a short rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Heavily Armored</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str, heavy armor proficiency
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with medium armor).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength by 1.</li>
+                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with heavy armor.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Heavy Armor Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str, -3 physical damage in heavy armor
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with heavy armor).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength by 1.</li>
+                    <li><strong class="font-bold text-black">Armored Resilience.</strong> While wearing heavy armor, nonmagical bludgeoning, slashing, and piercing damage you take is reduced by 3.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Infernal Constitution</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Con, resistance to cold and poison
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Tiefling).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Blood Resilience.</strong> You gain resistance to cold and poison, and advantage on saving throws against being poisoned.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Inspiring Leader</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Grant temporary HP to allies with a speech
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Charisma 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Inspiring Speech.</strong> By spending 10 minutes, you can inspire up to 6 friendly creatures (including yourself). Each gains temporary HP equal to your level + your Charisma modifier.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Keen Mind</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int, perfect memory, sense of time/space
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence by 1.</li>
+                    <li><strong class="font-bold text-black">Analytical Memory.</strong> You always know which way is north and how many hours are left before sunset, and you can accurately recall anything you've seen or heard within the past month.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Lightly Armored</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, light armor proficiency
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1 (to a maximum of 20).</li>
+                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with light armor.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Lucky</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            3 luck points to reroll dice
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Luck Points.</strong> You gain 3 luck points. You can spend one to roll an additional d20 for an attack, ability check, or saving throw, and choose which die to use.</li>
+                    <li><strong class="font-bold text-black">Influence the Enemy.</strong> You can also spend a point to force an enemy to reroll an attack roll against you. Points are regained after a long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Mage Slayer</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Reaction attack against a spellcaster, disadvantage on enemy concentration
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Spell Disruption.</strong> When a creature within 5 feet casts a spell, you can use your reaction to attack it.</li>
+                    <li><strong class="font-bold text-black">Concentration.</strong> When you deal damage to a creature concentrating on a spell, it has disadvantage on the saving throw to maintain concentration.</li>
+                    <li><strong class="font-bold text-black">Magic Resistance.</strong> You have advantage on saving throws against spells cast by creatures within 5 feet of you.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Martial Adept</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            2 fighter maneuvers, 1 superiority die (d6)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Combat Maneuvers.</strong> You learn two maneuvers from the fighter's Battle Master archetype.</li>
+                    <li><strong class="font-bold text-black">Superiority Die.</strong> You gain one d6 superiority die (if you already have such dice, add one more to your pool). It is regained after a short or long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Medium Armor Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Max Dexterity bonus +3, no disadvantage on Stealth
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with medium armor).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Improved Agility.</strong> While wearing medium armor, you can add up to +3 of your Dexterity modifier to your AC instead of +2.</li>
+                    <li><strong class="font-bold text-black">Quiet Movement.</strong> You don't have disadvantage on Dexterity (Stealth) checks from wearing medium armor.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Metamagic Adept</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            2 metamagic options, 2 sorcery points
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Metamagic.</strong> You learn two Metamagic options from the sorcerer class list. You can change them when you gain a level.</li>
+                    <li><strong class="font-bold text-black">Sorcery Points.</strong> You gain 2 sorcery points to use for metamagic (they are regained after a long rest).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Mobile</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +10 speed, ignore difficult terrain when Dashing
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Speed.</strong> Your movement speed increases by 10 feet.</li>
+                    <li><strong class="font-bold text-black">Escape without Provoking.</strong> When you make a melee attack against a creature, it can't make opportunity attacks against you for the rest of your turn, whether you hit or not.</li>
+                    <li><strong class="font-bold text-black">Nimble Dash.</strong> When you take the Dash action, difficult terrain doesn't cost you extra movement.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Moderately Armored</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, medium armor and shield proficiency
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with light armor).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with medium armor and shields.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Mounted Combatant</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Advantage on mounted attacks, protect your mount
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Tactical Advantage.</strong> You have advantage on melee attacks against creatures smaller than your mount.</li>
+                    <li><strong class="font-bold text-black">Protect the Mount.</strong> You can force an attack aimed at your mount to target you instead.</li>
+                    <li><strong class="font-bold text-black">Evasion.</strong> If your mount is subjected to an effect that allows a Dexterity save for half damage, it takes no damage on a success and only half on a failure.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Observant</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis, lip reading, +5 passive Perception
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Wisdom by 1.</li>
+                    <li><strong class="font-bold text-black">Lip Reading.</strong> You can understand a creature's speech by watching its lips (if you know that language).</li>
+                    <li><strong class="font-bold text-black">Keen Sight.</strong> You gain a +5 bonus to passive Perception and passive Investigation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Orcish Fury</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con, extra damage die, attack after Relentless Endurance
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Half-Orc).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Savage Strike.</strong> Once per long rest, when you hit with a weapon, you can add one extra damage die of that weapon.</li>
+                    <li><strong class="font-bold text-black">Counterstrike.</strong> When you use the Relentless Endurance racial trait, you can immediately use a reaction to make one weapon attack.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Piercer</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, reroll piercing damage die
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Piercing Strike.</strong> Once per turn when you hit with piercing damage, you can reroll one damage die.</li>
+                    <li><strong class="font-bold text-black">Lethal Lunge.</strong> On a critical hit with a piercing weapon, you add one extra damage die of that weapon.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Polearm Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Bonus attack with the other end, opportunity attack when an enemy approaches
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Extra Strike.</strong> When you attack with a halberd, quarterstaff, or spear, you can use a bonus action to strike with the opposite end of the weapon (1d4 damage).</li>
+                    <li><strong class="font-bold text-black">Perimeter Defense.</strong> You can make an opportunity attack when a creature enters your reach (not only when it leaves).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Prodigy</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Skill, proficiency, language, and expertise in one skill
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Human, Half-Elf, or Half-Orc).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Well-Rounded.</strong> You gain proficiency with one skill and one tool, and you learn one language.</li>
+                    <li><strong class="font-bold text-black">Expertise.</strong> Choose one skill you're proficient in; your proficiency bonus is doubled for it.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Poisoner</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Ignore poison resistance, apply poison as a bonus action
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Poison Master.</strong> You ignore resistance to poison damage.</li>
+                    <li><strong class="font-bold text-black">Quick Coating.</strong> You can apply poison to a weapon as a bonus action instead of an action.</li>
+                    <li><strong class="font-bold text-black">Crafting.</strong> You gain proficiency with a poisoner's kit and can create potent poison during a long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Powerful Build / Giant Foundling</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Increased carrying capacity, advantage against being shoved
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Giant's Might.</strong> You count as one size larger when determining your carrying capacity and the weight you can push or drag.</li>
+                    <li><strong class="font-bold text-black">Stability.</strong> You have advantage on saving throws against effects that would move you or knock you prone.</li>
+                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Resilient</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 to an ability and proficiency in saving throws with that ability
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Hardening.</strong> Choose one ability score. Increase it by 1.</li>
+                    <li><strong class="font-bold text-black">Saving Throw Proficiency.</strong> You gain proficiency in saving throws of the chosen ability.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Ritual Caster</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Ability to record and cast ritual spells
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Intelligence or Wisdom 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ritual Book.</strong> You gain a ritual book with two 1st-level spells from a chosen class list.</li>
+                    <li><strong class="font-bold text-black">Adding New Ones.</strong> If you find a scroll or book with a spell that has the "ritual" tag, you can copy it into your book (2 hours and 50 gp per spell level).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Revenant Blade</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron: Rising from the Last War</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, double scimitar mastery, bonus to AC
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Double Blade.</strong> While wielding a double scimitar, you gain a +1 bonus to AC. The weapon also counts as a finesse weapon in your hands.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Savage Attacker</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Reroll melee weapon damage dice
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Reroll Damage.</strong> Once per turn when you hit with a melee attack, you can reroll the weapon's damage dice and choose either result.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Second Chance</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Dex/Con/Cha, force an enemy to reroll an attack
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Halfling).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity, Constitution, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Halfling Luck.</strong> When a creature you can see hits you with an attack, you can use your reaction to force it to reroll the die. This effect is regained after a short or long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Sentinel</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Stop an enemy with an opportunity attack, protect allies
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Iron Grip.</strong> When you hit with an opportunity attack, the creature's speed drops to 0 for the rest of the turn.</li>
+                    <li><strong class="font-bold text-black">Sentinel.</strong> Creatures provoke opportunity attacks from you even if they take the Disengage action.</li>
+                    <li><strong class="font-bold text-black">Avenge an Ally.</strong> When a creature within 5 feet attacks someone other than you (who doesn't have this feat), you can use your reaction to make a melee attack against that creature.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Shadow Touched</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis/Cha, Invisibility spell and one more 1st-level spell
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Shadow Magic.</strong> You learn the spell <span class="italic text-forest">Invisibility</span> and one 1st-level spell of your choice from the Illusion or Necromancy schools.</li>
+                    <li><strong class="font-bold text-black">Free Use.</strong> Each spell can be cast without expending a spell slot once per long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Sharpshooter</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Ignore cover, -5 to attack for +10 damage on ranged attacks
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Long Range.</strong> Long-range weapon attacks don't impose disadvantage.</li>
+                    <li><strong class="font-bold text-black">Cover Penetration.</strong> Your ranged attacks ignore half cover and three-quarters cover.</li>
+                    <li><strong class="font-bold text-black">Powerful Shot.</strong> Before a ranged attack with a weapon you're proficient with, you can take a -5 penalty to the roll; on a hit, add +10 to the damage.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Shield Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Shield shove, add shield bonus to Dexterity saving throws
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Shield Bash.</strong> When you attack on your turn, you can use a bonus action to try to shove a creature with your shield.</li>
+                    <li><strong class="font-bold text-black">Shield Defense.</strong> You add your shield's AC to any Dexterity saving throw against spells that target only you.</li>
+                    <li><strong class="font-bold text-black">Evasion.</strong> If you must make a Dexterity save for half damage, you can use your reaction to take no damage on a success by hiding behind your shield.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Skilled</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Proficiency in 3 skills or tools
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Versatility.</strong> You gain proficiency in any combination of three skills or tools of your choice.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Skill Expert</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 to any ability, 1 skill, 1 expertise
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase any one ability score by 1.</li>
+                    <li><strong class="font-bold text-black">Skill.</strong> You gain proficiency in one skill.</li>
+                    <li><strong class="font-bold text-black">Expertise.</strong> Choose one skill you're proficient in; your proficiency bonus is doubled for it.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Slasher</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, slow an enemy, disadvantage to enemy on a crit
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Deep Cut.</strong> Once per turn when you hit with slashing damage, you can reduce the target's speed by 10 feet until the end of its next turn.</li>
+                    <li><strong class="font-bold text-black">Trauma.</strong> On a critical hit, you inflict such a wound that the creature has disadvantage on all attack rolls until the end of your next turn.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Soul of the Storm Giant</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 to an ability, magical storm aura
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Level 4, Strike of the Giants).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Wisdom by 1.</li>
+                    <li><strong class="font-bold text-black">Storm Aura.</strong> As a bonus action, you create a 10-foot-radius aura. Enemies within it have disadvantage on attacks against you. When an enemy enters the aura, you can force it to make a Strength saving throw or be pushed back.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Spell Sniper</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Double spell range, ignore cover, 1 cantrip
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Long-Range Magic.</strong> The range of spells that require an attack roll is doubled.</li>
+                    <li><strong class="font-bold text-black">Accuracy.</strong> Your spell attacks ignore half and three-quarters cover.</li>
+                    <li><strong class="font-bold text-black">Extra Magic.</strong> You learn one cantrip that requires an attack roll.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Squire of Solamnia</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dragonlance: Shadow of the Dragon Queen</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Advantage on an attack and extra damage (PB times)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Martial Training.</strong> You gain proficiency with medium armor and martial weapons.</li>
+                    <li><strong class="font-bold text-black">Precise Strike.</strong> When you attack with a weapon, you can give yourself advantage on the roll. On a hit, add 1d8 to the damage. You can use this a number of times equal to your proficiency bonus.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Squat Nimbleness</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, +5 speed, Athletics/Acrobatics proficiency
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Gnome or another Small race).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Speed.</strong> Your speed increases by 5 feet.</li>
+                    <li><strong class="font-bold text-black">Agility.</strong> You gain proficiency in Athletics or Acrobatics and advantage on checks to escape a grapple.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Strike of the Giants</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Extra elemental damage and a special effect on an attack (PB times)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with a martial weapon or Athletics).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Giant's Might.</strong> Choose a giant type (Cloud, Fire, Frost, Stone, Storm, or Hill).</li>
+                    <li><strong class="font-bold text-black">Elemental Strike.</strong> Once per turn, when you hit with a melee or thrown weapon attack, you deal extra damage (1d6) and trigger the chosen giant's effect (for example, knocking prone or extra fire damage).</li>
+                    <li><strong class="font-bold text-black">Uses.</strong> You can use this a number of times equal to your proficiency bonus.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Tavern Brawler</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con, improvised weapon proficiency, grapple as a bonus action
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
+                    <li><strong class="font-bold text-black">Street Fighter.</strong> You gain proficiency with improvised weapons, and your unarmed strikes deal 1d4 damage.</li>
+                    <li><strong class="font-bold text-black">Quick Grapple.</strong> When you hit with an unarmed strike or improvised weapon, you can use a bonus action to try to grapple the target.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Telekinetic</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis/Cha, enhanced Mage Hand, telekinetic shove
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Mental Hand.</strong> You learn the cantrip <span class="italic text-forest">Mage Hand</span>. It is invisible and requires no components.</li>
+                    <li><strong class="font-bold text-black">Telekinetic Shove.</strong> As a bonus action, you can try to shove a creature within 30 feet 5 feet away (Strength save against your spell save DC).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Telepathic</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis/Cha, mental communication, Detect Thoughts spell
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
+                    <li><strong class="font-bold text-black">Telepathy.</strong> You can communicate telepathically with any creature you can see within 60 feet (it must understand at least one language).</li>
+                    <li><strong class="font-bold text-black">Read Thoughts.</strong> You can cast the spell <span class="italic text-forest">Detect Thoughts</span> without expending spell slots or components once per long rest.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Tough</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +2 HP per level
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Health Reserve.</strong> Your hit point maximum increases by an amount equal to twice your level.</li>
+                    <li><strong class="font-bold text-black">Further Growth.</strong> Whenever you gain a level after taking this feat, your hit point maximum increases by an additional 2.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Investigator</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Van Richten's Guide to Ravenloft</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int/Wis, quick evidence search, terrain analysis
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Wisdom by 1.</li>
+                    <li><strong class="font-bold text-black">Keen Mind.</strong> You can make an Investigation check as a bonus action.</li>
+                    <li><strong class="font-bold text-black">Deduction.</strong> You have advantage on checks to find hidden doors, traps, or tracks.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Vigor of the Hill Giant</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Con/Wis, resistance to being knocked prone, healing via Hit Dice
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Level 4, Strike of the Giants).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Wisdom by 1.</li>
+                    <li><strong class="font-bold text-black">Stability.</strong> When an effect would knock you prone, you can use your reaction to remain standing.</li>
+                    <li><strong class="font-bold text-black">Nourishing Vigor.</strong> When you regain hit points using Hit Dice, you add your proficiency bonus and Constitution modifier to the result.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">War Caster</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Advantage on concentration, cast a spell as an opportunity attack
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Ability to cast at least one spell).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Combat Concentration.</strong> You have advantage on Constitution saving throws to maintain concentration when you take damage.</li>
+                    <li><strong class="font-bold text-black">Spellcasting with Full Hands.</strong> You can perform the somatic (gesture) components of spells even when you have weapons or a shield in both hands.</li>
+                    <li><strong class="font-bold text-black">Reactive Spell.</strong> When an enemy's movement provokes an opportunity attack, you can cast a spell instead of attacking (casting time: 1 action, targeting only that creature).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Weapon Master</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Str/Dex, proficiency with 4 weapon types
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
+                    <li><strong class="font-bold text-black">Weapon Training.</strong> You gain proficiency with four types of simple or martial weapons of your choice.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Wood Elf Magic</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Druid cantrip, Pass without Trace and Longstrider spells
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf (Wood)).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Natural Magic.</strong> You learn one cantrip from the druid spell list.</li>
+                    <li><strong class="font-bold text-black">Woodland Spells.</strong> You can cast <span class="italic text-forest">Longstrider</span> and <span class="italic text-forest">Pass without Trace</span> once each per long rest (without expending spell slots).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Wild Talent</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Unearthed Arcana (Psionics)</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 to an ability, a Psi Die for ability checks
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase one ability score of your choice by 1.</li>
+                    <li><strong class="font-bold text-black">Psionic Enhancement.</strong> You gain a Psi Die (d6). You can add its result to an ability check of the chosen ability. The die changes size (increasing or decreasing) depending on your roll results.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Warrior of the Gods</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Book of Many Things</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Divine resurrection and a bonus to AC
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Divine Protection.</strong> While you aren't wearing heavy armor, your AC increases by 1.</li>
+                    <li><strong class="font-bold text-black">Easy Resurrection.</strong> Spells that return you to life don't require material components.</li>
+                    <li><strong class="font-bold text-black">Resolve of Spirit.</strong> You have advantage on saving throws against the Frightened and Charmed conditions.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Wonder Maker</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Int, improve gnome devices, tool expertise
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Gnome (Rock)).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence by 1.</li>
+                    <li><strong class="font-bold text-black">Master Tinkerer.</strong> Your proficiency bonus is doubled for checks using artisan's tools.</li>
+                    <li><strong class="font-bold text-black">New Inventions.</strong> You can create additional devices such as an "Alarm", "Calculator", or "Fire Extinguisher".</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Witherbloom Student</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strixhaven: A Curriculum of Chaos</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            2 cantrips, 1 1st-level spell, magic of life and death
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Strixhaven Spells.</strong> You learn two cantrips from the druid or monk spell list and one 1st-level spell from the Necromancy or Transmutation schools.</li>
+                    <li><strong class="font-bold text-black">Healing Brew.</strong> You gain proficiency with an herbalism kit.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+   </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2024 5e Rules Reference | Digital Knowledge Base.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Accordion
+        function toggleFeat(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('open');
+            
+            const title = element.querySelector('.feat-name');
+            // Check if this is an Epic Boon (purple)
+            const isEpic = title.classList.contains('text-purple-900') || title.classList.contains('text-purple-600');
+            
+            if (content.classList.contains('open')) {
+                if(isEpic) {
+                    title.classList.replace('text-purple-900', 'text-purple-600');
+                } else {
+                    title.classList.replace('text-black', 'text-forest');
+                }
+            } else {
+                if(isEpic) {
+                    title.classList.replace('text-purple-600', 'text-purple-900');
+                } else {
+                    title.classList.replace('text-forest', 'text-black');
+                }
+            }
+        }
+
+        // Search
+        function searchFeats() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('feat-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
+                let summary = cards[i].querySelector('.feat-summary').innerText.toLowerCase();
+                let fullText = cards[i].querySelector('.feat-content').innerText.toLowerCase();
+                
+                if (name.includes(input) || summary.includes(input) || fullText.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script src="search-index.js"></script>
+    <script src="site-common.js"></script>
+</body>
+</html>

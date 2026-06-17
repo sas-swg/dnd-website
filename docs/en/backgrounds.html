@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backgrounds - D&D 5e (2024)</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
+                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .feat-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .feat-content.open {
+            grid-template-rows: 1fr;
+        }
+        .feat-inner {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="site-common.css">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
+                    D&D 5e Knowledge Base
+                </h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+            </nav>
+        </div>
+    </header>  
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+        
+        <!-- Title and Filters -->
+        <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+            <div>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Backgrounds</h1>
+                <p class="text-slate-600">Who your character was before becoming an adventurer.</p>
+            </div>
+            
+            <!-- Filter panel -->
+            <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                
+                <!-- Skill filter -->
+                <select id="skillFilter" onchange="filterBackgrounds()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
+                    <option value="">All skills</option>
+                    <option value="acrobatics">Athletics / Acrobatics</option>
+                    <option value="survival">Survival / Nature</option>
+                    <option value="performance">Performance / Persuasion</option>
+                    <option value="deception">Deception / Stealth</option>
+                    <option value="insight">Insight / Medicine</option>
+                    <option value="religion">Religion / History</option>
+                    <option value="sleight of hand">Sleight of Hand</option>
+                </select>
+
+                <!-- Text search -->
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="searchInput" onkeyup="filterBackgrounds()" placeholder="Search (name, skill, feat)..." 
+                        class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
+                    <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backgrounds grid -->
+        <div class="grid grid-cols-1 gap-4 items-start" id="backgroundsGrid">
+            
+            <!-- ACOLYTE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Acolyte</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Wisdom, Intelligence, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Insight, Religion | Feat: Magic Initiate (Cleric)
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Acolytes have experience with temple devotion, an understanding of religion and magical rites, and an initial notion of channeling divine power. This background is an ideal choice for those who want to lightly touch on divine magic and its atmosphere without multiclassing into Cleric.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Intelligence, Wisdom, Charisma</li>
+                                        <li><strong>Skills:</strong> Insight, Religion</li>
+                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Magic Initiate (Cleric)</li>
+                                        <li><strong>Equipment:</strong> Calligrapher's Supplies, Prayer Book, Holy Symbol, Parchment (10 sheets), Robe, 8 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISAN -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Artisan</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Intelligence</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Investigation, Persuasion | Feat: Crafter
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>The Artisan confirms that the character previously worked as an apprentice, whether forging weapons as a blacksmith or helping in the kitchen as a cook. This grants practical skills for crafting items.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Intelligence</li>
+                                        <li><strong>Skills:</strong> Investigation, Persuasion</li>
+                                        <li><strong>Tools:</strong> One type of artisan's tools of your choice</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Crafter</li>
+                                        <li><strong>Equipment:</strong> Artisan's Tools, Bullseye Lantern, Pouch (2), Tent, Traveler's Clothes, 25 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHARLATAN -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Charlatan</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Deception, Sleight of Hand | Feat: Skilled
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Before their adventuring days, the Charlatan earned a living through lies, perhaps playing cards with marked decks or selling fake healing potions. This is an ideal choice for characters focused on social interaction or deception.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
+                                        <li><strong>Skills:</strong> Deception, Sleight of Hand</li>
+                                        <li><strong>Tools:</strong> A gaming set (e.g., dice), Forgery Kit</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Skilled</li>
+                                        <li><strong>Equipment:</strong> Fine Clothes, Forgery Kit, Gaming Set, 15 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRIMINAL -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Criminal</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Stealth, Sleight of Hand | Feat: Alert
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Criminals survived through theft, smuggling, or other illegal dealings. They work superbly in the shadows and know how to react quickly to danger.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
+                                        <li><strong>Skills:</strong> Stealth, Sleight of Hand</li>
+                                        <li><strong>Tools:</strong> Thieves' Tools, a Gaming Set</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Alert</li>
+                                        <li><strong>Equipment:</strong> Thieves' Tools, Dagger (2), Dark hooded clothes, 16 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTERTAINER -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Entertainer</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Acrobatics, Performance | Feat: Musician
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Entertainers are used to being the center of attention, amusing the crowd. Their performance and acrobatics skills make them a great choice for Bards and other social classes.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
+                                        <li><strong>Skills:</strong> Acrobatics, Performance</li>
+                                        <li><strong>Tools:</strong> A musical instrument (of your choice)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Musician</li>
+                                        <li><strong>Equipment:</strong> Costume, Musical Instrument, Perfume, Traveler's Clothes, 19 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FARMER -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Farmer</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Constitution, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Animal Handling, Nature | Feat: Tough
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Farmers lived simple lives, working the land or tending livestock. This hard physical labor made them hardy and gave them knowledge of nature.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Constitution, Wisdom</li>
+                                        <li><strong>Skills:</strong> Animal Handling, Nature</li>
+                                        <li><strong>Tools:</strong> Carpenter's Tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Tough — grants extra HP.</li>
+                                        <li><strong>Equipment:</strong> Carpenter's Tools, Iron Pot, Sickle, Tent, Traveler's Clothes, 23 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GUARD -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Guard</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Intelligence, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Athletics, Perception | Feat: Alert
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Guards are people who stood watch to protect a city or a specific person. They know how to react quickly to danger and are well prepared for combat.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Intelligence, Wisdom</li>
+                                        <li><strong>Skills:</strong> Athletics, Perception</li>
+                                        <li><strong>Tools:</strong> Gaming Set</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Alert</li>
+                                        <li><strong>Equipment:</strong> Spear, Crossbow, Guard's uniform, 14 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GUIDE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Guide</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Constitution, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Stealth, Survival | Feat: Magic Initiate (Druid)
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Guides specialize in exploring the wilderness. Their ability to read the terrain and survive in harsh conditions makes them indispensable on long journeys.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Constitution, Wisdom</li>
+                                        <li><strong>Skills:</strong> Stealth, Survival</li>
+                                        <li><strong>Tools:</strong> Cartographer's Tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Magic Initiate (Druid)</li>
+                                        <li><strong>Equipment:</strong> Bow, Cartographer's Tools, Warm Clothes, 12 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERMIT -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Hermit</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Constitution, Wisdom, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Medicine, Religion | Feat: Healer
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Hermits spent years in solitude, away from society. This isolation helped them grasp deep medical and spiritual mysteries.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Constitution, Wisdom, Charisma</li>
+                                        <li><strong>Skills:</strong> Medicine, Religion</li>
+                                        <li><strong>Tools:</strong> Herbalism Kit</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Healer</li>
+                                        <li><strong>Equipment:</strong> Herbalism Kit, Healer's Kit, Hermit's clothes, 15 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MERCHANT -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Merchant</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Intelligence, Wisdom, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Animal Handling, Persuasion | Feat: Lucky
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Merchants were always on the move, buying and selling goods. Their strength lies in negotiating with people and handling pack animals to deliver cargo safely.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Intelligence, Wisdom, Charisma</li>
+                                        <li><strong>Skills:</strong> Animal Handling, Persuasion</li>
+                                        <li><strong>Tools:</strong> Navigator's Tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Lucky</li>
+                                        <li><strong>Equipment:</strong> Navigator's Tools, Common Clothes, Purse, 22 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOBLE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Noble</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Intelligence, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: History, Persuasion | Feat: Skilled
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Nobles grew up in wealth and power, studying world history and the art of negotiation. Thanks to this, they know how to carry themselves in society.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Intelligence, Charisma</li>
+                                        <li><strong>Skills:</strong> History, Persuasion</li>
+                                        <li><strong>Tools:</strong> A Gaming Set (e.g., chess)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Skilled</li>
+                                        <li><strong>Equipment:</strong> Fine Clothes, Gaming Set, Signet Ring, 24 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAGE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Sage</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Constitution, Intelligence, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Arcana, History | Feat: Magic Initiate (Wizard)
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Sages devoted their lives to studying ancient knowledge. Their specialization in Arcana and History lets them easily identify magic or recount long-past eras.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Constitution, Intelligence, Wisdom</li>
+                                        <li><strong>Skills:</strong> Arcana, History</li>
+                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Magic Initiate (Wizard)</li>
+                                        <li><strong>Equipment:</strong> Book, Calligrapher's Supplies, Scholar's clothes, 8 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAILOR -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Sailor</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Acrobatics, Perception | Feat: Tavern Brawler
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Years at sea made the sailor nimble and perceptive. And thanks to countless brawls in port taverns, sailors are usually excellent at hand-to-hand fighting.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Wisdom</li>
+                                        <li><strong>Skills:</strong> Acrobatics, Perception</li>
+                                        <li><strong>Tools:</strong> Navigator's Tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Tavern Brawler</li>
+                                        <li><strong>Equipment:</strong> Dagger, Rope (50 feet), Sailor's clothes, 10 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCRIBE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Scribe</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Wisdom</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Investigation, Perception | Feat: Skilled
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>Scribes can copy documents very quickly and accurately. This made them extremely attentive to detail, allowing them to see what others might miss.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Wisdom</li>
+                                        <li><strong>Skills:</strong> Investigation, Perception</li>
+                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Skilled</li>
+                                        <li><strong>Equipment:</strong> Lamp, Parchment, Ink, Quill, Clothes, 23 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOLDIER -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Soldier</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Constitution</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Athletics, Intimidation | Feat: Savage Attacker
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>The Soldier is a natural choice for a Fighter or Barbarian. They know the realities of the battlefield, which made them strong and formidable. Even for a Cleric this can be an interesting choice (for example, a soldier who turned to religion after the war).</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Constitution</li>
+                                        <li><strong>Skills:</strong> Athletics, Intimidation</li>
+                                        <li><strong>Tools:</strong> A Gaming Set (e.g., cards or dice)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Savage Attacker</li>
+                                        <li><strong>Equipment:</strong> Spear, Shortbow, 20 arrows, Healer's Kit, Quiver, Traveler's Clothes, 14 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WAYFARER -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Wayfarer</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Wisdom, Charisma</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+                        Skills: Insight, Stealth | Feat: Lucky
+                    </div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                            <p>They are used to living on the streets, with no home or people to rely on. Like criminals, they are used to surviving against the odds, relying only on their luck and stealth.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Wisdom, Charisma</li>
+                                        <li><strong>Skills:</strong> Insight, Stealth</li>
+                                        <li><strong>Tools:</strong> Thieves' Tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                                        <li><strong>Starting Feat:</strong> Lucky</li>
+                                        <li><strong>Equipment:</strong> Two daggers, Thieves' Tools, Bedroll, Two pouches, Traveler's Clothes, 16 gp (or 50 gp at start).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function toggleSingle(element) {
+            const card = element.closest('.feat-card');
+            const content = card.querySelector('.feat-content');
+            const title = card.querySelector('.feat-name');
+            const isOpen = content.classList.contains('open');
+
+            document.querySelectorAll('.feat-content.open').forEach(el => {
+                el.classList.remove('open');
+                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
+            });
+
+            if (!isOpen) {
+                content.classList.add('open');
+                title.classList.replace('text-black', 'text-forest');
+                
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+
+        function filterBackgrounds() {
+            let textInput = document.getElementById('searchInput').value.toLowerCase();
+            let skillInput = document.getElementById('skillFilter').value.toLowerCase();
+            
+            let cards = document.getElementsByClassName('feat-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
+                let summary = cards[i].querySelector('.feat-summary').innerText.toLowerCase();
+                let fullText = cards[i].querySelector('.feat-content').innerText.toLowerCase();
+                
+                let matchesText = name.includes(textInput) || summary.includes(textInput) || fullText.includes(textInput);
+                // We check whether the selected skill is in the background description
+                let matchesSkill = skillInput === "" || fullText.includes(skillInput);
+                
+                if (matchesText && matchesSkill) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script src="search-index.js"></script>
+    <script src="site-common.js"></script>
+</body>
+</html>
