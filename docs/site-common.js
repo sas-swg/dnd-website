@@ -1,19 +1,19 @@
 /* ============================================================
-   D&D 5e Knowledge Base — shared script
-   Single menu + mobile menu + dark theme + global search (fuzzy) + year
+   D&D 5e База Знань — спільний скрипт
+   Єдине меню + мобільне меню + темна тема + глобальний пошук (fuzzy) + рік
    ============================================================ */
 (function () {
   "use strict";
 
   var NAV_LINKS = [
-    { href: "index.html", label: "Home" },
-    { href: "rules.html", label: "Rules" },
-    { href: "races.html", label: "Races" },
-    { href: "classes.html", label: "Classes" },
-    { href: "backgrounds.html", label: "Backgrounds" },
-    { href: "feats.html", label: "Feats" },
-    { href: "spells.html", label: "Spells" },
-    { href: "character-creator.html", label: "Builder" }
+    { href: "index.html", label: "Головна" },
+    { href: "rules.html", label: "Правила" },
+    { href: "races.html", label: "Раси" },
+    { href: "classes.html", label: "Класи" },
+    { href: "backgrounds.html", label: "Передісторії" },
+    { href: "feats.html", label: "Риси" },
+    { href: "spells.html", label: "Заклинання" },
+    { href: "character-creator.html", label: "Конструктор" }
   ];
 
   function currentPage() {
@@ -22,14 +22,14 @@
     return path.toLowerCase();
   }
 
-  /* ---------- Dark theme ---------- */
+  /* ---------- Темна тема ---------- */
   function applyTheme(theme) {
     if (theme === "dark") document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
     var btns = document.querySelectorAll("[data-theme-toggle]");
     for (var i = 0; i < btns.length; i++) {
       btns[i].textContent = theme === "dark" ? "☀️" : "🌙";
-      btns[i].setAttribute("aria-label", theme === "dark" ? "Light theme" : "Dark theme");
+      btns[i].setAttribute("aria-label", theme === "dark" ? "Світла тема" : "Темна тема");
     }
   }
   function getTheme() {
@@ -42,7 +42,7 @@
     applyTheme(next);
   }
 
-  /* ---------- Navigation build ---------- */
+  /* ---------- Побудова навігації ---------- */
   function buildNav() {
     var header = document.querySelector("header");
     if (!header) return;
@@ -59,15 +59,15 @@
         '"' + (active ? ' aria-current="page"' : "") + ">" + l.label + "</a>";
     }
 
-    var __inUk = location.pathname.indexOf("/uk/") !== -1;
-    var __langHref = (__inUk ? "../" : "uk/") + page;
-    var __langLabel = __inUk ? "🇬🇧 EN" : "🇺🇦 УК";
-    var __langTitle = __inUk ? "Switch to English" : "Перемкнути мову";
+    var __inEn = location.pathname.indexOf("/en/") !== -1;
+    var __langHref = (__inEn ? "../" : "en/") + page;
+    var __langLabel = __inEn ? "🇺🇦 УК" : "🇬🇧 EN";
+    var __langTitle = __inEn ? "Перемкнути на українську" : "Switch to English";
     var __langLink = '<a href="' + __langHref + '" data-lang-toggle class="hover:text-forest-accent transition-colors text-sm font-semibold" title="' + __langTitle + '">' + __langLabel + '</a>';
     var controls = __langLink +
-      '<button type="button" data-search-open aria-label="Search" ' +
-      'class="hover:text-forest-accent transition-colors text-lg" title="Search (press /)">🔍</button>' +
-      '<button type="button" data-theme-toggle aria-label="Dark theme" ' +
+      '<button type="button" data-search-open aria-label="Пошук" ' +
+      'class="hover:text-forest-accent transition-colors text-lg" title="Пошук (натисніть /)">🔍</button>' +
+      '<button type="button" data-theme-toggle aria-label="Темна тема" ' +
       'class="hover:text-forest-accent transition-colors text-lg">🌙</button>';
 
     if (existingNav) {
@@ -84,7 +84,7 @@
     burger.type = "button";
     burger.id = "nav-burger";
     burger.className = "md:hidden text-white text-2xl leading-none ml-auto";
-    burger.setAttribute("aria-label", "Menu");
+    burger.setAttribute("aria-label", "Меню");
     burger.setAttribute("aria-expanded", "false");
     burger.innerHTML = "☰";
     bar.appendChild(burger);
@@ -101,8 +101,8 @@
         ml.label + "</a>";
     }
     mHtml += '<a href="' + __langHref + '" class="py-2 border-b border-white/10 hover:text-forest-accent">' + __langLabel + '</a>';
-    mHtml += '<button type="button" data-search-open class="text-left py-2 border-b border-white/10 hover:text-forest-accent">🔍 Search</button>';
-    mHtml += '<button type="button" data-theme-toggle-text class="text-left py-2 hover:text-forest-accent">🌙 Toggle theme</button>';
+    mHtml += '<button type="button" data-search-open class="text-left py-2 border-b border-white/10 hover:text-forest-accent">🔍 Пошук</button>';
+    mHtml += '<button type="button" data-theme-toggle-text class="text-left py-2 hover:text-forest-accent">🌙 Перемкнути тему</button>';
     mHtml += "</div>";
     mobile.innerHTML = mHtml;
     header.insertAdjacentElement("afterend", mobile);
@@ -114,11 +114,11 @@
     });
   }
 
-  /* ---------- Global search (fuzzy + filters) ---------- */
+  /* ---------- Глобальний пошук (fuzzy + фільтри) ---------- */
   var searchIndex = [];
   var indexLoaded = false;
   var activeResult = -1;
-  var activeCat = "";        // current category filter
+  var activeCat = "";        // поточний фільтр категорії
   var catsBuilt = false;
 
   function prepareIndex(data) {
@@ -133,18 +133,18 @@
 
   function loadIndex() {
     if (indexLoaded) return Promise.resolve();
-    // 1) Built-in index (search-index.js) — works locally too (file://)
+    // 1) Вбудований індекс (search-index.js) — працює і локально (file://)
     if (typeof window !== "undefined" && Array.isArray(window.SEARCH_INDEX)) {
       prepareIndex(window.SEARCH_INDEX);
       return Promise.resolve();
     }
-    // 2) Fallback: load JSON via fetch (when running via server)
+    // 2) Резерв: завантаження JSON через fetch (при роботі через сервер)
     if (typeof fetch !== "function") { indexLoaded = true; return Promise.resolve(); }
     return fetch("search-index.json")
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (data) {
         searchIndex = Array.isArray(data) ? data : [];
-        // prepared normalized text for fast search
+        // підготовлений нормалізований текст для швидкого пошуку
         for (var i = 0; i < searchIndex.length; i++) {
           var it = searchIndex[i];
           it._n = normalize((it.title || "") + " " + (it.cat || "") + " " + (it.desc || ""));
@@ -159,18 +159,18 @@
     return String(s || "").toLowerCase().replace(/[’'`ʼ]/g, "'").replace(/\s+/g, " ").trim();
   }
 
-  // Match score for a single token in text: -1 if no match
+  // Оцінка збігу одного токена в тексті: -1 якщо немає збігу
   function tokenScore(token, text) {
     if (!token) return 0;
     var idx = text.indexOf(token);
     if (idx !== -1) {
       var score = 60;
       if (idx === 0) score += 50;
-      else if (/[\s(\[«"'\-]/.test(text.charAt(idx - 1))) score += 30; // word boundary
+      else if (/[\s(\[«"'\-]/.test(text.charAt(idx - 1))) score += 30; // межа слова
       score -= Math.min(idx, 25) * 0.4;
       return score;
     }
-    // fuzzy match (letter subsequence)
+    // нечіткий збіг (підпослідовність літер)
     var ti = 0, qi = 0, first = -1, last = -1;
     for (; ti < text.length && qi < token.length; ti++) {
       if (text.charAt(ti) === token.charAt(qi)) {
@@ -181,7 +181,7 @@
     }
     if (qi === token.length) {
       var span = last - first + 1;
-      var compact = token.length / span; // 1 = perfectly compact
+      var compact = token.length / span; // 1 = ідеально компактно
       return 8 + compact * 12 - first * 0.05;
     }
     return -1;
@@ -193,7 +193,7 @@
       var tk = tokens[i];
       var inTitle = tokenScore(tk, it._t);
       var inAll = inTitle >= 0 ? inTitle + 15 : tokenScore(tk, it._n);
-      if (inAll < 0) return -1; // every token must match
+      if (inAll < 0) return -1; // кожен токен має збігтись
       total += inAll;
     }
     return total;
@@ -203,12 +203,12 @@
     var overlay = document.createElement("div");
     overlay.id = "global-search-overlay";
     overlay.innerHTML =
-      '<div id="global-search-box" role="dialog" aria-label="Search the database">' +
+      '<div id="global-search-box" role="dialog" aria-label="Пошук по базі">' +
       '<input id="global-search-input" type="search" autocomplete="off" ' +
-      'placeholder="Search spells, feats, races, classes, rules...">' +
+      'placeholder="Пошук заклинань, рис, рас, класів, правил...">' +
       '<div id="global-search-cats"></div>' +
       '<div id="global-search-results"></div>' +
-      '<div class="gs-hint">↑↓ navigate · Enter open · Esc close</div>' +
+      '<div class="gs-hint">↑↓ рух · Enter відкрити · Esc закрити</div>' +
       "</div>";
     document.body.appendChild(overlay);
 
@@ -237,7 +237,7 @@
       if (c && !seen[c]) { seen[c] = 1; cats.push(c); }
     }
     cats.sort(function (a, b) { return a.localeCompare(b, "uk"); });
-    var html = '<button type="button" class="gs-chip active" data-cat="">All</button>';
+    var html = '<button type="button" class="gs-chip active" data-cat="">Всі</button>';
     for (var j = 0; j < cats.length; j++) {
       html += '<button type="button" class="gs-chip" data-cat="' + escapeHtml(cats[j]) + '">' + escapeHtml(cats[j]) + "</button>";
     }
@@ -259,7 +259,7 @@
     if (items[activeResult]) items[activeResult].scrollIntoView({ block: "nearest" });
   }
 
-  // Highlight matches in name
+  // Підсвічування збігів у назві
   function markTitle(title, tokens) {
     var safe = escapeHtml(title);
     var lower = normalize(title);
@@ -273,7 +273,7 @@
       }
     }
     if (!ranges.length) return safe;
-    // work on escaped string only if no special chars, otherwise return without highlight
+    // працюємо на escaped-рядку лише якщо без спецсимволів, інакше віддаємо без підсвітки
     if (safe !== title) return safe;
     ranges.sort(function (a, b) { return a[0] - b[0]; });
     var merged = [ranges[0]];
@@ -315,13 +315,13 @@
 
     if (!scored.length) {
       results.innerHTML = tokens.length
-        ? '<div class="gs-empty">No results</div>'
-        : '<div class="gs-empty">Start typing to search...</div>';
+        ? '<div class="gs-empty">Нічого не знайдено</div>'
+        : '<div class="gs-empty">Почніть вводити, щоб знайти...</div>';
       return;
     }
 
     var limit = Math.min(scored.length, 50);
-    var html = '<div class="gs-count">Found: ' + scored.length + (scored.length > limit ? ' (showing ' + limit + ')' : '') + '</div>';
+    var html = '<div class="gs-count">Знайдено: ' + scored.length + (scored.length > limit ? ' (показано ' + limit + ')' : '') + '</div>';
     for (var j = 0; j < limit; j++) {
       var m = scored[j].it;
       var url = m.page + "?find=" + encodeURIComponent(m.title || "") + (m.anchor ? "#" + m.anchor : "");
@@ -354,7 +354,7 @@
     if (overlay) overlay.classList.remove("open");
   }
 
-  /* ---------- Year in footer ---------- */
+  /* ---------- Рік у підвалі ---------- */
   function fixFooterYear() {
     var year = new Date().getFullYear();
     var footers = document.querySelectorAll("footer");
@@ -368,7 +368,7 @@
     var btn = document.createElement("button");
     btn.type = "button";
     btn.id = "back-to-top";
-    btn.setAttribute("aria-label", "To top");
+    btn.setAttribute("aria-label", "Нагору");
     btn.innerHTML = "↑";
     document.body.appendChild(btn);
     btn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
@@ -390,7 +390,7 @@
     }
   }
 
-  /* ---------- Highlight found item after navigation (?find=...) ---------- */
+  /* ---------- Підсвічування знайденого після переходу (?find=...) ---------- */
   function getParam(name) {
     var m = new RegExp("[?&]" + name + "=([^&]*)").exec(location.search);
     return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : "";
@@ -402,7 +402,7 @@
     setTimeout(function () { el.classList.remove("search-flash"); }, 2800);
   }
 
-  // Expand card if it collapses
+  // Розгорнути картку, якщо вона згортається
   function openCollapsible(card) {
     if (!card) return;
     var content = card.querySelector(".feat-content");
@@ -418,9 +418,9 @@
     var q = getParam("find");
     if (!q) return;
     var nq = normalize(q);
-    var primary = normalize(q.split(" (")[0]); // en part for local filter
+    var primary = normalize(q.split(" (")[0]); // укр. частина для локального фільтра
 
-    // 1) If page has own search — insert query and filter
+    // 1) Якщо на сторінці є власний пошук — підставити запит і відфільтрувати
     var input = document.getElementById("searchInput");
     if (input) {
       input.value = q.split(" (")[0];
@@ -436,13 +436,13 @@
   function locateAndHighlight(nq, primary) {
     var target = null;
 
-    // A) If there is an anchor in URL
+    // А) Якщо є якір у URL
     if (location.hash && location.hash.length > 1) {
       var byId = document.getElementById(location.hash.slice(1));
       if (byId) target = byId;
     }
 
-    // B) Cards .feat-card by heading
+    // Б) Картки .feat-card за заголовком
     if (!target) {
       var cards = document.querySelectorAll("main .feat-card");
       var best = null, bestLen = Infinity, exact = null;
@@ -458,7 +458,7 @@
       target = exact || best;
     }
 
-    // C) Headings / rows / link cards
+    // В) Заголовки / рядки / картки-посилання
     if (!target) {
       var els = document.querySelectorAll("main h2, main h3, main h4, main td, main th, main li, main .nav-card");
       var pick = null, pickLen = Infinity;
@@ -474,7 +474,7 @@
     if (!target) return;
     var card = target.closest ? (target.closest(".feat-card") || target) : target;
     openCollapsible(card);
-    // Highlight exact found element (ability/row), not the whole card
+    // Підсвітити саме знайдений елемент (здібність/рядок), а не всю картку
     var focusEl = (target === card) ? card : target;
     setTimeout(function () {
       focusEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -482,7 +482,7 @@
     }, 180);
   }
 
-  /* ---------- Initialization ---------- */
+  /* ---------- Ініціалізація ---------- */
   function init() {
     applyTheme(getTheme());
     buildNav();

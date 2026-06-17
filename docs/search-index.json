@@ -3078,7 +3078,7 @@
   "anchor": "class-bard"
  },
  {
-  "title": "Таблиця: Варвар (Barbarian)",
+  "title": "Таблиця: Варвар (Barbarian) [cite: 14]",
   "page": "classes.html",
   "cat": "Класи",
   "anchor": "class-barbarian"
@@ -4153,6 +4153,36 @@
  },
  {
   "title": "Ковані (Warforged)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Боґґарт (Boggart)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Феєрі (Faerie)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Полум'яні (Flamekin)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Лорвінський перевертень",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Крижані (Rimekin)",
   "page": "races.html",
   "cat": "Раси",
   "anchor": ""

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backgrounds - D&D 5e (2024)</title>
+    <title>Передісторії (Backgrounds) - D&D 5e (2024)</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     
@@ -54,14 +54,14 @@
             <a href="index.html" class="flex items-center gap-2">
                 <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
-                    D&D 5e Knowledge Base
+                    D&D 5e База Знань
                 </h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
             </nav>
         </div>
     </header>  
@@ -69,70 +69,70 @@
     <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Title and Filters -->
+        <!-- Заголовок та Фільтри -->
         <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
-                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Backgrounds</h1>
-                <p class="text-slate-600">Who your character was before becoming an adventurer.</p>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Передісторії (Backgrounds)</h1>
+                <p class="text-slate-600">Ким був ваш персонаж до того, як став шукачем пригод.</p>
             </div>
             
-            <!-- Filter panel -->
+            <!-- Панель фільтрів -->
             <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 
-                <!-- Skill filter -->
+                <!-- Фільтр за навичкою -->
                 <select id="skillFilter" onchange="filterBackgrounds()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                    <option value="">All skills</option>
-                    <option value="acrobatics">Athletics / Acrobatics</option>
-                    <option value="survival">Survival / Nature</option>
-                    <option value="performance">Performance / Persuasion</option>
-                    <option value="deception">Deception / Stealth</option>
-                    <option value="insight">Insight / Medicine</option>
-                    <option value="religion">Religion / History</option>
-                    <option value="sleight of hand">Sleight of Hand</option>
+                    <option value="">Всі навички</option>
+                    <option value="акробатика">Атлетика / Акробатика</option>
+                    <option value="виживання">Виживання / Природа</option>
+                    <option value="виступ">Виступ / Переконання</option>
+                    <option value="обман">Обман / Скритність</option>
+                    <option value="проникливість">Проникливість / Медицина</option>
+                    <option value="релігія">Релігія / Історія</option>
+                    <option value="спритність рук">Спритність рук</option>
                 </select>
 
-                <!-- Text search -->
+                <!-- Текстовий пошук -->
                 <div class="relative w-full sm:w-64">
-                    <input type="text" id="searchInput" onkeyup="filterBackgrounds()" placeholder="Search (name, skill, feat)..." 
+                    <input type="text" id="searchInput" onkeyup="filterBackgrounds()" placeholder="Пошук (назва, навичка, риса)..." 
                         class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
                     <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
                 </div>
             </div>
         </div>
 
-        <!-- Backgrounds grid -->
+        <!-- Сітка Передісторій -->
         <div class="grid grid-cols-1 gap-4 items-start" id="backgroundsGrid">
             
             <!-- ACOLYTE -->
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Acolyte</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Wisdom, Intelligence, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Прислужник (Acolyte)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Мудрість, Інтелект, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Insight, Religion | Feat: Magic Initiate (Cleric)
+                        Навички: Проникливість, Релігія | Риса: Чарівний ініціатор (Жрець)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Acolytes have experience with temple devotion, an understanding of religion and magical rites, and an initial notion of channeling divine power. This background is an ideal choice for those who want to lightly touch on divine magic and its atmosphere without multiclassing into Cleric.</p>
+                            <p>Прислужники мають досвід відданості в храмі, розуміння релігії, магічних обрядів та початкове уявлення про спрямування божественної сили. Вибір цієї передісторії ідеальний для тих, хто хоче злегка доторкнутися до божественної магії та її атмосфери без мультикласування в Жерця.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Intelligence, Wisdom, Charisma</li>
-                                        <li><strong>Skills:</strong> Insight, Religion</li>
-                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                        <li><strong>Характеристики (+3):</strong> Інтелект, Мудрість, Харизма</li>
+                                        <li><strong>Навички:</strong> Проникливість (Insight), Релігія (Religion)</li>
+                                        <li><strong>Інструменти:</strong> Каліграфічне приладдя</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Magic Initiate (Cleric)</li>
-                                        <li><strong>Equipment:</strong> Calligrapher's Supplies, Prayer Book, Holy Symbol, Parchment (10 sheets), Robe, 8 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Чарівний ініціатор (Magic Initiate) - Жрець</li>
+                                        <li><strong>Спорядження:</strong> Каліграфічне приладдя, Книга молитов, Святий символ, Пергамент (10 аркушів), Ряса, 8 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -145,32 +145,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Artisan</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Intelligence</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ремісник (Artisan)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Спритність, Інтелект</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Investigation, Persuasion | Feat: Crafter
+                        Навички: Дослідження, Переконання | Риса: Творець (Crafter)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>The Artisan confirms that the character previously worked as an apprentice, whether forging weapons as a blacksmith or helping in the kitchen as a cook. This grants practical skills for crafting items.</p>
+                            <p>Ремісник підтверджує, що персонаж раніше працював підмайстром, будь то кування зброї як коваль або допомога на кухні в якості кухаря. Це дає практичні навички створення речей.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Intelligence</li>
-                                        <li><strong>Skills:</strong> Investigation, Persuasion</li>
-                                        <li><strong>Tools:</strong> One type of artisan's tools of your choice</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Спритність, Інтелект</li>
+                                        <li><strong>Навички:</strong> Дослідження (Investigation), Переконання (Persuasion)</li>
+                                        <li><strong>Інструменти:</strong> Один вид ремісничих інструментів на вибір</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Crafter</li>
-                                        <li><strong>Equipment:</strong> Artisan's Tools, Bullseye Lantern, Pouch (2), Tent, Traveler's Clothes, 25 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Творець (Crafter)</li>
+                                        <li><strong>Спорядження:</strong> Ремісничі інструменти, Ліхтар спрямований (Bullseye), Мішок (2), Намет, Одяг мандрівника, 25 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -183,32 +183,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Charlatan</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Шарлатан (Charlatan)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Інтелект, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Deception, Sleight of Hand | Feat: Skilled
+                        Навички: Обман, Спритність рук | Риса: Талановитий (Skilled)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Before their adventuring days, the Charlatan earned a living through lies, perhaps playing cards with marked decks or selling fake healing potions. This is an ideal choice for characters focused on social interaction or deception.</p>
+                            <p>До початку пригод Шарлатан заробляв на життя брехнею, можливо, граючи в карти крапленими колодами або продаючи підроблені зілля лікування. Це ідеальний вибір для персонажів, орієнтованих на соціальну взаємодію або обман.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
-                                        <li><strong>Skills:</strong> Deception, Sleight of Hand</li>
-                                        <li><strong>Tools:</strong> A gaming set (e.g., dice), Forgery Kit</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Інтелект, Харизма</li>
+                                        <li><strong>Навички:</strong> Обман (Deception), Спритність рук (Sleight of Hand)</li>
+                                        <li><strong>Інструменти:</strong> Набір для гри (наприклад, гральні кубики), Набір для гримування (Forgery Kit)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Skilled</li>
-                                        <li><strong>Equipment:</strong> Fine Clothes, Forgery Kit, Gaming Set, 15 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Талановитий (Skilled)</li>
+                                        <li><strong>Спорядження:</strong> Одяг тонкої роботи (Fine), Набір для гримування, Ігровий набір, 15 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -221,32 +221,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Criminal</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Злочинець (Criminal)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Інтелект, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Stealth, Sleight of Hand | Feat: Alert
+                        Навички: Скритність, Спритність рук | Риса: Пильний (Alert)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Criminals survived through theft, smuggling, or other illegal dealings. They work superbly in the shadows and know how to react quickly to danger.</p>
+                            <p>Злочинці виживали за рахунок крадіжок, контрабанди чи інших незаконних справ. Вони чудово працюють у тінях і вміють швидко реагувати на небезпеку.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
-                                        <li><strong>Skills:</strong> Stealth, Sleight of Hand</li>
-                                        <li><strong>Tools:</strong> Thieves' Tools, a Gaming Set</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Інтелект, Харизма</li>
+                                        <li><strong>Навички:</strong> Скритність (Stealth), Спритність рук (Sleight of Hand)</li>
+                                        <li><strong>Інструменти:</strong> Інструменти злодія (Thieves' Tools), Ігровий набір</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Alert</li>
-                                        <li><strong>Equipment:</strong> Thieves' Tools, Dagger (2), Dark hooded clothes, 16 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Пильний (Alert)</li>
+                                        <li><strong>Спорядження:</strong> Інструменти злодія, Кинджал (2), Темний одяг з капюшоном, 16 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -259,32 +259,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Entertainer</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Артист (Entertainer)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Інтелект, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Acrobatics, Performance | Feat: Musician
+                        Навички: Акробатика, Виступ | Риса: Музикант (Musician)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Entertainers are used to being the center of attention, amusing the crowd. Their performance and acrobatics skills make them a great choice for Bards and other social classes.</p>
+                            <p>Артисти звикли бути в центрі уваги, розважаючи натовп. Навички виступу та акробатики роблять їх чудовим вибором для Бардів та інших соціальних класів.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Charisma</li>
-                                        <li><strong>Skills:</strong> Acrobatics, Performance</li>
-                                        <li><strong>Tools:</strong> A musical instrument (of your choice)</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Інтелект, Харизма</li>
+                                        <li><strong>Навички:</strong> Акробатика (Acrobatics), Виступ (Performance)</li>
+                                        <li><strong>Інструменти:</strong> Музичний інструмент (на вибір)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Musician</li>
-                                        <li><strong>Equipment:</strong> Costume, Musical Instrument, Perfume, Traveler's Clothes, 19 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Музикант (Musician)</li>
+                                        <li><strong>Спорядження:</strong> Костюм (Costume), Музичний інструмент, Парфуми, Одяг мандрівника, 19 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -297,32 +297,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Farmer</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Constitution, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Фермер (Farmer)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Витривалість, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Animal Handling, Nature | Feat: Tough
+                        Навички: Поводження з тваринами, Природа | Риса: Міцний (Tough)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Farmers lived simple lives, working the land or tending livestock. This hard physical labor made them hardy and gave them knowledge of nature.</p>
+                            <p>Фермери жили простим життям, працюючи на землі або доглядаючи за худобою. Цей важкий фізичний труд зробив їх витривалими і надав знання про природу.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Constitution, Wisdom</li>
-                                        <li><strong>Skills:</strong> Animal Handling, Nature</li>
-                                        <li><strong>Tools:</strong> Carpenter's Tools</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Витривалість, Мудрість</li>
+                                        <li><strong>Навички:</strong> Поводження з тваринами (Animal Handling), Природа (Nature)</li>
+                                        <li><strong>Інструменти:</strong> Теслярське приладдя (Carpenter's Tools)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Tough — grants extra HP.</li>
-                                        <li><strong>Equipment:</strong> Carpenter's Tools, Iron Pot, Sickle, Tent, Traveler's Clothes, 23 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Міцний (Tough) - дає додаткові ХП.</li>
+                                        <li><strong>Спорядження:</strong> Теслярське приладдя, Залізна каструля, Серп, Намет, Одяг мандрівника, 23 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -335,32 +335,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Guard</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Intelligence, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Охоронець (Guard)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Інтелект, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Athletics, Perception | Feat: Alert
+                        Навички: Атлетика, Уважність | Риса: Пильний (Alert)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Guards are people who stood watch to protect a city or a specific person. They know how to react quickly to danger and are well prepared for combat.</p>
+                            <p>Охоронці — це люди, які стояли на варті, щоб захищати місто чи конкретну особу. Вони вміють швидко реагувати на небезпеку і добре підготовлені до бою.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Intelligence, Wisdom</li>
-                                        <li><strong>Skills:</strong> Athletics, Perception</li>
-                                        <li><strong>Tools:</strong> Gaming Set</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Інтелект, Мудрість</li>
+                                        <li><strong>Навички:</strong> Атлетика (Athletics), Уважність (Perception)</li>
+                                        <li><strong>Інструменти:</strong> Ігровий набір</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Alert</li>
-                                        <li><strong>Equipment:</strong> Spear, Crossbow, Guard's uniform, 14 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Пильний (Alert)</li>
+                                        <li><strong>Спорядження:</strong> Спис, Арбалет, Одяг вартового, 14 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -373,32 +373,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Guide</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Constitution, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Провідник (Guide)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Витривалість, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Stealth, Survival | Feat: Magic Initiate (Druid)
+                        Навички: Скритність, Виживання | Риса: Чарівний ініціатор (Друїд)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Guides specialize in exploring the wilderness. Their ability to read the terrain and survive in harsh conditions makes them indispensable on long journeys.</p>
+                            <p>Провідники спеціалізуються на дослідженні дикої природи. Їхня здатність читати місцевість та виживати в суворих умовах робить їх незамінними в далеких подорожах.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Constitution, Wisdom</li>
-                                        <li><strong>Skills:</strong> Stealth, Survival</li>
-                                        <li><strong>Tools:</strong> Cartographer's Tools</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Витривалість, Мудрість</li>
+                                        <li><strong>Навички:</strong> Скритність (Stealth), Виживання (Survival)</li>
+                                        <li><strong>Інструменти:</strong> Набір картографа (Cartographer's Tools)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Magic Initiate (Druid)</li>
-                                        <li><strong>Equipment:</strong> Bow, Cartographer's Tools, Warm Clothes, 12 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Чарівний ініціатор (Magic Initiate) - Друїд</li>
+                                        <li><strong>Спорядження:</strong> Лук, Набір картографа, Теплий одяг, 12 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -411,32 +411,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Hermit</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Constitution, Wisdom, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Відлюдник (Hermit)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Витривалість, Мудрість, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Medicine, Religion | Feat: Healer
+                        Навички: Медицина, Релігія | Риса: Цілитель (Healer)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Hermits spent years in solitude, away from society. This isolation helped them grasp deep medical and spiritual mysteries.</p>
+                            <p>Відлюдники провели роки на самоті, подалі від суспільства. Ця ізоляція допомогла їм осягнути глибокі медичні та духовні таємниці.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Constitution, Wisdom, Charisma</li>
-                                        <li><strong>Skills:</strong> Medicine, Religion</li>
-                                        <li><strong>Tools:</strong> Herbalism Kit</li>
+                                        <li><strong>Характеристики (+3):</strong> Витривалість, Мудрість, Харизма</li>
+                                        <li><strong>Навички:</strong> Медицина (Medicine), Релігія (Religion)</li>
+                                        <li><strong>Інструменти:</strong> Набір травника (Herbalism Kit)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Healer</li>
-                                        <li><strong>Equipment:</strong> Herbalism Kit, Healer's Kit, Hermit's clothes, 15 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Цілитель (Healer)</li>
+                                        <li><strong>Спорядження:</strong> Набір травника, Лікувальний набір (Healer's Kit), Одяг відлюдника, 15 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -449,32 +449,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Merchant</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Intelligence, Wisdom, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Торговець (Merchant)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Інтелект, Мудрість, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Animal Handling, Persuasion | Feat: Lucky
+                        Навички: Поводження з тваринами, Переконання | Риса: Щасливчик (Lucky)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Merchants were always on the move, buying and selling goods. Their strength lies in negotiating with people and handling pack animals to deliver cargo safely.</p>
+                            <p>Торговці завжди були в русі, купуючи і продаючи товари. Їхня сила умінні домовлятися з людьми і керувати в'ючними тваринами, щоб доставити вантаж безпечно.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Intelligence, Wisdom, Charisma</li>
-                                        <li><strong>Skills:</strong> Animal Handling, Persuasion</li>
-                                        <li><strong>Tools:</strong> Navigator's Tools</li>
+                                        <li><strong>Характеристики (+3):</strong> Інтелект, Мудрість, Харизма</li>
+                                        <li><strong>Навички:</strong> Поводження з тваринами (Animal Handling), Переконання (Persuasion)</li>
+                                        <li><strong>Інструменти:</strong> Інструменти навігатора (Navigator's Tools)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Lucky</li>
-                                        <li><strong>Equipment:</strong> Navigator's Tools, Common Clothes, Purse, 22 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Щасливчик (Lucky)</li>
+                                        <li><strong>Спорядження:</strong> Інструменти навігатора, Звичайний одяг, Гаманець, 22 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -487,32 +487,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Noble</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Intelligence, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Дворянин (Noble)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Інтелект, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: History, Persuasion | Feat: Skilled
+                        Навички: Історія, Переконання | Риса: Талановитий (Skilled)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Nobles grew up in wealth and power, studying world history and the art of negotiation. Thanks to this, they know how to carry themselves in society.</p>
+                            <p>Дворяни виросли в багатстві та владі, вивчаючи історію світу та мистецтво переговорів. Завдяки цьому вони вміють триматися в суспільстві.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Intelligence, Charisma</li>
-                                        <li><strong>Skills:</strong> History, Persuasion</li>
-                                        <li><strong>Tools:</strong> A Gaming Set (e.g., chess)</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Інтелект, Харизма</li>
+                                        <li><strong>Навички:</strong> Історія (History), Переконання (Persuasion)</li>
+                                        <li><strong>Інструменти:</strong> Ігровий набір (наприклад, шахи)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Skilled</li>
-                                        <li><strong>Equipment:</strong> Fine Clothes, Gaming Set, Signet Ring, 24 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Талановитий (Skilled)</li>
+                                        <li><strong>Спорядження:</strong> Дорогий одяг (Fine), Ігровий набір, Печатка (Signet Ring), 24 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -525,32 +525,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Sage</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Constitution, Intelligence, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Мудрець (Sage)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Витривалість, Інтелект, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Arcana, History | Feat: Magic Initiate (Wizard)
+                        Навички: Магія, Історія | Риса: Чарівний ініціатор (Чарівник)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Sages devoted their lives to studying ancient knowledge. Their specialization in Arcana and History lets them easily identify magic or recount long-past eras.</p>
+                            <p>Мудреці присвятили своє життя вивченню стародавніх знань. Їхня спеціалізація в Аркані та Історії дозволяє легко ідентифікувати магію чи розповідати про давно минулі епохи.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Constitution, Intelligence, Wisdom</li>
-                                        <li><strong>Skills:</strong> Arcana, History</li>
-                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                        <li><strong>Характеристики (+3):</strong> Витривалість, Інтелект, Мудрість</li>
+                                        <li><strong>Навички:</strong> Магія (Arcana), Історія (History)</li>
+                                        <li><strong>Інструменти:</strong> Каліграфічне приладдя (Calligrapher's Supplies)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Magic Initiate (Wizard)</li>
-                                        <li><strong>Equipment:</strong> Book, Calligrapher's Supplies, Scholar's clothes, 8 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Чарівний ініціатор (Magic Initiate) - Чарівник</li>
+                                        <li><strong>Спорядження:</strong> Книга, Каліграфічне приладдя, Одяг вченого, 8 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -563,32 +563,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Sailor</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Моряк (Sailor)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Спритність, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Acrobatics, Perception | Feat: Tavern Brawler
+                        Навички: Акробатика, Уважність | Риса: Забіяка (Tavern Brawler)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Years at sea made the sailor nimble and perceptive. And thanks to countless brawls in port taverns, sailors are usually excellent at hand-to-hand fighting.</p>
+                            <p>Роки на морі зробили моряка спритним і уважним. А завдяки незліченним бійкам у портових тавернах моряки зазвичай чудово вміють битися в рукопашну.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Wisdom</li>
-                                        <li><strong>Skills:</strong> Acrobatics, Perception</li>
-                                        <li><strong>Tools:</strong> Navigator's Tools</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Спритність, Мудрість</li>
+                                        <li><strong>Навички:</strong> Акробатика (Acrobatics), Уважність (Perception)</li>
+                                        <li><strong>Інструменти:</strong> Інструменти навігатора (Navigator's Tools)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Tavern Brawler</li>
-                                        <li><strong>Equipment:</strong> Dagger, Rope (50 feet), Sailor's clothes, 10 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Забіяка (Tavern Brawler)</li>
+                                        <li><strong>Спорядження:</strong> Кинджал, Мотузка (50 футів), Одяг моряка, 10 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -601,32 +601,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Scribe</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Intelligence, Wisdom</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Писар (Scribe)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Інтелект, Мудрість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Investigation, Perception | Feat: Skilled
+                        Навички: Дослідження, Уважність | Риса: Талановитий (Skilled)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>Scribes can copy documents very quickly and accurately. This made them extremely attentive to detail, allowing them to see what others might miss.</p>
+                            <p>Писарі вміють дуже швидко й точно копіювати документи. Це зробило їх надзвичайно уважними до деталей, дозволяючи бачити те, що інші можуть пропустити.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Intelligence, Wisdom</li>
-                                        <li><strong>Skills:</strong> Investigation, Perception</li>
-                                        <li><strong>Tools:</strong> Calligrapher's Supplies</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Інтелект, Мудрість</li>
+                                        <li><strong>Навички:</strong> Дослідження (Investigation), Уважність (Perception)</li>
+                                        <li><strong>Інструменти:</strong> Каліграфічне приладдя (Calligrapher's Supplies)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Skilled</li>
-                                        <li><strong>Equipment:</strong> Lamp, Parchment, Ink, Quill, Clothes, 23 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Талановитий (Skilled)</li>
+                                        <li><strong>Спорядження:</strong> Лампа, Пергамент, Чорнило, Перо, Одяг, 23 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -639,32 +639,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Soldier</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strength, Dexterity, Constitution</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Солдат (Soldier)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Сила, Спритність, Витривалість</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Athletics, Intimidation | Feat: Savage Attacker
+                        Навички: Атлетика, Залякування | Риса: Дикун атакуючий (Savage Attacker)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>The Soldier is a natural choice for a Fighter or Barbarian. They know the realities of the battlefield, which made them strong and formidable. Even for a Cleric this can be an interesting choice (for example, a soldier who turned to religion after the war).</p>
+                            <p>Солдат – це природний вибір для Воїна чи Варвара. Вони знають реалії поля бою, що зробило їх сильними та грізними. Навіть для Жерця це може бути цікавим вибором (наприклад, солдат, який після війни звернувся до релігії).</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Strength, Dexterity, Constitution</li>
-                                        <li><strong>Skills:</strong> Athletics, Intimidation</li>
-                                        <li><strong>Tools:</strong> A Gaming Set (e.g., cards or dice)</li>
+                                        <li><strong>Характеристики (+3):</strong> Сила, Спритність, Витривалість</li>
+                                        <li><strong>Навички:</strong> Атлетика (Athletics), Залякування (Intimidation)</li>
+                                        <li><strong>Інструменти:</strong> Ігровий набір (наприклад, карти чи кістки)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Savage Attacker</li>
-                                        <li><strong>Equipment:</strong> Spear, Shortbow, 20 arrows, Healer's Kit, Quiver, Traveler's Clothes, 14 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Дикун атакуючий (Savage Attacker)</li>
+                                        <li><strong>Спорядження:</strong> Спис, Короткий лук, 20 стріл, Лікувальний набір (Healer's Kit), Сагайдак, Одяг мандрівника, 14 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -677,32 +677,32 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Wayfarer</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dexterity, Wisdom, Charisma</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Мандрівник / Безхатько (Wayfarer)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Спритність, Мудрість, Харизма</span>
                     </div>
                     <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                        Skills: Insight, Stealth | Feat: Lucky
+                        Навички: Проникливість, Скритність | Риса: Щасливчик (Lucky)
                     </div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                            <p>They are used to living on the streets, with no home or people to rely on. Like criminals, they are used to surviving against the odds, relying only on their luck and stealth.</p>
+                            <p>Вони звикли жити на вулицях, не маючи дому чи людей, на яких можна покластися. Як і злочинці, вони звикли виживати всупереч обставинам, покладаючись лише на свою вдачу і прихованість.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Basics:</strong>
+                                    <strong class="text-forest block mb-1">Основи:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Ability Scores (+3):</strong> Dexterity, Wisdom, Charisma</li>
-                                        <li><strong>Skills:</strong> Insight, Stealth</li>
-                                        <li><strong>Tools:</strong> Thieves' Tools</li>
+                                        <li><strong>Характеристики (+3):</strong> Спритність, Мудрість, Харизма</li>
+                                        <li><strong>Навички:</strong> Проникливість (Insight), Скритність (Stealth)</li>
+                                        <li><strong>Інструменти:</strong> Інструменти злодія (Thieves' Tools)</li>
                                     </ul>
                                 </div>
                                 <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                    <strong class="text-forest block mb-1">Equipment & Bonuses:</strong>
+                                    <strong class="text-forest block mb-1">Спорядження та Бонуси:</strong>
                                     <ul class="list-disc pl-5 space-y-1 text-xs">
-                                        <li><strong>Starting Feat:</strong> Lucky</li>
-                                        <li><strong>Equipment:</strong> Two daggers, Thieves' Tools, Bedroll, Two pouches, Traveler's Clothes, 16 gp (or 50 gp at start).</li>
+                                        <li><strong>Початкова Риса:</strong> Щасливчик (Lucky)</li>
+                                        <li><strong>Спорядження:</strong> Два кинджали, Інструменти злодія, Спальник, Два мішечки, Одяг мандрівника, 16 зм (або 50 зм на старті).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -748,7 +748,7 @@
                 let fullText = cards[i].querySelector('.feat-content').innerText.toLowerCase();
                 
                 let matchesText = name.includes(textInput) || summary.includes(textInput) || fullText.includes(textInput);
-                // We check whether the selected skill is in the background description
+                // Ми перевіряємо чи вибрана навичка є в описі передісторії
                 let matchesSkill = skillInput === "" || fullText.includes(skillInput);
                 
                 if (matchesText && matchesSkill) {

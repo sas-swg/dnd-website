@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D 5e: Digital Knowledge Base</title>
+    <title>D&D 5e: Цифрова База Знань</title>
     
-    <!-- Favicon -->
+    <!-- Іконка (Favicon) -->
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Modern fonts -->
+    <!-- Сучасні шрифти -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
         .icon-box { background: linear-gradient(135deg, #14532D 0%, #166534 100%); }
         .header-logo { width: 50px; height: 50px; object-fit: contain; }
         
-        /* Style for dice panel */
+        /* Стиль для панелі кубиків */
         #dice-panel { transition: transform 0.3s ease-in-out; transform: translateX(120%); }
         #dice-panel.open { transform: translateX(0); }
         .dice-btn { transition: all 0.1s; }
@@ -58,12 +58,12 @@
         <div class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <img src="favicon.png" alt="Logo" class="header-logo rounded-md">
-                <h1 class="font-heading text-xl md:text-2xl font-bold tracking-tight uppercase">D&D 5e Knowledge Base</h1>
+                <h1 class="font-heading text-xl md:text-2xl font-bold tracking-tight uppercase">D&D 5e База Знань</h1>
             </div>
             <nav class="hidden md:flex gap-6 text-sm font-semibold">
-                <a href="rules.html" class="hover:text-forest-accent transition">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition">Classes</a>
+                <a href="rules.html" class="hover:text-forest-accent transition">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition">Класи</a>
             </nav>
         </div>
     </header>
@@ -74,45 +74,45 @@
             
             <a href="spells.html" class="nav-card block bg-white rounded-xl p-6">
                     <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🔮</div>
-                    <h3 class="font-heading text-lg font-bold text-forest mb-2">Spells</h3>
-                    <p class="text-ui-muted text-sm">A full spell database with filters by level, class, and school.</p>
+                    <h3 class="font-heading text-lg font-bold text-forest mb-2">Заклинання</h3>
+                    <p class="text-ui-muted text-sm">Повна база магії з фільтрами за рівнем, класом та школою.</p>
                 </a>
 
             <a href="rules.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📖</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Core Rules</h3>
-                <p class="text-ui-muted text-sm">Combat mechanics, conditions, resting, and ability checks.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Основні правила</h3>
+                <p class="text-ui-muted text-sm">Механіки бою, стани, відпочинок та перевірки характеристик.</p>
             </a>
 
             <a href="races.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">👥</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Races</h3>
-                <p class="text-ui-muted text-sm">Traits and unique abilities of playable races and subraces.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Раси</h3>
+                <p class="text-ui-muted text-sm">Характеристики та унікальні здібності ігрових рас і підрас.</p>
             </a>
 
             <a href="classes.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🛡️</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Classes</h3>
-                <p class="text-ui-muted text-sm">Level tables, combat abilities, and magical specializations.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Класи</h3>
+                <p class="text-ui-muted text-sm">Таблиці рівнів, бойові вміння та магічні спеціалізації.</p>
             </a>
 
             <a href="backgrounds.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📜</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Backgrounds</h3>
-                <p class="text-ui-muted text-sm">Your hero's past: skills, languages, and extra equipment.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Передісторії</h3>
+                <p class="text-ui-muted text-sm">Минуле вашого героя: навички, мови та додаткове спорядження.</p>
             </a>
 
             <a href="feats.html" class="nav-card block bg-white rounded-xl p-6">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">⚡</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Feats</h3>
-                <p class="text-ui-muted text-sm">A catalog of special talents for customizing your character.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Риси (Feats)</h3>
+                <p class="text-ui-muted text-sm">Каталог особливих талантів для кастомізації персонажа.</p>
             </a>
 
             <div class="md:col-span-2 lg:col-span-1 lg:col-start-2 flex justify-center">
                 <a href="character-creator.html" class="nav-card block bg-white rounded-xl p-6 border-2 border-[#22C55E]/30 hover:border-[#22C55E] transition-all w-full md:w-[calc(50%-0.75rem)] lg:w-full">
                 <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl bg-[#22C55E]">✨</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Create a Character</h3>
-                <p class="text-ui-muted text-sm">A step-by-step builder for quickly and easily creating your hero.</p>
+                <h3 class="font-heading text-lg font-bold text-forest mb-2">Створити персонажа</h3>
+                <p class="text-ui-muted text-sm">Покроковий конструктор для швидкого та зручного створення вашого героя.</p>
             </a>
             </div>
 
@@ -126,12 +126,12 @@
     <div id="floating-dice-menu" class="hidden mb-4 bg-white border border-slate-200 rounded-2xl shadow-2xl w-72 overflow-hidden origin-bottom-right transition-all flex flex-col">
         
         <div class="bg-slate-100 p-3 border-b border-slate-200 flex justify-between items-center gap-2">
-            <div class="text-sm font-bold text-[#14532D] truncate flex-1" id="floating-queue">Select dice...</div>
+            <div class="text-sm font-bold text-[#14532D] truncate flex-1" id="floating-queue">Виберіть кубики...</div>
             <div class="flex gap-1">
-                <button onclick="undoFloatingDice()" class="text-slate-500 hover:text-slate-700 bg-white border border-slate-200 p-1.5 rounded shadow-sm transition-colors" title="Undo last">
+                <button onclick="undoFloatingDice()" class="text-slate-500 hover:text-slate-700 bg-white border border-slate-200 p-1.5 rounded shadow-sm transition-colors" title="Відмінити останній">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
                 </button>
-                <button onclick="clearFloatingDice()" class="text-red-500 hover:text-red-700 bg-white border border-red-100 p-1.5 rounded shadow-sm transition-colors" title="Clear all">
+                <button onclick="clearFloatingDice()" class="text-red-500 hover:text-red-700 bg-white border border-red-100 p-1.5 rounded shadow-sm transition-colors" title="Очистити все">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                 </button>
             </div>
@@ -150,12 +150,12 @@
 
         <div class="px-3 pb-3 bg-slate-50">
             <button onclick="rollFloatingDice()" class="w-full py-2.5 bg-[#14532D] text-white rounded-lg font-bold hover:bg-[#166534] shadow-md transition-transform transform active:scale-95">
-                Roll dice!
+                Кинути кубики!
             </button>
         </div>
 
         <div id="floating-dice-result" class="bg-[#14532D] text-white p-4 text-center hidden transition-transform duration-200 border-t-4 border-[#22C55E]">
-            <div class="text-xs text-green-200 uppercase font-bold tracking-wider mb-1">Result</div>
+            <div class="text-xs text-green-200 uppercase font-bold tracking-wider mb-1">Результат</div>
             <div class="text-5xl font-black drop-shadow-md" id="floating-total-sum">0</div>
             <div class="text-xs font-mono mt-2 text-green-100/70" id="floating-details"></div>
         </div>
@@ -169,13 +169,13 @@
 <script>
     let floatingDicePool = [];
 
-    // Open/close menu
+    // Відкриття/закриття меню
     function toggleFloatingMenu() {
         const menu = document.getElementById('floating-dice-menu');
         menu.classList.toggle('hidden');
     }
 
-    // Close menu on outside click
+    // Закриття меню при кліку будь-де на екрані (поза віджетом)
     document.addEventListener('click', function(event) {
         const widget = document.getElementById('floating-dice-widget');
         const menu = document.getElementById('floating-dice-menu');
@@ -184,14 +184,14 @@
         }
     });
 
-    // Add die to pool
+    // Додавання кубика в пул
     function addFloatingDice(sides) {
         floatingDicePool.push(sides);
         updateFloatingQueue();
         document.getElementById('floating-dice-result').classList.add('hidden');
     }
 
-    // Undo last die
+    // Відмінити останній доданий кубик
     function undoFloatingDice() {
         if (floatingDicePool.length > 0) {
             floatingDicePool.pop();
@@ -200,18 +200,18 @@
         }
     }
 
-    // Clear pool
+    // Очистити весь пул
     function clearFloatingDice() {
         floatingDicePool = [];
         updateFloatingQueue();
         document.getElementById('floating-dice-result').classList.add('hidden');
     }
 
-    // Update pool text (e.g. "2d6 + 1d20")
+    // Оновлення тексту пулу (напр. "2d6 + 1d20")
     function updateFloatingQueue() {
         const queueEl = document.getElementById('floating-queue');
         if (floatingDicePool.length === 0) {
-            queueEl.innerText = 'Select dice...';
+            queueEl.innerText = 'Виберіть кубики...';
             return;
         }
 
@@ -223,28 +223,28 @@
             .join(' + ');
     }
 
-    // Dice roll logic
+    // Логіка кидка кубика
     function rollFloatingDice() {
         if (floatingDicePool.length === 0) return;
 
         let total = 0;
         let rolls = [];
 
-        // Count each die
+        // Рахуємо кожен кубик
         floatingDicePool.forEach(sides => {
             const res = Math.floor(Math.random() * sides) + 1;
             total += res;
             rolls.push(`[d${sides}]: ${res}`);
         });
         
-        // Display results
+        // Відображаємо
         document.getElementById('floating-total-sum').innerText = total;
         document.getElementById('floating-details').innerText = rolls.join(', ');
         
         const resultDiv = document.getElementById('floating-dice-result');
         resultDiv.classList.remove('hidden');
         
-        // Light bounce animation for result
+        // Легка анімація "підстрибування" результату
         resultDiv.style.transform = 'scale(1.05)';
         setTimeout(() => {
             resultDiv.style.transform = 'scale(1)';
@@ -254,7 +254,7 @@
 
     <footer class="bg-white border-t border-slate-200 py-6 mt-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Digital Knowledge Base. Unofficial project.</p>
+            <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Цифрова База Знань. Неофіційний проект.</p>
         </div>
     </footer>
     <script src="search-index.js"></script>

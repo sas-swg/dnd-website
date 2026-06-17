@@ -53,13 +53,13 @@
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
                 <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
-                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e База Знань</h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
             </nav>
             
         </div>
@@ -68,13 +68,13 @@
     <div class="bg-white shadow-sm border-b border-slate-200 sticky top-12 z-40">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-8">
-                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">1. Class<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
-                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">2. Race<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
-                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">3. Abilities<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">1. Клас<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">2. Раса<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">3. Характеристики<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
                 <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">4. Опис<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
-                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">5. Equipment<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
-                <button onclick="switchTab(6)" id="tab-btn-6" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">6. Review<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
-                <div class="ml-auto flex items-center gap-1.5 pl-4 self-center text-sm font-semibold whitespace-nowrap"><span class="text-slate-500 font-normal">Name:</span> <span id="header-char-name" class="text-forest font-bold">Невідомий</span></div>
+                <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">5. Спорядження<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <button onclick="switchTab(6)" id="tab-btn-6" class="tab-btn px-2 py-4 text-sm whitespace-nowrap text-slate-500 hover:text-forest relative">6. Огляд<span class="tab-alert hidden absolute -top-1 -right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow ring-2 ring-white"></span></button>
+                <div class="ml-auto flex items-center gap-1.5 pl-4 self-center text-sm font-semibold whitespace-nowrap"><span class="text-slate-500 font-normal">Ім'я:</span> <span id="header-char-name" class="text-forest font-bold">Невідомий</span></div>
             </div>
         </div>
     </div>
@@ -84,8 +84,8 @@
         <!-- ============================= TAB 1: КЛАС ============================= -->
         <div id="tab-content-1" class="tab-content block">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Оберіть Class</h2>
-                <p class="text-sm text-ui-muted mt-2">Class визначає основні здібності, бойовий стиль та магію вашого персонажа.</p>
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Оберіть Клас</h2>
+                <p class="text-sm text-ui-muted mt-2">Клас визначає основні здібності, бойовий стиль та магію вашого персонажа.</p>
             </div>
             
             <div class="flex flex-col lg:flex-row gap-6">
@@ -112,7 +112,7 @@
                             </div>
                             
                             <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-lg border border-slate-300 shadow-sm">
-                                <label for="class-level-select" class="text-sm font-bold text-slate-700">Level:</label>
+                                <label for="class-level-select" class="text-sm font-bold text-slate-700">Рівень:</label>
                                 <select id="class-level-select" onchange="updateLevel()" class="bg-transparent text-forest font-bold outline-none cursor-pointer text-lg"></select>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                             
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                                 <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-                                    <div class="text-slate-500 font-semibold uppercase mb-1">Saving Throws</div>
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Рятунки</div>
                                     <div id="class-saves" class="font-bold text-slate-800">—</div>
                                 </div>
                                 <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
@@ -136,8 +136,8 @@
 
                             <div id="subclass-section" class="hidden bg-slate-50 p-4 border border-slate-200 rounded-xl">
                                 <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
-                                    <h4 class="font-bold text-lg text-forest font-heading">Архетип / Subclass</h4>
-                                    <span class="text-xs bg-forest text-white px-2 py-1 rounded">Level 3+</span>
+                                    <h4 class="font-bold text-lg text-forest font-heading">Архетип / Підклас</h4>
+                                    <span class="text-xs bg-forest text-white px-2 py-1 rounded">Рівень 3+</span>
                                 </div>
                                 <select id="subclass-select" onchange="onSubclassChange()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer text-sm font-medium">
                                     <option value="">Оберіть підклас...</option>
@@ -146,7 +146,7 @@
                                 <div id="subclass-features-section" class="hidden mt-4">
                                     <h5 class="font-bold text-purple-700 font-heading text-sm border-b border-purple-200 pb-2 mb-3 cursor-pointer select-none flex items-center gap-2 hover:text-purple-900" onclick="toggleCollapse('subclass-features-list','subclass-features-arrow')" title="Згорнути / розгорнути">
                                         <span id="subclass-features-arrow" class="text-xs">▼</span>
-                                        <span id="subclass-features-title">Abilities підкласу</span>
+                                        <span id="subclass-features-title">Вміння підкласу</span>
                                     </h5>
                                     <div id="subclass-features-list" class="space-y-3"></div>
                                 </div>
@@ -168,7 +168,7 @@
                             <div id="spellcasting-section" class="hidden bg-indigo-50/60 p-4 border border-indigo-200 rounded-xl">
                                 <div class="flex items-center justify-between border-b border-indigo-200 pb-2 mb-3 cursor-pointer select-none" onclick="toggleCollapse('spellcasting-body','spellcasting-arrow')" title="Згорнути / розгорнути">
                                     <h4 class="font-bold text-lg text-indigo-800 font-heading flex items-center gap-2"><span id="spellcasting-arrow" class="text-sm">▼</span>Заклинання</h4>
-                                    <span class="text-xs bg-indigo-600 text-white px-2 py-1 rounded">Magic</span>
+                                    <span class="text-xs bg-indigo-600 text-white px-2 py-1 rounded">Магія</span>
                                 </div>
 
                                 <div id="spellcasting-body">
@@ -210,7 +210,7 @@
                                         <h5 class="font-bold text-indigo-800 font-heading text-sm">Підготовлені закляття</h5>
                                         <span id="prepared-counter" class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">Підготовлено: 0 / 0</span>
                                     </div>
-                                    <p id="prepared-help" class="text-xs text-slate-600 mb-3">Cleric готує <strong>рівень класу + модифікатор Мудрості</strong> заклять зі свого списку. Можна готувати більше — буде попередження, але вибір збережеться.</p>
+                                    <p id="prepared-help" class="text-xs text-slate-600 mb-3">Жрець готує <strong>рівень класу + модифікатор Мудрості</strong> заклять зі свого списку. Можна готувати більше — буде попередження, але вибір збережеться.</p>
                                     <!-- Granted Spells (from Race/Subclass/Feats) -->
                                 <div id="granted-spells-list" class="space-y-4 mb-6">
                                     <!-- Dynamically populated by renderSpellcasting() -->
@@ -232,12 +232,12 @@
                             </div>
 
                             <div>
-                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Abilities класу (доступні на цьому рівні)</h4>
+                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Вміння класу (доступні на цьому рівні)</h4>
                                 <div id="class-features-list" class="space-y-3"></div>
                             </div>
 
                             <div id="class-resources-section" class="hidden">
-                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Classові ресурси</h4>
+                                <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-4">Класові ресурси</h4>
                                 <div id="class-resources-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
                             </div>
 
@@ -248,15 +248,15 @@
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 border-b border-slate-200">
                                     <h4 class="font-bold text-lg text-forest font-heading">Таблиця прогресії</h4>
                                     <div class="flex items-center gap-2 text-xs">
-                                        <span class="bg-white border border-slate-300 rounded-lg px-3 py-1.5">Proficiency Bonus: <span id="progression-prof-bonus" class="font-bold text-forest">+2</span></span>
-                                        <span class="bg-white border border-slate-300 rounded-lg px-3 py-1.5">Level: <span id="progression-current-level" class="font-bold text-forest">1</span></span>
+                                        <span class="bg-white border border-slate-300 rounded-lg px-3 py-1.5">Бонус майстерності: <span id="progression-prof-bonus" class="font-bold text-forest">+2</span></span>
+                                        <span class="bg-white border border-slate-300 rounded-lg px-3 py-1.5">Рівень: <span id="progression-current-level" class="font-bold text-forest">1</span></span>
                                     </div>
                                 </div>
                                 <div class="overflow-x-auto">
                                     <table class="w-full text-sm border-collapse">
                                         <thead class="bg-slate-100 text-slate-600 uppercase text-xs">
                                             <tr>
-                                                <th class="text-left font-bold px-4 py-2 w-16">Level</th>
+                                                <th class="text-left font-bold px-4 py-2 w-16">Рівень</th>
                                                 <th class="text-center font-bold px-3 py-2 w-20">Бонус</th>
                                                 <th class="text-left font-bold px-4 py-2">Особливості та підвищення</th>
                                             </tr>
@@ -276,7 +276,7 @@
         <div id="tab-content-2" class="tab-content hidden">
             <div class="mb-6">
                 <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Оберіть Расу</h2>
-                <p class="text-sm text-ui-muted mt-2">Race визначає особливі здібності та зовнішній вигляд. Підвищення характеристик тепер задаються у блоці «Походження» нижче.</p>
+                <p class="text-sm text-ui-muted mt-2">Раса визначає особливі здібності та зовнішній вигляд. Підвищення характеристик тепер задаються у блоці «Походження» нижче.</p>
             </div>
 
             <!-- NEW (Module 2): Фільтр рас за категорією -->
@@ -314,7 +314,7 @@
                         <div class="p-5 space-y-5">
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                                 <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-                                    <div class="text-slate-500 font-semibold uppercase mb-1">Speed</div>
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Швидкість</div>
                                     <div id="race-speed" class="font-bold text-slate-800">—</div>
                                 </div>
                                 <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
@@ -322,7 +322,7 @@
                                     <div id="race-size" class="font-bold text-slate-800">—</div>
                                 </div>
                                 <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-                                    <div class="text-slate-500 font-semibold uppercase mb-1">Languages</div>
+                                    <div class="text-slate-500 font-semibold uppercase mb-1">Мови</div>
                                     <div id="race-languages" class="font-bold text-slate-800">—</div>
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
                                     <h4 class="font-bold text-lg text-forest font-heading">Підвищення від походження</h4>
                                     <span id="origin-asi-status" class="text-xs font-bold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-1 rounded">Розподілено: +0</span>
                                 </div>
-                                <p class="text-xs text-slate-600 mb-4">Races не дають фіксованих бонусів. Оберіть режим розподілу та призначте підвищення характеристик відповідно до походження персонажа.</p>
+                                <p class="text-xs text-slate-600 mb-4">Раси не дають фіксованих бонусів. Оберіть режим розподілу та призначте підвищення характеристик відповідно до походження персонажа.</p>
                                 <div class="mb-2 text-xs font-semibold uppercase text-slate-500">Режим розподілу</div>
                                 <div id="origin-asi-modes" class="flex flex-wrap gap-2 mb-4"></div>
                                 <div class="mb-2 text-xs font-semibold uppercase text-slate-500">Призначення характеристик</div>
@@ -348,7 +348,7 @@
 
                             <div id="race-skill-choice-section" class="hidden bg-amber-50/60 p-4 border border-amber-200 rounded-xl">
                                 <div class="flex items-center justify-between border-b border-amber-200 pb-2 mb-3">
-                                    <h4 class="font-bold text-lg text-amber-700 font-heading">🎯 Skills на вибір (раса)</h4>
+                                    <h4 class="font-bold text-lg text-amber-700 font-heading">🎯 Навички на вибір (раса)</h4>
                                     <span id="race-skill-choice-counter" class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">Обрано: 0 / 0</span>
                                 </div>
                                 <div id="race-skill-choice-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm"></div>
@@ -362,7 +362,7 @@
         <!-- ============================= TAB 3: ХАРАКТЕРИСТИКИ ============================= -->
         <div id="tab-content-3" class="tab-content hidden">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Abilities</h2>
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Характеристики</h2>
                 <p class="text-sm text-ui-muted mt-2">Оберіть метод визначення характеристик та розподіліть значення.</p>
             </div>
 
@@ -404,12 +404,12 @@
             <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-6 space-y-5">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Character Name</label>
-                        <input id="desc-name" type="text" oninput="updateDescription()" placeholder="e.g. Thorin Oakenshield" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ім'я персонажа</label>
+                        <input id="desc-name" type="text" oninput="updateDescription()" placeholder="Наприклад, Торін Дубощит" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Player Name</label>
-                        <input id="desc-player" type="text" oninput="updateDescription()" placeholder="e.g. Alex" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ім'я гравця</label>
+                        <input id="desc-player" type="text" oninput="updateDescription()" placeholder="Напр.: Максим" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-2">Світогляд</label>
@@ -418,7 +418,7 @@
                         </select>
                     </div>
                     <div class="md:col-span-2">
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Background</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Передісторія</label>
                         <select id="desc-background" onchange="updateDescription()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer">
                             <option value="">Оберіть передісторію...</option>
                         </select>
@@ -428,18 +428,18 @@
 
                 <!-- NEW (Module 2): Структурована панель зовнішності -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-4">
-                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Appearance</h4>
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Зовнішність</h4>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Age</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Вік</label>
                             <input id="desc-age" type="text" oninput="updateDescription()" placeholder="Напр.: 27 років" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Height</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Зріст</label>
                             <input id="desc-height" type="text" oninput="updateDescription()" placeholder="Напр.: 178 см" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Weight</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Вага</label>
                             <input id="desc-weight" type="text" oninput="updateDescription()" placeholder="Напр.: 82 кг" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                         </div>
                         <div>
@@ -477,11 +477,11 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Languages</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Мови</label>
                             <input id="cbg-languages" type="text" oninput="updateCustomBackground()" placeholder="Напр.: Ельфійська, Драконяча" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Tools</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Інструменти</label>
                             <input id="cbg-tools" type="text" oninput="updateCustomBackground()" placeholder="Напр.: Набір ремісника, Музичний інструмент" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none">
                         </div>
                     </div>
@@ -494,38 +494,38 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Character Appearance</label>
-                        <textarea id="desc-appearance" oninput="updateDescription()" rows="4" placeholder="Appearance, clothing, notable marks..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Зовнішність персонажа</label>
+                        <textarea id="desc-appearance" oninput="updateDescription()" rows="4" placeholder="Опишіть зовнішність, одяг, помітні риси..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Character Backstory</label>
-                        <textarea id="desc-backstory" oninput="updateDescription()" rows="4" placeholder="A short history of your character..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Передісторія персонажа</label>
+                        <textarea id="desc-backstory" oninput="updateDescription()" rows="4" placeholder="Коротко опишіть минуле героя..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Allies & Organizations</label>
-                        <textarea id="desc-allies" oninput="updateDescription()" rows="3" placeholder="Allies, factions, patrons..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Союзники та організації</label>
+                        <textarea id="desc-allies" oninput="updateDescription()" rows="3" placeholder="Партнери, фракції, покровителі..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Treasure</label>
-                        <textarea id="desc-treasure" oninput="updateDescription()" rows="3" placeholder="Gems, relics, special finds..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Скарби</label>
+                        <textarea id="desc-treasure" oninput="updateDescription()" rows="3" placeholder="Коштовності, реліквії, особливі знахідки..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Personality Traits</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Риси характеру</label>
                         <textarea id="desc-traits" oninput="updateDescription()" rows="3" placeholder="Я завжди ввічливий і поважний..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Ideals</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ідеали</label>
                         <textarea id="desc-ideals" oninput="updateDescription()" rows="3" placeholder="Свобода. Кожен заслуговує жити вільно..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Bonds</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Зв'язки</label>
                         <textarea id="desc-bonds" oninput="updateDescription()" rows="3" placeholder="Я знайду людину, що зрадила мою родину..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Flaws</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Слабкості</label>
                         <textarea id="desc-flaws" oninput="updateDescription()" rows="3" placeholder="Я не можу встояти перед азартними іграми..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
                 </div>
@@ -535,8 +535,8 @@
         <!-- ============================= TAB 5: СПОРЯДЖЕННЯ / HP / AC ============================= -->
         <div id="tab-content-5" class="tab-content hidden">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Equipment, HP та КЗ</h2>
-                <p class="text-sm text-ui-muted mt-2">Оберіть броню, перегляньте максимум та поточні Хіт-Поінти, а також автоматично перерахований Class Defenseу.</p>
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Спорядження, HP та КЗ</h2>
+                <p class="text-sm text-ui-muted mt-2">Оберіть броню, перегляньте максимум та поточні Хіт-Поінти, а також автоматично перерахований Клас Захисту.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -557,19 +557,19 @@
                     </div>
 
                     <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Class Defenseу (КЗ / AC)</div>
+                        <div class="text-xs font-bold uppercase text-slate-500 mb-1">Клас Захисту (КЗ / AC)</div>
                         <div id="inv-ac" class="font-mono font-bold text-3xl text-forest">10</div>
                         <p id="inv-ac-formula" class="text-xs text-slate-500 mt-1">Без броні: 10 + Спритність.</p>
                     </div>
                 </div>
 
-                <!-- Блок Armor -->
+                <!-- Блок Броня -->
                 <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4 lg:col-span-2">
-                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Equipment</h4>
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Спорядження</h4>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Armor</label>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Броня</label>
                             <select id="inv-armor" onchange="updateInventory()" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none bg-white cursor-pointer">
                                 <option value="none">Без броні</option>
                             </select>
@@ -577,16 +577,16 @@
                         <div class="flex items-end">
                             <label class="flex items-center gap-2 p-2.5 border border-slate-300 rounded-lg bg-slate-50 cursor-pointer w-full">
                                 <input id="inv-shield" type="checkbox" onchange="updateInventory()" class="w-4 h-4 text-forest rounded">
-                                <span class="font-medium text-slate-700">Shield (+2 КЗ)</span>
+                                <span class="font-medium text-slate-700">Щит (+2 КЗ)</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Weapons</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Зброя</label>
                         <div id="weapon-list" class="space-y-3 mb-3"></div>
                         <div class="flex flex-wrap gap-2">
-                            <button type="button" onclick="addWeaponRow('standard')" class="px-3 py-2 bg-forest text-white rounded-lg hover:bg-forest-hover font-bold text-xs transition shadow-sm">+ Add зброю</button>
+                            <button type="button" onclick="addWeaponRow('standard')" class="px-3 py-2 bg-forest text-white rounded-lg hover:bg-forest-hover font-bold text-xs transition shadow-sm">+ Додати зброю</button>
                             <button type="button" onclick="addWeaponRow('custom')" class="px-3 py-2 bg-white text-forest border-2 border-forest rounded-lg hover:bg-forest/5 font-bold text-xs transition shadow-sm">+ Своя зброя</button>
                         </div>
                         <p class="text-xs text-slate-500 mt-2">Бонус атаки та шкоди рахуються автоматично з вашого модифікатора Сили / Спритності та бонусу володіння.</p>
@@ -598,7 +598,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Equipment / Inventory</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Спорядження / Інвентар</label>
                         <textarea id="inv-items" oninput="updateInventory()" rows="4" placeholder="Рюкзак, мотузка 50 футів, факели, кремінь та крем'яне кресало..." class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-forest outline-none resize-none"></textarea>
                     </div>
 
@@ -627,7 +627,7 @@
         <!-- ============================= TAB 6: ОГЛЯД + PDF ============================= -->
         <div id="tab-content-6" class="tab-content hidden">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Review персонажа</h2>
+                <h2 class="text-3xl font-bold text-forest font-heading border-b border-slate-200 pb-2">Огляд персонажа</h2>
                 <p class="text-sm text-ui-muted mt-2">Перевірте, що все заповнено правильно, і завантажте офіційний аркуш персонажа D&amp;D 5e у форматі PDF.</p>
             </div>
 
@@ -642,7 +642,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span id="summary-level-badge" class="text-xs font-bold uppercase tracking-wide bg-forest text-white px-3 py-1.5 rounded-lg shadow-sm">Level 1</span>
+                        <span id="summary-level-badge" class="text-xs font-bold uppercase tracking-wide bg-forest text-white px-3 py-1.5 rounded-lg shadow-sm">Рівень 1</span>
                     </div>
                 </div>
 
@@ -651,13 +651,13 @@
                     <div class="space-y-3">
                         <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2">Базова інформація</h4>
                         <dl class="text-sm space-y-2">
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Name:</dt><dd id="sum-name" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Class і рівень:</dt><dd id="sum-class" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Subclass:</dt><dd id="sum-subclass" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Race:</dt><dd id="sum-race" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Background:</dt><dd id="sum-bg" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Ім'я:</dt><dd id="sum-name" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Клас і рівень:</dt><dd id="sum-class" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Підклас:</dt><dd id="sum-subclass" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Раса:</dt><dd id="sum-race" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Передісторія:</dt><dd id="sum-bg" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Світогляд:</dt><dd id="sum-align" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Speed:</dt><dd id="sum-speed" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Швидкість:</dt><dd id="sum-speed" class="font-bold text-slate-800 text-right">—</dd></div>
                         </dl>
                     </div>
 
@@ -667,21 +667,21 @@
                         <dl class="text-sm space-y-2">
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Хіт-поінти (макс):</dt><dd id="sum-hp" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Кістка хітів:</dt><dd id="sum-hd" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">КЗ (Class Defenseу):</dt><dd id="sum-ac" class="font-bold text-slate-800 text-right">—</dd></div>
-                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Initiative:</dt><dd id="sum-init" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">КЗ (Клас Захисту):</dt><dd id="sum-ac" class="font-bold text-slate-800 text-right">—</dd></div>
+                            <div class="flex justify-between gap-3"><dt class="text-slate-500">Ініціатива:</dt><dd id="sum-init" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Бонус володіння:</dt><dd id="sum-prof" class="font-bold text-slate-800 text-right">—</dd></div>
                             <div class="flex justify-between gap-3"><dt class="text-slate-500">Пасивна Уважність:</dt><dd id="sum-passive" class="font-bold text-slate-800 text-right">—</dd></div>
                         </dl>
                     </div>
                 </div>
 
-                <!-- Abilities -->
+                <!-- Характеристики -->
                 <div class="px-5 pb-5">
-                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Abilities (з расовими бонусами)</h4>
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Характеристики (з расовими бонусами)</h4>
                     <div id="sum-abilities" class="grid grid-cols-3 sm:grid-cols-6 gap-3 text-center"></div>
                 </div>
 
-                <!-- Skills та володіння -->
+                <!-- Навички та володіння -->
                 <div class="px-5 pb-5">
                     <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Володіння навичками</h4>
                     <div id="sum-skills" class="text-sm text-slate-700">—</div>
@@ -689,12 +689,16 @@
 
                 <!-- Опис -->
                 <div class="px-5 pb-5">
-                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Personality</h4>
+                    <h4 class="font-bold text-lg text-forest font-heading border-b border-slate-200 pb-2 mb-3">Особистість</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Feats характеру</div><p id="sum-traits" class="text-slate-700 whitespace-pre-wrap">—</p></div>
-                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Ideals</div><p id="sum-ideals" class="text-slate-700 whitespace-pre-wrap">—</p></div>
-                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Bonds</div><p id="sum-bonds" class="text-slate-700 whitespace-pre-wrap">—</p></div>
-                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Flaws</div><p id="sum-flaws" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Зовнішність</div><p id="sum-appearance" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Передісторія персонажа</div><p id="sum-backstory" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Союзники та організації</div><p id="sum-allies" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Скарби</div><p id="sum-treasure" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Риси характеру</div><p id="sum-traits" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Ідеали</div><p id="sum-ideals" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Зв'язки</div><p id="sum-bonds" class="text-slate-700 whitespace-pre-wrap">—</p></div>
+                        <div><div class="text-xs font-bold uppercase text-slate-500 mb-1">Слабкості</div><p id="sum-flaws" class="text-slate-700 whitespace-pre-wrap">—</p></div>
                     </div>
                 </div>
             </div>
@@ -707,7 +711,7 @@
                 <button onclick="generatePDF()" id="btn-download-pdf"
                     class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-forest text-white rounded-lg hover:bg-forest-hover font-bold text-base transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
                     <span id="btn-download-icon">⬇️</span>
-                    <span id="btn-download-label">Download PDF</span>
+                    <span id="btn-download-label">Завантажити PDF</span>
                 </button>
                 <p id="pdf-status" class="text-xs text-slate-500 mt-4 min-h-[1rem]"></p>
             </div>
@@ -772,7 +776,7 @@
                 tools: "",       // вільний текст інструментів
                 feature: ""      // власна риса передісторії
             },
-            // Equipment + бойові показники, керовані вручну
+            // Спорядження + бойові показники, керовані вручну
             inventory: {
                 armor: "none",
                 shield: false,
@@ -784,7 +788,7 @@
             },
             // Зроблені вибори ASI (level → { kind: 'asi', allocations: {str:2} } або { kind: 'feat', featId })
             asiSelections: {},
-            // Magic: обрані замовляння (cantrips) та підготовлені закляття (id з DND_SPELLS)
+            // Магія: обрані замовляння (cantrips) та підготовлені закляття (id з DND_SPELLS)
             spells: {
                 cantrips: [],   // обрані замовляння (level 0)
                 prepared: []    // підготовлені закляття 1+ рівня
@@ -996,7 +1000,7 @@
             return `
                 <div class="bg-white border border-slate-200 rounded-lg p-3">
                     <div class="flex items-center justify-between mb-3">
-                        <div class="text-xs font-bold uppercase text-slate-500">Level ${lvl} — прокачка</div>
+                        <div class="text-xs font-bold uppercase text-slate-500">Рівень ${lvl} — прокачка</div>
                         <div class="flex gap-2 flex-wrap justify-end">
                             <button type="button" onclick="setASIKind(${lvl}, 'asi')" class="${asiTabCls}">Покращення характеристик (ASI)</button>
                             <button type="button" onclick="setASIKind(${lvl}, 'feat')" class="${featTabCls}">Риса (Feat)</button>
@@ -1240,7 +1244,7 @@
             { id: "dueling",      name: "Дуелянт",                 desc: "Тримаючи одноручну зброю й нічого в іншій руці, ви отримуєте +2 до шкоди цією зброєю.", effectNote: "+2 до шкоди ближнім боєм (авто)" },
             { id: "great_weapon", name: "Великозбройний бій",     desc: "Кидаючи шкоду дворучною або універсальною зброєю, ви можете перекинути 1 та 2 на кубиках шкоди." },
             { id: "two_weapon",   name: "Бій двома зброями",       desc: "Атакуючи другою зброєю, ви додаєте модифікатор характеристики до її шкоди." },
-            { id: "protection",   name: "Defense",                  desc: "Реакцією, маючи щит, ви можете накласти перешкоду на атаку по союзнику поруч." },
+            { id: "protection",   name: "Захист",                  desc: "Реакцією, маючи щит, ви можете накласти перешкоду на атаку по союзнику поруч." },
             { id: "blind",        name: "Сліпий бій",              desc: "Ви маєте сліпозір 10 футів — бачите невидимих істот у цьому радіусі." },
             { id: "interception", name: "Перехоплення",            desc: "Реакцією ви можете зменшити шкоду союзнику поруч на 1d10 + бонус майстерності." },
             { id: "thrown",       name: "Метальна зброя",         desc: "Ви можете дістати метальну зброю як частину атаки та отримуєте +2 до шкоди метальною зброєю." },
@@ -1370,10 +1374,10 @@
 
             wrap.classList.remove('hidden');
             const titleEl = document.getElementById('subclass-features-title');
-            if (titleEl) titleEl.innerText = `Abilities підкласу: ${sub.name}`;
+            if (titleEl) titleEl.innerText = `Вміння підкласу: ${sub.name}`;
 
             if (available.length === 0) {
-                container.innerHTML = `<p class="text-sm text-slate-500">Abilities підкласу «${sub.name}» відкриваються на вищих рівнях (найближче — рівень ${feats[0].level}).</p>`;
+                container.innerHTML = `<p class="text-sm text-slate-500">Вміння підкласу «${sub.name}» відкриваються на вищих рівнях (найближче — рівень ${feats[0].level}).</p>`;
                 return;
             }
 
@@ -1383,7 +1387,7 @@
                     <div class="p-3 bg-white border border-purple-200 rounded-lg shadow-sm">
                         <div class="flex justify-between items-center mb-1">
                             <h5 class="font-bold text-purple-700 text-sm">${feat.name}</h5>
-                            <span class="text-xs bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded font-medium">Level ${feat.level}</span>
+                            <span class="text-xs bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 rounded font-medium">Рівень ${feat.level}</span>
                         </div>
                         <p class="text-xs text-slate-700 leading-relaxed">${feat.description}</p>
                     </div>
@@ -1514,7 +1518,7 @@
                 speed += cls.unarmoredSpeedBonus;
             }
 
-            // Barbarian: Швидкий рух (+10 футів, якщо не у важкій броні), рівень 5
+            // Варвар: Швидкий рух (+10 футів, якщо не у важкій броні), рівень 5
             if (cls && cls.id === "barbarian" && (character.level || 1) >= 5) {
                 const a = (typeof ARMOR_DATA !== "undefined") ? ARMOR_DATA[armorId] : null;
                 if (!a || a.type !== "heavy") speed += 10;
@@ -1571,7 +1575,7 @@
                 const sr = race.subraces.find(s => s.id === character.subraceId);
                 if (sr) (sr.skillProficiencies || []).forEach(s => { if (!out.includes(s)) out.push(s); });
             }
-            // Skills, обрані гравцем із расового списку вибору
+            // Навички, обрані гравцем із расового списку вибору
             (character.raceSkillChoices || []).forEach(s => { if (!out.includes(s)) out.push(s); });
             return out;
         }
@@ -1694,7 +1698,7 @@
                         if (subclass.heavyArmorProf) profs.armor.push('Важка броня');
                         if (subclass.mediumArmorProf) profs.armor.push('Середня броня');
                         if (subclass.lightArmorProf) profs.armor.push('Легка броня');
-                        if (subclass.shieldProf) profs.armor.push('Shieldи');
+                        if (subclass.shieldProf) profs.armor.push('Щити');
                         if (subclass.martialWeaponProf) profs.weapons.push('Бойова зброя');
                         if (subclass.simpleWeaponProf) profs.weapons.push('Проста зброя');
                     }
@@ -1946,9 +1950,9 @@
         }
 
         // Пул замовлянь для вибору бонусних, коли клас не чаклун
-        // (напр. Високий ельф обирає замовляння зі списку Wizardа).
+        // (напр. Високий ельф обирає замовляння зі списку Чарівника).
         function bonusCantripPool() {
-            // Список замовлянь Wizardа — підтримуємо обидві форми зберігання
+            // Список замовлянь Чарівника — підтримуємо обидві форми зберігання
             // (cls.spellList або cls.spellcasting.spellList), з відкатом до усіх замовлянь 0-го рівня.
             const wiz = (typeof DND_CLASSES !== "undefined" && DND_CLASSES.wizard) ? DND_CLASSES.wizard : null;
             let ids = [];
@@ -2080,13 +2084,13 @@
                     : "text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded");
         }
 
-        // Головний рендер секції заклинань. Conjurationається при зміні класу/рівня/характеристик.
+        // Головний рендер секції заклинань. Викликається при зміні класу/рівня/характеристик.
         function renderSpellcasting() {
             const section = document.getElementById('spellcasting-section');
             if (!section) return;
             const info = getSpellcastingInfo();
 
-            // Magic може походити не лише від класу, а й від раси/підкласу/рис
+            // Магія може походити не лише від класу, а й від раси/підкласу/рис
             // (даровані замовляння/закляття або бонусні замовляння на вибір).
             const grantedNow = (typeof getGrantedSpells === "function") ? getGrantedSpells() : [];
             const bonusCantripsNow = (typeof getBonusCantripChoices === "function") ? getBonusCantripChoices() : 0;
@@ -2122,7 +2126,7 @@
                 anySlots = true;
                 slotsWrap.innerHTML += `
                     <div class="bg-white border border-indigo-200 rounded-lg px-3 py-2 text-center min-w-[64px]">
-                        <div class="text-[10px] font-bold uppercase text-slate-500">Lv. ${idx + 1}</div>
+                        <div class="text-[10px] font-bold uppercase text-slate-500">Рів. ${idx + 1}</div>
                         <div class="font-mono font-bold text-indigo-800 text-lg">${count}</div>
                     </div>
                 `;
@@ -2133,7 +2137,7 @@
 
             // 3) Замовляння — чекбокси. Для чаклунів — зі списку класу; якщо клас
             // не чаклун, але є бонусні замовляння (напр. Високий ельф),
-            // даємо вибір зі списку Wizardа.
+            // даємо вибір зі списку Чарівника.
             let cantrips = (typeof getAvailableSpells === "function") ? getAvailableSpells(0) : [];
             if (cantrips.length === 0 && bonusCantripsNow > 0 && typeof bonusCantripPool === "function") {
                 cantrips = bonusCantripPool();
@@ -2214,7 +2218,7 @@
                             });
                             grantedWrap.innerHTML += `
                                 <div class="mb-4">
-                                    <div class="text-xs font-bold uppercase text-green-700 mb-2">${innateOnly ? `Level ${L} — Вроджені расові закляття (раз на день)` : `Level ${L} — Spells домену/риси (завжди підготовлені)`}</div>
+                                    <div class="text-xs font-bold uppercase text-green-700 mb-2">${innateOnly ? `Рівень ${L} — Вроджені расові закляття (раз на день)` : `Рівень ${L} — Закляття домену/риси (завжди підготовлені)`}</div>
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">${rows}</div>
                                 </div>
                             `;
@@ -2234,7 +2238,7 @@
             prepWrap.classList.toggle('hidden', !info);
             prepWrap.innerHTML = "";
             if (maxLvl === 0) {
-                prepWrap.innerHTML = `<p class="text-xs text-slate-500">Spells 1+ рівня стануть доступні з отриманням комірок заклинань.</p>`;
+                prepWrap.innerHTML = `<p class="text-xs text-slate-500">Закляття 1+ рівня стануть доступні з отриманням комірок заклинань.</p>`;
             } else {
                 for (let L = 1; L <= maxLvl; L++) {
                     const levelSpells = (typeof getAvailableSpells === "function") ? getAvailableSpells(L) : [];
@@ -2246,7 +2250,7 @@
                     });
                     prepWrap.innerHTML += `
                         <div>
-                            <div class="text-xs font-bold uppercase text-indigo-700 mb-2">Level ${L}</div>
+                            <div class="text-xs font-bold uppercase text-indigo-700 mb-2">Рівень ${L}</div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">${rows}</div>
                         </div>
                     `;
@@ -2325,7 +2329,7 @@
                     </label>
                 `;
             });
-            // Skills, надані расою (автоматичні, не рахуються в ліміт класу)
+            // Навички, надані расою (автоматичні, не рахуються в ліміт класу)
             const raceSkills = (typeof getRaceSkillProficiencies === "function") ? getRaceSkillProficiencies() : [];
             if (raceSkills.length) {
                 container.innerHTML += raceSkills.map(skill => `
@@ -2335,7 +2339,7 @@
                     </label>
                 `).join("");
             }
-            // Skills, надані передісторією (автоматичні, не рахуються в ліміт класу)
+            // Навички, надані передісторією (автоматичні, не рахуються в ліміт класу)
             const bgSkills = (typeof backgroundBonusSkills === "function") ? backgroundBonusSkills() : [];
             if (bgSkills.length) {
                 container.innerHTML += bgSkills.map(skill => `
@@ -2416,7 +2420,7 @@
                     <div class="p-3 bg-white border border-slate-200 rounded-lg shadow-sm">
                         <div class="flex justify-between items-center mb-1">
                             <h5 class="font-bold text-forest text-sm">${feat.name}</h5>
-                            <span class="text-xs bg-slate-100 text-slate-600 border border-slate-200 px-2 py-0.5 rounded font-medium">Level ${feat.level}</span>
+                            <span class="text-xs bg-slate-100 text-slate-600 border border-slate-200 px-2 py-0.5 rounded font-medium">Рівень ${feat.level}</span>
                         </div>
                         <p class="text-xs text-slate-700 leading-relaxed">${feat.desc}</p>
                     </div>
@@ -2994,7 +2998,7 @@
             return 2;
         }
 
-        // Діапазон критичного влучання (Чемпіон Fighterа знижує поріг)
+        // Діапазон критичного влучання (Чемпіон Воїна знижує поріг)
         function critRange() {
             const cls = character.classId ? DND_CLASSES[character.classId] : null;
             const lvl = character.level || 1;
@@ -3016,7 +3020,7 @@
             const abMod = abilityMod(abKey);
             const pb = profBonus(character.level || 1);
             const proficient = isProficientWithWeapon(w);
-            // Proficiency Bonus додається до атаки ЛИШЕ якщо є володіння зброєю
+            // Бонус майстерності додається до атаки ЛИШЕ якщо є володіння зброєю
             let attack = abMod + (proficient ? pb : 0);
             let dmgBonus = abMod;
             // Бойові стилі: Стрільба (+2 дальня атака), Дуелянт (+2 ближня шкода)
@@ -3056,7 +3060,7 @@
             ensureWeaponList();
             const list = character.inventory.weaponList;
             if (!list.length) {
-                container.innerHTML = `<div class="text-xs text-slate-500 italic p-3 border border-dashed border-slate-300 rounded-lg text-center">Weapons ще не обрана. Натисніть «Add зброю» нижче.</div>`;
+                container.innerHTML = `<div class="text-xs text-slate-500 italic p-3 border border-dashed border-slate-300 rounded-lg text-center">Зброя ще не обрана. Натисніть «Додати зброю» нижче.</div>`;
                 return;
             }
             const std = (typeof DND_WEAPONS !== "undefined") ? DND_WEAPONS : [];
@@ -3082,8 +3086,8 @@
                     container.innerHTML += `
                         <div class="border border-slate-200 rounded-lg p-3 bg-white">
                             <div class="flex items-center justify-between mb-2">
-                                <span class="text-xs font-bold uppercase text-slate-500">Weapons #${idx + 1}</span>
-                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Remove</button>
+                                <span class="text-xs font-bold uppercase text-slate-500">Зброя #${idx + 1}</span>
+                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Видалити</button>
                             </div>
                             <select onchange="updateWeaponField(${idx}, 'weaponId', this.value)" class="w-full p-2 border border-slate-300 rounded-lg bg-white cursor-pointer text-sm focus:ring-2 focus:ring-forest outline-none">
                                 ${optsHtml}
@@ -3103,7 +3107,7 @@
                         <div class="border-2 border-forest/40 rounded-lg p-3 bg-forest/5">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="text-xs font-bold uppercase text-forest">✏️ Своя зброя #${idx + 1}</span>
-                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Remove</button>
+                                <button type="button" onclick="removeWeaponRow(${idx})" class="text-xs text-red-500 hover:text-red-700 font-bold">✕ Видалити</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <input type="text" value="${escapeHtml(row.name || '')}" oninput="updateWeaponField(${idx}, 'name', this.value)" placeholder="Назва (напр.: Меч Сонця)" class="p-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-forest outline-none">
@@ -3149,7 +3153,7 @@
                 let formula = `${ac} (Природний панцир)`;
                 if (character.inventory.shield) {
                     ac += 2;
-                    formula += " + 2 (Shield)";
+                    formula += " + 2 (Щит)";
                 }
                 return { ac, formula };
             }
@@ -3165,7 +3169,7 @@
                     let formula = `${subclassAC.baseAC} (Драконяча стійкість) + Спритність (${fmtMod(dex)})`;
                     if (character.inventory.shield) {
                         ac += 2;
-                        formula += " + 2 (Shield)";
+                        formula += " + 2 (Щит)";
                     }
                     return { ac, formula };
                 }
@@ -3184,7 +3188,7 @@
                 }
                 if (character.inventory.shield) {
                     ac += 2;
-                    formula += " + 2 (Shield)";
+                    formula += " + 2 (Щит)";
                 }
                 return { ac, formula };
             }
@@ -3213,7 +3217,7 @@
             }
             if (character.inventory.shield) {
                 ac += 2;
-                formula += " + 2 (Shield)";
+                formula += " + 2 (Щит)";
             }
             return { ac, formula };
         }
@@ -3227,7 +3231,7 @@
             if (armorId !== "none" && a && !isProficientWithArmor(armorId)) {
                 out.push(`Немає володіння бронею «${a.name}»: недолік на перевірки, рятунки та атаки Сили/Спритності, та неможливо творити закляття.`);
             } else if (armorId !== "none" && a && p && p.noMetal && armorIsMetal(armorId)) {
-                out.push(`Druid за звичаями класу не носить металеву броню «${a.name}».`);
+                out.push(`Друїд за звичаями класу не носить металеву броню «${a.name}».`);
             }
             if (character.inventory.shield && !isProficientWithShield()) {
                 out.push(`Немає володіння щитом: недолік на перевірки, рятунки та атаки Сили/Спритності.`);
@@ -3425,12 +3429,12 @@
                 <div class="rounded-lg border border-sky-200 bg-gradient-to-br from-sky-50 to-white p-4">
                     <div class="text-sm text-slate-700 leading-relaxed mb-3">${escapeHtml(data.description || "")}</div>
                     <div class="grid sm:grid-cols-2 gap-2 text-xs">
-                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🎯 Skills:</span> ${escapeHtml(skills)}</div>
-                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🛠️ Tools:</span> ${escapeHtml(tools)}</div>
-                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🗣️ Languages:</span> ${escapeHtml(langs)}</div>
+                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🎯 Навички:</span> ${escapeHtml(skills)}</div>
+                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🛠️ Інструменти:</span> ${escapeHtml(tools)}</div>
+                        <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">🗣️ Мови:</span> ${escapeHtml(langs)}</div>
                         <div class="p-2 bg-white border border-sky-100 rounded"><span class="font-bold text-sky-700">✨ Риса:</span> ${escapeHtml(data.feature || "—")}</div>
                     </div>
-                    <div class="mt-2 text-[11px] text-sky-700 font-semibold">✅ Skills цієї передісторії автоматично додаються до персонажа та аркуша.</div>
+                    <div class="mt-2 text-[11px] text-sky-700 font-semibold">✅ Навички цієї передісторії автоматично додаються до персонажа та аркуша.</div>
                 </div>
             `;
         }
@@ -3546,7 +3550,7 @@
             return hp;
         }
 
-        // КЗ без броні: 10 + DEX мод (Barbarian може використовувати додатково CON, але це для базового аркуша)
+        // КЗ без броні: 10 + DEX мод (Варвар може використовувати додатково CON, але це для базового аркуша)
         function unarmoredAC() {
             return 10 + abilityMod('dex');
         }
@@ -3573,7 +3577,7 @@
             document.getElementById('summary-headline').innerText = headlineBits.length
                 ? headlineBits.join(" · ")
                 : "— ще не обрано клас та расу —";
-            document.getElementById('summary-level-badge').innerText = `Level ${character.level || 1}`;
+            document.getElementById('summary-level-badge').innerText = `Рівень ${character.level || 1}`;
 
             // Базова інфо
             const setText = (id, value) => { document.getElementById(id).innerText = value || "—"; };
@@ -3597,7 +3601,7 @@
                 ['sum-hp','sum-hd','sum-ac','sum-init','sum-prof','sum-passive'].forEach(id => setText(id, ""));
             }
 
-            // Abilities
+            // Характеристики
             const abGrid = document.getElementById('sum-abilities');
             abGrid.innerHTML = "";
             ABILITY_KEYS.forEach(key => {
@@ -3612,7 +3616,7 @@
                 `;
             });
 
-            // Skills
+            // Навички
             const skills = document.getElementById('sum-skills');
             const raceSk = (typeof getRaceSkillProficiencies === "function") ? getRaceSkillProficiencies() : [];
             const classSk = (character.skills || []);
@@ -3628,6 +3632,10 @@
                 skills.innerText = "— не обрано —";
             }
 
+            setText('sum-appearance', d.appearance);
+            setText('sum-backstory', d.backstory);
+            setText('sum-allies', d.allies);
+            setText('sum-treasure', d.treasure);
             setText('sum-traits', d.traits);
             setText('sum-ideals', d.ideals);
             setText('sum-bonds', d.bonds);
@@ -3697,7 +3705,7 @@
             ];
         }
 
-        // Clear всі попередні позначки помилок
+        // Очистити всі попередні позначки помилок
         function clearValidationHighlights() {
             document.querySelectorAll('.border-red-500').forEach(el => {
                 el.classList.remove('border-red-500', 'ring-2', 'ring-red-300');
@@ -3747,8 +3755,8 @@
     <!-- Логіка експорту персонажа у PDF (винесено для чистоти архітектури) -->
     <script src="dejavu-font.js"></script>
     <script src="pdf-export.js"></script>
-    <script src="character-sheet-en-images.js"></script>
-    <script src="pdf-export-en-template.js"></script>
+    <script src="character-sheet-images.js"></script>
+    <script src="pdf-export-uk-template.js"></script>
     <script src="search-index.js"></script>
     <script src="site-common.js"></script>
 </body>

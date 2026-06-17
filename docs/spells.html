@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spells - D&D 5e</title>
+    <title>Заклинання (Spells) - D&D 5e</title>
 
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -58,14 +58,14 @@
             <a href="index.html" class="flex items-center gap-2">
                 <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
-                    D&D 5e Knowledge Base
+                    D&D 5e База Знань
                 </h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
             </nav>
         </div>
     </header>
@@ -74,53 +74,53 @@
     <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
 
         <div class="mb-6">
-            <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Spells</h1>
-            <p class="text-sm text-slate-500 mt-2">Use the filters below to find the spell you need. Click a card to expand the description.</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Заклинання</h1>
+            <p class="text-sm text-slate-500 mt-2">Використовуйте фільтри нижче, щоб знайти потрібну магію. Натисніть на картку, щоб розгорнути опис.</p>
         </div>
 
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full mb-4">
 
             <select id="levelFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">All Levels</option>
-                <option value="cantrip">Cantrip (0)</option>
-                <option value="1st level">1st Level</option>
-                <option value="2nd level">2nd Level</option>
-                <option value="3rd level">3rd Level</option>
-                <option value="4th level">4th Level</option>
-                <option value="5th level">5th Level</option>
-                <option value="6th level">6th Level</option>
-                <option value="7th level">7th Level</option>
-                <option value="8th level">8th Level</option>
-                <option value="9th level">9th Level</option>
+                <option value="">Всі рівні</option>
+                <option value="замовляння">Замовляння (0)</option>
+                <option value="1-й рівень">1-й рівень</option>
+                <option value="2-й рівень">2-й рівень</option>
+                <option value="3-й рівень">3-й рівень</option>
+                <option value="4-й рівень">4-й рівень</option>
+                <option value="5-й рівень">5-й рівень</option>
+                <option value="6-й рівень">6-й рівень</option>
+                <option value="7-й рівень">7-й рівень</option>
+                <option value="8-й рівень">8-й рівень</option>
+                <option value="9-й рівень">9-й рівень</option>
             </select>
 
             <select id="schoolFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">All Schools</option>
-                <option value="abjuration">Abjuration</option>
-                <option value="conjuration">Conjuration</option>
-                <option value="divination">Divination</option>
-                <option value="enchantment">Enchantment</option>
-                <option value="evocation">Evocation</option>
-                <option value="illusion">Illusion</option>
-                <option value="necromancy">Necromancy</option>
-                <option value="transmutation">Transmutation</option>
+                <option value="">Всі школи</option>
+                <option value="убезпечення">Убезпечення</option>
+                <option value="виклик">Виклик</option>
+                <option value="віщування">Віщування</option>
+                <option value="очарування">Очарування</option>
+                <option value="втілення">Втілення</option>
+                <option value="ілюзія">Ілюзія</option>
+                <option value="некромантія">Некромантія</option>
+                <option value="перетворення">Перетворення</option>
             </select>
 
             <select id="classFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">All Classes</option>
-                <option value="bard">Bard</option>
-                <option value="cleric">Cleric</option>
-                <option value="druid">Druid</option>
-                <option value="paladin">Paladin</option>
-                <option value="ranger">Ranger</option>
-                <option value="sorcerer">Sorcerer</option>
-                <option value="wizard">Wizard</option>
-                <option value="warlock">Warlock</option>
-                <option value="artificer">Artificer</option>
+                <option value="">Всі класи</option>
+                <option value="бард">Бард</option>
+                <option value="жрець">Жрець</option>
+                <option value="друїд">Друїд</option>
+                <option value="паладин">Паладин</option>
+                <option value="слідопит">Слідопит</option>
+                <option value="чаклун">Чаклун</option>
+                <option value="чарівник">Чарівник</option>
+                <option value="чорнокнижник">Чорнокнижник</option>
+                <option value="винахідник">Винахідник (Artificer)</option>
             </select>
 
             <div class="relative flex-grow sm:w-64 lg:w-auto">
-                <input type="text" id="searchInput" onkeyup="filterSpells()" placeholder="Search by keyword..."
+                <input type="text" id="searchInput" onkeyup="filterSpells()" placeholder="Пошук за словом..."
                     class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
                 <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
             </div>
@@ -128,15 +128,15 @@
 
         <div class="flex items-center justify-between mb-4">
             <p id="resultCount" class="text-xs text-slate-400"></p>
-            <button id="resetFilters" onclick="resetSpellFilters()" class="text-xs font-semibold text-forest hover:text-forest-hover hidden">Reset</button>
+            <button id="resetFilters" onclick="resetSpellFilters()" class="text-xs font-semibold text-forest hover:text-forest-hover hidden">Скинути фільтри</button>
         </div>
 
         <div id="spell-list" class="space-y-3"></div>
 
         <div id="emptyState" class="hidden text-center py-16 text-slate-400">
             <div class="text-4xl mb-3">🪄</div>
-            <p class="font-semibold">Nothing found</p>
-            <p class="text-sm mt-1">Try changing the filters or search query.</p>
+            <p class="font-semibold">Нічого не знайдено</p>
+            <p class="text-sm mt-1">Спробуйте змінити фільтри або пошуковий запит.</p>
         </div>
 
     </main>
@@ -144,7 +144,7 @@
 <script src="spell-classes.js"></script>
 <script src="spells-data.js"></script>
 <script>
-    // Open/close card
+    // Відкриття/закриття картки
     function toggleSingle(element) {
         const card = element.closest('.feat-card');
         const content = card.querySelector('.feat-content');
@@ -176,27 +176,27 @@
     }
 
     function levelLabel(lvl) {
-        return lvl === 0 ? 'Cantrip' : (lvl + (lvl === 1 ? 'st' : lvl === 2 ? 'nd' : lvl === 3 ? 'rd' : 'th') + ' Level');
+        return lvl === 0 ? 'Замовляння' : (lvl + '-й рівень');
     }
 
-    // Render all cards from DND_SPELLS
+    // Рендер усіх карток із DND_SPELLS
     function renderSpells() {
         const list = document.getElementById('spell-list');
         const spells = (typeof DND_SPELLS !== 'undefined' ? DND_SPELLS : []).slice();
         spells.sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name, 'uk'));
         const html = spells.map(function (sp) {
             const lvlLabel = levelLabel(sp.level);
-            const subtitle = lvlLabel + ', ' + sp.school + (sp.ritual ? ' · Ritual' : '');
+            const subtitle = lvlLabel + ', ' + sp.school + (sp.ritual ? ' · Ритуал' : '');
             const summaryParts = [sp.castingTime, sp.range, sp.duration].filter(Boolean);
-            const summary = (sp.concentration ? 'Concentration · ' : '') + summaryParts.join(' | ');
+            const summary = (sp.concentration ? 'Концентрація · ' : '') + summaryParts.join(' | ');
             const engName = (sp.nameEn || '').toLowerCase();
             const fullName = sp.name + ' (' + (sp.nameEn || '') + ')';
             const paras = String(sp.description || '').split(/\n+/).filter(function (p) { return p.trim(); })
                 .map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
             const searchText = (fullName + ' ' + sp.school + ' ' + (sp.description || '')).toLowerCase();
             const badges = [];
-            if (sp.concentration) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-700">Concentration</span>');
-            if (sp.ritual) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-700">Ritual</span>');
+            if (sp.concentration) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-700">Концентрація</span>');
+            if (sp.ritual) badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-700">Ритуал</span>');
             return '' +
             '<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm"' +
                 ' data-level-label="' + esc(lvlLabel.toLowerCase()) + '"' +
@@ -214,10 +214,10 @@
                     '<div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">' +
                         (badges.length ? '<div class="flex gap-2 flex-wrap">' + badges.join('') + '</div>' : '') +
                         '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs bg-slate-50 p-3 rounded border border-slate-100">' +
-                            '<div><strong class="text-forest">Casting Time:</strong> ' + esc(sp.castingTime) + '</div>' +
-                            '<div><strong class="text-forest">Range:</strong> ' + esc(sp.range) + '</div>' +
-                            '<div><strong class="text-forest">Components:</strong> ' + esc(sp.components) + '</div>' +
-                            '<div><strong class="text-forest">Duration:</strong> ' + esc(sp.duration) + '</div>' +
+                            '<div><strong class="text-forest">Час:</strong> ' + esc(sp.castingTime) + '</div>' +
+                            '<div><strong class="text-forest">Дистанція:</strong> ' + esc(sp.range) + '</div>' +
+                            '<div><strong class="text-forest">Компоненти:</strong> ' + esc(sp.components) + '</div>' +
+                            '<div><strong class="text-forest">Тривалість:</strong> ' + esc(sp.duration) + '</div>' +
                         '</div>' +
                         paras +
                     '</div>' +
@@ -227,7 +227,7 @@
         list.innerHTML = html;
     }
 
-    // Filter and search
+    // Фільтр та пошук
     function filterSpells() {
         const textInput = document.getElementById('searchInput').value.toLowerCase().trim();
         const levelInput = document.getElementById('levelFilter').value.toLowerCase();
@@ -262,7 +262,7 @@
         }
         const total = cards.length;
         const counter = document.getElementById('resultCount');
-        if (counter) counter.textContent = 'Showing ' + visible + ' of ' + total + ' spells';
+        if (counter) counter.textContent = 'Показано ' + visible + ' із ' + total + ' заклинань';
         const empty = document.getElementById('emptyState');
         if (empty) empty.classList.toggle('hidden', visible !== 0);
         const hasFilters = textInput || levelInput || schoolInput || classInput;

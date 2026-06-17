@@ -133,19 +133,19 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Conjuration блискавки (Call Lightning)",
+  "title": "Виклик блискавки (Call Lightning)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Conjuration звіра (Summon Beast)",
+  "title": "Виклик звіра (Summon Beast)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Conjuration страху (Cause Fear)",
+  "title": "Виклик страху (Cause Fear)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -301,7 +301,7 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Divination (Divination)",
+  "title": "Віщування (Divination)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -433,7 +433,7 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Druidське мистецтво (Druidcraft)",
+  "title": "Друїдське мистецтво (Druidcraft)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -505,19 +505,19 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Defense від добра і зла (Protection from Evil and Good)",
+  "title": "Захист від добра і зла (Protection from Evil and Good)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Defense від енергії (Protection from Energy)",
+  "title": "Захист від енергії (Protection from Energy)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Defense від отрути (Protection from Poison)",
+  "title": "Захист від отрути (Protection from Poison)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -529,7 +529,7 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Enchantment особи (Charm Person)",
+  "title": "Зачарування особи (Charm Person)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -1147,7 +1147,7 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Noжний спочинок (Gentle Repose)",
+  "title": "Ніжний спочинок (Gentle Repose)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -1339,19 +1339,19 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Transmutation (Shapechange)",
+  "title": "Перетворення (Shapechange)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Transmutation каменю (Transmute Rock)",
+  "title": "Перетворення каменю (Transmute Rock)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Transmutation Тенсера (Tenser's Transformation)",
+  "title": "Перетворення Тенсера (Tenser's Transformation)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -2371,13 +2371,13 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Shield (Shield)",
+  "title": "Щит (Shield)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
  },
  {
-  "title": "Shield віри (Shield of Faith)",
+  "title": "Щит віри (Shield of Faith)",
   "page": "spells.html",
   "cat": "Заклинання",
   "anchor": ""
@@ -2425,1743 +2425,1773 @@ window.SEARCH_INDEX = [
   "anchor": ""
  },
  {
-  "title": "Акробатичний рух - Level 9",
+  "title": "Акробатичний рух - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Арканне відновлення - Level 1",
+  "title": "Арканне відновлення - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Арканний апофеоз - Level 20",
+  "title": "Арканний апофеоз - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Архетипи Rangerа (Ranger Archetypes)",
+  "title": "Архетипи Слідопита (Ranger Archetypes)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-ranger"
  },
  {
   "title": "Архетипи Шахрая (Rogue Archetypes)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-rogue"
  },
  {
-  "title": "Аура захисту (Aura of Protection) - Level 6",
+  "title": "Аура захисту (Aura of Protection) - Рівень 6",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Bard (Bard)",
+  "title": "Бард (Bard)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-bard"
  },
  {
-  "title": "Благословенні удари - Level 7",
+  "title": "Благословенні удари - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Божественна кара (Paladin's Smite) - Level 2",
+  "title": "Божественна кара (Paladin's Smite) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Божественне втручання - Level 10",
+  "title": "Божественне втручання - Рівень 10",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Божественний канал (Channel Divinity) - Level 2",
+  "title": "Божественний канал (Channel Divinity) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Божественний канал - Level 3",
+  "title": "Божественний канал - Рівень 3",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Божественний орден (Divine Order) - Level 1",
+  "title": "Божественний орден (Divine Order) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Бойовий стиль (Fighting Style) - Level 1",
+  "title": "Бойовий стиль (Fighting Style) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Бойові Архетипи (Fighter Subclasses)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-fighter"
  },
  {
-  "title": "Бойові мистецтва (Martial Arts) - Level 1",
+  "title": "Бойові мистецтва (Martial Arts) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Barbarian (Barbarian)",
+  "title": "Варвар (Barbarian)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-barbarian"
  },
  {
-  "title": "Верховний друїд (Archdruid) - Level 20",
+  "title": "Верховний друїд (Archdruid) - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вивчені атаки (Studied Attacks) - Level 13",
+  "title": "Вивчені атаки (Studied Attacks) - Рівень 13",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вище Божественне втручання - Level 20",
+  "title": "Вище Божественне втручання - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вище Натхнення - Level 18",
+  "title": "Вище Натхнення - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Возложення рук (Lay on Hands) - Level 1",
+  "title": "Возложення рук (Lay on Hands) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Володіння (Proficiencies)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Fighter (Fighter)",
+  "title": "Воїн (Fighter)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-fighter"
  },
  {
-  "title": "Вправний дослідник - Level 2",
+  "title": "Вправний дослідник - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вроджене чаклунство (Innate Sorcery) - Level 1",
+  "title": "Вроджене чаклунство (Innate Sorcery) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Evocation чаклунства - Level 7",
+  "title": "Втілення чаклунства - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вчений (Scholar) - Level 2",
+  "title": "Вчений (Scholar) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Відбиття атак (Deflect Attacks) - Level 3",
+  "title": "Відбиття атак (Deflect Attacks) - Рівень 3",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Відчуття небезпеки (Danger Sense) - Level 2",
+  "title": "Відчуття небезпеки (Danger Sense) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вірний приціл (Steady Aim) - Level 3",
+  "title": "Вірний приціл (Steady Aim) - Рівень 3",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Вірний скакун (Faithful Steed) - Level 5",
+  "title": "Вірний скакун (Faithful Steed) - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Джерело магії (Font of Magic) - Level 2",
+  "title": "Джерело магії (Font of Magic) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Джерело натхнення - Level 5",
+  "title": "Джерело натхнення - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дика форма (Wild Shape) - Level 2",
+  "title": "Дика форма (Wild Shape) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дике відродження (Wild Resurgence) - Level 5",
+  "title": "Дике відродження (Wild Resurgence) - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дикий супутник (Wild Companion) - Level 2",
+  "title": "Дикий супутник (Wild Companion) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дикий інстинкт - Level 7",
+  "title": "Дикий інстинкт - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дикі чуття (Feral Senses) - Level 18",
+  "title": "Дикі чуття (Feral Senses) - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Дисциплінований вцілілий - Level 14",
+  "title": "Дисциплінований вцілілий - Рівень 14",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Додаткова атака - Level 5",
+  "title": "Додаткова атака - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Додаткова атака - Level 5, 11, 20",
+  "title": "Додаткова атака - Рівень 5, 11, 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Домени Жерців (Cleric Domains)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-cleric"
  },
  {
-  "title": "Друге дихання (Second Wind) - Level 1",
+  "title": "Друге дихання (Second Wind) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Druid (Druid)",
+  "title": "Друїд (Druid)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-druid"
  },
  {
-  "title": "Експертиза (Expertise) - Level 1 і 6",
+  "title": "Експертиза (Expertise) - Рівень 1 і 6",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Експертиза (Expertise) - Level 2 і 9",
+  "title": "Експертиза (Expertise) - Рівень 2 і 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Експертиза (Expertise) - Level 9",
+  "title": "Експертиза (Expertise) - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Жорстокий удар - Level 9",
+  "title": "Жорстокий удар - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Cleric (Cleric)",
+  "title": "Жрець (Cleric)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-cleric"
  },
  {
-  "title": "Заклинання звіра - Level 18",
+  "title": "Заклинання звіра - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Запам'ятовування заклинань - Level 5",
+  "title": "Запам'ятовування заклинань - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Defense без обладунків (Unarmored Defense) - Level 1",
+  "title": "Захист без обладунків (Unarmored Defense) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Знищення нежиті - Level 5",
+  "title": "Знищення нежиті - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Ключові вміння класу",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-barbarian"
  },
  {
-  "title": "Кола Druidів (Druid Circles)",
+  "title": "Кола Друїдів (Druid Circles)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-druid"
  },
  {
-  "title": "Колегії Bardів (Bard Colleges)",
+  "title": "Колегії Бардів (Bard Colleges)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-bard"
  },
  {
-  "title": "Контакт з Покровителем - Level 9",
+  "title": "Контакт з Покровителем - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Контрчари (Countercharm) - Level 7",
+  "title": "Контрчари (Countercharm) - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Лють (Rage) - Level 1",
+  "title": "Лють (Rage) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Магічна хитрість (Magical Cunning) - Level 2",
+  "title": "Магічна хитрість (Magical Cunning) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Магічні секрети - Level 10",
+  "title": "Магічні секрети - Рівень 10",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Магічні Традиції (Wizard Subclasses)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-wizard"
  },
  {
-  "title": "Magic Договору (Pact Magic) - Level 1",
+  "title": "Магія Договору (Pact Magic) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Майстер на всі руки (Jack of All Trades) - Level 2",
+  "title": "Майстер на всі руки (Jack of All Trades) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Майстерність заклинань - Level 18",
+  "title": "Майстерність заклинань - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Майстерність зброї (Weapon Mastery) - Level 1",
+  "title": "Майстерність зброї (Weapon Mastery) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Майстерність зброї - Level 1",
+  "title": "Майстерність зброї - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Майстерність зброї та Бойовий стиль - Level 1 і 2",
+  "title": "Майстерність зброї та Бойовий стиль - Рівень 1 і 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Мандрівник (Roving) - Level 6",
+  "title": "Мандрівник (Roving) - Рівень 6",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Метамагія (Metamagic) - Level 2, 10, 13, 17",
+  "title": "Метамагія (Metamagic) - Рівень 2, 10, 13, 17",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Монастирські Традиції (Monk Subclasses)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-monk"
  },
  {
-  "title": "Monk (Monk)",
+  "title": "Монах (Monk)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-monk"
  },
  {
-  "title": "Містичний Арканум (Mystic Arcanum) - Level 11, 13, 15, 17",
+  "title": "Містичний Арканум (Mystic Arcanum) - Рівень 11, 13, 15, 17",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Надприродний метаболізм - Level 2",
+  "title": "Надприродний метаболізм - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Надійний талант - Level 7",
+  "title": "Надійний талант - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Натхнення барда (Bardic Inspiration) - Level 1",
+  "title": "Натхнення барда (Bardic Inspiration) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Невловимий (Elusive) - Level 18",
+  "title": "Невловимий (Elusive) - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Невпинна лють - Level 11",
+  "title": "Невпинна лють - Рівень 11",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Невтомний (Tireless) - Level 10",
+  "title": "Невтомний (Tireless) - Рівень 10",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Незламна міць - Level 18",
+  "title": "Незламна міць - Рівень 18",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Неймовірне ухилення - Level 5",
+  "title": "Неймовірне ухилення - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Неприборканий (Indomitable) - Level 9",
+  "title": "Неприборканий (Indomitable) - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Нерозважлива атака (Reckless Attack) - Level 2",
+  "title": "Нерозважлива атака (Reckless Attack) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Paladin (Paladin)",
+  "title": "Паладин (Paladin)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-paladin"
  },
  {
-  "title": "Первісний орден (Primal Order) - Level 1",
+  "title": "Первісний орден (Primal Order) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Первісний чемпіон - Level 20",
+  "title": "Первісний чемпіон - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Первісні знання (Primal Knowledge) - Level 3",
+  "title": "Первісні знання (Primal Knowledge) - Рівень 3",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Повелитель Елдричу (Eldritch Master) - Level 20",
+  "title": "Повелитель Елдричу (Eldritch Master) - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Покращена Стихійна лють - Level 15",
+  "title": "Покращена Стихійна лють - Рівень 15",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Покращений Хитрий удар - Level 11",
+  "title": "Покращений Хитрий удар - Рівень 11",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Покращені Благословенні удари - Level 14",
+  "title": "Покращені Благословенні удари - Рівень 14",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Покров природи (Nature's Veil) - Level 14",
+  "title": "Покров природи (Nature's Veil) - Рівень 14",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Покровителі (Warlock Patrons)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-warlock"
  },
  {
-  "title": "Потойбічні Відозви (Eldritch Invocations) - Level 1",
+  "title": "Потойбічні Відозви (Eldritch Invocations) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Приголомшливий удар - Level 5",
+  "title": "Приголомшливий удар - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Прихована атака (Sneak Attack) - Level 1",
+  "title": "Прихована атака (Sneak Attack) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Підвищений Фокус - Level 10",
+  "title": "Підвищений Фокус - Рівень 10",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Subclassи Barbarianа (Barbarian Subclasses)",
+  "title": "Підкласи Варвара (Barbarian Subclasses)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-barbarian"
  },
  {
-  "title": "Підступні удари (Devious Strikes) - Level 14",
+  "title": "Підступні удари (Devious Strikes) - Рівень 14",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Священні Клятви (Paladin Oaths)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-paladin"
  },
  {
-  "title": "Слизький розум - Level 15",
+  "title": "Слизький розум - Рівень 15",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Слова Творіння (Words of Creation) - Level 20",
+  "title": "Слова Творіння (Words of Creation) - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Ranger (Ranger)",
+  "title": "Слідопит (Ranger)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-ranger"
  },
  {
-  "title": "Сплеск дій (Action Surge) - Level 2",
+  "title": "Сплеск дій (Action Surge) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Стихійна лють - Level 7",
+  "title": "Стихійна лють - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Стійка лють - Level 15",
+  "title": "Стійка лють - Рівень 15",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Сяючий удар - Level 11",
+  "title": "Сяючий удар - Рівень 11",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Таблиця: Bard (Bard)",
+  "title": "Таблиця: Бард (Bard)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-bard"
  },
  {
-  "title": "Таблиця: Barbarian (Barbarian)",
+  "title": "Таблиця: Варвар (Barbarian)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-barbarian"
  },
  {
-  "title": "Таблиця: Fighter (Fighter)",
+  "title": "Таблиця: Воїн (Fighter)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-fighter"
  },
  {
-  "title": "Таблиця: Druid (Druid)",
+  "title": "Таблиця: Друїд (Druid)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-druid"
  },
  {
-  "title": "Таблиця: Cleric (Cleric)",
+  "title": "Таблиця: Жрець (Cleric)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-cleric"
  },
  {
-  "title": "Таблиця: Monk (Monk)",
+  "title": "Таблиця: Монах (Monk)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-monk"
  },
  {
-  "title": "Таблиця: Paladin (Paladin)",
+  "title": "Таблиця: Паладин (Paladin)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-paladin"
  },
  {
-  "title": "Таблиця: Ranger (Ranger)",
+  "title": "Таблиця: Слідопит (Ranger)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-ranger"
  },
  {
-  "title": "Таблиця: Sorcerer (Sorcerer)",
+  "title": "Таблиця: Чаклун (Sorcerer)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-sorcerer"
  },
  {
-  "title": "Таблиця: Wizard (Wizard)",
+  "title": "Таблиця: Чарівник (Wizard)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-wizard"
  },
  {
-  "title": "Таблиця: Warlock (Warlock)",
+  "title": "Таблиця: Чорнокнижник (Warlock)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-warlock"
  },
  {
-  "title": "Таблиця: Rogue (Rogue)",
+  "title": "Таблиця: Шахрай (Rogue)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-rogue"
  },
  {
-  "title": "Yesтичний зсув (Tactical Shift) - Level 5",
+  "title": "Тактичний зсув (Tactical Shift) - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Yesтичний майстер (Tactical Master) - Level 9",
+  "title": "Тактичний майстер (Tactical Master) - Рівень 9",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Yesтичний розум (Tactical Mind) - Level 2",
+  "title": "Тактичний розум (Tactical Mind) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Тіло і Розум - Level 20",
+  "title": "Тіло і Розум - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Удар удачі (Stroke of Luck) - Level 20",
+  "title": "Удар удачі (Stroke of Luck) - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Улюблений ворог (Favored Enemy) - Level 1",
+  "title": "Улюблений ворог (Favored Enemy) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Ухилення (Evasion) - Level 7",
+  "title": "Ухилення (Evasion) - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Фокус Monkа (Monk's Focus) - Level 2",
+  "title": "Фокус Монаха (Monk's Focus) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Фірмові заклинання (Signature Spells) - Level 20",
+  "title": "Фірмові заклинання (Signature Spells) - Рівень 20",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Хитра дія (Cunning Action) - Level 2",
+  "title": "Хитра дія (Cunning Action) - Рівень 2",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Хитрий удар (Cunning Strike) - Level 5",
+  "title": "Хитрий удар (Cunning Strike) - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Hit Points (Hit Points)",
+  "title": "Хіти (Hit Points)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Чаклування (Spellcasting) - Level 1",
+  "title": "Чаклування (Spellcasting) - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Чаклування та Книга заклинань - Level 1",
+  "title": "Чаклування та Книга заклинань - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Чаклування та Мова - Level 1",
+  "title": "Чаклування та Мова - Рівень 1",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Sorcerer (Sorcerer)",
+  "title": "Чаклун (Sorcerer)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-sorcerer"
  },
  {
-  "title": "Sorcererське відновлення - Level 5",
+  "title": "Чаклунське відновлення - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Sorcererське походження (Sorcerous Origins)",
+  "title": "Чаклунське походження (Sorcerous Origins)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-sorcerer"
  },
  {
-  "title": "Wizard (Wizard)",
+  "title": "Чарівник (Wizard)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-wizard"
  },
  {
-  "title": "Warlock (Warlock)",
+  "title": "Чорнокнижник (Warlock)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-warlock"
  },
  {
-  "title": "Rogue (Rogue)",
+  "title": "Шахрай (Rogue)",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": "class-rogue"
  },
  {
-  "title": "Швидкий рух - Level 5",
+  "title": "Швидкий рух - Рівень 5",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
-  "title": "Інстинктивний стрибок - Level 7",
+  "title": "Інстинктивний стрибок - Рівень 7",
   "page": "classes.html",
-  "cat": "Classes",
+  "cat": "Класи",
   "anchor": ""
  },
  {
   "title": "Артист (Entertainer)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Відлюдник (Hermit)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Дворянин (Noble)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Злочинець (Criminal)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Мандрівник / Безхатько (Wayfarer)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Моряк (Sailor)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Мудрець (Sage)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Охоронець (Guard)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Писар (Scribe)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Прислужник (Acolyte)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Провідник (Guide)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Ремісник (Artisan)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Солдат (Soldier)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Торговець (Merchant)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Фермер (Farmer)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Шарлатан (Charlatan)",
   "page": "backgrounds.html",
-  "cat": "Backgrounds",
+  "cat": "Передісторії",
   "anchor": "backgroundsGrid"
  },
  {
   "title": "Атака по можливості (Opportunity Attack)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Combat & Actions",
+  "title": "Бій та Дії",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": "rulesContainer"
  },
  {
   "title": "Види Дій у бою (Actions)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Rest & Health",
+  "title": "Відпочинок та Здоров'я",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": "rulesContainer"
  },
  {
   "title": "Зачарований та Наляканий",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Збитий з ніг (Prone)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Короткий та Тривалий відпочинок",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Магічні Компоненти (В, С, М)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Magic та Заклинання",
+  "title": "Магія та Заклинання",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": "rulesContainer"
  },
  {
-  "title": "Magic та Концентрація",
+  "title": "Магія та Концентрація",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Basics гри",
+  "title": "Основи гри",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": "rulesContainer"
  },
  {
   "title": "Перевага та Завада",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Перевірки Характеристик (Skills)",
+  "title": "Перевірки Характеристик (Навички)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Сліпота, Глухота, Невидимість",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Смерть та Врятування від смерті",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Спутаний, Приголомшений, Паралізований",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
-  "title": "Conditions",
+  "title": "Стани (Conditions)",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": "rulesContainer"
  },
  {
   "title": "Структура Ходу в бою",
   "page": "rules.html",
-  "cat": "Rules",
+  "cat": "Правила",
   "anchor": ""
  },
  {
   "title": "Адепт метамагії (Metamagic Adept)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Адепт стихій (Elemental Adept)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Адепт-артифіцер (Artificer Initiate)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Бойовий заклинатель (War Caster)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Борець (Grappler)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Важкоброньований (Heavily Armored)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Вартовий (Sentinel)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Вбивця магів (Mage Slayer)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Верховий боєць (Mounted Combatant)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Витривалий (Durable)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Вища магія дроу (Drow High Magic)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Влучний стрілець (Sharpshooter)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
-  "title": "Fighter богів (Warrior of the Gods)",
+  "title": "Воїн богів (Warrior of the Gods)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Гострий розум (Keen Mind)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Дарунок дорогоцінного дракона (Gift of the Gem Dragon)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Дарунок металевого дракона (Gift of the Metallic Dragon)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Дарунок хроматичного дракона (Gift of the Chromatic Dragon)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Дикий талант (Wild Talent)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Дослідник підземель (Dungeon Delver)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Драконяча шкіра (Dragon Hide)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Драконячий страх (Dragon Fear)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Другий шанс (Second Chance)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Душа штормового велетня (Soul of the Storm Giant)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Експерт з арбалетів (Crossbow Expert)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Експерт навичок (Skill Expert)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Ельфійська влучність (Elven Accuracy)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Енергія пагорбового велетня (Vigor of the Hill Giant)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Збройоносець Соламнії (Squire of Solamnia)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Карликова стійкість (Dwarf Fortitude)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Клинок ревенанта (Revenant Blade)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Кухар (Chef)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Легкоброньований (Lightly Armored)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Лютий нападник (Savage Attacker)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Магічний снайпер (Spell Sniper)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
-  "title": "Magic лісових ельфів (Wood Elf Magic)",
+  "title": "Магія лісових ельфів (Wood Elf Magic)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер бойових мистецтв (Martial Adept)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер важких обладунків (Heavy Armor Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер великої зброї (Great Weapon Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер древкової зброї (Polearm Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер зброї (Weapon Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер парної зброї (Dual Wielder)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер ритуалів (Ritual Caster)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер середніх обладунків (Medium Armor Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Майстер щитів (Shield Master)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Мобільний (Mobile)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Міський слідчий (Investigator)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Міцна статура (Powerful Build / Giant Foundling)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Міцний (Tough)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Надихаючий лідер (Inspiring Leader)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Натиск (Charger)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Нищівник (Crusher)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Обдарований (Prodigy)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Обдарований боєць (Fighting Initiate)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Оборонний дуелянт (Defensive Duelist)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Орча лють (Orcish Fury)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Отруйник (Poisoner)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Пекельна статура (Infernal Constitution)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Полум'я Флегетоса (Flames of Phlegethos)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Потойбічний адепт (Eldritch Adept)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Приземкувата спритність (Squat Nimbleness)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Пронизувач (Piercer)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Рубака (Slasher)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Середньоброньований (Moderately Armored)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Спостережливий (Observant)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Стрілець (Gunner)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Студент Візерблуму (Witherbloom Student)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Стійкий (Resilient)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Творець див (Wonder Maker)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Телекінетик (Telekinetic)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Телепат (Telepathic)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Торкнутий тінню (Shadow Touched)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Удар велетнів (Strike of the Giants)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Умілий (Skilled)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Цілитель (Healer)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Шинкарський боєць (Tavern Brawler)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Щасливчик (Lucky)",
   "page": "feats.html",
-  "cat": "Feats",
+  "cat": "Риси",
   "anchor": "feats-list"
  },
  {
   "title": "Людина",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Ельф",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Ельф — Високий ельф",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Ельф — Лісовий ельф",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Ельф — Дроу",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Дворф",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Напіврослик",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Гном",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Гном — Лісовий гном",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Гном — Скельний гном",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Драконороджений",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Орк",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Тіфлінг",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Тіфлінг — Інфернальний",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Тіфлінг — Хтонічний",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Тіфлінг — Безодній",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Аасімар",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Аасімар — Небесні крила",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Аасімар — Внутрішнє сяйво",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Аасімар — Некротична запона",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Стрибок хмари",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Полум'я вогню",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Холод криги",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Падіння пагорба",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Стійкість каменю",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Голіаф — Грім бурі",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень (Changeling)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Калаштар (Kalashtar)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Хоравар (Khoravar)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень-звір (Shifter)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень-звір — Звірошкірий",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень-звір — Довгоіклий",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень-звір — Прудкокрокий",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Перевертень-звір — Дикий мисливець",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Ковані (Warforged)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Боґґарт (Boggart)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Феєрі (Faerie)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Полум'яні (Flamekin)",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Лорвінський перевертень",
+  "page": "races.html",
+  "cat": "Раси",
+  "anchor": ""
+ },
+ {
+  "title": "Крижані (Rimekin)",
+  "page": "races.html",
+  "cat": "Раси",
   "anchor": ""
  },
  {
   "title": "Дампір (Dhampir)",
   "page": "races.html",
-  "cat": "Races",
+  "cat": "Раси",
   "anchor": ""
  }
 ];

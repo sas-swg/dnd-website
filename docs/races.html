@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Species - D&D 5e</title>
+    <title>Раси (Species) - D&D 5e</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     
@@ -73,14 +73,14 @@
             <a href="index.html" class="flex items-center gap-2">
                 <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
-                    D&D 5e Knowledge Base
+                    D&D 5e База Знань
                 </h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
             </nav>
         </div>
     </header>  
@@ -88,49 +88,49 @@
     <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Header and Filters -->
+        <!-- Заголовок та Фільтри -->
         <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
-                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Species</h1>
-                <p class="text-slate-600">Choose your character's origin, heritage, and abilities.</p>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Раси (Species)</h1>
+                <p class="text-slate-600">Виберіть походження вашого персонажа, його спадщину та здібності.</p>
             </div>
             
-            <!-- Filter panel (search by name only) -->
+            <!-- Панель фільтрів (Тільки пошук по назві) -->
             <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <div class="relative w-full sm:w-64">
-                    <input type="text" id="searchInput" onkeyup="searchRacesByName()" placeholder="Search by species name..." 
+                    <input type="text" id="searchInput" onkeyup="searchRacesByName()" placeholder="Пошук за назвою раси..." 
                         class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
                     <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
                 </div>
             </div>
         </div>
 
-        <!-- Species grid -->
+        <!-- Сітка Рас -->
         <div class="grid grid-cols-1 gap-4 space-y-4 items-start" id="racesGrid">
-            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">📘 Common Species (PHB 2024)</h2>
+            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">📘 Звичайні види (PHB 2024)</h2>
 
             <!-- HUMAN -->
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧑 Human</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧑 Людина</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Resourceful | Skillful</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Винахідливість | Вправність</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>The world's most adaptable people — ambitious, resourceful, and found everywhere.</p>
+                            <p>Найадаптивніший народ світу — амбітні, винахідливі та повсюдні.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Resourceful:</strong> At the end of each Long Rest, you gain Heroic Inspiration.</li>
-                                    <li><strong>Skillful:</strong> Proficiency in one skill of your choice.</li>
-                                    <li><strong>Versatile:</strong> One Origin feat of your choice.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Винахідливість (Resourceful):</strong> Наприкінці кожного тривалого відпочинку ви отримуєте Героїчне натхнення.</li>
+                                    <li><strong>Вправність (Skillful):</strong> Володіння однією навичкою на вибір.</li>
+                                    <li><strong>Багатогранність (Versatile):</strong> Одна риса походження (Origin feat) на вибір.</li>
                                 </ul>
                             </div>
                         </div>
@@ -142,50 +142,50 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧝 Elf</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧝 Ельф</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Fey Ancestry</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Спадок фейрі</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>A graceful, long-lived people of fey origin.</p>
+                            <p>Граційний довговічний народ фейського походження.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Fey Ancestry:</strong> Advantage on saving throws against the Charmed condition.</li>
-                                    <li><strong>Keen Senses:</strong> Proficiency in one skill: Insight, Perception, or Survival.</li>
-                                    <li><strong>Trance:</strong> You don't sleep; your Long Rest is 4 hours of meditation.</li>
-                                    <li><strong>Elven Lineage:</strong> Choose a lineage below — it grants spells (spellcasting ability: Int/Wis/Cha).</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Спадок фейрі (Fey Ancestry):</strong> Перевага на рятунки проти стану Зачарований.</li>
+                                    <li><strong>Загострені почуття (Keen Senses):</strong> Володіння однією навичкою: Проникливість, Уважність або Виживання.</li>
+                                    <li><strong>Транс (Trance):</strong> Не спите; тривалий відпочинок — 4 години медитації.</li>
+                                    <li><strong>Ельфійський родовід (Elven Lineage):</strong> Оберіть родовід нижче — він дає закляття (характеристика: Інт/Мдр/Хар).</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">High Elf</h4>
+                                        <h4 class="font-bold text-lg mb-1">Високий ельф</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Cantrip:</strong> You know Prestidigitation; on a Long Rest you can replace it with another Wizard cantrip.</li>
-                                            <li><strong>Lineage Spells:</strong> At 3rd level — Detect Magic; at 5th — Misty Step.</li>
+                                            <li><strong>Фокус:</strong> Знаєте «Витівка»; на тривалому відпочинку можете замінити його іншим фокусом чарівника.</li>
+                                            <li><strong>Закляття родоводу:</strong> З 3-го рівня — «Виявлення магії»; з 5-го — «Туманний крок».</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Wood Elf</h4>
+                                        <h4 class="font-bold text-lg mb-1">Лісовий ельф</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Fleet of Foot:</strong> Speed 35 feet.</li>
-                                            <li><strong>Lineage Spells:</strong> You know Druidcraft; at 3rd — Longstrider; at 5th — Pass without Trace.</li>
+                                            <li><strong>Прудкість:</strong> Швидкість 35 футів.</li>
+                                            <li><strong>Закляття родоводу:</strong> Знаєте «Друїдизм»; з 3-го — «Довгий крок»; з 5-го — «Без сліду».</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Drow</h4>
+                                        <h4 class="font-bold text-lg mb-1">Дроу</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Improved Darkvision:</strong> Range 120 feet.</li>
-                                            <li><strong>Lineage Spells:</strong> You know Dancing Lights; at 3rd — Faerie Fire; at 5th — Darkness.</li>
+                                            <li><strong>Покращений темний зір:</strong> Дальність 120 футів.</li>
+                                            <li><strong>Закляття родоводу:</strong> Знаєте «Танцюючі вогники»; з 3-го — «Вогні фейрі»; з 5-го — «Темрява».</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -199,25 +199,25 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧔 Dwarf</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧔 Дворф</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Dwarven Resilience</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Дворфійська стійкість</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>A hardy people of mountains and underground strongholds, masters of stone.</p>
+                            <p>Витривалий народ гір і підземних твердинь, майстри каменю.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 120 feet.</li>
-                                    <li><strong>Dwarven Resilience:</strong> Resistance to Poison damage and advantage on saving throws against the Poisoned condition.</li>
-                                    <li><strong>Dwarven Toughness:</strong> Your Hit Point maximum increases by 1, and by 1 again every time you gain a level.</li>
-                                    <li><strong>Stonecunning:</strong> As a Bonus Action, gain Tremorsense 60 ft. for 10 minutes. Uses = Proficiency Bonus.</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 120 футів.</li>
+                                    <li><strong>Дворфійська стійкість:</strong> Опір шкоді отрутою та перевага на рятунки проти стану Отруєний.</li>
+                                    <li><strong>Дворфійська витривалість:</strong> Максимум хітів +1 та додатково +1 за кожен рівень.</li>
+                                    <li><strong>Камінне чуття (Stonecunning):</strong> Бонусною дією — трясучий зір 60 фт на 10 хв. Використань = бонус володіння.</li>
                                 </ul>
                             </div>
                         </div>
@@ -229,25 +229,25 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧒 Halfling</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧒 Напіврослик</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Brave | Halfling Nimbleness</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Хоробрість | Напіврослицька спритність</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>A small, cheerful people who value home and peace.</p>
+                            <p>Маленький життєрадісний народ, що цінує дім і спокій.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Small</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Brave:</strong> Advantage on saving throws against the Frightened condition.</li>
-                                    <li><strong>Halfling Nimbleness:</strong> You can move through the space of any creature larger than you.</li>
-                                    <li><strong>Lucky:</strong> When you roll a 1 on the d20 of a D20 Test, you can reroll the die.</li>
-                                    <li><strong>Naturally Stealthy:</strong> You can hide even when obscured only by a creature larger than you.</li>
+                                    <li><strong>Розмір:</strong> Маленька</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Хоробрість (Brave):</strong> Перевага на рятунки проти стану Наляканий.</li>
+                                    <li><strong>Напіврослицька спритність:</strong> Можете проходити крізь простір більших істот.</li>
+                                    <li><strong>Щасливчик (Luck):</strong> Якщо на d20 випадає 1, перекиньте кістку.</li>
+                                    <li><strong>Природна скритність:</strong> Можете ховатися за істотою, більшою за вас.</li>
                                 </ul>
                             </div>
                         </div>
@@ -259,40 +259,40 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧙 Gnome</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧙 Гном</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Gnomish Cunning</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Гномська кмітливість</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Small, inventive busybodies with a love of mechanisms.</p>
+                            <p>Маленькі винахідливі непосиди з любов'ю до механізмів.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Small</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Gnomish Cunning:</strong> Advantage on Intelligence, Wisdom, and Charisma saving throws.</li>
-                                    <li><strong>Gnomish Lineage:</strong> Choose a lineage below. Spellcasting ability: Int/Wis/Cha.</li>
+                                    <li><strong>Розмір:</strong> Маленька</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Гномська кмітливість:</strong> Перевага на рятунки Інтелекту, Мудрості та Харизми.</li>
+                                    <li><strong>Гномський родовід:</strong> Оберіть родовід нижче. Характеристика: Інт/Мдр/Хар.</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Forest Gnome</h4>
+                                        <h4 class="font-bold text-lg mb-1">Лісовий гном</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Lineage Magic:</strong> You know Minor Illusion and can speak with Small or smaller beasts.</li>
+                                            <li><strong>Магія родоводу:</strong> Знаєте «Мала ілюзія» та можете розмовляти з малими звірами.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Rock Gnome</h4>
+                                        <h4 class="font-bold text-lg mb-1">Скельний гном</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Artificer's Lore:</strong> You know Mending and Prestidigitation.</li>
-                                            <li><strong>Clockwork Device:</strong> You can build a Tiny clockwork device (AC 5, 1 HP).</li>
+                                            <li><strong>Майстровитість:</strong> Знаєте «Лагодження» та «Витівка».</li>
+                                            <li><strong>Годинниковий пристрій:</strong> Можете спорудити крихітний механічний пристрій (КЗ 5, 1 хіт).</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -306,48 +306,48 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🐉 Dragonborn</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🐉 Драконороджений</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Draconic Ancestry | Darkvision</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Драконяча спадковість | Темний зір</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Proud descendants of dragons whose breath reflects their lineage.</p>
+                            <p>Горді нащадки драконів, чиє дихання відображає їхній рід.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Draconic Ancestry:</strong> Choose a dragon type — it determines your damage type (Acid/Lightning/Fire/Poison/Cold).</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Breath Weapon:</strong> In place of an attack: a 15-ft. cone or 30-ft. line, Dexterity save (DC 8 + Con modifier + Proficiency Bonus), 1d10 damage (rising to 2d10/3d10/4d10 at levels 5/11/17). Uses = Proficiency Bonus.</li>
-                                    <li><strong>Damage Resistance:</strong> Resistance to the damage type of your ancestry.</li>
-                                    <li><strong>Draconic Flight:</strong> At 5th level, as a Bonus Action — wings: a Fly Speed equal to your Speed for 10 minutes. Once per Long Rest.</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Драконяча спадковість:</strong> Оберіть тип дракона — він визначає тип шкоди (Кислота/Блискавка/Вогонь/Отрута/Холод).</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Зброя дихання (Breath Weapon):</strong> Замість атаки: конус 15 фт або лінія 30 фт, рятунок Спритності (КС 8 + мод. Витривалості + бонус володіння), 1d10 шкоди (зростає до 2d10/3d10/4d10 на 5/11/17 рівнях). Використань = бонус володіння.</li>
+                                    <li><strong>Опір шкоді:</strong> Опір типу шкоди вашої спадковості.</li>
+                                    <li><strong>Драконячий політ (Draconic Flight):</strong> З 5-го рівня бонусною дією — крила: політ = швидкості на 10 хв. Раз на тривалий відпочинок.</li>
                                 </ul>
                             </div>
                             <div class="mt-2">
-                                <h4 class="font-bold text-forest mb-2">Draconic Ancestry (Colors)</h4>
+                                <h4 class="font-bold text-forest mb-2">Драконяча спадковість (Кольори)</h4>
                                 <div class="overflow-x-auto rounded border border-slate-100">
                                     <table class="class-table w-full text-sm">
-                                        <thead><tr class="bg-[#166534] text-white text-xs"><th class="px-3 py-2 text-left">Dragon Color</th><th class="px-3 py-2 text-left">Damage Type</th></tr></thead>
+                                        <thead><tr class="bg-[#166534] text-white text-xs"><th class="px-3 py-2 text-left">Колір дракона</th><th class="px-3 py-2 text-left">Тип шкоди</th></tr></thead>
                                         <tbody class="divide-y divide-slate-200">
-                                            <tr><td class="px-3 py-2">Black</td><td class="px-3 py-2">Acid</td></tr>
-                                            <tr><td class="px-3 py-2">Blue</td><td class="px-3 py-2">Lightning</td></tr>
-                                            <tr><td class="px-3 py-2">Brass</td><td class="px-3 py-2">Fire</td></tr>
-                                            <tr><td class="px-3 py-2">Bronze</td><td class="px-3 py-2">Lightning</td></tr>
-                                            <tr><td class="px-3 py-2">Copper</td><td class="px-3 py-2">Acid</td></tr>
-                                            <tr><td class="px-3 py-2">Gold</td><td class="px-3 py-2">Fire</td></tr>
-                                            <tr><td class="px-3 py-2">Green</td><td class="px-3 py-2">Poison</td></tr>
-                                            <tr><td class="px-3 py-2">Red</td><td class="px-3 py-2">Fire</td></tr>
-                                            <tr><td class="px-3 py-2">Silver</td><td class="px-3 py-2">Cold</td></tr>
-                                            <tr><td class="px-3 py-2">White</td><td class="px-3 py-2">Cold</td></tr>
+                                            <tr><td class="px-3 py-2">Чорний (Black)</td><td class="px-3 py-2">Кислота</td></tr>
+                                            <tr><td class="px-3 py-2">Синій (Blue)</td><td class="px-3 py-2">Блискавка</td></tr>
+                                            <tr><td class="px-3 py-2">Латунний (Brass)</td><td class="px-3 py-2">Вогонь</td></tr>
+                                            <tr><td class="px-3 py-2">Бронзовий (Bronze)</td><td class="px-3 py-2">Блискавка</td></tr>
+                                            <tr><td class="px-3 py-2">Мідний (Copper)</td><td class="px-3 py-2">Кислота</td></tr>
+                                            <tr><td class="px-3 py-2">Золотий (Gold)</td><td class="px-3 py-2">Вогонь</td></tr>
+                                            <tr><td class="px-3 py-2">Зелений (Green)</td><td class="px-3 py-2">Отрута</td></tr>
+                                            <tr><td class="px-3 py-2">Червоний (Red)</td><td class="px-3 py-2">Вогонь</td></tr>
+                                            <tr><td class="px-3 py-2">Срібний (Silver)</td><td class="px-3 py-2">Холод</td></tr>
+                                            <tr><td class="px-3 py-2">Білий (White)</td><td class="px-3 py-2">Холод</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <p class="text-xs text-slate-500 mt-2">For the breath weapon's shape (15-ft. cone / 30-ft. line), save, and damage, see the core traits above.</p>
+                                <p class="text-xs text-slate-500 mt-2">Форму зброї дихання (конус 15 фт / лінія 30 фт), рятунок і шкоду див. у базових рисах вище.</p>
                             </div>
                         </div>
                     </div>
@@ -358,24 +358,24 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">👹 Orc</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">👹 Орк</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Adrenaline Rush | Darkvision</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Сплеск адреналіну | Темний зір</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Strong, tireless descendants of Gruumsh, built for endurance.</p>
+                            <p>Дужі й невтомні нащадки Груумша, створені для витривалості.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Adrenaline Rush:</strong> Take the Dash action as a Bonus Action and gain Temporary Hit Points equal to your Proficiency Bonus. Regained on a Short or Long Rest.</li>
-                                    <li><strong>Darkvision:</strong> Range 120 feet.</li>
-                                    <li><strong>Relentless Endurance:</strong> When reduced to 0 Hit Points but not killed, you drop to 1 Hit Point instead. Once per Long Rest.</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Сплеск адреналіну (Adrenaline Rush):</strong> Берете дію Ривок бонусною дією й отримуєте тимчасові хіти = бонусу володіння. Відновлення на короткий або тривалий відпочинок.</li>
+                                    <li><strong>Темний зір:</strong> Дальність 120 футів.</li>
+                                    <li><strong>Невблаганна витривалість:</strong> Впавши до 0 хітів (але не вбиті), лишаєтесь з 1 хітом. Раз на тривалий відпочинок.</li>
                                 </ul>
                             </div>
                         </div>
@@ -387,45 +387,45 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">😈 Tiefling</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">😈 Тіфлінг</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Otherworldly Presence</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Потойбічна присутність</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Descendants of an infernal legacy, marked by horns and a tail.</p>
+                            <p>Нащадки інфернального спадку, позначені рогами й хвостом.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Otherworldly Presence:</strong> You know the Thaumaturgy cantrip. Spellcasting ability: Int/Wis/Cha.</li>
-                                    <li><strong>Fiendish Legacy:</strong> Choose a legacy below — it grants a resistance and spells.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Потойбічна присутність:</strong> Знаєте фокус «Чаклунство» (Thaumaturgy). Характеристика: Інт/Мдр/Хар.</li>
+                                    <li><strong>Інфернальний спадок (Fiendish Legacy):</strong> Оберіть спадок нижче — він дає опір і закляття.</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Infernal</h4>
+                                        <h4 class="font-bold text-lg mb-1">Інфернальний</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Legacy:</strong> Resistance to Fire. You know Fire Bolt; at 3rd — Hellish Rebuke; at 5th — Darkness.</li>
+                                            <li><strong>Спадок:</strong> Опір вогнем. Знаєте «Вогняний снаряд»; з 3-го — «Пекельний докір»; з 5-го — «Темрява».</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Chthonic</h4>
+                                        <h4 class="font-bold text-lg mb-1">Хтонічний</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Legacy:</strong> Resistance to Necrotic. You know Chill Touch; at 3rd — False Life; at 5th — Ray of Enfeeblement.</li>
+                                            <li><strong>Спадок:</strong> Опір некрозом. Знаєте «Холодний дотик»; з 3-го — «Хибне життя»; з 5-го — «Промінь виснаження».</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Abyssal</h4>
+                                        <h4 class="font-bold text-lg mb-1">Безодній</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Legacy:</strong> Resistance to Poison. You know Poison Spray; at 3rd — Ray of Sickness; at 5th — Hold Person.</li>
+                                            <li><strong>Спадок:</strong> Опір отрутою. Знаєте «Бризки отрути»; з 3-го — «Промінь нездужання»; з 5-го — «Утримання особи».</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -439,47 +439,47 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">😇 Aasimar</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">😇 Аасімар</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Celestial Resistance</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Небесний опір</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Bearers of a celestial spark, marked by the influence of the higher planes.</p>
+                            <p>Носії небесної іскри, позначені впливом вищих планів.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Celestial Resistance:</strong> Resistance to Necrotic and Radiant damage.</li>
-                                    <li><strong>Healing Hands:</strong> As an action, touch a creature and roll a number of d4s equal to your Proficiency Bonus, restoring that many Hit Points. Once per Long Rest.</li>
-                                    <li><strong>Light Bearer:</strong> You know the Light cantrip (Charisma).</li>
-                                    <li><strong>Celestial Revelation:</strong> At 3rd level choose a form below; as a Bonus Action for 1 minute, add damage equal to your Proficiency Bonus once per turn. Once per Long Rest.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Небесний опір:</strong> Опір шкоді некрозом і промінням.</li>
+                                    <li><strong>Цілющі руки (Healing Hands):</strong> Дією торкаєтесь істоти й кидаєте d4 числом = бонусу володіння, відновлюючи хіти. Раз на тривалий відпочинок.</li>
+                                    <li><strong>Світоносець (Light Bearer):</strong> Знаєте фокус «Світло» (Харизма).</li>
+                                    <li><strong>Небесне одкровення (Celestial Revelation):</strong> З 3-го рівня оберіть форму нижче; бонусною дією на 1 хв додаєте +бонус володіння шкоди раз на хід. Раз на тривалий відпочинок.</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Heavenly Wings</h4>
+                                        <h4 class="font-bold text-lg mb-1">Небесні крила</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Revelation:</strong> Wings: a Fly Speed equal to your Speed for the duration.</li>
+                                            <li><strong>Одкровення:</strong> Крила: політ = швидкості на час перетворення.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Inner Radiance</h4>
+                                        <h4 class="font-bold text-lg mb-1">Внутрішнє сяйво</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Revelation:</strong> Radiance (10-ft. light); nearby enemies take Radiant damage.</li>
+                                            <li><strong>Одкровення:</strong> Сяйво (світло 10 фт); вороги поруч отримують промінну шкоду.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Necrotic Shroud</h4>
+                                        <h4 class="font-bold text-lg mb-1">Некротична запона</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Revelation:</strong> Spectral wings frighten nearby enemies; extra Necrotic damage.</li>
+                                            <li><strong>Одкровення:</strong> Примарні крила лякають ворогів поруч; додаткова шкода некрозом.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -493,63 +493,63 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🗿 Goliath</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Common (PHB 2024)</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🗿 Голіаф</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Звичайні (PHB 2024)</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Giant Ancestry | Large Form</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Спадок велетнів | Велика подоба</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>A towering highland people with a drop of giant blood.</p>
+                            <p>Велетенський народ високогір'я з краплею крові велетнів.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 35 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Giant Ancestry:</strong> Choose a giant gift below. Uses = Proficiency Bonus.</li>
-                                    <li><strong>Large Form:</strong> At 5th level, as a Bonus Action you become Large for 10 minutes (advantage on Strength, +10 ft. Speed). Once per Long Rest.</li>
-                                    <li><strong>Powerful Build:</strong> Advantage against the Grappled condition and you count as one size larger for carrying capacity.</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 35 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Спадок велетнів (Giant Ancestry):</strong> Оберіть дар велетня нижче. Використань = бонус володіння.</li>
+                                    <li><strong>Велика подоба (Large Form):</strong> З 5-го рівня бонусною дією стаєте Великим на 10 хв (перевага на Силу, +10 фт швидкості). Раз на тривалий відпочинок.</li>
+                                    <li><strong>Потужна статура (Powerful Build):</strong> Перевага проти стану Схоплений і рахуєтесь на розмір більшим для перенесення ваги.</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Cloud's Jaunt</h4>
+                                        <h4 class="font-bold text-lg mb-1">Стрибок хмари</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> As a Bonus Action, teleport up to 30 ft.</li>
+                                            <li><strong>Дар:</strong> Бонусною дією телепортуєтесь на 30 фт.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Fire's Burn</h4>
+                                        <h4 class="font-bold text-lg mb-1">Полум'я вогню</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> When you hit with an attack, deal an extra 1d10 Fire damage.</li>
+                                            <li><strong>Дар:</strong> Влучивши атакою, додаєте 1d10 шкоди вогнем.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Frost's Chill</h4>
+                                        <h4 class="font-bold text-lg mb-1">Холод криги</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> When you hit with an attack, deal an extra 1d6 Cold damage and reduce the target's Speed by 10 ft.</li>
+                                            <li><strong>Дар:</strong> Влучивши атакою, додаєте 1d6 шкоди холодом і зменшуєте швидкість цілі на 10 фт.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Hill's Tumble</h4>
+                                        <h4 class="font-bold text-lg mb-1">Падіння пагорба</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> When you hit with an attack, you can knock the target Prone.</li>
+                                            <li><strong>Дар:</strong> Влучивши атакою, можете збити ціль з ніг (Prone).</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Stone's Endurance</h4>
+                                        <h4 class="font-bold text-lg mb-1">Стійкість каменю</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> As a Reaction, reduce the damage taken by 1d12 + your Constitution modifier.</li>
+                                            <li><strong>Дар:</strong> Реакцією зменшуєте отриману шкоду на 1d12 + мод. Витривалості.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Storm's Thunder</h4>
+                                        <h4 class="font-bold text-lg mb-1">Грім бурі</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Gift:</strong> As a Reaction when you take damage, deal 1d8 Thunder damage to a creature within range.</li>
+                                            <li><strong>Дар:</strong> Реакцією, отримавши шкоду, завдаєте 1d8 шкоди громом істоті поруч.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -559,29 +559,29 @@
                 </div>
             </div>
 
-            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔩 Eberron</h2>
+            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔩 Еберрон</h2>
 
             <!-- CHANGELING -->
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🎭 Changeling</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🎭 Перевертень (Changeling)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Еберрон</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Changeling Instincts | Shapeshifting</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Інстинкти перевертня | Зміна форми</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Fey shapeshifters who can take on any face. Source: Eberron.</p>
+                            <p>Фейські шейпшифтери, що можуть набути будь-якого обличчя. Джерело: Eberron.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Changeling Instincts:</strong> Proficiency in two skills: Deception, Insight, Intimidation, Performance, or Persuasion.</li>
-                                    <li><strong>Shape-Shifter:</strong> As an action, change your appearance and voice (height, sex, Medium–Small size, the look of another species). While transformed, you have advantage on Charisma checks. Your equipment doesn't change.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Інстинкти перевертня:</strong> Володіння двома навичками: Обман, Проникливість, Залякування, Виступ або Переконання.</li>
+                                    <li><strong>Зміна форми (Shape-Shifter):</strong> Дією змінюєте зовнішність і голос (зріст, стать, розмір Середній–Маленький, вигляд іншого виду). Поки змінені — перевага на перевірки Харизми. Спорядження не змінюється.</li>
                                 </ul>
                             </div>
                         </div>
@@ -593,25 +593,25 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧠 Kalashtar</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧠 Калаштар (Kalashtar)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Еберрон</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Dual Mind | Mental Discipline</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Подвійний розум | Ментальна дисципліна</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>A union of humans and quori spirits from dreams. An Aberration. Source: Eberron.</p>
+                            <p>Союз людей і духів квор зі снів. Аберація. Джерело: Eberron.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Dual Mind:</strong> Advantage on Wisdom and Charisma saving throws.</li>
-                                    <li><strong>Mental Discipline:</strong> Resistance to Psychic damage.</li>
-                                    <li><strong>Mind Link:</strong> Telepathy within a range of 10 ft. × your level; you can let a creature respond telepathically for 1 hour.</li>
-                                    <li><strong>Severed from Dreams:</strong> You can't be the target of the Sleep spell; after a Long Rest you gain proficiency in one skill of your choice.</li>
+                                    <li><strong>Розмір:</strong> Середня</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Подвійний розум (Dual Mind):</strong> Перевага на рятунки Мудрості та Харизми.</li>
+                                    <li><strong>Ментальна дисципліна:</strong> Опір психічній шкоді.</li>
+                                    <li><strong>Ментальний зв'язок (Mind Link):</strong> Телепатія в радіусі 10 фт × ваш рівень; можете дозволити істоті відповідати телепатично 1 годину.</li>
+                                    <li><strong>Відрізаний від снів:</strong> Не можете бути ціллю закляття «Сон»; після тривалого відпочинку отримуєте володіння однією навичкою на вибір.</li>
                                 </ul>
                             </div>
                         </div>
@@ -623,26 +623,26 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧝‍♂️ Khoravar</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧝‍♂️ Хоравар (Khoravar)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Еберрон</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Fey Ancestry</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Спадок фейрі</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Descendants of the humans and elves of Khorvaire ("children of Khorvaire"). Eberron's equivalent of the half-elf. Source: Eberron.</p>
+                            <p>Нащадки людей і ельфів Кхорвейру («діти Кхорвейру»). Еберронський аналог напівельфа. Джерело: Eberron.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Fey Ancestry:</strong> Advantage on saving throws against the Charmed condition.</li>
-                                    <li><strong>Fey Gift:</strong> You know the Friends cantrip; on a Long Rest you can replace it with a Cleric, Druid, or Wizard cantrip.</li>
-                                    <li><strong>Sleepless Resilience:</strong> You can treat a failed save against the Unconscious condition as a success. You can do so again after 1d4 Long Rests.</li>
-                                    <li><strong>Skill Versatility:</strong> Proficiency in one skill or tool; you can change it on a Long Rest.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Спадок фейрі (Fey Ancestry):</strong> Перевага на рятунки проти стану Зачарований.</li>
+                                    <li><strong>Дар фейрі (Fey Gift):</strong> Знаєте фокус «Друзі»; на тривалому відпочинку можете замінити його фокусом жерця, друїда або чарівника.</li>
+                                    <li><strong>Опір летаргії:</strong> Провал рятунку проти стану Непритомний можна вважати успіхом. Повторно — після 1d4 тривалих відпочинків.</li>
+                                    <li><strong>Багатогранність навичок:</strong> Володіння однією навичкою або інструментом; можна змінювати на тривалому відпочинку.</li>
                                 </ul>
                             </div>
                         </div>
@@ -654,51 +654,51 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🐺 Shifter</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🐺 Перевертень-звір (Shifter)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Еберрон</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Bestial Instincts | Darkvision</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Звірині інстинкти | Темний зір</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Descendants of lycanthropes who can temporarily heighten their bestial traits. Source: Eberron.</p>
+                            <p>Нащадки лікантропів, що можуть тимчасово підсилювати звірині риси. Джерело: Eberron.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Bestial Instincts:</strong> Proficiency in one skill: Acrobatics, Athletics, Intimidation, or Survival.</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Shifting:</strong> As a Bonus Action for 1 minute, take on a bestial form; gain Temporary Hit Points equal to 2 × your Proficiency Bonus. Uses = Proficiency Bonus. Choose a type below.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Звірині інстинкти:</strong> Володіння однією навичкою: Акробатика, Атлетика, Залякування або Виживання.</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Звертання (Shifting):</strong> Бонусною дією на 1 хв набуваєте звіриної подоби; тимчасові хіти = 2 × бонус володіння. Використань = бонус володіння. Оберіть тип нижче.</li>
                                 </ul>
                             </div>
                             <div class="mt-6 border-t border-slate-200 pt-4">
-                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Subraces</h3>
+                                <h3 class="font-heading text-xl font-bold text-forest mb-3">Підраси (Subraces)</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Beasthide</h4>
+                                        <h4 class="font-bold text-lg mb-1">Звірошкірий</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Shifting:</strong> +1d6 Temporary Hit Points and +1 AC while shifted.</li>
+                                            <li><strong>Звертання:</strong> +1d6 тимчасових хітів і +1 КЗ поки звернені.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Longtooth</h4>
+                                        <h4 class="font-bold text-lg mb-1">Довгоіклий</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Shifting:</strong> As a Bonus Action, make a fang Unarmed Strike: 1d6 + your Strength modifier Piercing damage.</li>
+                                            <li><strong>Звертання:</strong> Бонусною дією робите Беззбройний удар іклами: 1d6 + мод. Сили колючої шкоди.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Swiftstride</h4>
+                                        <h4 class="font-bold text-lg mb-1">Прудкокрокий</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Shifting:</strong> +10 ft. Speed; as a Reaction, move up to 10 ft. when an enemy ends its turn near you.</li>
+                                            <li><strong>Звертання:</strong> +10 фт швидкості; реакцією рухаєтесь до 10 фт, коли ворог завершує хід поруч.</li>
                                         </ul>
                                     </div>
                                     <div class="border border-slate-200 p-4 rounded bg-white">
-                                        <h4 class="font-bold text-lg mb-1">Wildhunt</h4>
+                                        <h4 class="font-bold text-lg mb-1">Дикий мисливець</h4>
                                         <ul class="list-disc pl-5 text-sm space-y-1">
-                                            <li><strong>Shifting:</strong> Advantage on Wisdom checks; enemies don't have advantage on attacks against you.</li>
+                                            <li><strong>Звертання:</strong> Перевага на перевірки Мудрості; вороги не мають переваги на атаки по вас.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -712,26 +712,26 @@
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🤖 Warforged</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🤖 Ковані (Warforged)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Еберрон</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Constructed Resilience | Integrated Protection</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Конструктна стійкість | Вбудований захист</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Sentient constructs of wood and metal, created for the Last War. Source: Eberron.</p>
+                            <p>Розумні конструкти з дерева й металу, створені для Останньої війни. Джерело: Eberron.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 30 feet</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Constructed Resilience:</strong> Resistance to Poison damage and advantage on saving throws against the Poisoned condition.</li>
-                                    <li><strong>Integrated Protection:</strong> +1 AC; armor you wear can't be removed against your will.</li>
-                                    <li><strong>Sentry's Rest:</strong> You don't sleep; your Long Rest is 6 hours spent motionless but conscious. Magic can't put you to sleep.</li>
-                                    <li><strong>Specialized Design:</strong> Proficiency in one skill (your choice) and one tool set.</li>
-                                    <li><strong>Tireless:</strong> You don't gain levels of Exhaustion from thirst, hunger, or suffocation.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Конструктна стійкість:</strong> Опір шкоді отрутою та перевага на рятунки проти стану Отруєний.</li>
+                                    <li><strong>Вбудований захист (Integrated Protection):</strong> +1 до КЗ; одягнений обладунок не може бути знятий проти вашої волі.</li>
+                                    <li><strong>Спочинок вартового (Sentry's Rest):</strong> Не спите; тривалий відпочинок — 6 годин у нерухомому, але притомному стані. Магія не може вас приспати.</li>
+                                    <li><strong>Спеціалізована конструкція:</strong> Володіння однією навичкою (на вибір) та одним набором інструментів.</li>
+                                    <li><strong>Невтомність (Tireless):</strong> Не отримуєте рівнів Виснаження від спраги, голоду чи задухи.</li>
                                 </ul>
                             </div>
                         </div>
@@ -739,31 +739,180 @@
                 </div>
             </div>
 
-            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔮 Exotic</h2>
+            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🌿 Лорвін / Шадовмур</h2>
+
+            <!-- BOGGART -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🦦 Боґґарт (Boggart)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Лорвін</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Тип істоти | Темний зір</div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Маленькі ґобліноїди-алхіміки з Лорвіна. Джерело: Lorwyn.</p>
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Розмір:</strong> Маленька</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Тип істоти:</strong> Гуманоїд; також вважаєтесь ґобліноїдом для відповідних ефектів.</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Спадок фейрі (Fey Ancestry):</strong> Перевага на рятунки проти стану Зачарований.</li>
+                                    <li><strong>Лють малих (Fury of the Small):</strong> Завдавши шкоди істоті, більшій за вас, додаєте шкоду = бонусу володіння (раз на хід). Використань = бонус володіння.</li>
+                                    <li><strong>Спритна втеча (Nimble Escape):</strong> Можете брати дію Відступ або Сховатися бонусною дією щоходу.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAERIE -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧚 Феєрі (Faerie)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Лорвін</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Магія феєрі | Політ</div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Крихітні крилаті пустуни, народжені з квітів, з вродженою магією. Джерело: Lorwyn.</p>
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Розмір:</strong> Маленька</li>
+                                    <li><strong>Швидкість:</strong> 30 футів (політ 30 фт)</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Магія феєрі (Fairy Magic):</strong> Знаєте фокус «Друїдизм». З 3-го рівня — «Вогні фейрі»; з 5-го — «Збільшення/Зменшення». Характеристика: Інт/Мдр/Хар.</li>
+                                    <li><strong>Політ (Flight):</strong> Швидкість польоту = швидкості ходьби. Не діє в середній або важкій броні.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLAMEKIN -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🔥 Полум'яні (Flamekin)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Лорвін</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Опір вогню</div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Народ із вогню та каменю, тіла яких випромінюють нешкідливе магічне полум'я. Джерело: Lorwyn.</p>
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Опір вогню:</strong> Опір шкоді вогнем.</li>
+                                    <li><strong>Сягання до полум'я:</strong> Знаєте фокус «Створення полум'я». З 3-го рівня — «Палаючі руки»; з 5-го — «Вогняний клинок». Характеристика: Інт/Мдр/Хар.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LORWYNCHANGELING -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🎴 Лорвінський перевертень</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Лорвін</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Зміна тіла | Темний зір</div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Чарівні шейпшифтери Лорвіна, що грубо імітують форми істот і рослин. Джерело: Lorwyn.</p>
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Зміна тіла (Shape Self):</strong> Дією набуваєте двоногої гуманоїдної або чотириногої звіриної форми.</li>
+                                    <li><strong>Темний зір:</strong> Дальність 120 футів.</li>
+                                    <li><strong>Чарівний імітатор:</strong> Володіння навичкою Виступ.</li>
+                                    <li><strong>Непередбачуваний рух:</strong> Кидаючи ініціативу без Недоліку, можете взяти дію Ривок як реакцію.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIMEKIN -->
+            <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                    <div class="flex flex-col mb-2 md:mb-0">
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">❄️ Крижані (Rimekin)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Лорвін</span>
+                    </div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Магія холодного вогню | Опір холоду</div>
+                </div>
+                <div class="feat-content">
+                    <div class="feat-inner">
+                        <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
+                            <p>Полум'яні, чий вогонь став крижаним; їхнє «полум'я» палає крижаною блакиттю. Джерело: Lorwyn.</p>
+                            <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 30 футів</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Магія холодного вогню:</strong> Знаєте фокус «Промінь холоду». З 3-го — «Крижаний ніж»; з 5-го — «Вогняний клинок» (завдає шкоди холодом). Характеристика: Інт/Мдр/Хар.</li>
+                                    <li><strong>Опір холоду:</strong> Опір шкоді холодом.</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔮 Екзотичні</h2>
 
             <!-- DHAMPIR -->
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
-                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧛 Dhampir</span>
-                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Exotic</span>
+                        <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">🧛 Дампір (Dhampir)</span>
+                        <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Екзотичні</span>
                     </div>
-                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Darkvision | Spider Climb</div>
+                    <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Темний зір | Павуче лазіння</div>
                 </div>
                 <div class="feat-content">
                     <div class="feat-inner">
                         <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-4">
-                            <p>Living people with vampiric abilities, cursed with a macabre hunger. Source: Van Richten's Guide to Ravenloft.</p>
+                            <p>Живі люди з вампірськими здібностями, прокляті макабричним голодом. Джерело: Astarion's Book of Hungers.</p>
                             <div class="bg-slate-50 p-4 rounded border border-slate-100">
-                                <h4 class="font-bold text-forest mb-2">Core Traits:</h4>
+                                <h4 class="font-bold text-forest mb-2">Базові риси:</h4>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Size:</strong> Medium or Small (your choice)</li>
-                                    <li><strong>Speed:</strong> 35 feet (climb 35 ft.)</li>
-                                    <li><strong>Languages:</strong> Common + 2 languages from your background</li>
-                                    <li><strong>Darkvision:</strong> Range 60 feet.</li>
-                                    <li><strong>Spider Climb:</strong> Climb Speed equal to your Speed. At 3rd level, you can move along vertical surfaces and ceilings while leaving your hands free.</li>
-                                    <li><strong>Deathless Nature:</strong> Resistance to Necrotic damage.</li>
-                                    <li><strong>Vampiric Bite:</strong> As an Unarmed Strike, bite: 1d4 + your Constitution modifier Piercing damage. When you deal damage (not to a Construct or Undead), either restore that many Hit Points or gain a bonus to your next check/attack. Uses = Proficiency Bonus.</li>
+                                    <li><strong>Розмір:</strong> Середня або Маленька (на вибір)</li>
+                                    <li><strong>Швидкість:</strong> 35 футів (лазіння 35 фт)</li>
+                                    <li><strong>Мови:</strong> Загальна + 2 мови від передісторії</li>
+                                    <li><strong>Темний зір:</strong> Дальність 60 футів.</li>
+                                    <li><strong>Павуче лазіння (Spider Climb):</strong> Швидкість лазіння = швидкості. З 3-го рівня можете рухатись по вертикальних поверхнях і стелях, не звільняючи руки.</li>
+                                    <li><strong>Слід нежиті:</strong> Опір шкоді некрозом.</li>
+                                    <li><strong>Вампірський укус (Vampiric Bite):</strong> Беззбройним ударом кусаєте: 1d4 + мод. Витривалості колючої шкоди. Завдавши шкоди (не конструкту/нежиті), або відновлюєте стільки ж хітів, або отримуєте бонус до наступної перевірки/атаки. Використань = бонус володіння.</li>
                                 </ul>
                             </div>
                         </div>
@@ -800,7 +949,7 @@
             let cards = document.getElementsByClassName('feat-card');
 
             for (let i = 0; i < cards.length; i++) {
-                // Search ONLY by .feat-name (species name)
+                // Пошук ТІЛЬКИ по .feat-name (назва раси)
                 let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
                 
                 if (name.includes(input)) {

@@ -1,11 +1,11 @@
 /* =========================================================================
- *  pdf-export.js  —  OFFLINE D&D 5e character export to PDF
+ *  pdf-export.js  —  ОФЛАЙН експорт персонажа D&D 5e у PDF
  *  -------------------------------------------------------------------------
- *  No internet or CDN/libraries required.
- *  Custom PDF engine + embedded DejaVuSans font (supports Unicode).
- *  Font comes from dejavu-font.js as window.DEJAVU_SANS_BASE64.
+ *  НЕ потребує інтернету та жодних CDN/бібліотек.
+ *  Власний PDF-рушій + вбудований шрифт DejaVuSans (кирилиця).
+ *  Шрифт приходить з dejavu-font.js як window.DEJAVU_SANS_BASE64.
  *
- *  Data taken from the same globals/helpers as before:
+ *  Дані беруться з тих самих глобалів/хелперів, що й раніше:
  *      character, runValidation, currentTab, switchTab,
  *      DND_CLASSES, DND_RACES, ARMOR_DATA, DND_FEATS, DND_EPIC_BOONS,
  *      ABILITY_KEYS, ABILITY_LABELS,
@@ -18,13 +18,13 @@
  *      getASIUnlockedLevels, normalizeASISelection, isASIValid, selectedFeats,
  *      weaponAttackInfo, computeClassResources/getClassResource,
  *      getSpellSlots, getSpellById, getGrantedSpells
- *  Exports: window.generatePDF()
+ *  Експортує:  window.generatePDF()
  * ======================================================================= */
 (function () {
     "use strict";
 
     /* ====================================================================
-     *  PART 1 — Mini PDF engine with embedded TrueType CID font.
+     *  ЧАСТИНА 1 — Міні-рушій PDF з вбудованим TrueType CID-шрифтом.
      * ==================================================================== */
     function u16(d, o) { return (d[o] << 8) | d[o + 1]; }
     function i16(d, o) { const v = u16(d, o); return v & 0x8000 ? v - 0x10000 : v; }
@@ -216,7 +216,7 @@
     }
 
     /* ====================================================================
-     *  PART 2 — Layout layer (headings, cards, text).
+     *  ЧАСТИНА 2 — Шар макету (заголовки, картки, текст).
      * ==================================================================== */
     const PAGE_W = 595.28, PAGE_H = 841.89, MARGIN = 42;
     const CONTENT_W = PAGE_W - 2 * MARGIN;
@@ -243,7 +243,7 @@
         el.className = "text-xs mt-4 min-h-[1rem] " + (isError ? "text-red-600 font-semibold" : "text-slate-500");
     }
 
-    // Layout layer on top of MiniPDF — tracks cursor y top-to-bottom, paginates.
+    // Шар макету поверх MiniPDF — веде курсор y зверху вниз, пагінує.
     function Layout(doc) {
         let y = MARGIN;
         const api = {
@@ -294,7 +294,7 @@
                     y += lh;
                 }
             },
-            // Grid cards (e.g. stats): [{label, value}]
+            // Картки у сітці (напр. характеристики): [{label, value}]
             cards(items, cols, opts = {}) {
                 const cardH = opts.h || 38;
                 const gutter = 6;
@@ -315,7 +315,7 @@
                     y = rowY + cardH + 6;
                 }
             },
-            // Two-column key-value pairs
+            // Дво-колонкові пари ключ-значення
             kvRows(items, cols = 2) {
                 const size = 9.5, lh = 16;
                 const cw = CONTENT_W / cols;
@@ -340,7 +340,7 @@
     }
 
     /* ====================================================================
-     *  PART 3 — Character sheet generation.
+     *  ЧАСТИНА 3 — Генерація листа персонажа.
      * ==================================================================== */
     function generatePDF() {
         const btn = document.getElementById("btn-download-pdf");
@@ -348,29 +348,29 @@
         const icon = document.getElementById("btn-download-icon");
         try {
             if (typeof window.DEJAVU_SANS_BASE64 !== "string" || window.DEJAVU_SANS_BASE64.length < 1000) {
-                setPdfStatus("Font not loaded (dejavu-font.js missing or not connected).", true);
+                setPdfStatus("Шрифт не завантажився (dejavu-font.js відсутній або не підключений).", true);
                 return;
             }
             const errors = (typeof runValidation === "function") ? runValidation() : [];
             if (errors.length > 0) {
                 const firstTab = errors[0].tab;
                 const summary = errors.slice(0, 5).map(e => `• ${e.message}`).join("\n");
-                const wordForm = "";
+                const wordForm = errors.length === 1 ? "а" : errors.length < 5 ? "и" : "ок";
                 setPdfStatus(`Заповніть обов'язкові поля перед генерацією PDF (${errors.length} помилк${wordForm}).\n${summary}`, true);
                 if (firstTab && typeof currentTab !== "undefined" && firstTab !== currentTab && typeof switchTab === "function") switchTab(firstTab);
                 return;
             }
             if (btn) btn.disabled = true;
             if (icon) icon.innerText = "⏳";
-            if (label) label.innerText = "Preparing PDF...";
-            setPdfStatus("Generating PDF (offline)...");
+            if (label) label.innerText = "Готуємо PDF...";
+            setPdfStatus("Генеруємо PDF (офлайн)...");
 
             const fontBytes = decodeBase64ToBytes(window.DEJAVU_SANS_BASE64);
             const doc = new MiniPDF(fontBytes);
             const L = Layout(doc);
             L.newPage();
 
-            // ---- Helper data ----
+            // ---- Допоміжні дані ----
             const ch = (typeof character !== "undefined") ? character : {};
             const cls = (ch.classId && typeof DND_CLASSES !== "undefined") ? DND_CLASSES[ch.classId] : null;
             const race = (ch.raceId && typeof DND_RACES !== "undefined") ? DND_RACES[ch.raceId] : null;
@@ -381,29 +381,29 @@
             const safeFmt = (n) => (typeof fmtMod === "function") ? fmtMod(n) : (n >= 0 ? `+${n}` : String(n));
             const fin = (k) => (typeof finalAbility === "function") ? finalAbility(k) : (d[k] || "");
 
-            // ---- Header ----
-            L.title(d.name || "Unnamed Hero");
-            L.subtitle("Character Sheet • D&D 5e");
+            // ---- Заголовок ----
+            L.title(d.name || "Безіменний герой");
+            L.subtitle("Лист персонажа • D&D 5e");
 
             const headerKv = [];
-            if (cls) headerKv.push({ label: "Class & Level:", value: `${cls.name} ${lvl}` });
-            if (ch.subclass) headerKv.push({ label: "Subclass:", value: ch.subclass });
-            if (race) headerKv.push({ label: "Race:", value: race.name });
+            if (cls) headerKv.push({ label: "Клас і рівень:", value: `${cls.name} ${lvl}` });
+            if (ch.subclass) headerKv.push({ label: "Підклас:", value: ch.subclass });
+            if (race) headerKv.push({ label: "Раса:", value: race.name });
             const bgName = (typeof effectiveBackgroundName === "function") ? effectiveBackgroundName() : "";
-            if (bgName) headerKv.push({ label: "Background:", value: bgName });
-            if (d.alignment) headerKv.push({ label: "Alignment:", value: d.alignment });
-            headerKv.push({ label: "Proficiency Bonus:", value: `+${pb}` });
+            if (bgName) headerKv.push({ label: "Передісторія:", value: bgName });
+            if (d.alignment) headerKv.push({ label: "Світогляд:", value: d.alignment });
+            headerKv.push({ label: "Бонус майстерності:", value: `+${pb}` });
             L.kvRows(headerKv, 2);
             L.gap(8);
 
-            // ---- Ability Scores ----
-            L.heading("Ability Scores");
-            const ABILS = [["str", "STR"], ["dex", "DEX"], ["con", "CON"], ["int", "INT"], ["wis", "WIS"], ["cha", "CHA"]];
+            // ---- Характеристики ----
+            L.heading("Характеристики");
+            const ABILS = [["str", "СИЛА"], ["dex", "СПРИТНІСТЬ"], ["con", "СТАТУРА"], ["int", "ІНТЕЛЕКТ"], ["wis", "МУДРІСТЬ"], ["cha", "ХАРИЗМА"]];
             L.cards(ABILS.map(([k, lab]) => ({ label: lab, value: `${fin(k)}  (${safeFmt(safeMod(k))})` })), 3, { h: 36 });
             L.gap(4);
 
-            // ---- Saving Throws ----
-            L.heading("Saving Throws");
+            // ---- Рятункові кидки ----
+            L.heading("Рятункові кидки");
             const isSt = (k) => cls && cls.savingThrows && cls.savingThrows.includes(k);
             L.kvRows(ABILS.map(([k, lab]) => ({
                 label: lab.charAt(0) + lab.slice(1).toLowerCase() + (isSt(k) ? " ●" : ""),
@@ -411,8 +411,8 @@
             })), 3);
             L.gap(8);
 
-            // ---- Combat Stats ----
-            L.heading("Combat Stats");
+            // ---- Бойові показники ----
+            L.heading("Бойові показники");
             const acCalc = (typeof calculateAC === "function") ? calculateAC() : { ac: "—" };
             const hpMaxVal = (cls && typeof maxHP === "function") ? maxHP() : 0;
             const inv = ch.inventory || {};
@@ -424,134 +424,134 @@
             const init = safeFmt((typeof initiativeBonus === "function") ? initiativeBonus() : safeMod("dex"));
             const passive = (cls && typeof passivePerception === "function") ? String(passivePerception()) : "—";
             L.cards([
-                { label: "ARMOR CLASS (AC)", value: String(acCalc.ac) },
-                { label: "INITIATIVE", value: init },
-                { label: "SPEED", value: String(speed) },
-                { label: "HP (MAX)", value: cls ? String(hpMaxVal) : "—" },
-                { label: "CURRENT HP", value: cls ? String(hpCurVal) : "—" },
-                { label: "HIT DICE", value: hd },
-                { label: "PASSIVE PERCEPTION", value: passive },
-                { label: "PROFICIENCY BONUS", value: `+${pb}` },
+                { label: "КЛАС БРОНІ (AC)", value: String(acCalc.ac) },
+                { label: "ІНІЦІАТИВА", value: init },
+                { label: "ШВИДКІСТЬ", value: String(speed) },
+                { label: "ХП (МАКС)", value: cls ? String(hpMaxVal) : "—" },
+                { label: "ПОТОЧНІ ХП", value: cls ? String(hpCurVal) : "—" },
+                { label: "КУБИКИ ХІТІВ", value: hd },
+                { label: "ПАСИВНА УВАГА", value: passive },
+                { label: "БОНУС МАЙСТЕРНОСТІ", value: `+${pb}` },
             ], 4, { h: 36 });
             L.gap(4);
 
-            // ---- Skills ----
+            // ---- Навички ----
             const SKILLS = [
-                ["Acrobatics", "dex"], ["Animal Handling", "wis"], ["Athletics", "str"],
-                ["Deception", "cha"], ["History", "int"], ["Insight", "wis"], ["Intimidation", "cha"],
-                ["Investigation", "int"], ["Arcana", "int"], ["Nature", "int"], ["Perception", "wis"],
-                ["Performance", "cha"], ["Medicine", "wis"], ["Religion", "int"], ["Stealth", "dex"],
-                ["Persuasion", "cha"], ["Sleight of Hand", "dex"], ["Survival", "wis"],
+                ["Акробатика", "dex"], ["Поводження з тваринами", "wis"], ["Атлетика", "str"],
+                ["Обман", "cha"], ["Історія", "int"], ["Проникливість", "wis"], ["Залякування", "cha"],
+                ["Дослідження", "int"], ["Аркана", "int"], ["Природа", "int"], ["Уважність", "wis"],
+                ["Виступ", "cha"], ["Медицина", "wis"], ["Релігія", "int"], ["Скритність", "dex"],
+                ["Переконання", "cha"], ["Спритність рук", "dex"], ["Виживання", "wis"],
             ];
             const bgSkills = (typeof backgroundBonusSkills === "function") ? backgroundBonusSkills() : [];
             const raceSkills = (typeof getRaceSkillProficiencies === "function") ? getRaceSkillProficiencies() : [];
             const chosenSkills = new Set([...(ch.skills || []), ...bgSkills, ...raceSkills]);
-            L.heading("Skills  (● — proficient)");
+            L.heading("Навички  (● — є майстерність)");
             L.kvRows(SKILLS.map(([name, stat]) => {
                 const prof = chosenSkills.has(name);
                 return { label: (prof ? "● " : "  ") + name, value: safeFmt(safeMod(stat) + (prof ? pb : 0)) };
             }), 2);
             L.gap(8);
 
-            // ---- Attacks / weapons ----
+            // ---- Атаки / зброя ----
             const weaponRows = Array.isArray(inv.weaponList) ? inv.weaponList : [];
             const atkLines = [];
             weaponRows.forEach(row => {
                 const info = (typeof weaponAttackInfo === "function") ? weaponAttackInfo(row) : null;
-                if (info) atkLines.push(`• ${info.name} — ${info.attackBonus} to hit, damage: ${info.damageStr}`);
+                if (info) atkLines.push(`• ${info.name} — ${info.attackBonus} до влучання, шкода: ${info.damageStr}`);
             });
             if (atkLines.length) {
-                L.heading("Attacks");
+                L.heading("Атаки");
                 atkLines.forEach(ln => L.para(ln, { indent: 6 }));
                 L.gap(6);
             }
 
-            // ---- Proficiencies & Languages ----
+            // ---- Володіння та мови ----
             const profLines = [];
             if (cls) {
-                profLines.push(`Armor: ${cls.armorProf}`);
-                profLines.push(`Weapons: ${cls.weaponProf}`);
-                if (cls.savingThrowsLabel) profLines.push(`Saves: ${cls.savingThrowsLabel}`);
+                profLines.push(`Броня: ${cls.armorProf}`);
+                profLines.push(`Зброя: ${cls.weaponProf}`);
+                if (cls.savingThrowsLabel) profLines.push(`Рятунки: ${cls.savingThrowsLabel}`);
             }
             const allLanguages = [];
             if (race && race.languages) allLanguages.push(race.languages);
             const bgLangs = (typeof backgroundLanguagesText === "function") ? backgroundLanguagesText() : "";
-            if (bgLangs) allLanguages.push(`Background: ${bgLangs}`);
-            if (allLanguages.length) profLines.push(`Languages: ${allLanguages.join("; ")}`);
+            if (bgLangs) allLanguages.push(`Передісторія: ${bgLangs}`);
+            if (allLanguages.length) profLines.push(`Мови: ${allLanguages.join("; ")}`);
             const bgTools = (typeof backgroundToolsText === "function") ? backgroundToolsText() : "";
-            if (bgTools) profLines.push(`Tools: ${bgTools}`);
+            if (bgTools) profLines.push(`Інструменти: ${bgTools}`);
             if (typeof getSubclassProficiencies === "function") {
                 const sp = getSubclassProficiencies();
-                if (sp.armor && sp.armor.length) profLines.push(`Subclass (armor): ${sp.armor.join(", ")}`);
-                if (sp.weapons && sp.weapons.length) profLines.push(`Subclass (weapons): ${sp.weapons.join(", ")}`);
+                if (sp.armor && sp.armor.length) profLines.push(`Підклас (броня): ${sp.armor.join(", ")}`);
+                if (sp.weapons && sp.weapons.length) profLines.push(`Підклас (зброя): ${sp.weapons.join(", ")}`);
             }
-            if (chosenSkills.size) profLines.push(`Skills: ${[...chosenSkills].join(", ")}`);
+            if (chosenSkills.size) profLines.push(`Навички: ${[...chosenSkills].join(", ")}`);
             if (profLines.length) {
-                L.heading("Proficiencies & Languages");
+                L.heading("Володіння та мови");
                 profLines.forEach(ln => L.para(ln));
                 L.gap(6);
             }
 
-            // ---- Features & Traits ----
+            // ---- Особливості та риси ----
             const featLines = [];
             const allClassFeatures = (typeof collectAllClassFeatures === "function") ? collectAllClassFeatures().filter(f => f.level <= lvl) : [];
             if (allClassFeatures.length) {
-                featLines.push({ h: `Class features (${cls ? cls.name : ""}):` });
-                allClassFeatures.forEach(f => featLines.push({ b: `• [Lv.${f.level}] ${f.name}: ${f.desc}` }));
+                featLines.push({ h: `Вміння класу ${cls ? cls.name : ""}:` });
+                allClassFeatures.forEach(f => featLines.push({ b: `• [Рів.${f.level}] ${f.name}: ${f.desc}` }));
             }
             if (typeof getSubclassFeatures === "function") {
                 const sf = getSubclassFeatures();
                 if (sf.length && ch.subclass) {
-                    featLines.push({ h: `Subclass features (${ch.subclass}):` });
-                    sf.forEach(f => featLines.push({ b: `• [Lv.${f.level}] ${f.name}: ${f.description}` }));
+                    featLines.push({ h: `Особливості підкласу (${ch.subclass}):` });
+                    sf.forEach(f => featLines.push({ b: `• [Рів.${f.level}] ${f.name}: ${f.description}` }));
                 }
             }
             const asiLevels = (typeof getASIUnlockedLevels === "function") ? getASIUnlockedLevels() : [];
             if (asiLevels.length) {
-                featLines.push({ h: "Ability Score Improvements / Feats:" });
+                featLines.push({ h: "Підвищення характеристик / Риси:" });
                 asiLevels.forEach(l => {
                     const sel = (typeof normalizeASISelection === "function")
                         ? normalizeASISelection(ch.asiSelections ? ch.asiSelections[l] : null) : { kind: "none" };
                     if (sel.kind === "feat" && sel.featId) {
                         const feats = (typeof DND_FEATS !== "undefined") ? DND_FEATS : [];
                         const f = feats.find(x => x.id === sel.featId);
-                        featLines.push({ b: `• Lv.${l}: Feat — ${f ? f.name : sel.featId}` });
+                        featLines.push({ b: `• Рів.${l}: Риса — ${f ? f.name : sel.featId}` });
                     } else if (sel.kind === "asi" && (typeof isASIValid === "function") && isASIValid(sel.allocations)) {
                         const parts = ABILITY_KEYS.filter(k => (sel.allocations[k] || 0) > 0).map(k => `+${sel.allocations[k]} ${ABILITY_LABELS[k]}`);
-                        featLines.push({ b: `• Lv.${l}: ASI (${parts.join(", ")})` });
+                        featLines.push({ b: `• Рів.${l}: ASI (${parts.join(", ")})` });
                     } else if (sel.kind === "epic" && sel.epicBoonId) {
                         const boons = (typeof DND_EPIC_BOONS !== "undefined") ? DND_EPIC_BOONS : [];
                         const b = boons.find(x => x.id === sel.epicBoonId);
-                        featLines.push({ b: `• Lv.${l}: Epic Boon — ${b ? b.name : sel.epicBoonId}` });
+                        featLines.push({ b: `• Рів.${l}: Епічний дарунок — ${b ? b.name : sel.epicBoonId}` });
                     } else {
-                        featLines.push({ b: `• Lv.${l}: — not chosen yet —` });
+                        featLines.push({ b: `• Рів.${l}: — ще не обрано —` });
                     }
                 });
             }
             const chosenFeats = (typeof selectedFeats === "function") ? selectedFeats() : [];
             if (chosenFeats.length) {
-                featLines.push({ h: "Feats:" });
-                chosenFeats.forEach(f => featLines.push({ b: `• ${f.name} (Lv.${f.level}): ${f.description}` }));
+                featLines.push({ h: "Риси (Feats):" });
+                chosenFeats.forEach(f => featLines.push({ b: `• ${f.name} (Рів.${f.level}): ${f.description}` }));
             }
             if (race && race.traits) {
-                featLines.push({ h: `Racial traits (${race.name}):` });
+                featLines.push({ h: `Расові риси (${race.name}):` });
                 race.traits.forEach(t => featLines.push({ b: `• ${t.name}: ${t.desc}` }));
             }
             const bgFeat = (typeof backgroundFeatureText === "function") ? backgroundFeatureText() : "";
             if (bgFeat) {
-                featLines.push({ h: `Background feature (${bgName}):` });
+                featLines.push({ h: `Риса передісторії (${bgName}):` });
                 featLines.push({ b: `• ${bgFeat}` });
             }
             if (typeof computeClassResources === "function") {
                 const mods = { str: safeMod("str"), dex: safeMod("dex"), con: safeMod("con"), int: safeMod("int"), wis: safeMod("wis"), cha: safeMod("cha") };
                 const res = computeClassResources(ch.classId, lvl, mods, pb) || [];
                 if (res.length) {
-                    featLines.push({ h: "Class resources:" });
+                    featLines.push({ h: "Класові ресурси:" });
                     res.forEach(r => featLines.push({ b: `• ${r.name}: ${r.value}${r.note ? " (" + r.note + ")" : ""}${r.recharge ? " [" + r.recharge + "]" : ""}` }));
                 }
             }
             if (featLines.length) {
-                L.heading("Features & Traits");
+                L.heading("Особливості та риси");
                 featLines.forEach(item => {
                     if (item.h) { L.gap(2); L.para(item.h, { color: C.forest, size: 9.5 }); }
                     else L.para(item.b, { indent: 8 });
@@ -559,22 +559,22 @@
                 L.gap(6);
             }
 
-            // ---- Equipment & Currency ----
+            // ---- Спорядження та валюта ----
             const eqLines = [];
-            if (inv.armor && inv.armor !== "none" && typeof ARMOR_DATA !== "undefined" && ARMOR_DATA[inv.armor]) eqLines.push(`Armor: ${ARMOR_DATA[inv.armor].name}`);
-            if (inv.shield) eqLines.push("Shield");
-            if (inv.weapons) eqLines.push(`Weapon notes: ${inv.weapons}`);
-            if (inv.items) eqLines.push(`Inventory: ${inv.items}`);
+            if (inv.armor && inv.armor !== "none" && typeof ARMOR_DATA !== "undefined" && ARMOR_DATA[inv.armor]) eqLines.push(`Броня: ${ARMOR_DATA[inv.armor].name}`);
+            if (inv.shield) eqLines.push("Щит");
+            if (inv.weapons) eqLines.push(`Нотатки про зброю: ${inv.weapons}`);
+            if (inv.items) eqLines.push(`Інвентар: ${inv.items}`);
             if (eqLines.length || inv.cp || inv.sp || inv.gp || inv.pp) {
-                L.heading("Equipment & Currency");
+                L.heading("Спорядження та валюта");
                 eqLines.forEach(ln => L.para(ln));
-                const coins = [`Copper (CP): ${inv.cp || 0}`, `Silver (SP): ${inv.sp || 0}`, `Gold (GP): ${inv.gp || 0}`, `Platinum (PP): ${inv.pp || 0}`];
+                const coins = [`Мідь (CP): ${inv.cp || 0}`, `Срібло (SP): ${inv.sp || 0}`, `Золото (GP): ${inv.gp || 0}`, `Платина (PP): ${inv.pp || 0}`];
                 L.gap(2);
                 L.kvRows(coins.map(c => ({ label: c, value: "" })), 4);
                 L.gap(6);
             }
 
-            // ---- Spells ----
+            // ---- Заклинання ----
             const sc = (cls && cls.spellcasting) ? cls.spellcasting : null;
             const sp = ch.spells || { cantrips: [], prepared: [] };
             const resolve = (id) => (typeof getSpellById === "function") ? getSpellById(id) : null;
@@ -583,26 +583,26 @@
             const nameFor = (s, granted) => {
                 if (!s) return "";
                 let n = s.name;
-                if (s.concentration) n += " (C)";
-                if (s.ritual) n += " (R)";
+                if (s.concentration) n += " (К)";
+                if (s.ritual) n += " (Р)";
                 if (granted) n += " *";
                 return n;
             };
             const hasSpellContent = sc || grantedSpells.length || (sp.cantrips && sp.cantrips.length) || (sp.prepared && sp.prepared.length);
             if (hasSpellContent) {
-                L.heading("Spells");
+                L.heading("Заклинання");
                 if (sc) {
                     const ability = sc.ability;
                     const abilityName = (typeof ABILITY_LABELS !== "undefined" && ABILITY_LABELS[ability]) || ability;
                     L.kvRows([
-                        { label: "Spellcasting class:", value: cls.name },
-                        { label: "Ability:", value: abilityName },
-                        { label: "Save DC:", value: String(8 + pb + safeMod(ability)) },
-                        { label: "Attack bonus:", value: safeFmt(pb + safeMod(ability)) },
+                        { label: "Клас-заклинач:", value: cls.name },
+                        { label: "Характеристика:", value: abilityName },
+                        { label: "Складність (DC):", value: String(8 + pb + safeMod(ability)) },
+                        { label: "Бонус атаки:", value: safeFmt(pb + safeMod(ability)) },
                     ], 2);
                     const slots = (typeof getSpellSlots === "function") ? getSpellSlots(ch.classId, lvl) : [];
                     const slotItems = [];
-                    slots.forEach((n, i) => { if (n > 0) slotItems.push({ label: `Lv.${i + 1} slots:`, value: String(n) }); });
+                    slots.forEach((n, i) => { if (n > 0) slotItems.push({ label: `Рів.${i + 1} комірок:`, value: String(n) }); });
                     if (slotItems.length) { L.gap(2); L.kvRows(slotItems, 3); }
                     L.gap(2);
                 }
@@ -615,22 +615,22 @@
                     if (!arr || !arr.length) continue;
                     const seen = new Set();
                     const names = arr.filter(it => { if (seen.has(it.s.id)) return false; seen.add(it.s.id); return true; }).map(it => nameFor(it.s, it.granted));
-                    const heading = lv === 0 ? "Cantrips" : `Level ${lv}`;
+                    const heading = lv === 0 ? "Замовляння" : `Рівень ${lv}`;
                     L.para(`${heading}: ${names.join(", ")}`, { indent: 4 });
                 }
-                L.para("(C) — concentration, (R) — ritual, * — granted by race/subclass/feat", { size: 8, color: C.muted });
+                L.para("(К) — концентрація, (Р) — ритуал, * — надане расою/підкласом/рисою", { size: 8, color: C.muted });
                 L.gap(6);
             }
 
-            // ---- Personality ----
+            // ---- Особистість ----
             const persona = [];
-            if (d.traits) persona.push(["Personality Traits", d.traits]);
-            if (d.ideals) persona.push(["Ideals", d.ideals]);
-            if (d.bonds) persona.push(["Bonds", d.bonds]);
-            if (d.flaws) persona.push(["Flaws", d.flaws]);
-            if (d.appearance) persona.push(["Appearance / Backstory", d.appearance]);
+            if (d.traits) persona.push(["Риси характеру", d.traits]);
+            if (d.ideals) persona.push(["Ідеали", d.ideals]);
+            if (d.bonds) persona.push(["Зв'язки", d.bonds]);
+            if (d.flaws) persona.push(["Вади", d.flaws]);
+            if (d.appearance) persona.push(["Зовнішність / історія", d.appearance]);
             if (persona.length) {
-                L.heading("Personality");
+                L.heading("Особистість");
                 persona.forEach(([lab, val]) => {
                     L.gap(2);
                     L.para(lab + ":", { color: C.forest, size: 9.5 });
@@ -638,7 +638,7 @@
                 });
             }
 
-            // ---- Save & Download ----
+            // ---- Збереження та завантаження ----
             const outBytes = doc.build();
             const blob = new Blob([outBytes], { type: "application/pdf" });
             const url = URL.createObjectURL(blob);
@@ -650,17 +650,17 @@
             a.click();
             document.body.removeChild(a);
             setTimeout(() => URL.revokeObjectURL(url), 5000);
-            setPdfStatus(`Done! Character sheet saved (${doc.pages.length} page(s)).`);
+            setPdfStatus(`Готово! Лист персонажа збережено (${doc.pages.length} стор.).`);
         } catch (err) {
-            console.error("PDF generation error:", err);
-            setPdfStatus(`Error: ${err.message}`, true);
+            console.error("Помилка генерації PDF:", err);
+            setPdfStatus(`Помилка: ${err.message}`, true);
         } finally {
             const b = document.getElementById("btn-download-pdf");
             const ic = document.getElementById("btn-download-icon");
             const lb = document.getElementById("btn-download-label");
             if (b) b.disabled = false;
             if (ic) ic.innerText = "⬇️";
-            if (lb) lb.innerText = "Download PDF";
+            if (lb) lb.innerText = "Завантажити PDF";
         }
     }
 

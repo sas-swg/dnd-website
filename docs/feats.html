@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feats - D&D 5e</title>
+    <title>Риси (Feats) - D&D 5e</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Modern fonts -->
+    <!-- Сучасні шрифти -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -55,14 +55,14 @@
             <a href="index.html" class="flex items-center gap-2">
                 <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
-                    D&D 5e Knowledge Base
+                    D&D 5e База Знань
                 </h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Classes</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
             </nav>
         </div>
     </header>    
@@ -70,40 +70,40 @@
 <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Title and Search -->
+        <!-- Заголовок та Пошук -->
         <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <h1 class="font-heading text-3xl font-bold text-forest mb-2">Feats</h1>
-                <p class="text-slate-600">A complete list of feats, fighting styles, and epic boons (2024 rules).</p>
+                <h1 class="font-heading text-3xl font-bold text-forest mb-2">Риси (Feats)</h1>
+                <p class="text-slate-600">Повний список рис, бойових стилів та епічних дарів (Правила 2024 року).</p>
             </div>
             <div class="w-full md:w-80 relative">
-                <input type="text" id="searchInput" onkeyup="searchFeats()" placeholder="Search by name or effect..." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm">
+                <input type="text" id="searchInput" onkeyup="searchFeats()" placeholder="Шукати за назвою або ефектом..." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm">
                 <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
             </div>
         </div>
 
-        <!-- Feat list -->
+        <!-- Список Рис -->
         <div id="feats-list" class="space-y-3">
             
            <div class="space-y-6">
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Artificer Initiate</span>
+            <span class="font-bold text-lg leading-tight feat-name">Адепт-артифіцер (Artificer Initiate)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            1 cantrip and spell from the artificer list, tool proficiency
+            1 замовляння та заклинання артифіцера, володіння інструментами
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Magical Training.</strong> You learn one cantrip and one 1st-level spell from the artificer spell list. Intelligence is your spellcasting ability for these spells.</li>
-                    <li><strong class="font-bold text-black">Free Use.</strong> You can cast this 1st-level spell once without expending a spell slot (recharges after a long rest).</li>
-                    <li><strong class="font-bold text-black">Tool Master.</strong> You gain proficiency with one type of artisan's tools of your choice.</li>
+                    <li><strong class="font-bold text-black">Магічне навчання.</strong> Ви вивчаєте одне замовляння та одне заклинання 1-го рівня зі списку артифіцера. Інтелект є вашою характеристикою для цих заклинань.</li>
+                    <li><strong class="font-bold text-black">Вільне використання.</strong> Ви можете накласти це заклинання 1-го рівня один раз без витрати комірки (відновлюється після тривалого відпочинку).</li>
+                    <li><strong class="font-bold text-black">Майстер інструментів.</strong> Ви отримуєте володіння одним видом інструментів ремісника на ваш вибір.</li>
                 </ul>
             </div>
         </div>
@@ -113,20 +113,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Charger</span>
+            <span class="font-bold text-lg leading-tight feat-name">Натиск (Charger)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Bonus attack or shove after a Dash
+            Бонусна атака або штовхання після Ривка
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
-                <p class="mb-4">If you use the Dash action, you can make one melee weapon attack or shove a creature as a bonus action.</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
+                <p class="mb-4">Якщо ви використовуєте дію Ривок, ви можете бонусною дією зробити одну атаку зброєю ближнього бою або штовхнути істоту.</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Powerful Blow.</strong> If you move at least 10 feet in a straight line before the attack, you add +5 to the damage or push the target 10 feet away from you.</li>
+                    <li><strong class="font-bold text-black">Потужний удар.</strong> Якщо ви пройшли 10 футів по прямій перед атакою, ви додаєте +5 до шкоди або штовхаєте ціль на 10 футів від себе.</li>
                 </ul>
             </div>
         </div>
@@ -136,22 +136,22 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Chef</span>
+            <span class="font-bold text-lg leading-tight feat-name">Кухар (Chef)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Con/Wis, cook food for healing and temporary HP
+            +1 до Вит/Муд, готування їжі для лікування та тимчасових ОЗ
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution or Wisdom by 1.</li>
-                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with cook's utensils.</li>
-                    <li><strong class="font-bold text-black">Nourishing Food.</strong> During a short rest, you prepare food that lets allies regain an extra 1d8 HP.</li>
-                    <li><strong class="font-bold text-black">Treats.</strong> You can prepare treats that grant temporary HP equal to your proficiency bonus.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість або Мудрість на 1.</li>
+                    <li><strong class="font-bold text-black">Майстерність.</strong> Ви отримуєте володіння кухарським приладдям.</li>
+                    <li><strong class="font-bold text-black">Поживна їжа.</strong> Під час короткого відпочинку ви готуєте їжу, що дозволяє союзникам відновлювати додаткові 1d8 ОЗ.</li>
+                    <li><strong class="font-bold text-black">Ласощі.</strong> Ви можете приготувати солодощі, що дають тимчасові ОЗ у кількості вашого бонусу майстерності.</li>
                 </ul>
             </div>
         </div>
@@ -161,21 +161,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Crossbow Expert</span>
+            <span class="font-bold text-lg leading-tight feat-name">Експерт з арбалетів (Crossbow Expert)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Ignore loading, point-blank shots, bonus attack with a hand crossbow
+            Ігнорування перезарядки, стрільба впритул, бонусна атака ручним арбалетом
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Rapid Reload.</strong> You ignore the loading property of crossbows you're proficient with.</li>
-                    <li><strong class="font-bold text-black">Close Quarters.</strong> Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attacks.</li>
-                    <li><strong class="font-bold text-black">Double Shot.</strong> If you attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow.</li>
+                    <li><strong class="font-bold text-black">Швидка стрільба.</strong> Ви ігноруєте властивість перезарядки арбалетів, якими володієте.</li>
+                    <li><strong class="font-bold text-black">Ближній бій.</strong> Перебування в межах 5 футів від ворожої істоти не дає завади на ваші дальні атаки.</li>
+                    <li><strong class="font-bold text-black">Подвійний постріл.</strong> Якщо ви атакуєте одноручною зброєю, ви можете використати бонусну дію для атаки ручним арбалетом.</li>
                 </ul>
             </div>
         </div>
@@ -185,21 +185,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Crusher</span>
+            <span class="font-bold text-lg leading-tight feat-name">Нищівник (Crusher)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con, move enemy on hit, advantage on crit
+            +1 до Сил/Вит, переміщення ворога при ударі, перевага при криті
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Shove.</strong> Once per turn when you deal bludgeoning damage, you can move the creature 5 feet to an unoccupied space.</li>
-                    <li><strong class="font-bold text-black">Staggering Crit.</strong> On a critical hit with bludgeoning damage, all attacks against that creature have advantage until the end of your next turn.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Штовхання.</strong> Раз на хід, коли ви завдаєте дробильну шкоду, ви можете перемістити істоту на 5 футів у вільне місце.</li>
+                    <li><strong class="font-bold text-black">Приголомшливий крит.</strong> При критичному влучанні дробильною шкодою, всі атаки по цій істоті мають перевагу до кінця вашого наступного ходу.</li>
                 </ul>
             </div>
         </div>
@@ -209,20 +209,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Defensive Duelist</span>
+            <span class="font-bold text-lg leading-tight feat-name">Оборонний дуелянт (Defensive Duelist)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Proficiency bonus to AC as a reaction
+            Бонус майстерності до КЗ як реакція
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Dexterity 13+).</p>
-                <p class="mb-4">When you're wielding a finesse weapon you're proficient with and another creature hits you with a melee attack, you can use your reaction.</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Спритність 13+).</p>
+                <p class="mb-4">Коли ви тримаєте фехтувальну зброю, якою володієте, і інша істота влучає по вас атакою ближнього бою, ви можете використати свою реакцію.</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Parry.</strong> Add your proficiency bonus to your AC against that attack, potentially causing it to miss.</li>
+                    <li><strong class="font-bold text-black">Парірування.</strong> Додайте свій бонус майстерності до Класу Доспіху проти цієї атаки, що потенційно може змусити її промахнутися.</li>
                 </ul>
             </div>
         </div>
@@ -232,20 +232,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Dragon Fear</span>
+            <span class="font-bold text-lg leading-tight feat-name">Драконячий страх (Dragon Fear)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con/Cha, replace your breath with a frightful roar
+            +1 до Сил/Вит/Хар, заміна подиху на лякаючий рик
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dragonborn).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дракононароджений).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Frightful Roar.</strong> Instead of using your Breath Weapon, you can let out a roar. Each creature of your choice within 30 feet must make a Wisdom saving throw or be Frightened for 1 minute.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Лякаючий рик.</strong> Замість використання Подиху, ви можете видати рик. Кожна істота на ваш вибір у радіусі 30 футів повинна зробити рятунок Мудрості або стати Наляканою на 1 хвилину.</li>
                 </ul>
             </div>
         </div>
@@ -255,21 +255,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Dragon Hide</span>
+            <span class="font-bold text-lg leading-tight feat-name">Драконяча шкіра (Dragon Hide)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con/Cha, AC 13+Dex without armor, claws
+            +1 до Сил/Вит/Хар, КЗ 13+Спр без обладунків, кігті
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dragonborn).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дракононароджений).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Scaled Skin.</strong> Your skin hardens. While you wear no armor, your AC equals 13 + your Dexterity modifier.</li>
-                    <li><strong class="font-bold text-black">Claws.</strong> You grow claws. Your unarmed strikes deal 1d4 + your Strength modifier slashing damage.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Луската шкіра.</strong> Ваша шкіра твердне. Коли ви без обладунків, ваш КЗ дорівнює 13 + модифікатор Спритності.</li>
+                    <li><strong class="font-bold text-black">Кігті.</strong> У вас виростають кігті. Ваші беззбройні удари завдають 1d4 + мод. Сили ріжучої шкоди.</li>
                 </ul>
             </div>
         </div>
@@ -279,21 +279,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Drow High Magic</span>
+            <span class="font-bold text-lg leading-tight feat-name">Вища магія дроу (Drow High Magic)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Detect Magic (unlimited), Levitate and Dispel Magic
+            Виявлення магії (необмежено), Левітація та Розсіювання магії
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf (Drow)).</p>
-                <p class="mb-4">You master the ancient magic of your people. You learn the following spells:</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф (дроу)).</p>
+                <p class="mb-4">Ви опановуєте древню магію свого народу. Ви вивчаєте наступні заклинання:</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Detect Magic.</strong> You can cast it an unlimited number of times without expending spell slots.</li>
-                    <li><strong class="font-bold text-black">Levitate and Dispel Magic.</strong> You can cast each of these spells once (recharges after a long rest).</li>
+                    <li><strong class="font-bold text-black">Виявлення магії.</strong> Ви можете накладати його необмежену кількість разів без витрати комірок.</li>
+                    <li><strong class="font-bold text-black">Левітація та Розсіювання магії.</strong> Ви можете накласти кожне з цих заклинань по одному разу (відновлюється після тривалого відпочинку).</li>
                 </ul>
             </div>
         </div>
@@ -303,21 +303,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Dual Wielder</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер парної зброї (Dual Wielder)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 AC, use non-light weapons, quick draw
+            +1 до КЗ, використання не-легкої зброї, швидке виймання
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Two-Weapon Defense.</strong> You gain +1 AC while wielding a separate melee weapon in each hand.</li>
-                    <li><strong class="font-bold text-black">Heavy Pairing.</strong> You can use two-weapon fighting even if the weapons aren't "light" (but they must still be one-handed).</li>
-                    <li><strong class="font-bold text-black">Quick Draw.</strong> You can draw or stow two one-handed weapons instead of one.</li>
+                    <li><strong class="font-bold text-black">Оборона двома зброями.</strong> Ви отримуєте +1 до Класу Доспіху, поки тримаєте по окремій зброї ближнього бою в кожній руці.</li>
+                    <li><strong class="font-bold text-black">Важка парність.</strong> Ви можете використовувати бій двома зброями, навіть якщо зброя не є «легкою» (але вона все ще має бути одноручною).</li>
+                    <li><strong class="font-bold text-black">Швидке виймання.</strong> Ви можете вийняти або сховати дві одноручні зброї замість однієї.</li>
                 </ul>
             </div>
         </div>
@@ -327,21 +327,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Dungeon Delver</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дослідник підземель (Dungeon Delver)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Advantage to find traps, resistance to their damage
+            Перевага на пошук пасток, опір до їх шкоди
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Seeker's Eye.</strong> Advantage on Perception and Investigation checks to find hidden doors and traps.</li>
-                    <li><strong class="font-bold text-black">Trap Resilience.</strong> Advantage on saving throws to avoid traps and resistance to the damage they deal.</li>
-                    <li><strong class="font-bold text-black">Quick Search.</strong> You can search for traps while moving at your normal speed.</li>
+                    <li><strong class="font-bold text-black">Око шукача.</strong> Перевага на перевірки Уважності та Аналізу для виявлення таємних дверей і пасток.</li>
+                    <li><strong class="font-bold text-black">Стійкість до пасток.</strong> Перевага на рятунки для уникнення пасток та опір до шкоди, яку вони завдають.</li>
+                    <li><strong class="font-bold text-black">Швидкий пошук.</strong> Ви можете шукати пастки, рухаючись зі звичайною швидкістю.</li>
                 </ul>
             </div>
         </div>
@@ -351,20 +351,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Durable</span>
+            <span class="font-bold text-lg leading-tight feat-name">Витривалий (Durable)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Con, more effective Hit Dice healing
+            +1 до Витривалості, ефективніше лікування кубиками хітів
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Tough Health.</strong> When you roll a Hit Die to regain HP, the minimum amount you regain per die equals twice your Constitution modifier.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Міцне здоров'я.</strong> Коли ви кидаєте Кубик Хітів для відновлення ОЗ, мінімальна кількість здоров'я, яку ви відновлюєте за один кубик, дорівнює подвоєному модифікатору Витривалості.</li>
                 </ul>
             </div>
         </div>
@@ -374,20 +374,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Dwarf Fortitude</span>
+            <span class="font-bold text-lg leading-tight feat-name">Карликова стійкість (Dwarf Fortitude)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Con, healing while Dodging
+            +1 до Витривалості, лікування під час Ухилення
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Dwarf).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дварф).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Combat Recovery.</strong> Whenever you use the Dodge action in combat, you can spend one Hit Die to regain hit points.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Бойове відновлення.</strong> Щоразу, коли ви використовуєте дію Ухилення (Dodge) у бою, ви можете витратити один Кубик Хітів, щоб відновити собі здоров'я.</li>
                 </ul>
             </div>
         </div>
@@ -397,20 +397,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Eldritch Adept</span>
+            <span class="font-bold text-lg leading-tight feat-name">Потойбічний адепт (Eldritch Adept)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Gain one Eldritch Invocation
+            Отримання одного покликання чаклуна (Eldritch Invocation)
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Spellcasting ability).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Здатність накладати заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Eldritch Invocation.</strong> You learn one Eldritch Invocation of your choice from the Warlock list. If the invocation has prerequisites, you must meet them.</li>
-                    <li><strong class="font-bold text-black">Flexibility.</strong> Whenever you gain a level, you can replace this invocation with another.</li>
+                    <li><strong class="font-bold text-black">Потойбічне покликання.</strong> Ви вивчаєте одне Потойбічне покликання на ваш вибір зі списку Чаклуна. Якщо у покликання є вимоги, ви повинні їм відповідати.</li>
+                    <li><strong class="font-bold text-black">Гнучкість.</strong> Щоразу, коли ви отримуєте рівень, ви можете замінити це покликання на інше.</li>
                 </ul>
             </div>
         </div>
@@ -420,20 +420,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Elemental Adept</span>
+            <span class="font-bold text-lg leading-tight feat-name">Адепт стихій (Elemental Adept)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Ignore elemental resistance, minimum 2 damage on dice
+            Ігнорування опору стихії, мінімальна шкода 2 на кубиках
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Ability to cast at least one spell).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Здатність накладати хоча б одне заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Resistance Breaker.</strong> Choose a damage type: acid, cold, fire, lightning, or thunder. Your spells ignore resistance to that damage type.</li>
-                    <li><strong class="font-bold text-black">Stable Damage.</strong> When you roll damage dice for a spell of the chosen type, any "1" on a die counts as a "2".</li>
+                    <li><strong class="font-bold text-black">Руйнівник опору.</strong> Виберіть тип шкоди: кислота, холод, вогонь, блискавка або грім. Ваші заклинання ігнорують опір (resistance) до цього типу шкоди.</li>
+                    <li><strong class="font-bold text-black">Стабільна шкода.</strong> Коли ви кидаєте кубики шкоди для заклинання обраного типу, будь-яка «1» на кубику вважається за «2».</li>
                 </ul>
             </div>
         </div>
@@ -443,20 +443,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Elven Accuracy</span>
+            <span class="font-bold text-lg leading-tight feat-name">Ельфійська влучність (Elven Accuracy)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Dex/Int/Wis/Cha, reroll a die when you have advantage
+            +1 до Спр/Інт/Муд/Хар, перекидання кубика при перевазі
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf or Half-Elf).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф або Напівельф).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity, Intelligence, Wisdom, or Charisma by 1 (to a maximum of 20).</li>
-                    <li><strong class="font-bold text-black">Extraordinary Accuracy.</strong> When you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the advantage dice.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність, Інтелект, Мудрість або Харизму на 1 (до максимуму 20).</li>
+                    <li><strong class="font-bold text-black">Надзвичайна точність.</strong> Коли ви маєте перевагу на кидок атаки, що використовує Спритність, Інтелект, Мудрість або Харизму, ви можете перекинути один із кубиків переваги.</li>
                 </ul>
             </div>
         </div>
@@ -466,20 +466,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Fighting Initiate</span>
+            <span class="font-bold text-lg leading-tight feat-name">Обдарований боєць (Fighting Initiate)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Gain one Fighter Fighting Style
+            Отримання одного Бойового стилю воїна
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with a martial weapon).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння військовою зброєю).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Fighting Style.</strong> You choose one Fighting Style option from the Fighter class list.</li>
-                    <li><strong class="font-bold text-black">Style Change.</strong> Whenever you gain a level that grants an ability score improvement, you can replace this style with another.</li>
+                    <li><strong class="font-bold text-black">Бойовий стиль.</strong> Ви обираєте один варіант Бойового стилю (Fighting Style) зі списку класу Воїн.</li>
+                    <li><strong class="font-bold text-black">Зміна стилю.</strong> Щоразу, коли ви отримуєте рівень, що дає покращення характеристик, ви можете замінити цей стиль на інший.</li>
                 </ul>
             </div>
         </div>
@@ -489,21 +489,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Flames of Phlegethos</span>
+            <span class="font-bold text-lg leading-tight feat-name">Полум'я Флегетоса (Flames of Phlegethos)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Cha, reroll fire damage, fire aura
+            +1 до Інт/Хар, перекидання вогняної шкоди, вогняна аура
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Tiefling).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Тіфлінг).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Hellish Flames.</strong> When you roll fire damage for a spell, you can reroll any "1" on the dice.</li>
-                    <li><strong class="font-bold text-black">Aura of Fire.</strong> When you cast a fire spell, you wreathe yourself in flames until the end of your next turn. It sheds light and deals 1d4 fire damage to anyone who hits you with a melee attack.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Пекельне полум'я.</strong> Коли ви кидаєте шкоду вогнем для заклинання, ви можете перекинути будь-яку "1" на кубиках.</li>
+                    <li><strong class="font-bold text-black">Аура вогню.</strong> Коли ви накладаєте заклинання вогню, ви оточуєте себе полум'ям до кінця наступного ходу. Воно дає світло і завдає 1d4 вогняної шкоди будь-кому, хто вдарить вас у ближньому бою.</li>
                 </ul>
             </div>
         </div>
@@ -513,20 +513,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Gift of the Chromatic Dragon</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дарунок хроматичного дракона (Gift of the Chromatic Dragon)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Extra elemental weapon damage, reactive resistance
+            Додаткова стихійна шкода зброєю, реактивний опір
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Weapon Infusion.</strong> As a bonus action, you can infuse a weapon with elemental energy (acid, cold, fire, lightning, or poison) for 1 minute. The weapon deals an extra 1d4 damage of the chosen type.</li>
-                    <li><strong class="font-bold text-black">Reactive Resistance.</strong> When you take elemental damage, you can use your reaction to gain resistance to that attack.</li>
+                    <li><strong class="font-bold text-black">Насичення зброї.</strong> Бонусною дією ви можете наповнити зброю стихійною енергією (кислота, холод, вогонь, блискавка або отрута) на 1 хвилину. Зброя завдає додаткові 1d4 шкоди обраного типу.</li>
+                    <li><strong class="font-bold text-black">Реактивний опір.</strong> Коли ви отримуєте стихійну шкоду, ви можете реакцією отримати опір до цієї атаки.</li>
                 </ul>
             </div>
         </div>
@@ -536,20 +536,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Gift of the Gem Dragon</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дарунок дорогоцінного дракона (Gift of the Gem Dragon)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis/Cha, telekinetic repulsion
+            +1 до Інт/Муд/Хар, телекінетична відсіч
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Telekinetic Reprisal.</strong> When a creature within 10 feet deals damage to you, you can use your reaction to force it to make a Strength saving throw. On a failure, it takes 2d8 force damage and is pushed 10 feet away.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект, Мудрість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Телекінетична відсіч.</strong> Коли істота в межах 10 футів завдає вам шкоди, ви можете реакцією змусити її зробити рятунок Сили. При провалі вона отримує 2d8 силової шкоди і відштовхується на 10 футів.</li>
                 </ul>
             </div>
         </div>
@@ -559,20 +559,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Gift of the Metallic Dragon</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дарунок металевого дракона (Gift of the Metallic Dragon)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Healing spell, protective wings (bonus to AC)
+            Лікуюче заклинання, захисні крила (бонус до КЗ)
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Draconic Healing.</strong> You learn the spell <span class="italic text-forest">Cure Wounds</span>. You can cast it for free once per long rest.</li>
-                    <li><strong class="font-bold text-black">Protective Wings.</strong> When you or a creature near you is hit, you can use your reaction to manifest spectral wings, adding your proficiency bonus to AC against that attack.</li>
+                    <li><strong class="font-bold text-black">Драконяче лікування.</strong> Ви вивчаєте заклинання <span class="italic text-forest">Лікування ран (Cure Wounds)</span>. Можете накласти його безкоштовно 1 раз на тривалий відпочинок.</li>
+                    <li><strong class="font-bold text-black">Захисні крила.</strong> Коли ви або істота поруч отримує удар, ви можете реакцією проявити спектральні крила, додаючи бонус майстерності до КЗ проти цієї атаки.</li>
                 </ul>
             </div>
         </div>
@@ -582,20 +582,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Grappler</span>
+            <span class="font-bold text-lg leading-tight feat-name">Борець (Grappler)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Advantage on attacks against a grappled target, ability to pin the enemy
+            Перевага на атаки по схопленій цілі, можливість притиснути ворога
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Strength 13+).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Сила 13+).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Grappler's Advantage.</strong> You have advantage on attack rolls against a creature you are grappling.</li>
-                    <li><strong class="font-bold text-black">Pin.</strong> You can try to pin a creature. Make another grapple check; on a success, you both become Restrained until the grapple ends.</li>
+                    <li><strong class="font-bold text-black">Перевага борця.</strong> Ви маєте перевагу на кидки атаки проти істоти, яку ви схопили (grappled).</li>
+                    <li><strong class="font-bold text-black">Притискання.</strong> Ви можете спробувати притиснути (pin) істоту. Зробіть ще одну перевірку захоплення; при успіху ви обоє стаєте Спутаними (Restrained), поки захоплення не закінчиться.</li>
                 </ul>
             </div>
         </div>
@@ -605,20 +605,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Great Weapon Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер великої зброї (Great Weapon Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Bonus attack on a crit/kill, -5 to attack for +10 damage
+            Бонусна атака при криті/вбивстві, -5 до атаки за +10 до шкоди
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Cleave.</strong> When you score a critical hit or drop a creature to 0 HP with a heavy weapon, you can make one melee attack as a bonus action.</li>
-                    <li><strong class="font-bold text-black">Powerful Attack.</strong> Before attacking with a heavy weapon, you can take a -5 penalty to the attack roll. If the attack hits, add +10 to the damage.</li>
+                    <li><strong class="font-bold text-black">Розсікання.</strong> Коли ви завдаєте критичного удару або доводите ОЗ істоти до 0 важкою зброєю, ви можете зробити одну атаку ближнього бою бонусною дією.</li>
+                    <li><strong class="font-bold text-black">Потужна атака.</strong> Перед атакою важкою зброєю ви можете прийняти штраф -5 до кидка атаки. Якщо атака влучить, додайте +10 до шкоди.</li>
                 </ul>
             </div>
         </div>
@@ -628,21 +628,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Gunner</span>
+            <span class="font-bold text-lg leading-tight feat-name">Стрілець (Gunner)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Dex, firearm proficiency, point-blank shooting
+            +1 до Спритності, володіння вогнепалом, стрільба впритул
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Weapon Mastery.</strong> You gain proficiency with firearms and ignore their loading property.</li>
-                    <li><strong class="font-bold text-black">Close Quarters.</strong> An enemy being within 5 feet doesn't impose disadvantage on your ranged attacks.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Збройова майстерність.</strong> Ви отримуєте володіння вогнепальною зброєю та ігноруєте її властивість перезарядки.</li>
+                    <li><strong class="font-bold text-black">Ближній бій.</strong> Перебування ворога в межах 5 футів не дає завади на ваші дальні атаки.</li>
                 </ul>
             </div>
         </div>
@@ -652,20 +652,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Healer</span>
+            <span class="font-bold text-lg leading-tight feat-name">Цілитель (Healer)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Stabilize with 1 HP, healing with a healer's kit
+            Стабілізація з 1 ОЗ, лікування набором цілителя
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">First Aid.</strong> When you stabilize a creature with a healer's kit, it also regains 1 HP.</li>
-                    <li><strong class="font-bold text-black">Field Medicine.</strong> As an action, you can use a healer's kit to heal a creature for 1d6 + 4 + its number of Hit Dice. The creature can't regain HP this way again until it finishes a short rest.</li>
+                    <li><strong class="font-bold text-black">Перша допомога.</strong> Коли ви стабілізуєте істоту набором цілителя, вона також відновлює 1 ОЗ.</li>
+                    <li><strong class="font-bold text-black">Польова медицина.</strong> Ви можете дією використати набір цілителя, щоб вилікувати істоту на 1d6 + 4 + її кількість Кубиків Хітів. Істота не може знову отримати таке лікування до короткого відпочинку.</li>
                 </ul>
             </div>
         </div>
@@ -675,20 +675,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Heavily Armored</span>
+            <span class="font-bold text-lg leading-tight feat-name">Важкоброньований (Heavily Armored)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str, heavy armor proficiency
+            +1 до Сили, володіння важкими обладунками
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with medium armor).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння середніми обладунками).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength by 1.</li>
-                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with heavy armor.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу на 1.</li>
+                    <li><strong class="font-bold text-black">Майстерність.</strong> Ви отримуєте володіння важкими обладунками.</li>
                 </ul>
             </div>
         </div>
@@ -698,20 +698,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Heavy Armor Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер важких обладунків (Heavy Armor Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str, -3 physical damage in heavy armor
+            +1 до Сили, -3 до фізичної шкоди у важкій броні
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with heavy armor).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння важкими обладунками).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength by 1.</li>
-                    <li><strong class="font-bold text-black">Armored Resilience.</strong> While wearing heavy armor, nonmagical bludgeoning, slashing, and piercing damage you take is reduced by 3.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу на 1.</li>
+                    <li><strong class="font-bold text-black">Броньована стійкість.</strong> Поки ви у важких обладунках, немагічна шкода від дробильних, ріжучих та колючих атак зменшується на 3.</li>
                 </ul>
             </div>
         </div>
@@ -721,20 +721,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Infernal Constitution</span>
+            <span class="font-bold text-lg leading-tight feat-name">Пекельна статура (Infernal Constitution)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Con, resistance to cold and poison
+            +1 до Витривалості, опір до холоду та отрути
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Tiefling).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Тіфлінг).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Blood Resilience.</strong> You gain resistance to cold and poison, and advantage on saving throws against being poisoned.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Стійкість крові.</strong> Ви отримуєте опір до холоду та отрути, а також перевагу на рятунки проти отруєння.</li>
                 </ul>
             </div>
         </div>
@@ -744,19 +744,19 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Inspiring Leader</span>
+            <span class="font-bold text-lg leading-tight feat-name">Надихаючий лідер (Inspiring Leader)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Grant temporary HP to allies with a speech
+            Надання тимчасових ОЗ союзникам через промову
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Charisma 13+).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Харизма 13+).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Inspiring Speech.</strong> By spending 10 minutes, you can inspire up to 6 friendly creatures (including yourself). Each gains temporary HP equal to your level + your Charisma modifier.</li>
+                    <li><strong class="font-bold text-black">Надихаюча промова.</strong> Витративши 10 хвилин, ви можете надихнути до 6 дружніх істот (включаючи себе). Кожна з них отримує тимчасові ОЗ у кількості: ваш рівень + модифікатор Харизми.</li>
                 </ul>
             </div>
         </div>
@@ -766,20 +766,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Keen Mind</span>
+            <span class="font-bold text-lg leading-tight feat-name">Гострий розум (Keen Mind)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int, perfect memory, sense of time/space
+            +1 до Інтелекту, ідеальна пам'ять, орієнтація в часі/просторі
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence by 1.</li>
-                    <li><strong class="font-bold text-black">Analytical Memory.</strong> You always know which way is north and how many hours are left before sunset, and you can accurately recall anything you've seen or heard within the past month.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект на 1.</li>
+                    <li><strong class="font-bold text-black">Аналітична пам'ять.</strong> Ви завжди знаєте, де північ, скільки годин залишилося до заходу сонця, і можете з точністю згадати все, що бачили чи чули за останній місяць.</li>
                 </ul>
             </div>
         </div>
@@ -789,20 +789,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Lightly Armored</span>
+            <span class="font-bold text-lg leading-tight feat-name">Легкоброньований (Lightly Armored)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, light armor proficiency
+            +1 до Сил/Спр, володіння легкими обладунками
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1 (to a maximum of 20).</li>
-                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with light armor.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште значення вашої Сили або Спритності на 1 (до максимуму 20).</li>
+                    <li><strong class="font-bold text-black">Майстерність.</strong> Ви отримуєте володіння легкими обладунками.</li>
                 </ul>
             </div>
         </div>
@@ -812,20 +812,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Lucky</span>
+            <span class="font-bold text-lg leading-tight feat-name">Щасливчик (Lucky)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            3 luck points to reroll dice
+            3 очки удачі для перекидання кубиків
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Luck Points.</strong> You gain 3 luck points. You can spend one to roll an additional d20 for an attack, ability check, or saving throw, and choose which die to use.</li>
-                    <li><strong class="font-bold text-black">Influence the Enemy.</strong> You can also spend a point to force an enemy to reroll an attack roll against you. Points are regained after a long rest.</li>
+                    <li><strong class="font-bold text-black">Очки удачі.</strong> Ви отримуєте 3 очки удачі. Ви можете витратити одне, щоб кинути додатковий d20 під час атаки, перевірки характеристики або рятунку, і вибрати, який кубик використати.</li>
+                    <li><strong class="font-bold text-black">Вплив на ворога.</strong> Ви також можете витратити очко, щоб змусити ворога перекинути кубик атаки по вас. Очки відновлюються після тривалого відпочинку.</li>
                 </ul>
             </div>
         </div>
@@ -835,21 +835,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Mage Slayer</span>
+            <span class="font-bold text-lg leading-tight feat-name">Вбивця магів (Mage Slayer)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Reaction attack against a spellcaster, disadvantage on enemy concentration
+            Атака реакцією на заклинання, завада на концентрацію ворога
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Spell Disruption.</strong> When a creature within 5 feet casts a spell, you can use your reaction to attack it.</li>
-                    <li><strong class="font-bold text-black">Concentration.</strong> When you deal damage to a creature concentrating on a spell, it has disadvantage on the saving throw to maintain concentration.</li>
-                    <li><strong class="font-bold text-black">Magic Resistance.</strong> You have advantage on saving throws against spells cast by creatures within 5 feet of you.</li>
+                    <li><strong class="font-bold text-black">Порушення магії.</strong> Коли істота в межах 5 футів накладає заклинання, ви можете реакцією атакувати її.</li>
+                    <li><strong class="font-bold text-black">Концентрація.</strong> Коли ви завдаєте шкоди істоті, що концентрується на заклинанні, вона має заваду на рятунок для збереження концентрації.</li>
+                    <li><strong class="font-bold text-black">Опір магії.</strong> Ви маєте перевагу на рятунки проти заклинань, накладених істотами в межах 5 футів від вас.</li>
                 </ul>
             </div>
         </div>
@@ -859,20 +859,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Martial Adept</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер бойових мистецтв (Martial Adept)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 fighter maneuvers, 1 superiority die (d6)
+            2 маневри воїна, 1 кубик переваги (d6)
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Combat Maneuvers.</strong> You learn two maneuvers from the fighter's Battle Master archetype.</li>
-                    <li><strong class="font-bold text-black">Superiority Die.</strong> You gain one d6 superiority die (if you already have such dice, add one more to your pool). It is regained after a short or long rest.</li>
+                    <li><strong class="font-bold text-black">Військові маневри.</strong> Ви вивчаєте два маневри з архетипу Майстер бойових мистецтв (Battle Master) класу Воїн.</li>
+                    <li><strong class="font-bold text-black">Кубик переваги.</strong> Ви отримуєте один кубик переваги d6 (якщо ви вже маєте такі кубики, додайте ще один до вашого запасу). Він відновлюється після короткого або тривалого відпочинку.</li>
                 </ul>
             </div>
         </div>
@@ -882,20 +882,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Medium Armor Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер середніх обладунків (Medium Armor Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Max Dexterity bonus +3, no disadvantage on Stealth
+            Макс. бонус Спритності +3, немає завади на Скритність
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with medium armor).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння середніми обладунками).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Improved Agility.</strong> While wearing medium armor, you can add up to +3 of your Dexterity modifier to your AC instead of +2.</li>
-                    <li><strong class="font-bold text-black">Quiet Movement.</strong> You don't have disadvantage on Dexterity (Stealth) checks from wearing medium armor.</li>
+                    <li><strong class="font-bold text-black">Покращена спритність.</strong> Перебуваючи в середніх обладунках, ви можете додавати до КЗ модифікатор Спритності до +3 замість +2.</li>
+                    <li><strong class="font-bold text-black">Тихий рух.</strong> Ви не отримуєте завади на перевірки Спритності (Скритність) через носіння середніх обладунків.</li>
                 </ul>
             </div>
         </div>
@@ -905,20 +905,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Metamagic Adept</span>
+            <span class="font-bold text-lg leading-tight feat-name">Адепт метамагії (Metamagic Adept)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 metamagic options, 2 sorcery points
+            2 опції метамагії, 2 очки чаклунства
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Можливість накладати заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Metamagic.</strong> You learn two Metamagic options from the sorcerer class list. You can change them when you gain a level.</li>
-                    <li><strong class="font-bold text-black">Sorcery Points.</strong> You gain 2 sorcery points to use for metamagic (they are regained after a long rest).</li>
+                    <li><strong class="font-bold text-black">Метамагія.</strong> Ви вивчаєте дві опції Метамагії зі списку класу Чародій. Ви можете змінювати їх при отриманні рівня.</li>
+                    <li><strong class="font-bold text-black">Очки чаклунства.</strong> Ви отримуєте 2 очки чаклунства для використання метамагії (вони відновлюються після тривалого відпочинку).</li>
                 </ul>
             </div>
         </div>
@@ -928,21 +928,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Mobile</span>
+            <span class="font-bold text-lg leading-tight feat-name">Мобільний (Mobile)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +10 speed, ignore difficult terrain when Dashing
+            +10 до швидкості, ігнорування складного ландшафту при Ривку
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Speed.</strong> Your movement speed increases by 10 feet.</li>
-                    <li><strong class="font-bold text-black">Escape without Provoking.</strong> When you make a melee attack against a creature, it can't make opportunity attacks against you for the rest of your turn, whether you hit or not.</li>
-                    <li><strong class="font-bold text-black">Nimble Dash.</strong> When you take the Dash action, difficult terrain doesn't cost you extra movement.</li>
+                    <li><strong class="font-bold text-black">Швидкість.</strong> Ваша швидкість пересування збільшується на 10 футів.</li>
+                    <li><strong class="font-bold text-black">Втеча без удару.</strong> Коли ви атакуєте істоту ближнім боєм, вона не може зробити по вас атаку за можливістю до кінця вашого ходу, незалежно від того, влучили ви чи ні.</li>
+                    <li><strong class="font-bold text-black">Спритний ривок.</strong> Коли ви використовуєте дію Ривок (Dash), складний ландшафт не вимагає додаткового руху.</li>
                 </ul>
             </div>
         </div>
@@ -952,20 +952,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Moderately Armored</span>
+            <span class="font-bold text-lg leading-tight feat-name">Середньоброньований (Moderately Armored)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, medium armor and shield proficiency
+            +1 до Сил/Спр, володіння середніми обладунками та щитами
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with light armor).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння легкими обладунками).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Proficiency.</strong> You gain proficiency with medium armor and shields.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Майстерність.</strong> Ви отримуєте володіння середніми обладунками та щитами.</li>
                 </ul>
             </div>
         </div>
@@ -975,21 +975,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Mounted Combatant</span>
+            <span class="font-bold text-lg leading-tight feat-name">Верховий боєць (Mounted Combatant)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Advantage on mounted attacks, protect your mount
+            Перевага на атаки верхи, захист скакуна
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Tactical Advantage.</strong> You have advantage on melee attacks against creatures smaller than your mount.</li>
-                    <li><strong class="font-bold text-black">Protect the Mount.</strong> You can force an attack aimed at your mount to target you instead.</li>
-                    <li><strong class="font-bold text-black">Evasion.</strong> If your mount is subjected to an effect that allows a Dexterity save for half damage, it takes no damage on a success and only half on a failure.</li>
+                    <li><strong class="font-bold text-black">Тактична перевага.</strong> Ви маєте перевагу на атаки ближнього бою проти істот меншого за вашого скакуна розміру.</li>
+                    <li><strong class="font-bold text-black">Захист скакуна.</strong> Ви можете змусити атаку, націлену на скакуна, бути націленою на вас.</li>
+                    <li><strong class="font-bold text-black">Ухилення.</strong> Якщо скакун потрапляє під ефект, що потребує рятунку Спритності для половини шкоди, він не отримує шкоди при успіху та лише половину при провалі.</li>
                 </ul>
             </div>
         </div>
@@ -999,21 +999,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Observant</span>
+            <span class="font-bold text-lg leading-tight feat-name">Спостережливий (Observant)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis, lip reading, +5 passive Perception
+            +1 до Інт/Муд, читання по губах, +5 до пасивної уважності
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Wisdom by 1.</li>
-                    <li><strong class="font-bold text-black">Lip Reading.</strong> You can understand a creature's speech by watching its lips (if you know that language).</li>
-                    <li><strong class="font-bold text-black">Keen Sight.</strong> You gain a +5 bonus to passive Perception and passive Investigation.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект або Мудрість на 1.</li>
+                    <li><strong class="font-bold text-black">Читання по губах.</strong> Ви можете розуміти мову істот, спостерігаючи за їхніми губами (якщо знаєте цю мову).</li>
+                    <li><strong class="font-bold text-black">Гострий погляд.</strong> Ви отримуєте бонус +5 до пасивної Уважності (Perception) та пасивного Аналізу (Investigation).</li>
                 </ul>
             </div>
         </div>
@@ -1023,21 +1023,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Orcish Fury</span>
+            <span class="font-bold text-lg leading-tight feat-name">Орча лють (Orcish Fury)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con, extra damage die, attack after Relentless Endurance
+            +1 до Сил/Вит, додатковий кубик шкоди, атака після Непохитної витривалості
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Half-Orc).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Напіворк).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Savage Strike.</strong> Once per long rest, when you hit with a weapon, you can add one extra damage die of that weapon.</li>
-                    <li><strong class="font-bold text-black">Counterstrike.</strong> When you use the Relentless Endurance racial trait, you can immediately use a reaction to make one weapon attack.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Лютий удар.</strong> Раз на тривалий відпочинок, при влучанні зброєю, ви можете додати один додатковий кубик шкоди цієї зброї.</li>
+                    <li><strong class="font-bold text-black">Контрудар.</strong> Коли ви використовуєте расову рису "Непохитна витривалість", ви можете негайно використати реакцію, щоб зробити одну атаку зброєю.</li>
                 </ul>
             </div>
         </div>
@@ -1047,21 +1047,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Piercer</span>
+            <span class="font-bold text-lg leading-tight feat-name">Пронизувач (Piercer)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, reroll piercing damage die
+            +1 до Сил/Спр, перекидання кубика колючої шкоди
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Piercing Strike.</strong> Once per turn when you hit with piercing damage, you can reroll one damage die.</li>
-                    <li><strong class="font-bold text-black">Lethal Lunge.</strong> On a critical hit with a piercing weapon, you add one extra damage die of that weapon.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Пронизуючий удар.</strong> Раз на хід при влучанні колючою шкодою ви можете перекинути один кубик шкоди.</li>
+                    <li><strong class="font-bold text-black">Летальний випад.</strong> При критичному влучанні колючою зброєю ви додаєте один додатковий кубик шкоди цієї зброї.</li>
                 </ul>
             </div>
         </div>
@@ -1071,20 +1071,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Polearm Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер древкової зброї (Polearm Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Bonus attack with the other end, opportunity attack when an enemy approaches
+            Бонусна атака іншим кінцем, атака за можливістю при наближенні ворога
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Extra Strike.</strong> When you attack with a halberd, quarterstaff, or spear, you can use a bonus action to strike with the opposite end of the weapon (1d4 damage).</li>
-                    <li><strong class="font-bold text-black">Perimeter Defense.</strong> You can make an opportunity attack when a creature enters your reach (not only when it leaves).</li>
+                    <li><strong class="font-bold text-black">Додатковий удар.</strong> При атаці алебардою, жердиною або списом, ви можете бонусною дією вдарити іншим кінцем зброї (1d4 шкоди).</li>
+                    <li><strong class="font-bold text-black">Захист периметра.</strong> Ви можете робити атаку за можливістю, коли істота входить у зону вашої досяжності (а не тільки виходить).</li>
                 </ul>
             </div>
         </div>
@@ -1094,20 +1094,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Prodigy</span>
+            <span class="font-bold text-lg leading-tight feat-name">Обдарований (Prodigy)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Skill, proficiency, language, and expertise in one skill
+            Вміння, навичка, мова та експертиза в одній навичці
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Human, Half-Elf, or Half-Orc).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Людина, Напівельф або Напіворк).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Well-Rounded.</strong> You gain proficiency with one skill and one tool, and you learn one language.</li>
-                    <li><strong class="font-bold text-black">Expertise.</strong> Choose one skill you're proficient in; your proficiency bonus is doubled for it.</li>
+                    <li><strong class="font-bold text-black">Всебічний розвиток.</strong> Ви отримуєте володіння однією навичкою, одним інструментом та вивчаєте одну мову.</li>
+                    <li><strong class="font-bold text-black">Експертиза.</strong> Виберіть одну навичку, якою володієте; ваш бонус майстерності для неї подвоюється.</li>
                 </ul>
             </div>
         </div>
@@ -1117,21 +1117,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Poisoner</span>
+            <span class="font-bold text-lg leading-tight feat-name">Отруйник (Poisoner)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Ignore poison resistance, apply poison as a bonus action
+            Ігнорування опору до отрути, нанесення отрути бонусною дією
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Poison Master.</strong> You ignore resistance to poison damage.</li>
-                    <li><strong class="font-bold text-black">Quick Coating.</strong> You can apply poison to a weapon as a bonus action instead of an action.</li>
-                    <li><strong class="font-bold text-black">Crafting.</strong> You gain proficiency with a poisoner's kit and can create potent poison during a long rest.</li>
+                    <li><strong class="font-bold text-black">Майстер отрут.</strong> Ви ігноруєте опір до шкоди отрутою.</li>
+                    <li><strong class="font-bold text-black">Швидке змащування.</strong> Ви можете наносити отруту на зброю бонусною дією замість основної.</li>
+                    <li><strong class="font-bold text-black">Виготовлення.</strong> Ви отримуєте володіння набором отруйника і можете створювати потужну отруту під час тривалого відпочинку.</li>
                 </ul>
             </div>
         </div>
@@ -1141,20 +1141,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Powerful Build / Giant Foundling</span>
+            <span class="font-bold text-lg leading-tight feat-name">Міцна статура (Powerful Build / Giant Foundling)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Increased carrying capacity, advantage against being shoved
+            Збільшення вантажопідйомності, перевага проти поштовхів
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Giant's Might.</strong> You count as one size larger when determining your carrying capacity and the weight you can push or drag.</li>
-                    <li><strong class="font-bold text-black">Stability.</strong> You have advantage on saving throws against effects that would move you or knock you prone.</li>
+                    <li><strong class="font-bold text-black">Велетенська сила.</strong> Ви вважаєтеся на один розмір більшим при визначенні вашої вантажопідйомності та ваги, яку ви можете штовхати або тягнути.</li>
+                    <li><strong class="font-bold text-black">Стійкість.</strong> Ви маєте перевагу на рятунки проти ефектів, що змушують вас переміститися або збивають з ніг (prone).</li>
                  </ul>
             </div>
         </div>
@@ -1164,20 +1164,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Resilient</span>
+            <span class="font-bold text-lg leading-tight feat-name">Стійкий (Resilient)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 to an ability and proficiency in saving throws with that ability
+            +1 до характеристики та володіння рятувальними кидками цієї характеристики
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Hardening.</strong> Choose one ability score. Increase it by 1.</li>
-                    <li><strong class="font-bold text-black">Saving Throw Proficiency.</strong> You gain proficiency in saving throws of the chosen ability.</li>
+                    <li><strong class="font-bold text-black">Загартування.</strong> Виберіть одну характеристику. Збільште її на 1.</li>
+                    <li><strong class="font-bold text-black">Майстерність рятунку.</strong> Ви отримуєте володіння рятувальними кидками (Saving Throws) обраної характеристики.</li>
                 </ul>
             </div>
         </div>
@@ -1187,20 +1187,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Ritual Caster</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер ритуалів (Ritual Caster)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Ability to record and cast ritual spells
+            Можливість записувати та накладати заклинання-ритуали
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Intelligence or Wisdom 13+).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Інтелект або Мудрість 13+).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ritual Book.</strong> You gain a ritual book with two 1st-level spells from a chosen class list.</li>
-                    <li><strong class="font-bold text-black">Adding New Ones.</strong> If you find a scroll or book with a spell that has the "ritual" tag, you can copy it into your book (2 hours and 50 gp per spell level).</li>
+                    <li><strong class="font-bold text-black">Книга ритуалів.</strong> Ви отримуєте книгу ритуалів з двома заклинаннями 1-го рівня з обраного списку класів.</li>
+                    <li><strong class="font-bold text-black">Додавання нових.</strong> Якщо ви знаходите сувій або книгу з заклинанням, що має тег "ритуал", ви можете переписати його у свою книгу (2 години та 50 зм за кожен рівень).</li>
                 </ul>
             </div>
         </div>
@@ -1210,20 +1210,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Revenant Blade</span>
+            <span class="font-bold text-lg leading-tight feat-name">Клинок ревенанта (Revenant Blade)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron: Rising from the Last War</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, double scimitar mastery, bonus to AC
+            +1 до Сил/Спр, майстерність з подвійним ятаганом, бонус до КЗ
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Double Blade.</strong> While wielding a double scimitar, you gain a +1 bonus to AC. The weapon also counts as a finesse weapon in your hands.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Подвійний клинок.</strong> Використовуючи подвійний ятаган, ви отримуєте +1 до КЗ. Також ця зброя вважається фехтувальною (finesse) у ваших руках.</li>
                 </ul>
             </div>
         </div>
@@ -1233,19 +1233,19 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Savage Attacker</span>
+            <span class="font-bold text-lg leading-tight feat-name">Лютий нападник (Savage Attacker)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Reroll melee weapon damage dice
+            Перекидання кубиків шкоди зброї в ближньому бою
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Reroll Damage.</strong> Once per turn when you hit with a melee attack, you can reroll the weapon's damage dice and choose either result.</li>
+                    <li><strong class="font-bold text-black">Перекидання шкоди.</strong> Раз на хід, коли ви влучаєте атакою ближнього бою, ви можете перекинути кубики шкоди цієї зброї та обрати будь-який результат.</li>
                 </ul>
             </div>
         </div>
@@ -1255,20 +1255,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Second Chance</span>
+            <span class="font-bold text-lg leading-tight feat-name">Другий шанс (Second Chance)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Dex/Con/Cha, force an enemy to reroll an attack
+            +1 до Спр/Вит/Хар, змушування ворога перекинути атаку
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Halfling).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Галфлінґ).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Dexterity, Constitution, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Halfling Luck.</strong> When a creature you can see hits you with an attack, you can use your reaction to force it to reroll the die. This effect is regained after a short or long rest.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність, Витривалість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Везіння галфлінґа.</strong> Коли істота, яку ви бачите, влучає по вас атакою, ви можете реакцією змусити її перекинути кубик. Ефект відновлюється після короткого або тривалого відпочинку.</li>
                 </ul>
             </div>
         </div>
@@ -1278,21 +1278,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Sentinel</span>
+            <span class="font-bold text-lg leading-tight feat-name">Вартовий (Sentinel)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Stop an enemy with an opportunity attack, protect allies
+            Зупинка ворога атакою за можливістю, захист союзників
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Iron Grip.</strong> When you hit with an opportunity attack, the creature's speed drops to 0 for the rest of the turn.</li>
-                    <li><strong class="font-bold text-black">Sentinel.</strong> Creatures provoke opportunity attacks from you even if they take the Disengage action.</li>
-                    <li><strong class="font-bold text-black">Avenge an Ally.</strong> When a creature within 5 feet attacks someone other than you (who doesn't have this feat), you can use your reaction to make a melee attack against that creature.</li>
+                    <li><strong class="font-bold text-black">Залізна хватка.</strong> Коли ви влучаєте атакою за можливістю, швидкість істоти падає до 0 до кінця ходу.</li>
+                    <li><strong class="font-bold text-black">Пильність.</strong> Істоти провокують атаки за можливістю від вас, навіть якщо вони використовують дію Відступ (Disengage).</li>
+                    <li><strong class="font-bold text-black">Помста за союзника.</strong> Коли істота в межах 5 футів атакує когось іншого (хто не має цієї риси), ви можете реакцією зробити атаку ближнього бою по цій істоті.</li>
                 </ul>
             </div>
         </div>
@@ -1302,21 +1302,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Shadow Touched</span>
+            <span class="font-bold text-lg leading-tight feat-name">Торкнутий тінню (Shadow Touched)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis/Cha, Invisibility spell and one more 1st-level spell
+            +1 до Інт/Муд/Хар, заклинання Невидимість та ще одне 1-го рівня
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Shadow Magic.</strong> You learn the spell <span class="italic text-forest">Invisibility</span> and one 1st-level spell of your choice from the Illusion or Necromancy schools.</li>
-                    <li><strong class="font-bold text-black">Free Use.</strong> Each spell can be cast without expending a spell slot once per long rest.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект, Мудрість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Магія тіні.</strong> Ви вивчаєте заклинання <span class="italic text-forest">Невидимість (Invisibility)</span> та одне заклинання 1-го рівня на ваш вибір зі шкіл Ілюзії (Illusion) або Некромантії (Necromancy).</li>
+                    <li><strong class="font-bold text-black">Вільне використання.</strong> Кожне заклинання можна накласти без витрати комірок 1 раз на тривалий відпочинок.</li>
                 </ul>
             </div>
         </div>
@@ -1326,21 +1326,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Sharpshooter</span>
+            <span class="font-bold text-lg leading-tight feat-name">Влучний стрілець (Sharpshooter)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Ignore cover, -5 to attack for +10 damage on ranged attacks
+            Ігнорування укриття, -5 до атаки за +10 до шкоди дальніми атаками
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Long Range.</strong> Long-range weapon attacks don't impose disadvantage.</li>
-                    <li><strong class="font-bold text-black">Cover Penetration.</strong> Your ranged attacks ignore half cover and three-quarters cover.</li>
-                    <li><strong class="font-bold text-black">Powerful Shot.</strong> Before a ranged attack with a weapon you're proficient with, you can take a -5 penalty to the roll; on a hit, add +10 to the damage.</li>
+                    <li><strong class="font-bold text-black">Дальня стрільба.</strong> Атаки на довгу дистанцію зброєю не дають завади.</li>
+                    <li><strong class="font-bold text-black">Пробивання укриття.</strong> Ваші дальні атаки ігнорують половину укриття та три чверті укриття.</li>
+                    <li><strong class="font-bold text-black">Потужний постріл.</strong> Перед дальньою атакою зі зброї, якою володієте, ви можете взяти штраф -5 до кидка; при влучанні додайте +10 до шкоди.</li>
                 </ul>
             </div>
         </div>
@@ -1350,21 +1350,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Shield Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер щитів (Shield Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Shield shove, add shield bonus to Dexterity saving throws
+            Штовхання щитом, додавання бонусу щита до рятунків Спритності
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Shield Bash.</strong> When you attack on your turn, you can use a bonus action to try to shove a creature with your shield.</li>
-                    <li><strong class="font-bold text-black">Shield Defense.</strong> You add your shield's AC to any Dexterity saving throw against spells that target only you.</li>
-                    <li><strong class="font-bold text-black">Evasion.</strong> If you must make a Dexterity save for half damage, you can use your reaction to take no damage on a success by hiding behind your shield.</li>
+                    <li><strong class="font-bold text-black">Таран щитом.</strong> Коли ви атакуєте в свій хід, ви можете використати бонусну дію, щоб спробувати штовхнути істоту щитом.</li>
+                    <li><strong class="font-bold text-black">Захист щитом.</strong> Ви додаєте КЗ вашого щита до будь-якого рятунку Спритності проти заклинань, що цілять тільки у вас.</li>
+                    <li><strong class="font-bold text-black">Ухилення.</strong> Якщо ви маєте пройти рятунок Спритності для половини шкоди, ви можете реакцією не отримати шкоди взагалі при успіху, прикрившись щитом.</li>
                 </ul>
             </div>
         </div>
@@ -1374,19 +1374,19 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Skilled</span>
+            <span class="font-bold text-lg leading-tight feat-name">Умілий (Skilled)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Proficiency in 3 skills or tools
+            Володіння 3 навичками або інструментами
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Versatility.</strong> You gain proficiency in any combination of three skills or tools of your choice.</li>
+                    <li><strong class="font-bold text-black">Різнобічність.</strong> Ви отримуєте володіння будь-якою комбінацією з трьох навичок або інструментів на ваш вибір.</li>
                 </ul>
             </div>
         </div>
@@ -1396,21 +1396,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Skill Expert</span>
+            <span class="font-bold text-lg leading-tight feat-name">Експерт навичок (Skill Expert)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 to any ability, 1 skill, 1 expertise
+            +1 до будь-якої характеристики, 1 навичка, 1 експертиза
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase any one ability score by 1.</li>
-                    <li><strong class="font-bold text-black">Skill.</strong> You gain proficiency in one skill.</li>
-                    <li><strong class="font-bold text-black">Expertise.</strong> Choose one skill you're proficient in; your proficiency bonus is doubled for it.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште будь-яку характеристику на 1.</li>
+                    <li><strong class="font-bold text-black">Навичка.</strong> Ви отримуєте володіння однією навичкою.</li>
+                    <li><strong class="font-bold text-black">Експертиза.</strong> Оберіть одну навичку, якою володієте; ваш бонус майстерності для неї подвоюється.</li>
                 </ul>
             </div>
         </div>
@@ -1420,21 +1420,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Slasher</span>
+            <span class="font-bold text-lg leading-tight feat-name">Рубака (Slasher)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, slow an enemy, disadvantage to enemy on a crit
+            +1 до Сил/Спр, уповільнення ворога, завада ворогу при криті
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Deep Cut.</strong> Once per turn when you hit with slashing damage, you can reduce the target's speed by 10 feet until the end of its next turn.</li>
-                    <li><strong class="font-bold text-black">Trauma.</strong> On a critical hit, you inflict such a wound that the creature has disadvantage on all attack rolls until the end of your next turn.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Глибокий поріз.</strong> Раз на хід при влучанні ріжучою шкодою ви можете зменшити швидкість цілі на 10 футів до кінця її наступного ходу.</li>
+                    <li><strong class="font-bold text-black">Травма.</strong> При критичному влучанні ви наносите таку рану, що істота отримує заваду на всі кидки атаки до кінця вашого наступного ходу.</li>
                 </ul>
             </div>
         </div>
@@ -1444,20 +1444,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Soul of the Storm Giant</span>
+            <span class="font-bold text-lg leading-tight feat-name">Душа штормового велетня (Soul of the Storm Giant)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 to an ability, magical storm aura
+            +1 до характеристики, аура магічного шторму
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Level 4, Strike of the Giants).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: 4 рівень, Удар велетнів).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Wisdom by 1.</li>
-                    <li><strong class="font-bold text-black">Storm Aura.</strong> As a bonus action, you create a 10-foot-radius aura. Enemies within it have disadvantage on attacks against you. When an enemy enters the aura, you can force it to make a Strength saving throw or be pushed back.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Мудрість на 1.</li>
+                    <li><strong class="font-bold text-black">Грозова аура.</strong> Бонусною дією ви створюєте ауру радіусом 10 футів. Вороги в ній мають заваду на атаки по вас. Коли ворог входить в ауру, ви можете змусити його пройти рятунок Сили або бути відкинутим.</li>
                 </ul>
             </div>
         </div>
@@ -1467,21 +1467,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Spell Sniper</span>
+            <span class="font-bold text-lg leading-tight feat-name">Магічний снайпер (Spell Sniper)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Double spell range, ignore cover, 1 cantrip
+            Подвоєння дистанції заклинань, ігнорування укриття, 1 замовлення
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Можливість накладати заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Long-Range Magic.</strong> The range of spells that require an attack roll is doubled.</li>
-                    <li><strong class="font-bold text-black">Accuracy.</strong> Your spell attacks ignore half and three-quarters cover.</li>
-                    <li><strong class="font-bold text-black">Extra Magic.</strong> You learn one cantrip that requires an attack roll.</li>
+                    <li><strong class="font-bold text-black">Дальнобійна магія.</strong> Дистанція заклинань, що потребують кидка атаки, подвоюється.</li>
+                    <li><strong class="font-bold text-black">Влучність.</strong> Ваші магічні атаки ігнорують половину та три чверті укриття.</li>
+                    <li><strong class="font-bold text-black">Додаткова магія.</strong> Ви вивчаєте одне замовлення (cantrip), що потребує кидка атаки.</li>
                 </ul>
             </div>
         </div>
@@ -1491,20 +1491,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Squire of Solamnia</span>
+            <span class="font-bold text-lg leading-tight feat-name">Збройоносець Соламнії (Squire of Solamnia)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dragonlance: Shadow of the Dragon Queen</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Advantage on an attack and extra damage (PB times)
+            Перевага на атаку та додаткова шкода (PB разів)
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Martial Training.</strong> You gain proficiency with medium armor and martial weapons.</li>
-                    <li><strong class="font-bold text-black">Precise Strike.</strong> When you attack with a weapon, you can give yourself advantage on the roll. On a hit, add 1d8 to the damage. You can use this a number of times equal to your proficiency bonus.</li>
+                    <li><strong class="font-bold text-black">Військова виучка.</strong> Ви отримуєте володіння середніми обладунками та військовою зброєю.</li>
+                    <li><strong class="font-bold text-black">Точний удар.</strong> Коли ви атакуєте зброєю, ви можете дати собі перевагу на кидок. При влучанні додайте 1d8 до шкоди. Можна використовувати кількість разів, що дорівнює вашому бонусу майстерності.</li>
                 </ul>
             </div>
         </div>
@@ -1514,21 +1514,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Squat Nimbleness</span>
+            <span class="font-bold text-lg leading-tight feat-name">Приземкувата спритність (Squat Nimbleness)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, +5 speed, Athletics/Acrobatics proficiency
+            +1 до Сил/Спр, +5 до швидкості, навичка Атлетика/Акробатика
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Gnome or another Small race).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Гном або інша мала раса).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Speed.</strong> Your speed increases by 5 feet.</li>
-                    <li><strong class="font-bold text-black">Agility.</strong> You gain proficiency in Athletics or Acrobatics and advantage on checks to escape a grapple.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Швидкість.</strong> Ваша швидкість збільшується на 5 футів.</li>
+                    <li><strong class="font-bold text-black">Спритність.</strong> Ви отримуєте володіння Атлетикою або Акробатикою та перевагу на перевірки для виходу з захоплення.</li>
                 </ul>
             </div>
         </div>
@@ -1538,21 +1538,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Strike of the Giants</span>
+            <span class="font-bold text-lg leading-tight feat-name">Удар велетнів (Strike of the Giants)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Extra elemental damage and a special effect on an attack (PB times)
+            Додаткова шкода стихією та спец-ефект при атаці (PB разів)
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Proficiency with a martial weapon or Athletics).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння військовою зброєю або Атлетикою).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Giant's Might.</strong> Choose a giant type (Cloud, Fire, Frost, Stone, Storm, or Hill).</li>
-                    <li><strong class="font-bold text-black">Elemental Strike.</strong> Once per turn, when you hit with a melee or thrown weapon attack, you deal extra damage (1d6) and trigger the chosen giant's effect (for example, knocking prone or extra fire damage).</li>
-                    <li><strong class="font-bold text-black">Uses.</strong> You can use this a number of times equal to your proficiency bonus.</li>
+                    <li><strong class="font-bold text-black">Велетенська сила.</strong> Виберіть тип велетня (Хмарний, Вогняний, Морозний, Кам'яний, Штормовий або Пагорбовий).</li>
+                    <li><strong class="font-bold text-black">Стихійний удар.</strong> Раз на свій хід, влучивши атакою ближнього бою або метальною зброєю, ви наносите додаткову шкоду (1d6) та активуєте ефект обраного велетня (наприклад, збивання з ніг або додаткова шкода вогнем).</li>
+                    <li><strong class="font-bold text-black">Використання.</strong> Можна використовувати кількість разів, що дорівнює вашому бонусу майстерності.</li>
                 </ul>
             </div>
         </div>
@@ -1562,21 +1562,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Tavern Brawler</span>
+            <span class="font-bold text-lg leading-tight feat-name">Шинкарський боєць (Tavern Brawler)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con, improvised weapon proficiency, grapple as a bonus action
+            +1 до Сил/Вит, володіння підручною зброєю, захоплення бонусною дією
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Constitution by 1.</li>
-                    <li><strong class="font-bold text-black">Street Fighter.</strong> You gain proficiency with improvised weapons, and your unarmed strikes deal 1d4 damage.</li>
-                    <li><strong class="font-bold text-black">Quick Grapple.</strong> When you hit with an unarmed strike or improvised weapon, you can use a bonus action to try to grapple the target.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Вуличний боєць.</strong> Ви отримуєте володіння підручною зброєю (improvised weapons), а ваші беззбройні удари наносять 1d4 шкоди.</li>
+                    <li><strong class="font-bold text-black">Швидке захоплення.</strong> Коли ви влучаєте беззбройним ударом або підручною зброєю, ви можете бонусною дією спробувати захопити (grapple) ціль.</li>
                 </ul>
             </div>
         </div>
@@ -1586,21 +1586,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Telekinetic</span>
+            <span class="font-bold text-lg leading-tight feat-name">Телекінетик (Telekinetic)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis/Cha, enhanced Mage Hand, telekinetic shove
+            +1 до Інт/Муд/Хар, посилена Магічна рука, штовхання розумом
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Mental Hand.</strong> You learn the cantrip <span class="italic text-forest">Mage Hand</span>. It is invisible and requires no components.</li>
-                    <li><strong class="font-bold text-black">Telekinetic Shove.</strong> As a bonus action, you can try to shove a creature within 30 feet 5 feet away (Strength save against your spell save DC).</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект, Мудрість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Розумова рука.</strong> Ви вивчаєте замовлення <span class="italic text-forest">Магічна рука (Mage Hand)</span>. Вона невидима і не потребує компонентів.</li>
+                    <li><strong class="font-bold text-black">Телекінетичний поштовх.</strong> Бонусною дією ви можете спробувати штовхнути істоту в межах 30 футів на 5 футів (рятунок Сили проти вашої КС).</li>
                 </ul>
             </div>
         </div>
@@ -1610,21 +1610,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Telepathic</span>
+            <span class="font-bold text-lg leading-tight feat-name">Телепат (Telepathic)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis/Cha, mental communication, Detect Thoughts spell
+            +1 до Інт/Муд/Хар, ментальне спілкування, заклинання Шепіт розуму
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence, Wisdom, or Charisma by 1.</li>
-                    <li><strong class="font-bold text-black">Telepathy.</strong> You can communicate telepathically with any creature you can see within 60 feet (it must understand at least one language).</li>
-                    <li><strong class="font-bold text-black">Read Thoughts.</strong> You can cast the spell <span class="italic text-forest">Detect Thoughts</span> without expending spell slots or components once per long rest.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект, Мудрість або Харизму на 1.</li>
+                    <li><strong class="font-bold text-black">Телепатія.</strong> Ви можете подумки спілкуватися з будь-якою істотою, яку бачите в межах 60 футів (вона має розуміти хоча б одну мову).</li>
+                    <li><strong class="font-bold text-black">Читання думок.</strong> Ви можете накласти заклинання <span class="italic text-forest">Виявлення думок (Detect Thoughts)</span> без витрати комірок та компонентів раз на тривалий відпочинок.</li>
                 </ul>
             </div>
         </div>
@@ -1634,20 +1634,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Tough</span>
+            <span class="font-bold text-lg leading-tight feat-name">Міцний (Tough)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +2 HP per level
+            +2 Хіти за кожен рівень
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Health Reserve.</strong> Your hit point maximum increases by an amount equal to twice your level.</li>
-                    <li><strong class="font-bold text-black">Further Growth.</strong> Whenever you gain a level after taking this feat, your hit point maximum increases by an additional 2.</li>
+                    <li><strong class="font-bold text-black">Запас здоров'я.</strong> Ваш максимум хітів збільшується на суму, що дорівнює вашому подвоєному рівню.</li>
+                    <li><strong class="font-bold text-black">Подальший розвиток.</strong> Щоразу, коли ви отримуєте рівень після взяття цієї риси, ваш максимум хітів додатково збільшується на 2.</li>
                 </ul>
             </div>
         </div>
@@ -1657,21 +1657,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Investigator</span>
+            <span class="font-bold text-lg leading-tight feat-name">Міський слідчий (Investigator)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Van Richten's Guide to Ravenloft</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int/Wis, quick evidence search, terrain analysis
+            +1 до Інт/Муд, швидкий пошук доказів, аналіз місцевості
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence or Wisdom by 1.</li>
-                    <li><strong class="font-bold text-black">Keen Mind.</strong> You can make an Investigation check as a bonus action.</li>
-                    <li><strong class="font-bold text-black">Deduction.</strong> You have advantage on checks to find hidden doors, traps, or tracks.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект або Мудрість на 1.</li>
+                    <li><strong class="font-bold text-black">Гострий розум.</strong> Ви можете зробити перевірку Аналізу (Investigation) як бонусну дію.</li>
+                    <li><strong class="font-bold text-black">Дедукція.</strong> Ви маєте перевагу на перевірки для пошуку прихованих дверей, пасток або слідів.</li>
                 </ul>
             </div>
         </div>
@@ -1681,21 +1681,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Vigor of the Hill Giant</span>
+            <span class="font-bold text-lg leading-tight feat-name">Енергія пагорбового велетня (Vigor of the Hill Giant)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Con/Wis, resistance to being knocked prone, healing via Hit Dice
+            +1 до Сил/Вит/Муд, опір до збивання з ніг, лікування через кубики хітів
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Level 4, Strike of the Giants).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: 4 рівень, Удар велетнів).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength, Constitution, or Wisdom by 1.</li>
-                    <li><strong class="font-bold text-black">Stability.</strong> When an effect would knock you prone, you can use your reaction to remain standing.</li>
-                    <li><strong class="font-bold text-black">Nourishing Vigor.</strong> When you regain hit points using Hit Dice, you add your proficiency bonus and Constitution modifier to the result.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Мудрість на 1.</li>
+                    <li><strong class="font-bold text-black">Стійкість.</strong> Коли ефект має збити вас з ніг (prone), ви можете реакцією залишитися стояти.</li>
+                    <li><strong class="font-bold text-black">Поживна сила.</strong> Коли ви відновлюєте хіти за допомогою Кубиків Хітів (Hit Dice), ви додаєте до результату свій бонус майстерності та модифікатор Витривалості.</li>
                 </ul>
             </div>
         </div>
@@ -1705,21 +1705,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">War Caster</span>
+            <span class="font-bold text-lg leading-tight feat-name">Бойовий заклинатель (War Caster)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Advantage on concentration, cast a spell as an opportunity attack
+            Перевага на концентрацію, заклинання як атака за можливістю
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: Ability to cast at least one spell).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Здатність накладати хоча б одне заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Combat Concentration.</strong> You have advantage on Constitution saving throws to maintain concentration when you take damage.</li>
-                    <li><strong class="font-bold text-black">Spellcasting with Full Hands.</strong> You can perform the somatic (gesture) components of spells even when you have weapons or a shield in both hands.</li>
-                    <li><strong class="font-bold text-black">Reactive Spell.</strong> When an enemy's movement provokes an opportunity attack, you can cast a spell instead of attacking (casting time: 1 action, targeting only that creature).</li>
+                    <li><strong class="font-bold text-black">Бойова концентрація.</strong> Ви маєте перевагу на рятунки Витривалості для збереження концентрації при отриманні шкоди.</li>
+                    <li><strong class="font-bold text-black">Магія в руках.</strong> Ви можете виконувати соматичні (жести) компоненти заклинань, навіть якщо тримаєте зброю або щит у обох руках.</li>
+                    <li><strong class="font-bold text-black">Реактивна магія.</strong> Коли рух ворога провокує атаку за можливістю, ви можете замість атаки накласти заклинання (час накладання: 1 дія, цілить лише в цю істоту).</li>
                 </ul>
             </div>
         </div>
@@ -1729,20 +1729,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Weapon Master</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер зброї (Weapon Master)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Str/Dex, proficiency with 4 weapon types
+            +1 до Сил/Спр, володіння 4 видами зброї
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Strength or Dexterity by 1.</li>
-                    <li><strong class="font-bold text-black">Weapon Training.</strong> You gain proficiency with four types of simple or martial weapons of your choice.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
+                    <li><strong class="font-bold text-black">Збройова підготовка.</strong> Ви отримуєте володіння чотирма видами простої або військової зброї на ваш вибір.</li>
                 </ul>
             </div>
         </div>
@@ -1752,20 +1752,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Wood Elf Magic</span>
+            <span class="font-bold text-lg leading-tight feat-name">Магія лісових ельфів (Wood Elf Magic)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Druid cantrip, Pass without Trace and Longstrider spells
+            Замовлення друїда, заклинання Безслідний хід та Прудконогий
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Elf (Wood)).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф (лісовий)).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Natural Magic.</strong> You learn one cantrip from the druid spell list.</li>
-                    <li><strong class="font-bold text-black">Woodland Spells.</strong> You can cast <span class="italic text-forest">Longstrider</span> and <span class="italic text-forest">Pass without Trace</span> once each per long rest (without expending spell slots).</li>
+                    <li><strong class="font-bold text-black">Природна магія.</strong> Ви вивчаєте одне замовлення зі списку друїда.</li>
+                    <li><strong class="font-bold text-black">Лісові заклинання.</strong> Ви можете накласти <span class="italic text-forest">Прудконогий (Longstrider)</span> та <span class="italic text-forest">Безслідний хід (Pass without Trace)</span> по одному разу на тривалий відпочинок (без витрати комірок).</li>
                 </ul>
             </div>
         </div>
@@ -1775,20 +1775,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Wild Talent</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дикий талант (Wild Talent)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Unearthed Arcana (Psionics)</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 to an ability, a Psi Die for ability checks
+            +1 до характеристики, кубик психічної енергії для перевірок
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase one ability score of your choice by 1.</li>
-                    <li><strong class="font-bold text-black">Psionic Enhancement.</strong> You gain a Psi Die (d6). You can add its result to an ability check of the chosen ability. The die changes size (increasing or decreasing) depending on your roll results.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште одну характеристику за вибором на 1.</li>
+                    <li><strong class="font-bold text-black">Психічне посилення.</strong> Ви отримуєте Психічний кубик (d6). Ви можете додати його результат до перевірки обраної характеристики. Кубик змінює розмір (збільшується або зменшується) залежно від результатів кидка.</li>
                 </ul>
             </div>
         </div>
@@ -1798,21 +1798,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Warrior of the Gods</span>
+            <span class="font-bold text-lg leading-tight feat-name">Воїн богів (Warrior of the Gods)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Book of Many Things</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Divine resurrection and a bonus to AC
+            Божественне воскресіння та бонус до КЗ
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: None).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Divine Protection.</strong> While you aren't wearing heavy armor, your AC increases by 1.</li>
-                    <li><strong class="font-bold text-black">Easy Resurrection.</strong> Spells that return you to life don't require material components.</li>
-                    <li><strong class="font-bold text-black">Resolve of Spirit.</strong> You have advantage on saving throws against the Frightened and Charmed conditions.</li>
+                    <li><strong class="font-bold text-black">Божественний захист.</strong> Поки ви не носите важких обладунків, ваш КЗ збільшується на 1.</li>
+                    <li><strong class="font-bold text-black">Легке воскресіння.</strong> Заклинання, що повертають вас до життя, не потребують матеріальних компонентів.</li>
+                    <li><strong class="font-bold text-black">Стійкість духу.</strong> Ви маєте перевагу на рятувальні кидки проти станів "наляканий" та "зачарований".</li>
                 </ul>
             </div>
         </div>
@@ -1822,21 +1822,21 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Wonder Maker</span>
+            <span class="font-bold text-lg leading-tight feat-name">Творець див (Wonder Maker)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 Int, improve gnome devices, tool expertise
+            +1 до Інт, покращення пристроїв гномів, експертиза в інструментах
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Racial feat (Prerequisite: Gnome (Rock)).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Гном (скельний)).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Ability Score Increase.</strong> Increase your Intelligence by 1.</li>
-                    <li><strong class="font-bold text-black">Master Tinkerer.</strong> Your proficiency bonus is doubled for checks using artisan's tools.</li>
-                    <li><strong class="font-bold text-black">New Inventions.</strong> You can create additional devices such as an "Alarm", "Calculator", or "Fire Extinguisher".</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект на 1.</li>
+                    <li><strong class="font-bold text-black">Майстер-винахідник.</strong> Ваш бонус майстерності подвоюється для перевірок з використанням інструментів майстра.</li>
+                    <li><strong class="font-bold text-black">Нові винаходи.</strong> Ви можете створювати додаткові пристрої, такі як "Сигналізатор", "Калькулятор" або "Вогнегасник".</li>
                 </ul>
             </div>
         </div>
@@ -1846,20 +1846,20 @@
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Witherbloom Student</span>
+            <span class="font-bold text-lg leading-tight feat-name">Студент Візерблуму (Witherbloom Student)</span>
             <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strixhaven: A Curriculum of Chaos</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 cantrips, 1 1st-level spell, magic of life and death
+            2 замовлення, 1 заклинання 1-го рівня, магія життя та смерті
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">General feat (Prerequisite: The ability to cast a spell).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Можливість накладати заклинання).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Strixhaven Spells.</strong> You learn two cantrips from the druid or monk spell list and one 1st-level spell from the Necromancy or Transmutation schools.</li>
-                    <li><strong class="font-bold text-black">Healing Brew.</strong> You gain proficiency with an herbalism kit.</li>
+                    <li><strong class="font-bold text-black">Заклинання Стріксхейвена.</strong> Ви вивчаєте два замовлення зі списку друїда або ченця та одне заклинання 1-го рівня зі шкіл некромантії або втілення.</li>
+                    <li><strong class="font-bold text-black">Цілюще зілля.</strong> Ви отримуєте володіння набором травника (herbalism kit).</li>
                 </ul>
             </div>
         </div>
@@ -1871,19 +1871,19 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-6 mt-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm">&copy; 2024 5e Rules Reference | Digital Knowledge Base.</p>
+            <p class="text-slate-500 text-sm">&copy; 2024 Довідник з правил 5e | Цифрова База Знань.</p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Accordion
+        // Акордеон
         function toggleFeat(element) {
             const content = element.nextElementSibling;
             content.classList.toggle('open');
             
             const title = element.querySelector('.feat-name');
-            // Check if this is an Epic Boon (purple)
+            // Перевіряємо, чи це Epic Boon (фіолетовий)
             const isEpic = title.classList.contains('text-purple-900') || title.classList.contains('text-purple-600');
             
             if (content.classList.contains('open')) {
@@ -1901,7 +1901,7 @@
             }
         }
 
-        // Search
+        // Пошук
         function searchFeats() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('feat-card');
