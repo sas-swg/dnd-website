@@ -5,51 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Риси (Feats) - D&D 5e</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
     
-    <!-- Сучасні шрифти -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
-                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
-                    },
-                    fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
-                        body: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
-        .feat-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out;
-        }
-        .feat-content.open {
-            grid-template-rows: 1fr;
-        }
-        .feat-inner {
-            overflow: hidden;
-        }
-    </style>
+.feat-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.feat-content.open {
+  grid-template-rows: 1fr;
+}
+.feat-inner {
+  overflow: hidden;
+}
+</style>
     <link rel="stylesheet" href="site-common.css">
-    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+    <link rel="stylesheet" href="vendor/tailwind.css">
+    <script>
+(function () {
+  try {
+    if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
 
-    <!-- Header -->
+    
     <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
@@ -67,10 +59,10 @@
         </div>
     </header>    
               
-<!-- Main Content -->
+
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Заголовок та Пошук -->
+        
         <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
                 <h1 class="font-heading text-3xl font-bold text-forest mb-2">Риси (Feats)</h1>
@@ -82,39 +74,312 @@
             </div>
         </div>
 
-        <!-- Список Рис -->
+        
         <div id="feats-list" class="space-y-3">
-            
-           <div class="space-y-6">
+        <h2 class="text-2xl font-heading font-bold text-forest mt-8 mb-1">Початкові риси <span class="text-base font-normal text-dnd-muted">(10)</span></h2>
+        <p class="text-sm text-dnd-muted mb-4">Надаються передісторією під час створення персонажа.</p>
+        <div class="space-y-3">
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Адепт-артифіцер (Artificer Initiate)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="font-bold text-lg leading-tight feat-name">Уважний (Alert)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            1 замовляння та заклинання артифіцера, володіння інструментами
+            Бонус майстерності до ініціативи; обмін ініціативою з союзником
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Магічне навчання.</strong> Ви вивчаєте одне замовляння та одне заклинання 1-го рівня зі списку артифіцера. Інтелект є вашою характеристикою для цих заклинань.</li>
-                    <li><strong class="font-bold text-black">Вільне використання.</strong> Ви можете накласти це заклинання 1-го рівня один раз без витрати комірки (відновлюється після тривалого відпочинку).</li>
-                    <li><strong class="font-bold text-black">Майстер інструментів.</strong> Ви отримуєте володіння одним видом інструментів ремісника на ваш вибір.</li>
+                    <li><strong class="font-bold text-black">Готовність.</strong> До кидків ініціативи ви додаєте свій бонус майстерності.</li>
+                    <li><strong class="font-bold text-black">Обмін місцями.</strong> Ви можете обмінятися значенням ініціативи з охочим союзником (якщо жоден із вас не недієздатний).</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Творець (Crafter)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Знижки на товари, володіння інструментами, швидке виготовлення
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Інструменти.</strong> Володіння трьома видами інструментів ремісника на вибір.</li>
+                    <li><strong class="font-bold text-black">Знижка.</strong> Купуючи немагічне спорядження, ви отримуєте 20% знижки.</li>
+                    <li><strong class="font-bold text-black">Швидке створення.</strong> Під час тривалого відпочинку ви можете виготовити один предмет зі списку, маючи потрібні інструменти.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Цілитель (Healer)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Стабілізація з 1 ОЗ, лікування набором цілителя
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Перша допомога.</strong> Коли ви стабілізуєте істоту набором цілителя, вона також відновлює 1 ОЗ.</li>
+                    <li><strong class="font-bold text-black">Польова медицина.</strong> Ви можете дією використати набір цілителя, щоб вилікувати істоту на 1d6 + 4 + її кількість Кубиків Хітів. Істота не може знову отримати таке лікування до короткого відпочинку.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Щасливчик (Lucky)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            3 очки удачі для перекидання кубиків
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Очки удачі.</strong> Ви отримуєте 3 очки удачі. Ви можете витратити одне, щоб кинути додатковий d20 під час атаки, перевірки характеристики або рятунку, і вибрати, який кубик використати.</li>
+                    <li><strong class="font-bold text-black">Вплив на ворога.</strong> Ви також можете витратити очко, щоб змусити ворога перекинути кубик атаки по вас. Очки відновлюються після тривалого відпочинку.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Чарівний ініціатор (Magic Initiate)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Два замовляння + одне заклинання 1-го рівня (жрець/друїд/чарівник)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Замовляння.</strong> Ви вивчаєте два замовляння зі списку обраного класу (жрець, друїд або чарівник).</li>
+                    <li><strong class="font-bold text-black">Заклинання 1-го рівня.</strong> Вивчіть одне заклинання 1-го рівня; кастуйте його безкоштовно раз на тривалий відпочинок або комірками.</li>
+                    <li><strong class="font-bold text-black">Базова характеристика.</strong> Інтелект (чарівник) або Мудрість (жрець/друїд) як здатність чаклунства.</li>
+                    <li><strong class="font-bold text-black">Повторюваність.</strong> Можна брати кілька разів — щоразу для іншого списку.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Музикант (Musician)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Володіння музичними інструментами; надихання союзників
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Інструменти.</strong> Володіння трьома музичними інструментами на вибір.</li>
+                    <li><strong class="font-bold text-black">Заохочення.</strong> Завершивши відпочинок грою, ви надаєте Героїчне натхнення союзникам числом до вашого бонусу майстерності.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Лютий нападник (Savage Attacker)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Перекидання кубиків шкоди зброї в ближньому бою
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Перекидання шкоди.</strong> Раз на хід, коли ви влучаєте атакою ближнього бою, ви можете перекинути кубики шкоди цієї зброї та обрати будь-який результат.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Умілий (Skilled)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Володіння 3 навичками або інструментами
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Різнобічність.</strong> Ви отримуєте володіння будь-якою комбінацією з трьох навичок або інструментів на ваш вибір.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Шинкарський боєць (Tavern Brawler)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 до Сил/Вит, володіння підручною зброєю, захоплення бонусною дією
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
+                    <li><strong class="font-bold text-black">Вуличний боєць.</strong> Ви отримуєте володіння підручною зброєю (improvised weapons), а ваші беззбройні удари наносять 1d4 шкоди.</li>
+                    <li><strong class="font-bold text-black">Швидке захоплення.</strong> Коли ви влучаєте беззбройним ударом або підручною зброєю, ви можете бонусною дією спробувати захопити (grapple) ціль.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Міцний (Tough)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Початкова риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +2 Хіти за кожен рівень
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Початкова риса (Вимоги: Немає).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Запас здоров'я.</strong> Ваш максимум хітів збільшується на суму, що дорівнює вашому подвоєному рівню.</li>
+                    <li><strong class="font-bold text-black">Подальший розвиток.</strong> Щоразу, коли ви отримуєте рівень після взяття цієї риси, ваш максимум хітів додатково збільшується на 2.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
 
+        <h2 class="text-2xl font-heading font-bold text-forest mt-8 mb-1">Загальні риси <span class="text-base font-normal text-dnd-muted">(42)</span></h2>
+        <p class="text-sm text-dnd-muted mb-4">Доступні з 4-го рівня замість підвищення характеристик.</p>
+        <div class="space-y-3">
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Підвищення характеристик (Ability Score Improvement)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +2 до однієї характеристики або +1 до двох (макс. 20)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Рівень 4+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Підвищення.</strong> Збільшіть одну характеристику на 2 або дві характеристики на 1 кожну, до максимуму 20.</li>
+                    <li><strong class="font-bold text-black">Повторюваність.</strong> Цю рису можна брати кілька разів.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Актор (Actor)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Харизма; перевага на імітацію та маскування
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Харизма 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Харизму на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Імітація.</strong> Перевага на перевірки Обману та Виступу при видаванні себе за іншу особу.</li>
+                    <li><strong class="font-bold text-black">Голос.</strong> Ви можете точно імітувати мову чи голос істоти, яку чули хоча б хвилину.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Атлет (Athlete)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Сила/Спритність; швидке вставання та лазіння
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Сила або Спритність 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Силу або Спритність на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Підйом.</strong> Вставання з лежачого коштує лише 5 футів руху.</li>
+                    <li><strong class="font-bold text-black">Лазіння.</strong> Лазіння не зменшує вашу швидкість.</li>
+                    <li><strong class="font-bold text-black">Стрибок.</strong> Для стрибка з розбігу вистачає 5 футів руху замість 10.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Натиск (Charger)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Бонусна атака або штовхання після Ривка
@@ -124,7 +389,6 @@
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
                 <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <p class="mb-4">Якщо ви використовуєте дію Ривок, ви можете бонусною дією зробити одну атаку зброєю ближнього бою або штовхнути істоту.</p>
                 <ul class="space-y-3">
                     <li><strong class="font-bold text-black">Потужний удар.</strong> Якщо ви пройшли 10 футів по прямій перед атакою, ви додаєте +5 до шкоди або штовхаєте ціль на 10 футів від себе.</li>
                 </ul>
@@ -132,12 +396,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Кухар (Chef)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Вит/Муд, готування їжі для лікування та тимчасових ОЗ
@@ -157,12 +420,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Експерт з арбалетів (Crossbow Expert)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Ігнорування перезарядки, стрільба впритул, бонусна атака ручним арбалетом
@@ -181,12 +443,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Нищівник (Crusher)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сил/Вит, переміщення ворога при ударі, перевага при криті
@@ -205,12 +466,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Оборонний дуелянт (Defensive Duelist)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Бонус майстерності до КЗ як реакція
@@ -220,7 +480,6 @@
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
                 <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Спритність 13+).</p>
-                <p class="mb-4">Коли ви тримаєте фехтувальну зброю, якою володієте, і інша істота влучає по вас атакою ближнього бою, ви можете використати свою реакцію.</p>
                 <ul class="space-y-3">
                     <li><strong class="font-bold text-black">Парірування.</strong> Додайте свій бонус майстерності до Класу Доспіху проти цієї атаки, що потенційно може змусити її промахнутися.</li>
                 </ul>
@@ -228,83 +487,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Драконячий страх (Dragon Fear)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Вит/Хар, заміна подиху на лякаючий рик
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дракононароджений).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Харизму на 1.</li>
-                    <li><strong class="font-bold text-black">Лякаючий рик.</strong> Замість використання Подиху, ви можете видати рик. Кожна істота на ваш вибір у радіусі 30 футів повинна зробити рятунок Мудрості або стати Наляканою на 1 хвилину.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Драконяча шкіра (Dragon Hide)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Вит/Хар, КЗ 13+Спр без обладунків, кігті
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дракононароджений).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Харизму на 1.</li>
-                    <li><strong class="font-bold text-black">Луската шкіра.</strong> Ваша шкіра твердне. Коли ви без обладунків, ваш КЗ дорівнює 13 + модифікатор Спритності.</li>
-                    <li><strong class="font-bold text-black">Кігті.</strong> У вас виростають кігті. Ваші беззбройні удари завдають 1d4 + мод. Сили ріжучої шкоди.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Вища магія дроу (Drow High Magic)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Виявлення магії (необмежено), Левітація та Розсіювання магії
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф (дроу)).</p>
-                <p class="mb-4">Ви опановуєте древню магію свого народу. Ви вивчаєте наступні заклинання:</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Виявлення магії.</strong> Ви можете накладати його необмежену кількість разів без витрати комірок.</li>
-                    <li><strong class="font-bold text-black">Левітація та Розсіювання магії.</strong> Ви можете накласти кожне з цих заклинань по одному разу (відновлюється після тривалого відпочинку).</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер парної зброї (Dual Wielder)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до КЗ, використання не-легкої зброї, швидке виймання
@@ -323,36 +510,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Дослідник підземель (Dungeon Delver)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Перевага на пошук пасток, опір до їх шкоди
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Око шукача.</strong> Перевага на перевірки Уважності та Аналізу для виявлення таємних дверей і пасток.</li>
-                    <li><strong class="font-bold text-black">Стійкість до пасток.</strong> Перевага на рятунки для уникнення пасток та опір до шкоди, яку вони завдають.</li>
-                    <li><strong class="font-bold text-black">Швидкий пошук.</strong> Ви можете шукати пастки, рухаючись зі звичайною швидкістю.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Витривалий (Durable)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Витривалості, ефективніше лікування кубиками хітів
@@ -370,58 +532,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Карликова стійкість (Dwarf Fortitude)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Витривалості, лікування під час Ухилення
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Дварф).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість на 1.</li>
-                    <li><strong class="font-bold text-black">Бойове відновлення.</strong> Щоразу, коли ви використовуєте дію Ухилення (Dodge) у бою, ви можете витратити один Кубик Хітів, щоб відновити собі здоров'я.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Потойбічний адепт (Eldritch Adept)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Отримання одного покликання чаклуна (Eldritch Invocation)
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Здатність накладати заклинання).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Потойбічне покликання.</strong> Ви вивчаєте одне Потойбічне покликання на ваш вибір зі списку Чаклуна. Якщо у покликання є вимоги, ви повинні їм відповідати.</li>
-                    <li><strong class="font-bold text-black">Гнучкість.</strong> Щоразу, коли ви отримуєте рівень, ви можете замінити це покликання на інше.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Адепт стихій (Elemental Adept)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Ігнорування опору стихії, мінімальна шкода 2 на кубиках
@@ -439,151 +554,34 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Ельфійська влучність (Elven Accuracy)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+            <span class="font-bold text-lg leading-tight feat-name">Торкнутий феєю (Fey Touched)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Спр/Інт/Муд/Хар, перекидання кубика при перевазі
+            +1 Інт/Мдр/Хар; Misty Step та закляття віщування/викликання
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф або Напівельф).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Рівень 4+).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність, Інтелект, Мудрість або Харизму на 1 (до максимуму 20).</li>
-                    <li><strong class="font-bold text-black">Надзвичайна точність.</strong> Коли ви маєте перевагу на кидок атаки, що використовує Спритність, Інтелект, Мудрість або Харизму, ви можете перекинути один із кубиків переваги.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Інтелект, Мудрість або Харизму на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Заклинання.</strong> Ви вивчаєте Misty Step і одне заклинання 1-го рівня школи Віщування або Викликання.</li>
+                    <li><strong class="font-bold text-black">Безкоштовне використання.</strong> Кожне із цих заклинань можна накласти раз без комірки на тривалий відпочинок.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Обдарований боєць (Fighting Initiate)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Отримання одного Бойового стилю воїна
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння військовою зброєю).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Бойовий стиль.</strong> Ви обираєте один варіант Бойового стилю (Fighting Style) зі списку класу Воїн.</li>
-                    <li><strong class="font-bold text-black">Зміна стилю.</strong> Щоразу, коли ви отримуєте рівень, що дає покращення характеристик, ви можете замінити цей стиль на інший.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Полум'я Флегетоса (Flames of Phlegethos)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Інт/Хар, перекидання вогняної шкоди, вогняна аура
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Тіфлінг).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект або Харизму на 1.</li>
-                    <li><strong class="font-bold text-black">Пекельне полум'я.</strong> Коли ви кидаєте шкоду вогнем для заклинання, ви можете перекинути будь-яку "1" на кубиках.</li>
-                    <li><strong class="font-bold text-black">Аура вогню.</strong> Коли ви накладаєте заклинання вогню, ви оточуєте себе полум'ям до кінця наступного ходу. Воно дає світло і завдає 1d4 вогняної шкоди будь-кому, хто вдарить вас у ближньому бою.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Дарунок хроматичного дракона (Gift of the Chromatic Dragon)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Додаткова стихійна шкода зброєю, реактивний опір
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Насичення зброї.</strong> Бонусною дією ви можете наповнити зброю стихійною енергією (кислота, холод, вогонь, блискавка або отрута) на 1 хвилину. Зброя завдає додаткові 1d4 шкоди обраного типу.</li>
-                    <li><strong class="font-bold text-black">Реактивний опір.</strong> Коли ви отримуєте стихійну шкоду, ви можете реакцією отримати опір до цієї атаки.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Дарунок дорогоцінного дракона (Gift of the Gem Dragon)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Інт/Муд/Хар, телекінетична відсіч
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект, Мудрість або Харизму на 1.</li>
-                    <li><strong class="font-bold text-black">Телекінетична відсіч.</strong> Коли істота в межах 10 футів завдає вам шкоди, ви можете реакцією змусити її зробити рятунок Сили. При провалі вона отримує 2d8 силової шкоди і відштовхується на 10 футів.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Дарунок металевого дракона (Gift of the Metallic Dragon)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Fizban's Treasury of Dragons</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Лікуюче заклинання, захисні крила (бонус до КЗ)
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Драконяче лікування.</strong> Ви вивчаєте заклинання <span class="italic text-forest">Лікування ран (Cure Wounds)</span>. Можете накласти його безкоштовно 1 раз на тривалий відпочинок.</li>
-                    <li><strong class="font-bold text-black">Захисні крила.</strong> Коли ви або істота поруч отримує удар, ви можете реакцією проявити спектральні крила, додаючи бонус майстерності до КЗ проти цієї атаки.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Борець (Grappler)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Перевага на атаки по схопленій цілі, можливість притиснути ворога
@@ -601,12 +599,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер великої зброї (Great Weapon Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Бонусна атака при криті/вбивстві, -5 до атаки за +10 до шкоди
@@ -624,59 +621,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Стрілець (Gunner)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Спритності, володіння вогнепалом, стрільба впритул
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність на 1.</li>
-                    <li><strong class="font-bold text-black">Збройова майстерність.</strong> Ви отримуєте володіння вогнепальною зброєю та ігноруєте її властивість перезарядки.</li>
-                    <li><strong class="font-bold text-black">Ближній бій.</strong> Перебування ворога в межах 5 футів не дає завади на ваші дальні атаки.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Цілитель (Healer)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Стабілізація з 1 ОЗ, лікування набором цілителя
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Перша допомога.</strong> Коли ви стабілізуєте істоту набором цілителя, вона також відновлює 1 ОЗ.</li>
-                    <li><strong class="font-bold text-black">Польова медицина.</strong> Ви можете дією використати набір цілителя, щоб вилікувати істоту на 1d6 + 4 + її кількість Кубиків Хітів. Істота не може знову отримати таке лікування до короткого відпочинку.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Важкоброньований (Heavily Armored)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сили, володіння важкими обладунками
@@ -694,12 +643,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер важких обладунків (Heavy Armor Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сили, -3 до фізичної шкоди у важкій броні
@@ -717,35 +665,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Пекельна статура (Infernal Constitution)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Витривалості, опір до холоду та отрути
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Тіфлінг).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Витривалість на 1.</li>
-                    <li><strong class="font-bold text-black">Стійкість крові.</strong> Ви отримуєте опір до холоду та отрути, а також перевагу на рятунки проти отруєння.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Надихаючий лідер (Inspiring Leader)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Надання тимчасових ОЗ союзникам через промову
@@ -762,12 +686,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Гострий розум (Keen Mind)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Інтелекту, ідеальна пам'ять, орієнтація в часі/просторі
@@ -785,12 +708,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Легкоброньований (Lightly Armored)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сил/Спр, володіння легкими обладунками
@@ -808,35 +730,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Щасливчик (Lucky)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            3 очки удачі для перекидання кубиків
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Очки удачі.</strong> Ви отримуєте 3 очки удачі. Ви можете витратити одне, щоб кинути додатковий d20 під час атаки, перевірки характеристики або рятунку, і вибрати, який кубик використати.</li>
-                    <li><strong class="font-bold text-black">Вплив на ворога.</strong> Ви також можете витратити очко, щоб змусити ворога перекинути кубик атаки по вас. Очки відновлюються після тривалого відпочинку.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Вбивця магів (Mage Slayer)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Атака реакцією на заклинання, завада на концентрацію ворога
@@ -855,15 +753,14 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Майстер бойових мистецтв (Martial Adept)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="font-bold text-lg leading-tight feat-name">Володіння військовою зброєю (Martial Weapon Training)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 маневри воїна, 1 кубик переваги (d6)
+            +1 Сила/Спритність; володіння військовою зброєю
         </div>
     </div>
     <div class="feat-content">
@@ -871,19 +768,18 @@
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
                 <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Військові маневри.</strong> Ви вивчаєте два маневри з архетипу Майстер бойових мистецтв (Battle Master) класу Воїн.</li>
-                    <li><strong class="font-bold text-black">Кубик переваги.</strong> Ви отримуєте один кубик переваги d6 (якщо ви вже маєте такі кубики, додайте ще один до вашого запасу). Він відновлюється після короткого або тривалого відпочинку.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Силу або Спритність на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Володіння зброєю.</strong> Ви отримуєте володіння всією військовою зброєю.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер середніх обладунків (Medium Armor Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Макс. бонус Спритності +3, немає завади на Скритність
@@ -901,59 +797,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Адепт метамагії (Metamagic Adept)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 опції метамагії, 2 очки чаклунства
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Можливість накладати заклинання).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Метамагія.</strong> Ви вивчаєте дві опції Метамагії зі списку класу Чародій. Ви можете змінювати їх при отриманні рівня.</li>
-                    <li><strong class="font-bold text-black">Очки чаклунства.</strong> Ви отримуєте 2 очки чаклунства для використання метамагії (вони відновлюються після тривалого відпочинку).</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Мобільний (Mobile)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +10 до швидкості, ігнорування складного ландшафту при Ривку
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Швидкість.</strong> Ваша швидкість пересування збільшується на 10 футів.</li>
-                    <li><strong class="font-bold text-black">Втеча без удару.</strong> Коли ви атакуєте істоту ближнім боєм, вона не може зробити по вас атаку за можливістю до кінця вашого ходу, незалежно від того, влучили ви чи ні.</li>
-                    <li><strong class="font-bold text-black">Спритний ривок.</strong> Коли ви використовуєте дію Ривок (Dash), складний ландшафт не вимагає додаткового руху.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Середньоброньований (Moderately Armored)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сил/Спр, володіння середніми обладунками та щитами
@@ -971,12 +819,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Верховий боєць (Mounted Combatant)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Перевага на атаки верхи, захист скакуна
@@ -995,12 +842,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Спостережливий (Observant)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Інт/Муд, читання по губах, +5 до пасивної уважності
@@ -1019,36 +865,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Орча лють (Orcish Fury)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Вит, додатковий кубик шкоди, атака після Непохитної витривалості
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Напіворк).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
-                    <li><strong class="font-bold text-black">Лютий удар.</strong> Раз на тривалий відпочинок, при влучанні зброєю, ви можете додати один додатковий кубик шкоди цієї зброї.</li>
-                    <li><strong class="font-bold text-black">Контрудар.</strong> Коли ви використовуєте расову рису "Непохитна витривалість", ви можете негайно використати реакцію, щоб зробити одну атаку зброєю.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Пронизувач (Piercer)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сил/Спр, перекидання кубика колючої шкоди
@@ -1067,58 +888,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Майстер древкової зброї (Polearm Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Бонусна атака іншим кінцем, атака за можливістю при наближенні ворога
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Додатковий удар.</strong> При атаці алебардою, жердиною або списом, ви можете бонусною дією вдарити іншим кінцем зброї (1d4 шкоди).</li>
-                    <li><strong class="font-bold text-black">Захист периметра.</strong> Ви можете робити атаку за можливістю, коли істота входить у зону вашої досяжності (а не тільки виходить).</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Обдарований (Prodigy)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Вміння, навичка, мова та експертиза в одній навичці
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Людина, Напівельф або Напіворк).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Всебічний розвиток.</strong> Ви отримуєте володіння однією навичкою, одним інструментом та вивчаєте одну мову.</li>
-                    <li><strong class="font-bold text-black">Експертиза.</strong> Виберіть одну навичку, якою володієте; ваш бонус майстерності для неї подвоюється.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Отруйник (Poisoner)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Ігнорування опору до отрути, нанесення отрути бонусною дією
@@ -1137,15 +911,14 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Міцна статура (Powerful Build / Giant Foundling)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
+            <span class="font-bold text-lg leading-tight feat-name">Майстер древкової зброї (Polearm Master)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Збільшення вантажопідйомності, перевага проти поштовхів
+            Бонусна атака іншим кінцем, атака за можливістю при наближенні ворога
         </div>
     </div>
     <div class="feat-content">
@@ -1153,19 +926,18 @@
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
                 <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Велетенська сила.</strong> Ви вважаєтеся на один розмір більшим при визначенні вашої вантажопідйомності та ваги, яку ви можете штовхати або тягнути.</li>
-                    <li><strong class="font-bold text-black">Стійкість.</strong> Ви маєте перевагу на рятунки проти ефектів, що змушують вас переміститися або збивають з ніг (prone).</li>
-                 </ul>
+                    <li><strong class="font-bold text-black">Додатковий удар.</strong> При атаці алебардою, жердиною або списом, ви можете бонусною дією вдарити іншим кінцем зброї (1d4 шкоди).</li>
+                    <li><strong class="font-bold text-black">Захист периметра.</strong> Ви можете робити атаку за можливістю, коли істота входить у зону вашої досяжності (а не тільки виходить).</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-    
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Стійкий (Resilient)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до характеристики та володіння рятувальними кидками цієї характеристики
@@ -1183,12 +955,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер ритуалів (Ritual Caster)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Можливість записувати та накладати заклинання-ритуали
@@ -1206,80 +977,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Клинок ревенанта (Revenant Blade)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Eberron: Rising from the Last War</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Спр, майстерність з подвійним ятаганом, бонус до КЗ
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
-                    <li><strong class="font-bold text-black">Подвійний клинок.</strong> Використовуючи подвійний ятаган, ви отримуєте +1 до КЗ. Також ця зброя вважається фехтувальною (finesse) у ваших руках.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Лютий нападник (Savage Attacker)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Перекидання кубиків шкоди зброї в ближньому бою
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Перекидання шкоди.</strong> Раз на хід, коли ви влучаєте атакою ближнього бою, ви можете перекинути кубики шкоди цієї зброї та обрати будь-який результат.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Другий шанс (Second Chance)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Спр/Вит/Хар, змушування ворога перекинути атаку
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Галфлінґ).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Спритність, Витривалість або Харизму на 1.</li>
-                    <li><strong class="font-bold text-black">Везіння галфлінґа.</strong> Коли істота, яку ви бачите, влучає по вас атакою, ви можете реакцією змусити її перекинути кубик. Ефект відновлюється після короткого або тривалого відпочинку.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Вартовий (Sentinel)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Зупинка ворога атакою за можливістю, захист союзників
@@ -1298,12 +1000,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Торкнутий тінню (Shadow Touched)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Інт/Муд/Хар, заклинання Невидимість та ще одне 1-го рівня
@@ -1322,12 +1023,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Влучний стрілець (Sharpshooter)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Ігнорування укриття, -5 до атаки за +10 до шкоди дальніми атаками
@@ -1346,12 +1046,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Майстер щитів (Shield Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Штовхання щитом, додавання бонусу щита до рятунків Спритності
@@ -1370,34 +1069,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Умілий (Skilled)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Володіння 3 навичками або інструментами
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Різнобічність.</strong> Ви отримуєте володіння будь-якою комбінацією з трьох навичок або інструментів на ваш вибір.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Експерт навичок (Skill Expert)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до будь-якої характеристики, 1 навичка, 1 експертиза
@@ -1416,12 +1092,34 @@
         </div>
     </div>
 </div>
-
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Скрадливець (Skulker)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            +1 Спритність; ховання та влучна стрільба з тіні
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Спритність 13+).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Спритність на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Снайпер.</strong> Промах далекобійною атакою зі схованки не розкриває вашу позицію.</li>
+                    <li><strong class="font-bold text-black">Швидке ховання.</strong> Бонусною дією ви можете Сховатися навіть при легкому укритті.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Рубака (Slasher)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Сил/Спр, уповільнення ворога, завада ворогу при криті
@@ -1440,35 +1138,35 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Душа штормового велетня (Soul of the Storm Giant)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Glory of the Giants</span>
+            <span class="font-bold text-lg leading-tight feat-name">Спритноногий (Speedy)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до характеристики, аура магічного шторму
+            +1 Спритність; +10 фт швидкості; кращий Ривок
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: 4 рівень, Удар велетнів).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Спритність 13+).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Мудрість на 1.</li>
-                    <li><strong class="font-bold text-black">Грозова аура.</strong> Бонусною дією ви створюєте ауру радіусом 10 футів. Вороги в ній мають заваду на атаки по вас. Коли ворог входить в ауру, ви можете змусити його пройти рятунок Сили або бути відкинутим.</li>
+                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільшіть Спритність на 1 (макс. 20).</li>
+                    <li><strong class="font-bold text-black">Швидкість.</strong> Ваша швидкість зростає на 10 футів.</li>
+                    <li><strong class="font-bold text-black">Спритний ривок.</strong> Здійснивши Ривок, ви ігноруєте важку місцевість того ходу.</li>
+                    <li><strong class="font-bold text-black">Невловимий.</strong> Атаки за можливістю по вас здійснюються з недоліком у ходи, коли ви скористалися Ривком.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Магічний снайпер (Spell Sniper)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Подвоєння дистанції заклинань, ігнорування укриття, 1 замовлення
@@ -1487,107 +1185,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Збройоносець Соламнії (Squire of Solamnia)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Dragonlance: Shadow of the Dragon Queen</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Перевага на атаку та додаткова шкода (PB разів)
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Військова виучка.</strong> Ви отримуєте володіння середніми обладунками та військовою зброєю.</li>
-                    <li><strong class="font-bold text-black">Точний удар.</strong> Коли ви атакуєте зброєю, ви можете дати собі перевагу на кидок. При влучанні додайте 1d8 до шкоди. Можна використовувати кількість разів, що дорівнює вашому бонусу майстерності.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Приземкувата спритність (Squat Nimbleness)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Спр, +5 до швидкості, навичка Атлетика/Акробатика
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Гном або інша мала раса).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
-                    <li><strong class="font-bold text-black">Швидкість.</strong> Ваша швидкість збільшується на 5 футів.</li>
-                    <li><strong class="font-bold text-black">Спритність.</strong> Ви отримуєте володіння Атлетикою або Акробатикою та перевагу на перевірки для виходу з захоплення.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Удар велетнів (Strike of the Giants)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Додаткова шкода стихією та спец-ефект при атаці (PB разів)
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Володіння військовою зброєю або Атлетикою).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Велетенська сила.</strong> Виберіть тип велетня (Хмарний, Вогняний, Морозний, Кам'яний, Штормовий або Пагорбовий).</li>
-                    <li><strong class="font-bold text-black">Стихійний удар.</strong> Раз на свій хід, влучивши атакою ближнього бою або метальною зброєю, ви наносите додаткову шкоду (1d6) та активуєте ефект обраного велетня (наприклад, збивання з ніг або додаткова шкода вогнем).</li>
-                    <li><strong class="font-bold text-black">Використання.</strong> Можна використовувати кількість разів, що дорівнює вашому бонусу майстерності.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Шинкарський боєць (Tavern Brawler)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Вит, володіння підручною зброєю, захоплення бонусною дією
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Витривалість на 1.</li>
-                    <li><strong class="font-bold text-black">Вуличний боєць.</strong> Ви отримуєте володіння підручною зброєю (improvised weapons), а ваші беззбройні удари наносять 1d4 шкоди.</li>
-                    <li><strong class="font-bold text-black">Швидке захоплення.</strong> Коли ви влучаєте беззбройним ударом або підручною зброєю, ви можете бонусною дією спробувати захопити (grapple) ціль.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Телекінетик (Telekinetic)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Інт/Муд/Хар, посилена Магічна рука, штовхання розумом
@@ -1606,12 +1208,11 @@
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Телепат (Telepathic)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Tasha's Cauldron of Everything</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             +1 до Інт/Муд/Хар, ментальне спілкування, заклинання Шепіт розуму
@@ -1630,83 +1231,11 @@
         </div>
     </div>
 </div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Міцний (Tough)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +2 Хіти за кожен рівень
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Запас здоров'я.</strong> Ваш максимум хітів збільшується на суму, що дорівнює вашому подвоєному рівню.</li>
-                    <li><strong class="font-bold text-black">Подальший розвиток.</strong> Щоразу, коли ви отримуєте рівень після взяття цієї риси, ваш максимум хітів додатково збільшується на 2.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Міський слідчий (Investigator)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Van Richten's Guide to Ravenloft</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Інт/Муд, швидкий пошук доказів, аналіз місцевості
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект або Мудрість на 1.</li>
-                    <li><strong class="font-bold text-black">Гострий розум.</strong> Ви можете зробити перевірку Аналізу (Investigation) як бонусну дію.</li>
-                    <li><strong class="font-bold text-black">Дедукція.</strong> Ви маєте перевагу на перевірки для пошуку прихованих дверей, пасток або слідів.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
-        <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Енергія пагорбового велетня (Vigor of the Hill Giant)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Bigby Presents: Glory of the Giants</span>
-        </div>
-        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Вит/Муд, опір до збивання з ніг, лікування через кубики хітів
-        </div>
-    </div>
-    <div class="feat-content">
-        <div class="feat-inner">
-            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: 4 рівень, Удар велетнів).</p>
-                <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу, Витривалість або Мудрість на 1.</li>
-                    <li><strong class="font-bold text-black">Стійкість.</strong> Коли ефект має збити вас з ніг (prone), ви можете реакцією залишитися стояти.</li>
-                    <li><strong class="font-bold text-black">Поживна сила.</strong> Коли ви відновлюєте хіти за допомогою Кубиків Хітів (Hit Dice), ви додаєте до результату свій бонус майстерності та модифікатор Витривалості.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
             <span class="font-bold text-lg leading-tight feat-name">Бойовий заклинатель (War Caster)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Загальна риса • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
             Перевага на концентрацію, заклинання як атака за можливістю
@@ -1725,200 +1254,271 @@
         </div>
     </div>
 </div>
+        </div>
 
+        <h2 class="text-2xl font-heading font-bold text-forest mt-8 mb-1">Стилі бою <span class="text-base font-normal text-dnd-muted">(10)</span></h2>
+        <p class="text-sm text-dnd-muted mb-4">Доступні класам, що мають властивість «Бойовий стиль».</p>
+        <div class="space-y-3">
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Майстер зброї (Weapon Master)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Player's Handbook</span>
+            <span class="font-bold text-lg leading-tight feat-name">Стрільба (Archery)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Сил/Спр, володіння 4 видами зброї
+            +2 до влучань далекобійною зброєю
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Силу або Спритність на 1.</li>
-                    <li><strong class="font-bold text-black">Збройова підготовка.</strong> Ви отримуєте володіння чотирма видами простої або військової зброї на ваш вибір.</li>
+                    <li><strong class="font-bold text-black">Влучність.</strong> Ви маєте +2 до кидків влучання далекобійною зброєю.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Магія лісових ельфів (Wood Elf Magic)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+            <span class="font-bold text-lg leading-tight feat-name">Сліпий бій (Blind Fighting)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Замовлення друїда, заклинання Безслідний хід та Прудконогий
+            Сліпозір 10 футів
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Ельф (лісовий)).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Природна магія.</strong> Ви вивчаєте одне замовлення зі списку друїда.</li>
-                    <li><strong class="font-bold text-black">Лісові заклинання.</strong> Ви можете накласти <span class="italic text-forest">Прудконогий (Longstrider)</span> та <span class="italic text-forest">Безслідний хід (Pass without Trace)</span> по одному разу на тривалий відпочинок (без витрати комірок).</li>
+                    <li><strong class="font-bold text-black">Сліпозір.</strong> Ви маєте сліпозір у радіусі 10 футів, відчуваючи все в цьому радіусі без зору, навіть осліпленим чи в темряві.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Дикий талант (Wild Talent)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Unearthed Arcana (Psionics)</span>
+            <span class="font-bold text-lg leading-tight feat-name">Оборона (Defense)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до характеристики, кубик психічної енергії для перевірок
+            +1 КЗ в обладунках
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште одну характеристику за вибором на 1.</li>
-                    <li><strong class="font-bold text-black">Психічне посилення.</strong> Ви отримуєте Психічний кубик (d6). Ви можете додати його результат до перевірки обраної характеристики. Кубик змінює розмір (збільшується або зменшується) залежно від результатів кидка.</li>
+                    <li><strong class="font-bold text-black">Захист.</strong> Поки ви носите обладунки, ви маєте +1 до Класу Захисту.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Воїн богів (Warrior of the Gods)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Book of Many Things</span>
+            <span class="font-bold text-lg leading-tight feat-name">Дуель (Dueling)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            Божественне воскресіння та бонус до КЗ
+            +2 шкоди однією зброєю в одній руці
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Немає).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Божественний захист.</strong> Поки ви не носите важких обладунків, ваш КЗ збільшується на 1.</li>
-                    <li><strong class="font-bold text-black">Легке воскресіння.</strong> Заклинання, що повертають вас до життя, не потребують матеріальних компонентів.</li>
-                    <li><strong class="font-bold text-black">Стійкість духу.</strong> Ви маєте перевагу на рятувальні кидки проти станів "наляканий" та "зачарований".</li>
+                    <li><strong class="font-bold text-black">Дуель.</strong> Тримаючи зброю ближнього бою в одній руці й без іншої зброї, ви маєте +2 до шкоди цією зброєю.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Творець див (Wonder Maker)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Xanathar's Guide to Everything</span>
+            <span class="font-bold text-lg leading-tight feat-name">Бій великою зброєю (Great Weapon Fighting)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            +1 до Інт, покращення пристроїв гномів, експертиза в інструментах
+            Переоберіть 1-2 на кубах шкоди дворучної зброї
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Расова риса (Вимоги: Гном (скельний)).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Збільшення характеристики.</strong> Збільште Інтелект на 1.</li>
-                    <li><strong class="font-bold text-black">Майстер-винахідник.</strong> Ваш бонус майстерності подвоюється для перевірок з використанням інструментів майстра.</li>
-                    <li><strong class="font-bold text-black">Нові винаходи.</strong> Ви можете створювати додаткові пристрої, такі як "Сигналізатор", "Калькулятор" або "Вогнегасник".</li>
+                    <li><strong class="font-bold text-black">Велика зброя.</strong> Кидаючи шкоду дворучною чи універсальною зброєю у двох руках, результати 1 і 2 на кубах вважаються 3.</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
 <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
     <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
         <div class="flex flex-col mb-2 md:mb-0">
-            <span class="font-bold text-lg leading-tight feat-name">Студент Візерблуму (Witherbloom Student)</span>
-            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Strixhaven: A Curriculum of Chaos</span>
+            <span class="font-bold text-lg leading-tight feat-name">Перехоплення (Interception)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
         </div>
         <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-            2 замовлення, 1 заклинання 1-го рівня, магія життя та смерті
+            Реакцією зменшуєте шкоду союзнику поряд
         </div>
     </div>
     <div class="feat-content">
         <div class="feat-inner">
             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
-                <p class="italic text-slate-600 mb-4 text-sm">Загальна риса (Вимоги: Можливість накладати заклинання).</p>
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
                 <ul class="space-y-3">
-                    <li><strong class="font-bold text-black">Заклинання Стріксхейвена.</strong> Ви вивчаєте два замовлення зі списку друїда або ченця та одне заклинання 1-го рівня зі шкіл некромантії або втілення.</li>
-                    <li><strong class="font-bold text-black">Цілюще зілля.</strong> Ви отримуєте володіння набором травника (herbalism kit).</li>
+                    <li><strong class="font-bold text-black">Перехоплення.</strong> Коли істоту за 5 футів від вас б’ють, реакцією ви зменшуєте шкоду на 1d10 + ваш бонус майстерності (потрібен щит або зброя).</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Захист (Protection)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Недолік на атаку по союзнику поряд (потрібен щит)
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Втручання.</strong> Тримаючи щит, коли істоту за 5 футів від вас атакують, реакцією ви накладаєте недолік на цей кидок влучання.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Метальний бій (Thrown Weapon Fighting)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Швидко дістаєте метальну зброю; +2 шкоди
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Метання.</strong> Ви можете дістати метальну зброю як частину атаки і маєте +2 до шкоди метальною зброєю.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Бій двома зброями (Two-Weapon Fighting)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Додаєте модифікатор до шкоди другої атаки
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Парна зброя.</strong> Б’ючись двома зброями, ви додаєте свій модифікатор характеристики до шкоди другої атаки.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+    <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleFeat(this)">
+        <div class="flex flex-col mb-2 md:mb-0">
+            <span class="font-bold text-lg leading-tight feat-name">Беззбройний бій (Unarmed Fighting)</span>
+            <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Стиль бою • PHB 2024</span>
+        </div>
+        <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
+            Сильніші беззбройні удари та хапання
+        </div>
+    </div>
+    <div class="feat-content">
+        <div class="feat-inner">
+            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800">
+                <p class="italic text-slate-600 mb-4 text-sm">Стиль бою (Вимоги: Властивість «Бойовий стиль»).</p>
+                <ul class="space-y-3">
+                    <li><strong class="font-bold text-black">Удар.</strong> Ваші беззбройні удари завдають 1d6 (1d8, якщо обидві руки вільні від зброї та щита) дробильної шкоди.</li>
+                    <li><strong class="font-bold text-black">Хват.</strong> На початку вашого ходу, тримаючи когось у захваті, ви завдаєте 1d4 дробильної шкоди.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        </div>
 
    </main>
 
-    <!-- Footer -->
+    
     <footer class="bg-white border-t border-slate-200 py-6 mt-12">
         <div class="container mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">&copy; 2024 Довідник з правил 5e | Цифрова База Знань.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    
     <script>
-        // Акордеон
-        function toggleFeat(element) {
-            const content = element.nextElementSibling;
-            content.classList.toggle('open');
-            
-            const title = element.querySelector('.feat-name');
-            // Перевіряємо, чи це Epic Boon (фіолетовий)
-            const isEpic = title.classList.contains('text-purple-900') || title.classList.contains('text-purple-600');
-            
-            if (content.classList.contains('open')) {
-                if(isEpic) {
-                    title.classList.replace('text-purple-900', 'text-purple-600');
-                } else {
-                    title.classList.replace('text-black', 'text-forest');
-                }
-            } else {
-                if(isEpic) {
-                    title.classList.replace('text-purple-600', 'text-purple-900');
-                } else {
-                    title.classList.replace('text-forest', 'text-black');
-                }
-            }
-        }
-
-        // Пошук
-        function searchFeats() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('feat-card');
-
-            for (let i = 0; i < cards.length; i++) {
-                let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
-                let summary = cards[i].querySelector('.feat-summary').innerText.toLowerCase();
-                let fullText = cards[i].querySelector('.feat-content').innerText.toLowerCase();
-                
-                if (name.includes(input) || summary.includes(input) || fullText.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+function toggleFeat(element) {
+  const content = element.nextElementSibling;
+  content.classList.toggle("open");
+  const title = element.querySelector(".feat-name");
+  const isEpic =
+    title.classList.contains("text-purple-900") || title.classList.contains("text-purple-600");
+  if (content.classList.contains("open")) {
+    if (isEpic) {
+      title.classList.replace("text-purple-900", "text-purple-600");
+    } else {
+      title.classList.replace("text-black", "text-forest");
+    }
+  } else {
+    if (isEpic) {
+      title.classList.replace("text-purple-600", "text-purple-900");
+    } else {
+      title.classList.replace("text-forest", "text-black");
+    }
+  }
+}
+function searchFeats() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.getElementsByClassName("feat-card");
+  for (let i = 0; i < cards.length; i++) {
+    let name = cards[i].querySelector(".feat-name").innerText.toLowerCase();
+    let summary = cards[i].querySelector(".feat-summary").innerText.toLowerCase();
+    let fullText = cards[i].querySelector(".feat-content").innerText.toLowerCase();
+    if (name.includes(input) || summary.includes(input) || fullText.includes(input)) {
+      cards[i].style.display = "";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+}
+</script>
     <script src="search-index.js"></script>
     <script src="site-common.js"></script>
 </body>

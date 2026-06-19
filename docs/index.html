@@ -5,55 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D 5e: Цифрова База Знань</title>
     
-    <!-- Іконка (Favicon) -->
-    <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Сучасні шрифти -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        surface: { light: '#F8FAFC', DEFAULT: '#F1F5F9', dark: '#E2E8F0' },
-                        ui: { text: '#1E293B', muted: '#475569' },
-                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' }
-                    },
-                    fontFamily: { heading: ['Montserrat', 'sans-serif'], body: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
 
     <style>
 .header-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
-        body { background-color: #F8FAFC; }
-        .nav-card { transition: all 0.2s ease; border: 1px solid #E2E8F0; }
-        .nav-card:hover { transform: translateY(-4px); border-color: #14532D; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .icon-box { background: linear-gradient(135deg, #14532D 0%, #166534 100%); }
-        .header-logo { width: 50px; height: 50px; object-fit: contain; }
-        
-        /* Стиль для панелі кубиків */
-        #dice-panel { transition: transform 0.3s ease-in-out; transform: translateX(120%); }
-        #dice-panel.open { transform: translateX(0); }
-        .dice-btn { transition: all 0.1s; }
-        .dice-btn:active { transform: scale(0.9); }
-    </style>
+body {
+  background-color: #f8fafc;
+}
+.nav-card {
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+.nav-card:hover {
+  transform: translateY(-4px);
+  border-color: #14532d;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.icon-box {
+  background: linear-gradient(135deg, #14532d 0%, #166534 100%);
+}
+.header-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+#dice-panel {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(120%);
+}
+#dice-panel.open {
+  transform: translateX(0);
+}
+.dice-btn {
+  transition: all 0.1s;
+}
+.dice-btn:active {
+  transform: scale(0.9);
+}
+</style>
     <link rel="stylesheet" href="site-common.css">
-    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+    <link rel="stylesheet" href="vendor/tailwind.css">
+    <script>
+(function () {
+  try {
+    if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="font-body text-ui-text min-h-screen flex flex-col overflow-x-hidden">
 
-    <!-- Header -->
+    
     <header class="bg-forest text-white py-4 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -68,7 +85,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    
     <main class="container mx-auto px-4 py-8 flex-1">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
@@ -119,8 +136,8 @@
         </div>
     </main>
 
-    <!-- DICE UI ELEMENTS -->
-    <!-- Floating Action Button -->
+    
+    
     <div id="floating-dice-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
     
     <div id="floating-dice-menu" class="hidden mb-4 bg-white border border-slate-200 rounded-2xl shadow-2xl w-72 overflow-hidden origin-bottom-right transition-all flex flex-col">
@@ -167,89 +184,65 @@
 </div>
 
 <script>
-    let floatingDicePool = [];
-
-    // Відкриття/закриття меню
-    function toggleFloatingMenu() {
-        const menu = document.getElementById('floating-dice-menu');
-        menu.classList.toggle('hidden');
-    }
-
-    // Закриття меню при кліку будь-де на екрані (поза віджетом)
-    document.addEventListener('click', function(event) {
-        const widget = document.getElementById('floating-dice-widget');
-        const menu = document.getElementById('floating-dice-menu');
-        if (widget && !widget.contains(event.target)) {
-            menu.classList.add('hidden');
-        }
-    });
-
-    // Додавання кубика в пул
-    function addFloatingDice(sides) {
-        floatingDicePool.push(sides);
-        updateFloatingQueue();
-        document.getElementById('floating-dice-result').classList.add('hidden');
-    }
-
-    // Відмінити останній доданий кубик
-    function undoFloatingDice() {
-        if (floatingDicePool.length > 0) {
-            floatingDicePool.pop();
-            updateFloatingQueue();
-            document.getElementById('floating-dice-result').classList.add('hidden');
-        }
-    }
-
-    // Очистити весь пул
-    function clearFloatingDice() {
-        floatingDicePool = [];
-        updateFloatingQueue();
-        document.getElementById('floating-dice-result').classList.add('hidden');
-    }
-
-    // Оновлення тексту пулу (напр. "2d6 + 1d20")
-    function updateFloatingQueue() {
-        const queueEl = document.getElementById('floating-queue');
-        if (floatingDicePool.length === 0) {
-            queueEl.innerText = 'Виберіть кубики...';
-            return;
-        }
-
-        const counts = {};
-        floatingDicePool.forEach(d => counts[d] = (counts[d] || 0) + 1);
-        
-        queueEl.innerText = Object.entries(counts)
-            .map(([sides, count]) => `${count}d${sides}`)
-            .join(' + ');
-    }
-
-    // Логіка кидка кубика
-    function rollFloatingDice() {
-        if (floatingDicePool.length === 0) return;
-
-        let total = 0;
-        let rolls = [];
-
-        // Рахуємо кожен кубик
-        floatingDicePool.forEach(sides => {
-            const res = Math.floor(Math.random() * sides) + 1;
-            total += res;
-            rolls.push(`[d${sides}]: ${res}`);
-        });
-        
-        // Відображаємо
-        document.getElementById('floating-total-sum').innerText = total;
-        document.getElementById('floating-details').innerText = rolls.join(', ');
-        
-        const resultDiv = document.getElementById('floating-dice-result');
-        resultDiv.classList.remove('hidden');
-        
-        // Легка анімація "підстрибування" результату
-        resultDiv.style.transform = 'scale(1.05)';
-        setTimeout(() => {
-            resultDiv.style.transform = 'scale(1)';
-        }, 150);
-    }
+let floatingDicePool = [];
+function toggleFloatingMenu() {
+  const menu = document.getElementById("floating-dice-menu");
+  menu.classList.toggle("hidden");
+}
+document.addEventListener("click", function (event) {
+  const widget = document.getElementById("floating-dice-widget");
+  const menu = document.getElementById("floating-dice-menu");
+  if (widget && !widget.contains(event.target)) {
+    menu.classList.add("hidden");
+  }
+});
+function addFloatingDice(sides) {
+  floatingDicePool.push(sides);
+  updateFloatingQueue();
+  document.getElementById("floating-dice-result").classList.add("hidden");
+}
+function undoFloatingDice() {
+  if (floatingDicePool.length > 0) {
+    floatingDicePool.pop();
+    updateFloatingQueue();
+    document.getElementById("floating-dice-result").classList.add("hidden");
+  }
+}
+function clearFloatingDice() {
+  floatingDicePool = [];
+  updateFloatingQueue();
+  document.getElementById("floating-dice-result").classList.add("hidden");
+}
+function updateFloatingQueue() {
+  const queueEl = document.getElementById("floating-queue");
+  if (floatingDicePool.length === 0) {
+    queueEl.innerText = "Виберіть кубики...";
+    return;
+  }
+  const counts = {};
+  floatingDicePool.forEach((d) => (counts[d] = (counts[d] || 0) + 1));
+  queueEl.innerText = Object.entries(counts)
+    .map(([sides, count]) => `${count}d${sides}`)
+    .join(" + ");
+}
+function rollFloatingDice() {
+  if (floatingDicePool.length === 0) return;
+  let total = 0;
+  let rolls = [];
+  floatingDicePool.forEach((sides) => {
+    const res = Math.floor(Math.random() * sides) + 1;
+    total += res;
+    rolls.push(`[d${sides}]: ${res}`);
+  });
+  document.getElementById("floating-total-sum").innerText = total;
+  document.getElementById("floating-details").innerText = rolls.join(", ");
+  const resultDiv = document.getElementById("floating-dice-result");
+  resultDiv.classList.remove("hidden");
+  resultDiv.style.transform = "scale(1.05)";
+  setTimeout(() => {
+    resultDiv.style.transform = "scale(1)";
+  }, 150);
+}
 </script>
 
     <footer class="bg-white border-t border-slate-200 py-6 mt-12">
