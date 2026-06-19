@@ -5,50 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rules & Mechanics - D&D 5e</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
-                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
-                    },
-                    fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
-                        body: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
-        .feat-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out;
-        }
-        .feat-content.open {
-            grid-template-rows: 1fr;
-        }
-        .feat-inner {
-            overflow: hidden;
-        }
-    </style>
+.feat-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.feat-content.open {
+  grid-template-rows: 1fr;
+}
+.feat-inner {
+  overflow: hidden;
+}
+</style>
     <link rel="stylesheet" href="site-common.css">
-    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+    <link rel="stylesheet" href="../vendor/tailwind.css">
+    <script>
+(function () {
+  try {
+    if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
 
-    <!-- Header -->
+    
     <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
@@ -66,33 +58,33 @@
         </div>
     </header>  
 
-    <!-- Main Content -->
+    
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Header and Filters -->
+        
         <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
                 <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Rules & Mechanics</h1>
                 <p class="text-slate-600">A cheat sheet for the basic rules of Dungeons & Dragons.</p>
             </div>
             
-            <!-- Filter panel -->
+            
             <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 
-                <!-- Filter by category -->
+                
                 <select id="categoryFilter" onchange="filterRules()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
                     <option value="">All categories</option>
-                    <option value="basics">Basics</option>
+                    <option value="basics">Game Basics</option>
                     <option value="combat">Combat & Actions</option>
-                    <option value="magic">Magic</option>
+                    <option value="combat-maneuvers">Combat Maneuvers</option>
+                    <option value="magic">Magic & Spells</option>
                     <option value="conditions">Conditions</option>
                     <option value="rest">Rest & Health</option>
-                    <option value="combat-maneuvers">Combat: Maneuvers</option>
                     <option value="environment">Travel & Environment</option>
-                    <option value="conditions-advanced">Conditions: Advanced</option>
+                    <option value="equipment">Equipment & Wealth</option>
                 </select>
 
-                <!-- Text search -->
+                
                 <div class="relative w-full sm:w-64">
                     <input type="text" id="searchInput" onkeyup="filterRules()" placeholder="Search for a rule..." 
                         class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
@@ -101,373 +93,288 @@
             </div>
         </div>
 
-        <!-- Container for all sections -->
+        
         <div id="rulesContainer">
-            
-            <!-- ================= CATEGORY: BASICS ================= -->
             <div class="category-section mb-12" data-category="basics">
-                <!-- Bright section heading -->
                 <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
                     <span class="text-3xl">📚</span>
                     <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Game Basics</h2>
                 </div>
-                
                 <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ability Scores & Modifiers</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The six abilities and how modifiers work</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Every creature has <strong>six ability scores</strong>: Strength (STR), Dexterity (DEX), Constitution (CON), Intelligence (INT), Wisdom (WIS), Charisma (CHA). Scores normally range from <strong>1 to 20</strong> (20 is the cap for ordinary creatures).</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Modifier:</strong><br><code>(Score − 10) / 2, rounded down</code></div><p>The modifier is added to almost every roll: attacks, checks, and saving throws. For example, a score of 14 gives a <strong>+2</strong> modifier, while 8 gives <strong>−1</strong>.</p>
+                            </div>
+                        </div></div>
+                    </div>
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
                                 <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Advantage & Disadvantage</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                How to roll dice in favorable or unfavorable conditions
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Rolling dice in favorable or unfavorable conditions</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>Sometimes a special ability or spell tells you that you have <strong>advantage</strong> or <strong>disadvantage</strong> on an attack roll, saving throw, or ability check.</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Advantage:</strong> You roll a second d20 and use the <strong>higher</strong> of the two results.</li>
-                                        <li><strong>Disadvantage:</strong> You roll a second d20 and use the <strong>lower</strong> of the two results.</li>
-                                    </ul>
-                                    <p><strong>Important rule:</strong> If you have both advantage and disadvantage on the same roll, they cancel each other out. Even if you have two sources of advantage and one of disadvantage, you still make a normal roll (rolling one d20).</p>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Sometimes a feature or spell grants <strong>advantage</strong> or <strong>disadvantage</strong> on an attack roll, saving throw, or ability check.</p><ul class="list-disc pl-5 space-y-2"><li><strong>Advantage:</strong> roll two d20s and take the <strong>higher</strong> result.</li><li><strong>Disadvantage:</strong> roll two d20s and take the <strong>lower</strong> result.</li></ul><p>They <strong>don't stack</strong>: no matter how many sources apply, you roll just one extra die. If you have both advantage and disadvantage, they cancel out and you roll a single normal d20.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ability Checks (Skills)</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ability Checks & Skills</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                How to make skill checks outside of combat
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How to make skill checks</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>When you try to do something that has a chance of failure, the Dungeon Master (DM) asks for an ability check. Each skill is tied to one of the 6 core abilities.</p>
-                                    <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                        <strong>Roll formula:</strong><br>
-                                        <code>d20 + ability modifier + proficiency bonus (if proficient in the skill)</code>
-                                    </div>
-                                    <p><strong>Difficulty (DC):</strong> The DM sets the Difficulty Class. For example: Easy (10), Medium (15), Hard (20), Very Hard (25), Nearly Impossible (30).</p>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>When the outcome of an action is uncertain, the DM calls for an <strong>ability check</strong>. Each skill is tied to one of the six abilities.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Formula:</strong><br><code>d20 + ability modifier + proficiency bonus (if proficient in the skill)</code></div><p><strong>Difficulty Class (DC):</strong> very easy 5, easy 10, medium 15, hard 20, very hard 25, nearly impossible 30.</p>
                             </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Saving Throws</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Resisting threats and effects</div>
                         </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A saving throw is an attempt to <strong>resist</strong> a threat: a spell, a trap, a poison, or a disease. It's usually forced on you by an effect rather than something you choose.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><code>d20 + ability modifier + proficiency bonus (if proficient in that save)</code></div><p>The DC is set by the source of the effect (for example, a caster's spell save DC). Saving throw proficiencies come from your class and certain features.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Proficiency Bonus</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What proficiency adds</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Your proficiency bonus is based on <strong>character level</strong>, not class, and is added to anything you're proficient with: skill checks, attack rolls, and saving throws.</p><ul class="list-disc pl-5 space-y-1"><li>Levels 1–4: <strong>+2</strong></li><li>Levels 5–8: <strong>+3</strong></li><li>Levels 9–12: <strong>+4</strong></li><li>Levels 13–16: <strong>+5</strong></li><li>Levels 17–20: <strong>+6</strong></li></ul><p>You add your proficiency bonus to a roll only <strong>once</strong> (except when expertise doubles it).</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Passive Checks</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Checks made without rolling</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A passive check is a check made <strong>without rolling</strong>, useful for routine tasks or for secretly determining whether characters notice something.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><code>10 + all modifiers that normally apply to the check</code></div><p>Add +5 for advantage, −5 for disadvantage. The most common is <strong>passive Perception</strong>, compared against a Stealth roll to notice hidden creatures.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Heroic Inspiration</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Basics</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">A reward for good play</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>In the 2024 rules this is called <strong>Heroic Inspiration</strong>. The DM grants it for roleplaying, cleverness, or heroics. You either have it or you don't — it <strong>doesn't stack</strong>.</p><p>Spend Heroic Inspiration to <strong>reroll any d20</strong> and use the new result. Some species (such as humans) grant it automatically.</p>
+                            </div>
+                        </div></div>
                     </div>
                 </div>
             </div>
 
-            <!-- ================= CATEGORY: COMBAT ================= -->
             <div class="category-section mb-12" data-category="combat">
-                <!-- Bright section heading -->
                 <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
                     <span class="text-3xl">⚔️</span>
                     <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Combat & Actions</h2>
                 </div>
-                
                 <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Turn Structure in Combat</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">The Combat Round & Turn</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                What you can do on a single turn
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What you can do on a single turn</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>Combat is divided into rounds (1 round = 6 seconds of game-world time). On your turn you have the following at your disposal:</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Movement:</strong> You can move up to your speed. Movement can be split into parts before and after your action.</li>
-                                        <li><strong>Action:</strong> The main thing you do. Attack, cast a spell, dash, help, and so on.</li>
-                                        <li><strong>Bonus Action:</strong> An extra quick action. You can take it <strong>only when</strong>, you have a class feature, spell, or trait that explicitly says it's a bonus action (for example, drinking a potion, the "Healing Word" spell).</li>
-                                        <li><strong>Reaction:</strong> Taken not on your turn, but in response to a certain event (for example, an opportunity attack, the "Shield" spell). You have only 1 reaction per round.</li>
-                                        <li><strong>Free Object Interaction:</strong> Draw a sword, open a door, pick up an item. One such interaction per turn is free.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Combat runs in <strong>rounds</strong> of 6 seconds. On your turn you can usually:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Move</strong> up to your speed.</li><li>Take one <strong>action</strong>.</li><li>Possibly one <strong>bonus action</strong> (if something grants it).</li></ul><p>Outside your turn you may take one <strong>reaction</strong> per round. Movement can be split before and after your action.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Types of Actions in Combat</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Initiative</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                Attack, Dash, Disengage, Hide, Help, and others
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Who acts first</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>When your turn comes, you can spend your Action on one of the following:</p>
-                                    <ul class="list-disc pl-5 space-y-1">
-                                        <li><strong>Attack:</strong> Strike with a melee or ranged weapon. Some classes (Fighter) allow multiple strikes with one Attack action.</li>
-                                        <li><strong>Cast a Spell:</strong> Cast a spell whose casting time is "1 action".</li>
-                                        <li><strong>Dash:</strong> Your movement speed is doubled for this turn.</li>
-                                        <li><strong>Disengage:</strong> Until the end of your turn, your movement doesn't provoke opportunity attacks from enemies.</li>
-                                        <li><strong>Dodge:</strong> Until your next turn, any attacks against you are made with disadvantage, and you have advantage on Dexterity saving throws.</li>
-                                        <li><strong>Help:</strong> You give an ally advantage on their next ability check or attack roll against an enemy next to you.</li>
-                                        <li><strong>Hide:</strong> You make a Dexterity (Stealth) check to hide from enemies who can't see you.</li>
-                                        <li><strong>Ready:</strong> You delay your action until a certain condition occurs (for example: "If the goblin comes around the corner, I shoot"). When the condition is met, you use your <em>Reaction</em>to perform the action.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>At the start of combat everyone makes a <strong>Dexterity (initiative) check</strong>. Participants act in order from <strong>highest to lowest</strong> result.</p><p>This order holds for the rest of the fight. Ties are broken by the higher Dexterity modifier or by agreement among the players.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Opportunity Attack</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Actions in Combat</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                How and when you can strike a fleeing enemy
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The full list of standard actions</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>You can rarely walk calmly past an enemy without consequences. If an enemy you can see moves out of your melee reach (usually more than 5 feet), it provokes an opportunity attack from you.</p>
-                                    <p><strong>How it works:</strong> You use your <strong>Reaction</strong>to make <strong>one</strong> melee weapon attack against this enemy. The attack happens right before it leaves your reach.</p>
-                                    <p><strong>Exceptions:</strong> You can't make this attack if the enemy used the "Disengage" action, or if someone moved it with magic or pushed it against its will.</p>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>On your turn you can choose one of these actions:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Attack</strong> — make a melee or ranged attack.</li><li><strong>Cast a Spell</strong> — cast a spell with a casting time of 1 action.</li><li><strong>Dash</strong> — double your speed for the turn.</li><li><strong>Disengage</strong> — your movement doesn't provoke opportunity attacks.</li><li><strong>Dodge</strong> — attacks against you have disadvantage; you make Dexterity saves with advantage.</li><li><strong>Help</strong> — give an ally advantage.</li><li><strong>Hide</strong> — make a Stealth check.</li><li><strong>Ready</strong> — prepare an action with a trigger.</li><li><strong>Search</strong> — look for something.</li><li><strong>Use an Object</strong> — interact with an object.</li></ul>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- ================= CATEGORY: MAGIC ================= -->
-            <div class="category-section mb-12" data-category="magic">
-                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">✨</span>
-                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Magic & Spells</h2>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Magic & Concentration</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Bonus Action</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                Rules for maintaining magical effects
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">An extra, quick action</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>Some spells require concentration to maintain their effect. This means you need to focus on the magic. You can end concentration at any time (it doesn't require an action).</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>One spell:</strong> You can't concentrate on two spells at once. If you cast a new spell with concentration, the old one instantly ends.</li>
-                                        <li><strong>Taking damage:</strong> If you take damage while concentrating, you must make a Constitution saving throw. The DC equals 10 or half the damage taken, whichever is higher.</li>
-                                        <li><strong>Losing consciousness:</strong> If you drop to 0 hit points or are incapacitated, concentration is automatically broken.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A bonus action <strong>can't be taken freely</strong> — a specific feature, spell, or ability grants it (for example, two-weapon fighting or a rogue's Cunning Action).</p><p>You can take only <strong>one</strong> bonus action per turn, and you choose when to take it during your turn.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Spell Components (V, S, M)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Reaction</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                What's needed to cast spells
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">An instant response to a trigger</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>Each spell requires certain components to cast:</p>
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Verbal (V):</strong> Specific mystic words. You can't cast if you're gagged, underwater (without being able to breathe), or in the area of a "Silence" spell.</li>
-                                        <li><strong>Somatic (S):</strong> Complex hand gestures. You must have at least one free hand to perform the gestures.</li>
-                                        <li><strong>Material (M):</strong> Physical items. If a spell doesn't list a component cost (e.g. "a feather"), you can use a Component Pouch or an Arcane Focus instead. If a cost is listed (e.g. "a 50 gp diamond"), you need that specific item. The hand holding the focus/material can also perform somatic gestures.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A reaction is an instant action taken in response to a <strong>trigger</strong>, possible even when it isn't your turn. The most common example is the opportunity attack.</p><p>You have <strong>one reaction</strong> per round; it refreshes at the start of your next turn.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- ================= CATEGORY: CONDITIONS ================= -->
-            <div class="category-section mb-12" data-category="conditions">
-                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">😵</span>
-                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Conditions</h2>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Blinded, Deafened, Invisible</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Opportunity Attacks</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                Consequences of losing senses or sight
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Striking a fleeing enemy</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Blinded:</strong> A creature can't see and automatically fails any check that requires sight. Its attacks are made with <strong>disadvantage</strong>. Attacks by other creatures against it are made with <strong>advantage</strong>.</li>
-                                        <li><strong>Deafened:</strong> A creature can't hear and automatically fails checks that rely on hearing.</li>
-                                        <li><strong>Invisible:</strong> A creature is invisible (though it can be detected by sounds and tracks). The invisible creature's attacks are made with <strong>advantage</strong>, and attacks against it with <strong>disadvantage</strong>.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>When a hostile creature <strong>leaves your reach</strong> by moving away, you can spend your <strong>reaction</strong> to make one melee attack against it.</p><p>It can be avoided with the <strong>Disengage</strong> action, by teleporting, or by being moved without using its own movement.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Prone</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Movement & Speed</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                What happens when you're lying on the ground
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How movement works</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>When you're knocked down or fall voluntarily, you become "Prone".</p>
-                                    <ul class="list-disc pl-5 space-y-1">
-                                        <li>Your only movement option is to crawl (every 1 foot of movement costs 2 feet).</li>
-                                        <li>To stand up, you need to spend <strong>half your maximum speed</strong> (for example, 15 feet if your speed is 30).</li>
-                                        <li>You have <strong>disadvantage</strong> on all your own attack rolls.</li>
-                                        <li>Attacks against you <strong>in melee</strong> (within 5 feet) are made with <strong>advantage</strong>.</li>
-                                        <li>Attacks against you <strong>from afar</strong> (arrows, ranged magic) are made with <strong>disadvantage</strong>.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>You can move up to your <strong>speed</strong> and split it before and after your action — you can even move between attacks.</p><ul class="list-disc pl-5 space-y-1"><li><strong>Difficult terrain</strong> costs double movement.</li><li><strong>Standing up from prone</strong> costs half your speed.</li><li>You can move freely through an <strong>ally's</strong> space, but not an enemy's.</li></ul>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Charmed & Frightened</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Making an Attack</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                Psychological effects of magic and monsters
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How to hit a target</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <ul class="list-disc pl-5 space-y-2">
-                                        <li><strong>Charmed:</strong> A charmed creature can't attack the charmer or target it with harmful magical effects. The charmer has <strong>advantage</strong> on any social checks against this creature.</li>
-                                        <li><strong>Frightened:</strong> A frightened creature has <strong>disadvantage</strong> on ability checks and attack rolls while the source of its fear is within its line of sight. In addition, the creature can't willingly move closer to the source of its fear.</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>To hit, roll a d20 and compare it to the target's <strong>Armor Class (AC)</strong>.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><code>d20 + ability modifier + proficiency bonus (if proficient with the weapon)</code></div><p>Melee usually uses <strong>Strength</strong>, ranged uses <strong>Dexterity</strong>. A finesse weapon lets you pick the better of the two. A total ≥ AC is a hit.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Restrained, Stunned, Paralyzed</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Armor Class (AC)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                The most dangerous effects in the game
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How hard you are to hit</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                                        <li><strong>Restrained:</strong> Speed becomes 0. Your attacks have disadvantage. Attacks against you have advantage. You have disadvantage on Dexterity saving throws.</li>
-                                        <li><strong>Stunned:</strong> You're incapacitated (can't take actions/reactions). Your speed is 0 and you can only mumble. You automatically fail Strength and Dexterity saving throws. Attacks against you have advantage.</li>
-                                        <li><strong>Paralyzed:</strong> The same as Stunned, BUT: any attack that hits you in melee (within 5 feet) <strong>automatically becomes a critical hit</strong>. This is deadly dangerous!</li>
-                                    </ul>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Armor Class measures how hard a creature is to hit. An attack hits if its total <strong>equals or exceeds</strong> the AC.</p><p>With no armor, <code>AC = 10 + Dexterity modifier</code>. Armor sets a base (sometimes limiting Dexterity), and a shield usually adds <strong>+2</strong>.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-                </div>
-            </div>
-
-            <!-- ================= CATEGORY: REST ================= -->
-            <div class="category-section mb-12" data-category="rest">
-                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">🏕️</span>
-                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Rest & Health</h2>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Short & Long Rest</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Critical Hits</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                How to recover between battles
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What a natural 20 does</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <ul class="list-disc pl-5 space-y-3">
-                                        <li><strong>Short Rest:</strong> Lasts at least 1 hour without strenuous activity (eating, reading, bandaging). At the end you can spend your <em>Hit Dice</em>to heal. Some class abilities also recharge (such as Warlock magic or a Monk's Ki).</li>
-                                        <li><strong>Long Rest:</strong> Lasts 8 hours, of which at least 6 hours are sleep and no more than 2 hours of light activity (keeping watch). At the end you fully restore all your HP, all spell slots, and recover spent Hit Dice equal to half your level.</li>
-                                    </ul>
-                                    <p class="text-xs text-slate-500 mt-2">A character can't benefit from more than one Long Rest in a 24-hour period. To rest, you must have at least 1 hit point.</p>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>If you roll a <strong>natural 20</strong> on an attack roll, it's a <strong>critical hit</strong> — it hits regardless of AC.</p><p>On a crit you roll <strong>double the damage dice</strong> (modifiers are added once). A <strong>natural 1</strong> on an attack is an automatic miss.</p>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Death & Death Saving Throws</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Cover</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">
-                                What happens when hit points drop to zero
-                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Protection from obstacles</div>
                         </div>
-                        <div class="feat-content">
-                            <div class="feat-inner">
-                                <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                    <p>If your hit points (HP) drop to 0, you don't die immediately, but fall unconscious and drop to the ground.</p>
-                                    <p>At the start of each of your turns you must make a <strong>Death Saving Throw</strong>. You roll 1d20 without any modifiers:</p>
-                                    <ul class="list-disc pl-5 space-y-1">
-                                        <li><strong>10 or higher:</strong> This is a success. If you accumulate 3 successes, you stabilize and no longer die (but remain unconscious at 0 HP).</li>
-                                        <li><strong>9 or lower:</strong> This is a failure. If you accumulate 3 failures, your character dies permanently.</li>
-                                        <li><strong>Roll a 1:</strong> This counts as TWO failures.</li>
-                                        <li><strong>Roll a 20:</strong> You instantly regain consciousness and gain 1 HP. You can keep fighting!</li>
-                                    </ul>
-                                    <p><strong>Taking damage:</strong> If you're hit while at 0 HP, you automatically gain 1 failure (or 2 failures if the enemy hit you in melee, which counts as a critical hit). If any healing restores at least 1 HP to you, all your successes and failures are erased and you wake up.</p>
-                                </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Obstacles between attacker and target grant cover:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Half cover</strong> (low wall): +2 to AC and Dexterity saves.</li><li><strong>Three-quarters cover</strong> (arrow slit): +5 to AC and Dexterity saves.</li><li><strong>Total cover</strong>: the target can't be targeted directly.</li></ul><p>Only the most protective degree applies; cover doesn't stack.</p>
                             </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Damage & Damage Types</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Resistance, vulnerability, immunity</div>
                         </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Damage is rolled from a weapon or spell's dice plus modifiers. The damage type (fire, cold, piercing, etc.) interacts with the target's defenses:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Resistance:</strong> damage is <strong>halved</strong>.</li><li><strong>Vulnerability:</strong> damage is <strong>doubled</strong>.</li><li><strong>Immunity:</strong> <strong>no damage</strong> is taken.</li></ul><p>Apply all additions and subtractions first, and only then resistance or vulnerability.</p>
+                            </div>
+                        </div></div>
                     </div>
                 </div>
             </div>
@@ -475,95 +382,593 @@
             <div class="category-section mb-12" data-category="combat-maneuvers">
                 <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
                     <span class="text-3xl">🛡️</span>
-                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Combat: Maneuvers</h2>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Combat Maneuvers</h2>
                 </div>
                 <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Unarmed Strike (2024)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Three options: Damage, Grapple, or Shove</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>In the 2024 edition, an unarmed strike isn't just damage. Instead of a weapon attack you can make an unarmed strike and choose <strong>one</strong> from three options:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Damage:</strong> 1 + your Strength modifier bludgeoning damage.</li><li><strong>Grapple:</strong> grab the target (see below).</li><li><strong>Shove:</strong> push the target (see below).</li></ul>
-                            </div>
-                        </div></div>
-                    </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Grapple (2024)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How to grab an opponent with an unarmed strike</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>By choosing the <strong>Grapple</strong>option, you try to grab the target (no more than one size larger than you and within reach).</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Target's save:</strong><br><code>Strength or Dexterity saving throw (target's choice) against DC = 8 + your Str mod + proficiency bonus</code></div><p>On a failure, the target gains the <strong>Grappled</strong>condition: its speed becomes 0. The grapple ends if you're incapacitated or the target moves out of your reach (for example, it's pushed away).</p>
-                            </div>
-                        </div></div>
-                    </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Shove (2024)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Knock prone or push 5 feet away</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>By choosing the <strong>Shove</strong>option, you push a target within reach (no more than one size larger than you).</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Target's save:</strong><br><code>Strength or Dexterity saving throw against DC = 8 + your Str mod + proficiency bonus</code></div><p>On a failure, you either <strong>knock the target prone</strong> (Prone condition), or <strong>push</strong> it 5 feet away from you (your choice).</p>
-                            </div>
-                        </div></div>
-                    </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
                                 <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Two-Weapon Fighting</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">An extra attack with a second light weapon</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Attacking with a weapon in each hand</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>If you take the Attack action with a melee weapon that has the <strong>Light</strong>property, you can <strong>as a bonus action</strong> attack with another light weapon you're holding in your other hand.</p><ul class="list-disc pl-5 space-y-1"><li>You <strong>don't add</strong> your ability modifier to the damage of this bonus attack (unless it's negative).</li><li>The "Two-Weapon Fighting" fighting style lets you add the modifier to this attack as well.</li></ul>
+                                <p>If you attack with a <strong>light</strong> melee weapon in one hand, you can use a <strong>bonus action</strong> to attack with a different light weapon in your other hand.</p><p>You <strong>don't add</strong> your ability modifier to the bonus attack's damage (unless it's negative) without a relevant feature or fighting style.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Critical Hit</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Unarmed Strike</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What happens on a roll of "20" to attack</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fighting without a weapon</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>When an attack roll comes up as a <strong>natural 20</strong> (the exact number on the die, before modifiers), it's a <strong>critical hit</strong>: the attack automatically hits regardless of AC.</p><ul class="list-disc pl-5 space-y-1"><li>You roll <strong>all damage dice twice</strong> and add them together, then add the modifiers.</li><li>Extra damage dice (for example, from Sneak Attack) are also doubled.</li><li>In the 2024 edition, only attack rolls can crit or critically "miss" <strong>attacks</strong> checks and saving throws don't give a crit.</li></ul>
+                                <p>An unarmed strike (fist, elbow, knee, etc.) is a melee attack. In the 2024 rules you choose one option instead of an attack roll:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Damage:</strong> a hit deals <code>1 + Strength modifier</code> bludgeoning damage.</li><li><strong>Grapple:</strong> impose the Grappled condition (target saves).</li><li><strong>Shove:</strong> knock prone or push 5 feet (target saves).</li></ul><p>Classes such as the monk greatly improve unarmed strikes.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Surprise (2024)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Combat: Maneuvers</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Grappling</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How a surprise attack works in the new edition</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How to grab a target</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>In the 2024 edition, "surprise" works more simply. If a creature didn't notice a threat at the start of combat (for example, it lost Stealth against Perception), it <strong>doesn't lose its turn</strong>as before.</p><p>Instead, such a creature gets <strong>disadvantage</strong> on its initiative roll. This makes a prepared ambush valuable, but not as devastating.</p>
+                                <p>In the 2024 rules, grappling is an <strong>Unarmed Strike option</strong>, not a contest. You declare a Grapple; the target (no more than one size larger) makes a <strong>Strength or Dexterity saving throw</strong> (its choice) against DC = <code>8 + your Strength modifier + proficiency bonus</code>.</p><p>On a failure the target is <strong>Grappled</strong>: its speed is 0. It can escape as an action with a Strength (Athletics) or Dexterity (Acrobatics) check against that same DC.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Shoving</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Knock prone or push away</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Shoving is also an <strong>Unarmed Strike option</strong>. The target makes a <strong>Strength or Dexterity saving throw</strong> against DC = <code>8 + your Strength modifier + proficiency bonus</code>.</p><p>On a failure you either <strong>knock it prone</strong> (the Prone condition) or <strong>push it 5 feet</strong> away.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Readying an Action (Ready)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Acting on a chosen trigger</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>With the <strong>Ready</strong> action you choose a trigger and a response, for example: “If an enemy steps through the door, I shoot.”</p><p>When the trigger occurs, you take the readied action as a <strong>reaction</strong>. A readied spell requires concentration while you wait.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Ranged Attacks in Combat</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Range and shooting up close</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A ranged weapon has a <strong>normal and a long</strong> range (e.g., 80/320). Beyond normal range you attack <strong>with disadvantage</strong>; beyond long range you can't attack at all.</p><p>If an enemy is within <strong>5 feet</strong> of you, ranged attacks are also made <strong>with disadvantage</strong>.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Mounted Combat</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fighting from a mount</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Mounting or dismounting costs <strong>half your speed</strong>. A mount acts on your initiative.</p><p>You can <strong>control</strong> a trained mount (limiting it to the Dash, Disengage, and Dodge actions) or ride an independent mount that acts on its own.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Improvised Weapons</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Maneuvers</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fighting with whatever is at hand</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A chair, a bottle, or a rock — almost anything can be a weapon. An improvised weapon usually deals <strong>1d4</strong> damage.</p><p>If an object resembles a real weapon, the DM may let it count as that weapon instead.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="magic">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">✨</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Magic & Spells</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Spellcasting Basics</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What makes up a spell</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Every spell has a few key parameters:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Level</strong> (0 for cantrips, up to 9).</li><li><strong>Casting time</strong> (action, bonus action, reaction, minutes).</li><li><strong>Range</strong>, <strong>components</strong>, and <strong>duration</strong>.</li></ul><p>Casting a spell that takes an action uses the Cast a Spell action in combat.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Spell Slots</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The fuel for magic</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>To cast a 1st-level or higher spell, you expend a <strong>slot</strong> of that level or <strong>higher</strong>. Slots are regained on a rest (usually a long rest).</p><p>Casting a spell using a <strong>higher-level slot</strong> often strengthens it (more damage or targets), if the spell's description says so.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Cantrips</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Level 0 spells</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Cantrips are <strong>level 0</strong> spells you know by heart. They <strong>don't expend slots</strong> and can be cast at will.</p><p>Many damaging cantrips (for example, Fire Bolt) <strong>scale up</strong> at character levels 5, 11, and 17.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Preparing & Knowing Spells</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Two ways to have spells</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>In the 2024 rules, almost all full casters <strong>prepare</strong> spells from their class list. The number prepared grows with level, and you can change the list as you level up.</p><p>The wizard still keeps a <strong>spellbook</strong> and prepares a subset from it. The old 'known spells' concept is mostly gone — replaced by a fixed prepared list.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Components (V, S, M)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">What a spell requires to cast</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Most spells require components:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Verbal (V):</strong> spoken words — fails if you can't speak.</li><li><strong>Somatic (S):</strong> gestures — you need a free hand.</li><li><strong>Material (M):</strong> an item; a focus or component pouch replaces it unless a cost is listed.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Concentration</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Maintaining ongoing spells</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Some spells require <strong>concentration</strong> to keep going. You can concentrate on only <strong>one</strong> such spell at a time.</p><p>Concentration breaks if you: cast another concentration spell, become incapacitated or die, or <strong>fail a Constitution save</strong> after taking damage.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><code>Save DC = 10 or half the damage taken, whichever is higher</code></div>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Rituals</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Casting without a slot</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A spell with the <strong>ritual</strong> tag can be cast by adding <strong>10 minutes</strong> to its casting time <strong>without expending a slot</strong>.</p><p>This works only out of combat and only if your class supports ritual casting.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Spell Attack & Save DC</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Hitting and forcing saves</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Depending on the spell, you either make a <strong>spell attack</strong> or force the target to make a <strong>saving throw</strong>.</p><div class="bg-slate-50 p-3 rounded border border-slate-100"><strong>Spell attack:</strong> <code>d20 + proficiency bonus + spellcasting ability modifier</code><br><strong>Spell save DC:</strong> <code>8 + proficiency bonus + spellcasting ability modifier</code></div><p>Your spellcasting ability depends on your class (INT, WIS, or CHA).</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Schools of Magic</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Magic</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The eight spell traditions</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Every spell belongs to one of <strong>eight schools</strong>: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation.</p><p>The school is mostly descriptive, but some features and items interact with specific schools.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="conditions">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🌀</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Conditions</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Blinded</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The creature can't see</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature can't see and automatically fails any check requiring sight.</li><li>Attacks <strong>against</strong> it have <strong>advantage</strong>; its own attacks have <strong>disadvantage</strong>.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Charmed</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Can't harm the charmer</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature can't attack the charmer or target it with harmful effects.</li><li>The charmer has <strong>advantage</strong> on social checks to interact with it.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Deafened</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The creature can't hear</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature can't hear and automatically fails any check requiring hearing.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Frightened</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fear of a source</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Disadvantage on checks and attacks while the source of fear is in line of sight.</li><li>The creature can't willingly move closer to the source of its fear.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Grappled</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Speed becomes 0</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature's speed becomes <strong>0</strong> and can't benefit from any bonus to speed.</li><li>It ends if the grappler is incapacitated or an effect moves them apart.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Incapacitated</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">No actions or reactions</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature can take no <strong>actions</strong> and no <strong>reactions</strong>.</li></ul><p>Many stronger conditions (stunned, paralyzed) also make a creature incapacitated.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Invisible</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The creature can't be seen</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature can't be seen without special senses and is heavily obscured.</li><li>Attacks <strong>against</strong> it have <strong>disadvantage</strong>; its attacks have <strong>advantage</strong>.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Paralyzed</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Can't move or speak</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature is incapacitated, can't move or speak, and fails Strength and Dexterity saves.</li><li>Attacks against it have <strong>advantage</strong>; any hit from within 5 feet is a <strong>critical hit</strong>.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Petrified</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Turned to stone</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature is transformed into solid substance, incapacitated and unaware of its surroundings.</li><li>It has resistance to <strong>all</strong> damage and immunity to poison and disease; attacks against it have advantage.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Poisoned</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Disadvantage on attacks and checks</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature has <strong>disadvantage</strong> on attack rolls and ability checks.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Prone</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The creature is lying down</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>It can only crawl (or stand up, spending half its speed).</li><li>Its own attacks have disadvantage. Attacks against it: <strong>advantage</strong> from within 5 feet, <strong>disadvantage</strong> from farther away.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Restrained</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Speed 0 and disadvantage</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Speed becomes <strong>0</strong>.</li><li>Attacks against it have <strong>advantage</strong>, its attacks have <strong>disadvantage</strong>; disadvantage on Dexterity saves.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Stunned</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">A nearly helpless creature</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>The creature is incapacitated, can't move, can speak only falteringly, and fails Strength and Dexterity saves.</li><li>Attacks against it have <strong>advantage</strong>.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Unconscious</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The creature is knocked out</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li>Incapacitated, unaware of surroundings, drops what it's holding and falls prone.</li><li>Fails Strength and Dexterity saves; attacks against it have advantage, and hits from within 5 feet are critical.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Exhaustion</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The exhaustion track (2024 rules)</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Exhaustion has <strong>6 levels</strong>. Each level adds a cumulative penalty:</p><ul class="list-disc pl-5 space-y-1"><li><strong>−2 per level</strong> to all d20 rolls (attacks, checks, saves).</li><li><strong>−5 feet × level</strong> to speed.</li></ul><p>At <strong>level 6</strong> the creature dies. Each long rest removes <strong>1 level</strong>.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section mb-12" data-category="rest">
+                <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">❤️</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Rest & Health</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4 items-start">
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Hit Points (HP)</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How much damage you can take</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Hit points measure your durability. Damage is subtracted from current HP. At <strong>0 HP</strong> you fall unconscious (for player characters, death saving throws begin).</p><p>HP can't drop below 0; excess damage is ignored, except for the instant-death rule from a single massive blow.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Hit Dice</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Your personal healing resource</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>You have a number of <strong>Hit Dice</strong> equal to your level (the type depends on your class, e.g. d8). During a <strong>short rest</strong> you can spend some of them to recover HP (roll + Constitution modifier).</p><p>A long rest restores <strong>half</strong> of your spent Hit Dice.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Short Rest</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">An hour of downtime</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A short rest is at least <strong>1 hour</strong> of light activity. During it you can spend <strong>Hit Dice</strong> to heal.</p><p>Some class features (such as a warlock's spell slots) recharge specifically on a short rest.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Long Rest</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">A full rest</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>A long rest is at least <strong>8 hours</strong> (sleep or light activity). You regain <strong>all HP</strong>, half your spent Hit Dice, and most expended resources (slots, etc.).</p><p>You can benefit from a long rest only <strong>once per 24 hours</strong>.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Death Saving Throws</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fighting for life at 0 HP</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>At 0 HP, at the start of your turn you roll a d20 (no modifiers):</p><ul class="list-disc pl-5 space-y-1"><li><strong>10+</strong> is a success, <strong>9 or less</strong> is a failure.</li><li><strong>Three successes</strong> — you're stable; <strong>three failures</strong> — you die.</li><li><strong>20</strong> — you regain 1 HP; <strong>1</strong> — counts as two failures.</li></ul><p>Taking damage at 0 HP adds a failure (a hit from within 5 feet counts as two).</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Stabilizing a Creature</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Saving a dying creature</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>To stabilize a creature at 0 HP, take an action to make a <strong>Medicine check (DC 10)</strong> or use a relevant ability.</p><p>A stable creature stops making death saves, stays unconscious, and regains 1 HP after 1d4 hours (or immediately from any healing).</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Temporary Hit Points</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">A temporary buffer</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Temporary HP are a <strong>buffer</strong> on top of normal HP: damage depletes them first. They <strong>aren't healing</strong> and don't stack (take the larger source).</p><p>They go away on a long rest or when the granting effect ends.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Healing</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Rest</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Recovering hit points</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Healing (from spells, potions, or rest) restores HP but never above your <strong>maximum</strong>. Any healing at 0 HP brings a creature back up and conscious.</p>
                             </div>
                         </div></div>
                     </div>
@@ -579,273 +984,236 @@
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Cover</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Travel Pace</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">AC bonuses from cover</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Fast, normal, slow</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>Obstacles between the attacker and the target provide <strong>cover</strong>. The most advantageous one is used:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Half (1/2):</strong> +2 to AC and Dexterity saving throws (a low wall, furniture, another creature).</li><li><strong>Three-quarters (3/4):</strong> +5 to AC and Dexterity saving throws (an arrow slit, a tree trunk).</li><li><strong>Full:</strong> the target can't be attacked directly or targeted by a spell.</li></ul>
+                                <p>While travelling, the party picks a pace:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Fast:</strong> +1 mile/hour, but −5 to passive Perception.</li><li><strong>Normal:</strong> standard speed.</li><li><strong>Slow:</strong> slower, but you can move stealthily.</li></ul><p>Roughly: ~3–4 miles per hour, ~24–30 miles per day at a normal pace.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Lighting & Visibility</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Vision & Light</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Bright, dim light, and darkness</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Bright, dim, darkness</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>Lighting affects how well you can see:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Bright light:</strong> normal visibility.</li><li><strong>Dim light (lightly obscured):</strong> disadvantage on Perception checks that rely on sight.</li><li><strong>Darkness (heavily obscured):</strong> the area is effectively blind, creatures have the <em>Blinded</em> condition regarding targets in it.</li></ul><p><strong>Darkvision:</strong> lets you see in darkness as if it were dim light within its range (usually 60 or 120 feet), but only in shades of gray.</p>
+                                <ul class="list-disc pl-5 space-y-1"><li><strong>Bright light:</strong> you see normally.</li><li><strong>Dim light</strong> — a lightly obscured area: disadvantage on sight-based Perception checks.</li><li><strong>Darkness</strong> — a heavily obscured area: effectively the Blinded condition.</li></ul><p><strong>Darkvision</strong> lets you see in darkness as if it were dim light, out to a set range.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Difficult Terrain</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Hiding & Stealth</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Why movement is slowed by half</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How to hide from enemies</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>Rubble, dense forest, snow, mud, stairs in a crowd, and so on, this is <strong>difficult terrain</strong>. Each foot of movement through it costs <strong>2 feet</strong> of movement.</p><p>So at a speed of 30 feet you'll move only 15 feet through difficult terrain. Difficult terrain effects don't stack with each other.</p>
+                                <p>In the 2024 rules, the <strong>Hide action</strong> requires a <strong>Dexterity (Stealth)</strong> check against DC <strong>15</strong> while out of line of sight (in heavy obscurity or behind full cover).</p><p>On a success you gain the <strong>Invisible</strong> condition: enemies don't know your location. It ends when you attack, cast a spell with a verbal component, make noise, or are found.</p>
                             </div>
                         </div></div>
                     </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Jumping</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Long jump and high jump formulas</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <ul class="list-disc pl-5 space-y-1"><li><strong>Long jump:</strong> with a running start (min. 10 feet) you cover a distance in feet equal to your <strong>Strength score</strong>. Without a running start, half as much.</li><li><strong>High jump:</strong> with a running start you jump up <strong>3 + your Strength modifier</strong> feet. Without a running start, half as much.</li></ul><p>Each foot of a jump costs a foot of movement.</p>
-                            </div>
-                        </div></div>
-                    </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
                                 <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Falling</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Damage from falling from a height</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Damage from heights</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>A fall deals <strong>1d6 bludgeoning damage per 10 feet</strong> of falling, maximum <strong>20d6</strong> (that is, from 200 feet and above).</p><p>A creature that has fallen ends up in the <strong>Prone</strong>condition, unless it avoided the damage entirely (for example, with the Feather Fall spell).</p>
+                                <p>A fall deals <strong>1d6 bludgeoning damage per 10 feet</strong> fallen, to a maximum of <strong>20d6</strong> (at 200 feet or more).</p><p>A creature that falls lands <strong>Prone</strong>, unless the fall was somehow controlled.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Holding Breath & Suffocation</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Suffocation</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How long you can last without air</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">When there's no air</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>A creature can hold its breath for <strong>1 + your Constitution modifier</strong> minutes (minimum 30 seconds).</p><p>When the air runs out, the creature can last a number of additional <strong>rounds equal to its Constitution modifier</strong> (minimum 1). At the start of its next turn it drops to <strong>0 hit points</strong> and starts dying, and can't regain hit points until it can breathe.</p>
+                                <p>A creature can hold its breath for <strong>1 + its Constitution modifier</strong> minutes (minimum 30 seconds).</p><p>When it runs out, it can survive for a number of <strong>rounds equal to its Constitution modifier</strong> (minimum 1), then drops to <strong>0 HP</strong> and is dying.</p>
                             </div>
                         </div></div>
                     </div>
-
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Difficult Terrain</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Movement costs double</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <p>Rubble, dense forest, deep snow, stairs, and the like are <strong>difficult terrain</strong>. Each foot of movement there costs <strong>2 feet</strong>.</p><p>Difficult terrain doesn't stack: it's either present or not.</p>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
+                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
+                            <div class="flex flex-col mb-2 md:mb-0">
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Climbing, Swimming, Jumping</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
+                            </div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Special movement</div>
+                        </div>
+                        <div class="feat-content"><div class="feat-inner">
+                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
+                                <ul class="list-disc pl-5 space-y-1"><li><strong>Climbing and swimming:</strong> each foot costs an extra foot of movement (like difficult terrain).</li><li><strong>Long jump:</strong> with a running start, a number of <strong>feet equal to your Strength score</strong>.</li><li><strong>High jump:</strong> with a running start, <strong>3 + your Strength modifier</strong> feet.</li></ul>
+                            </div>
+                        </div></div>
+                    </div>
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
                                 <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Carrying Capacity</span>
                                 <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Environment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How much weight you can carry</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How much you can carry</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>Your <strong>carrying capacity</strong> in pounds = <strong>Strength score × 15</strong>. Within these limits, the weight of equipment usually doesn't hinder you.</p><p>You can drag, lift, or push twice as much weight (Strength × 30), but moving it turns the space into difficult terrain. Small creatures carry the same amount, but large ones carry more.</p>
+                                <p>Your carrying capacity equals your <strong>Strength score × 15</strong> pounds. Exceeding it slows and encumbers you.</p><p>You can push, drag, or lift up to <strong>twice</strong> your carrying capacity, but your speed drops to 5 feet while doing so.</p>
                             </div>
                         </div></div>
                     </div>
                 </div>
             </div>
 
-            <div class="category-section mb-12" data-category="conditions-advanced">
+            <div class="category-section mb-12" data-category="equipment">
                 <div class="bg-white border-l-4 border-forest shadow-sm rounded-r-lg p-4 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">☠️</span>
-                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Conditions: Advanced</h2>
+                    <span class="text-3xl">🎒</span>
+                    <h2 class="font-heading text-2xl font-bold text-forest uppercase tracking-wide">Equipment & Wealth</h2>
                 </div>
                 <div class="grid grid-cols-1 gap-4 items-start">
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Grappled</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Currency</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Equipment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Condition from a successful grapple</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Coins and exchange rates</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <ul class="list-disc pl-5 space-y-1"><li>The creature's speed becomes <strong>0</strong>, it can't benefit from any bonus to speed.</li><li><strong>Disadvantage</strong> on attack rolls against anyone other than the one who grappled it.</li><li>The condition ends if the grappler is incapacitated or they're separated.</li></ul>
+                                <p>The standard coin is the <strong>gold piece (gp)</strong>. Exchange rates:</p><ul class="list-disc pl-5 space-y-1"><li>10 copper (cp) = 1 silver (sp)</li><li>10 silver = 1 gold (gp)</li><li>10 gold = 1 platinum (pp)</li></ul><p>The electrum piece (ep) equals 5 silver, but it's uncommon.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Incapacitated</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Armor & Shields</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Equipment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Can't act or react</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">How armor affects AC</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <ul class="list-disc pl-5 space-y-1"><li>A creature can't take <strong>actions, bonus actions, or reactions</strong>.</li><li>It can't speak or concentrate on spells.</li><li>This condition is often a part of others (Stunned, Paralyzed, Unconscious).</li></ul>
+                                <ul class="list-disc pl-5 space-y-1"><li><strong>Light:</strong> AC = base + your <strong>full</strong> Dexterity modifier.</li><li><strong>Medium:</strong> AC = base + Dexterity (<strong>max +2</strong>).</li><li><strong>Heavy:</strong> fixed AC, no Dexterity; may require a Strength score.</li><li><strong>Shield:</strong> usually <strong>+2</strong> to AC.</li></ul><p>Some armor imposes <strong>disadvantage</strong> on Stealth. Wearing armor you lack proficiency with hampers attacks and spellcasting.</p>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Poisoned</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Weapon Properties</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Equipment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">A common negative condition</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Key weapon tags</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>A creature with the <strong>Poisoned</strong> condition has <strong>disadvantage</strong> on all attack rolls and ability checks. Many poisons and diseases impose this condition for a certain time.</p>
+                                <p>Weapons have property tags that change how they are used:</p><ul class="list-disc pl-5 space-y-1"><li><strong>Finesse:</strong> use Strength or Dexterity, your choice.</li><li><strong>Light:</strong> suitable for two-weapon fighting.</li><li><strong>Heavy:</strong> small creatures have disadvantage with it.</li><li><strong>Two-Handed:</strong> needs both hands.</li><li><strong>Versatile:</strong> more damage when wielded in two hands.</li><li><strong>Reach:</strong> +5 feet of reach.</li><li><strong>Thrown:</strong> can be thrown.</li><li><strong>Ammunition:</strong> needs arrows or bolts.</li></ul>
                             </div>
                         </div></div>
                     </div>
-
                     <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                         <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                             <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Petrified</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
+                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Buying & Selling</span>
+                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Equipment</span>
                             </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Turning to stone</div>
+                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Trading gear</div>
                         </div>
                         <div class="feat-content"><div class="feat-inner">
                             <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <ul class="list-disc pl-5 space-y-1"><li>The creature and everything it's carrying turns into a solid substance (stone): weight ×10, it stops aging.</li><li>It's <strong>incapacitated</strong>, unaware of its surroundings, and can't move or speak.</li><li><strong>Resistance to all damage</strong>, immunity to poison and disease, automatic failure of Strength and Dexterity saving throws.</li></ul>
-                            </div>
-                        </div></div>
-                    </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Unconscious</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">Loss of consciousness</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <ul class="list-disc pl-5 space-y-1"><li>A creature is <strong>incapacitated</strong>, unaware of its surroundings, drops what it's holding, and falls (Prone condition).</li><li>Automatic failure of Strength and Dexterity saving throws.</li><li>Attacks against it have <strong>advantage</strong>, and any hit from close range is a <strong>critical</strong>.</li></ul>
-                            </div>
-                        </div></div>
-                    </div>
-
-                    <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
-                        <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
-                            <div class="flex flex-col mb-2 md:mb-0">
-                                <span class="font-bold text-lg leading-tight feat-name text-black transition-colors">Exhaustion (2024)</span>
-                                <span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">Category: Conditions</span>
-                            </div>
-                            <div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">The updated exhaustion scale</div>
-                        </div>
-                        <div class="feat-content"><div class="feat-inner">
-                            <div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">
-                                <p>In the 2024 edition, exhaustion became simpler and has <strong>6 levels</strong>. For each level:</p><ul class="list-disc pl-5 space-y-1"><li><strong>−2 per level</strong> to all d20 rolls (attacks, checks, saves).</li><li><strong>−5 feet × level</strong> to speed.</li></ul><p>At <strong>level 6</strong> the creature dies. Each long rest removes <strong>1 level</strong> of exhaustion.</p>
+                                <p>Gear is bought at list prices. Selling property usually fetches about <strong>half</strong> its value.</p><p>Trade goods (metals, salt, livestock) keep full value and often serve for large deals instead of coins.</p>
                             </div>
                         </div></div>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
     <script>
-        function toggleSingle(element) {
-            const card = element.closest('.feat-card');
-            const content = card.querySelector('.feat-content');
-            const title = card.querySelector('.feat-name');
-            const isOpen = content.classList.contains('open');
-
-            document.querySelectorAll('.feat-content.open').forEach(el => {
-                el.classList.remove('open');
-                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
-            });
-
-            if (!isOpen) {
-                content.classList.add('open');
-                title.classList.replace('text-black', 'text-forest');
-                
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 300);
-            }
-        }
-
-        // Improved search that also hides empty categories
-        function filterRules() {
-            let textInput = document.getElementById('searchInput').value.toLowerCase();
-            let categoryInput = document.getElementById('categoryFilter').value.toLowerCase();
-            
-            // Get all category blocks
-            let sections = document.getElementsByClassName('category-section');
-
-            for (let s = 0; s < sections.length; s++) {
-                let section = sections[s];
-                let sectionCategory = section.getAttribute('data-category');
-                let cards = section.getElementsByClassName('feat-card');
-                let hasVisibleCards = false;
-
-                // Check each card inside the category
-                for (let i = 0; i < cards.length; i++) {
-                    let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
-                    let summary = cards[i].querySelector('.feat-summary').innerText.toLowerCase();
-                    let inner = cards[i].querySelector('.feat-inner').innerText.toLowerCase();
-                    
-                    let matchesText = name.includes(textInput) || summary.includes(textInput) || inner.includes(textInput);
-                    let matchesCategory = categoryInput === "" || sectionCategory === categoryInput;
-                    
-                    if (matchesText && matchesCategory) {
-                        cards[i].style.display = "";
-                        hasVisibleCards = true; // If at least one card is visible
-                    } else {
-                        cards[i].style.display = "none";
-                    }
-                }
-
-                // Hide the entire category block (including the big heading) if there are no results
-                if (hasVisibleCards) {
-                    section.style.display = "";
-                } else {
-                    section.style.display = "none";
-                }
-            }
-        }
-    </script>
+function toggleSingle(element) {
+  const card = element.closest(".feat-card");
+  const content = card.querySelector(".feat-content");
+  const title = card.querySelector(".feat-name");
+  const isOpen = content.classList.contains("open");
+  document.querySelectorAll(".feat-content.open").forEach((el) => {
+    el.classList.remove("open");
+    el.closest(".feat-card")
+      .querySelector(".feat-name")
+      .classList.replace("text-forest", "text-black");
+  });
+  if (!isOpen) {
+    content.classList.add("open");
+    title.classList.replace("text-black", "text-forest");
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 300);
+  }
+}
+function filterRules() {
+  let textInput = document.getElementById("searchInput").value.toLowerCase();
+  let categoryInput = document.getElementById("categoryFilter").value.toLowerCase();
+  let sections = document.getElementsByClassName("category-section");
+  for (let s = 0; s < sections.length; s++) {
+    let section = sections[s];
+    let sectionCategory = section.getAttribute("data-category");
+    let cards = section.getElementsByClassName("feat-card");
+    let hasVisibleCards = false;
+    for (let i = 0; i < cards.length; i++) {
+      let name = cards[i].querySelector(".feat-name").innerText.toLowerCase();
+      let summary = cards[i].querySelector(".feat-summary").innerText.toLowerCase();
+      let inner = cards[i].querySelector(".feat-inner").innerText.toLowerCase();
+      let matchesText =
+        name.includes(textInput) || summary.includes(textInput) || inner.includes(textInput);
+      let matchesCategory = categoryInput === "" || sectionCategory === categoryInput;
+      if (matchesText && matchesCategory) {
+        cards[i].style.display = "";
+        hasVisibleCards = true;
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+    if (hasVisibleCards) {
+      section.style.display = "";
+    } else {
+      section.style.display = "none";
+    }
+  }
+}
+</script>
     <script src="search-index.js"></script>
     <script src="site-common.js"></script>
 </body>

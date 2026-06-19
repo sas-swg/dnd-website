@@ -5,69 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Species - D&D 5e</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: { DEFAULT: '#14532D', hover: '#166534', accent: '#22C55E' },
-                        dnd: { beige: '#F4F2EC', beigedark: '#EAE6DB', text: '#121212', muted: '#8A8A8A' }
-                    },
-                    fontFamily: {
-                        heading: ['Montserrat', 'sans-serif'],
-                        body: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
-        .feat-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out;
-        }
-        .feat-content.open {
-            grid-template-rows: 1fr;
-        }
-        .feat-inner {
-            overflow: hidden;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-        th, td {
-            border: 1px solid #E2E8F0;
-            padding: 0.75rem;
-            text-align: left;
-        }
-        th {
-            background-color: #F8FAFC;
-            color: #14532D;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #F8FAFC;
-        }
-    </style>
+.feat-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.feat-content.open {
+  grid-template-rows: 1fr;
+}
+.feat-inner {
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+th,
+td {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  text-align: left;
+}
+th {
+  background-color: #f8fafc;
+  color: #14532d;
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+</style>
     <link rel="stylesheet" href="site-common.css">
-    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+    <link rel="stylesheet" href="../vendor/tailwind.css">
+    <script>
+(function () {
+  try {
+    if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
 
-    <!-- Header -->
+    
     <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
@@ -85,17 +78,17 @@
         </div>
     </header>  
 
-    <!-- Main Content -->
+    
     <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
         
-        <!-- Header and Filters -->
+        
         <div class="mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-200 pb-6">
             <div>
                 <h1 class="font-heading text-3xl font-bold text-forest mb-2 uppercase tracking-wide">Species</h1>
                 <p class="text-slate-600">Choose your character's origin, heritage, and abilities.</p>
             </div>
             
-            <!-- Filter panel (search by name only) -->
+            
             <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                 <div class="relative w-full sm:w-64">
                     <input type="text" id="searchInput" onkeyup="searchRacesByName()" placeholder="Search by species name..." 
@@ -105,11 +98,11 @@
             </div>
         </div>
 
-        <!-- Species grid -->
+        
         <div class="grid grid-cols-1 gap-4 space-y-4 items-start" id="racesGrid">
             <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">📘 Common Species (PHB 2024)</h2>
 
-            <!-- HUMAN -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -138,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- ELF -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -195,7 +188,7 @@
                 </div>
             </div>
 
-            <!-- DWARF -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -225,7 +218,7 @@
                 </div>
             </div>
 
-            <!-- HALFLING -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -255,7 +248,7 @@
                 </div>
             </div>
 
-            <!-- GNOME -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -302,7 +295,7 @@
                 </div>
             </div>
 
-            <!-- DRAGONBORN -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -354,7 +347,7 @@
                 </div>
             </div>
 
-            <!-- ORC -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -383,7 +376,7 @@
                 </div>
             </div>
 
-            <!-- TIEFLING -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -435,7 +428,7 @@
                 </div>
             </div>
 
-            <!-- AASIMAR -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -489,7 +482,7 @@
                 </div>
             </div>
 
-            <!-- GOLIATH -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -561,7 +554,7 @@
 
             <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔩 Eberron</h2>
 
-            <!-- CHANGELING -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -589,7 +582,7 @@
                 </div>
             </div>
 
-            <!-- KALASHTAR -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -619,7 +612,7 @@
                 </div>
             </div>
 
-            <!-- KHORAVAR -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -650,7 +643,7 @@
                 </div>
             </div>
 
-            <!-- SHIFTER -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -708,7 +701,7 @@
                 </div>
             </div>
 
-            <!-- WARFORGED -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -741,7 +734,7 @@
 
             <h2 class="font-heading text-2xl font-bold text-forest mt-6 mb-1 border-b-2 border-forest/20 pb-1">🔮 Exotic</h2>
 
-            <!-- DHAMPIR -->
+            
             <div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm">
                 <div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">
                     <div class="flex flex-col mb-2 md:mb-0">
@@ -774,43 +767,38 @@
     </main>
 
     <script>
-        function toggleSingle(element) {
-            const card = element.closest('.feat-card');
-            const content = card.querySelector('.feat-content');
-            const title = card.querySelector('.feat-name');
-            const isOpen = content.classList.contains('open');
-
-            document.querySelectorAll('.feat-content.open').forEach(el => {
-                el.classList.remove('open');
-                el.closest('.feat-card').querySelector('.feat-name').classList.replace('text-forest', 'text-black');
-            });
-
-            if (!isOpen) {
-                content.classList.add('open');
-                title.classList.replace('text-black', 'text-forest');
-                
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 300);
-            }
-        }
-
-        function searchRacesByName() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('feat-card');
-
-            for (let i = 0; i < cards.length; i++) {
-                // Search ONLY by .feat-name (species name)
-                let name = cards[i].querySelector('.feat-name').innerText.toLowerCase();
-                
-                if (name.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+function toggleSingle(element) {
+  const card = element.closest(".feat-card");
+  const content = card.querySelector(".feat-content");
+  const title = card.querySelector(".feat-name");
+  const isOpen = content.classList.contains("open");
+  document.querySelectorAll(".feat-content.open").forEach((el) => {
+    el.classList.remove("open");
+    el.closest(".feat-card")
+      .querySelector(".feat-name")
+      .classList.replace("text-forest", "text-black");
+  });
+  if (!isOpen) {
+    content.classList.add("open");
+    title.classList.replace("text-black", "text-forest");
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 300);
+  }
+}
+function searchRacesByName() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.getElementsByClassName("feat-card");
+  for (let i = 0; i < cards.length; i++) {
+    let name = cards[i].querySelector(".feat-name").innerText.toLowerCase();
+    if (name.includes(input)) {
+      cards[i].style.display = "";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+}
+</script>
     <script src="search-index.js"></script>
     <script src="site-common.js"></script>
 </body>
