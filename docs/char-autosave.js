@@ -40,6 +40,31 @@
     });
   }
 
+  // ---- Заповнити статичні поля форми З даних персонажа (для відновлення/імпорту) ----
+  function fillInputsFromCharacter() {
+    if (typeof character === 'undefined' || !character) return;
+    function setV(id, val) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === 'checkbox') el.checked = !!val;
+      else el.value = (val == null ? '' : val);
+    }
+    var d = character.description || {};
+    setV('desc-name', d.name); setV('desc-player', d.player); setV('desc-alignment', d.alignment);
+    setV('desc-background', d.background); setV('desc-age', d.age); setV('desc-height', d.height);
+    setV('desc-weight', d.weight); setV('desc-eyes', d.eyes); setV('desc-skin', d.skin);
+    setV('desc-hair', d.hair); setV('desc-appearance', d.appearance); setV('desc-backstory', d.backstory);
+    setV('desc-allies', d.allies); setV('desc-treasure', d.treasure); setV('desc-traits', d.traits);
+    setV('desc-ideals', d.ideals); setV('desc-bonds', d.bonds); setV('desc-flaws', d.flaws);
+    var inv = character.inventory || {};
+    setV('inv-armor', inv.armor); setV('inv-shield', inv.shield); setV('inv-weapons', inv.weapons);
+    setV('inv-items', inv.items); setV('inv-cp', inv.cp); setV('inv-sp', inv.sp);
+    setV('inv-gp', inv.gp); setV('inv-pp', inv.pp);
+    if (inv.hpCurrent != null) setV('inv-hp-current', inv.hpCurrent);
+    var cbg = character.customBackground || {};
+    setV('cbg-name', cbg.name); setV('cbg-feature', cbg.feature);
+  }
+
   // ---- Повне перемальовування UI під відновлений стан ----
   function rebuildUI(state) {
     if (!state || !state.character) return;
@@ -49,8 +74,10 @@
       // 1) базова перемальовка (як у window.onload)
       // ВАЖЛИВО: присвоюємо лексичній `character` (let) — яку читають функції конструктора,
       // а не window.character (let на верхньому рівні НЕ потрапляє у window).
-      try { character = saved; } catch (e) {}
-      try { window.character = saved; } catch (e) {}
+      // ВАЖЛИВО: окрема копія, щоб selectClass/selectRace (які скидають spells/skills)
+      // не затерли дані в `saved`, з якого ми потім відновлюємо поля.
+      try { character = deepCopy(saved); } catch (e) {}
+      try { window.character = character; } catch (e) {}
       safe('renderClassList'); safe('populateLevelSelect'); safe('renderRaceCategoryFilter');
       safe('renderRaceList'); safe('renderOriginASI'); safe('renderProgression');
       safe('populateAlignments'); safe('populateBackgrounds'); safe('populateArmorSelect');
@@ -89,6 +116,7 @@
 
       // 5) відновлюємо статичні поля форми та синхронізуємо
       applyInputs(state.inputs);
+      fillInputsFromCharacter();
       safe('updateDescription'); safe('updateInventory'); safe('updateCustomBackground');
 
       // 6) додаткові панелі
