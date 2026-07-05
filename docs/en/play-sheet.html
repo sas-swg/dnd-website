@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Sheet - D&D 5e</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="site-common.css">
+    <link rel="stylesheet" href="../vendor/tailwind.css">
+    <script>
+(function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
+</script>
+    <style media="print">
+      /* Print stylesheet: hide navigation, buttons and roll log; expand all sections */
+      header, footer, #ps-roll-log-card, .ps-no-print, button { display: none !important; }
+      details { display: block; }
+      details > * { display: block; }
+      main { margin-top: 0 !important; padding: 0 !important; max-width: 100% !important; }
+      body { background: #fff !important; }
+      .shadow-sm, .shadow-md, .shadow-xl { box-shadow: none !important; }
+    </style>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="play-character.html" class="hover:text-forest-accent transition-colors">Characters</a>
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+        <div id="ps-app"></div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-dnd-muted text-xs">&copy; 2024 D&D 5e Digital Knowledge Base. Unofficial project.</p>
+        </div>
+    </footer>
+
+    <script src="../storage.js"></script>
+    <script src="dnd-data.js"></script>
+    <script src="spells-data.js"></script>
+    <script src="../items-data.js"></script>
+    <script>window.PS_LANG = 'en';</script>
+    <script src="../play-i18n.js"></script>
+    <script src="../play-sheet.js"></script>
+    <script src="site-common.js"></script>
+</body>
+</html>

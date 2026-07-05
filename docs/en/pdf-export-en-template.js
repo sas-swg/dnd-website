@@ -1200,7 +1200,9 @@
           putC("SlotsRemaining " + (18 + __L), __n, 9);
         }
       }
-      const blob = new Blob([doc.build()], { type: "application/pdf" });
+      let __charMarker = "";
+      try { __charMarker = "\n%DNDCHAR:" + btoa(unescape(encodeURIComponent(JSON.stringify(character)))) + "\n"; } catch (e) {}
+      const blob = new Blob([doc.build(), __charMarker], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;

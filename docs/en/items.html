@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Items & Magic Items - D&D 5e</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-common.css">
+  <link rel="stylesheet" href="../vendor/tailwind.css">
+  <script>
+(function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
+</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+  <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+        <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
+      </a>
+      <nav class="hidden md:flex gap-5 text-sm font-semibold">
+        <a href="index.html" class="hover:text-forest-accent transition">Home</a>
+        <a href="bestiary.html" class="hover:text-forest-accent transition">Бестіарій</a>
+        <a href="encounter-builder.html" class="hover:text-forest-accent transition">Сутички</a>
+        <a href="character-creator.html" class="hover:text-forest-accent transition">Персонаж</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+    <div class="mb-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Items</h1>
+      <p class="text-sm text-slate-500 mt-2">Separate tabs for mundane gear and magic items. Magic items are from the full Aidedd DnD 5.5 Magic Items PDF.</p>
+    </div>
+
+    <section class="bg-white border border-slate-200 rounded-md shadow-sm mb-5 overflow-hidden">
+      <div class="flex border-b border-slate-200 bg-slate-50">
+        <button id="tabMundane" onclick="setTab('mundane')" class="px-4 py-3 text-sm font-bold border-b-2 transition">⚒️ Items</button>
+        <button id="tabMagic" onclick="setTab('magic')" class="px-4 py-3 text-sm font-bold border-b-2 transition">✨ Magic Items</button>
+      </div>
+      <div class="p-4">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-slate-600 mb-1">Пошук</label>
+            <input id="q" type="text" placeholder="sword, armor, potion, cloak…" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Категорія</label>
+            <select id="catFilter" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Рідкість</label>
+            <select id="rarityFilter" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+          </div>
+          <div class="flex items-end">
+            <button onclick="resetFilters()" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg hover:border-forest text-slate-600">Reset</button>
+          </div>
+        </div>
+        <div class="mt-3 flex flex-wrap items-center justify-between gap-2">
+          <div id="count" class="text-sm text-dnd-muted"></div>
+          <div id="sourceNote" class="text-xs text-slate-500"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="itemsCustomBar" class="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <label class="flex items-center gap-2 text-sm font-semibold text-slate-700 cursor-pointer">
+        <input id="onlyMineItems" type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600">
+        ★ Only my items
+      </label>
+      <button id="micOpen" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm hover:bg-emerald-700 shadow-sm">✨ Create magic item</button>
+    </div>
+
+    <section id="itemsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3"></section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-dnd-muted text-xs">&copy; 2024 D&D 5e Digital Knowledge Base. Unofficial project.</p>
+    </div>
+  </footer>
+
+  <div id="itemModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/50" onclick="closeItemModal()"></div>
+    <div class="relative bg-white rounded-md shadow-md max-w-xl w-full p-6" style="max-height:88vh;overflow-y:auto">
+      <button onclick="closeItemModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-700 text-2xl leading-none">&times;</button>
+      <div id="itemModalBody"></div>
+    </div>
+  </div>
+
+  <script src="../items-data.js"></script>
+  <script>
+let activeTab = 'mundane';
+const RARITY_ORDER = ['Звичайний','Common','Незвичайний','Uncommon','Рідкісний','Rare','Дуже рідкісний','Very Rare','Легендарний','Legendary','Артефакт','Artifact'];
+function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function rarityRank(r){ const i=RARITY_ORDER.indexOf(r); return i < 0 ? 99 : i; }
+function dataSet(){ return activeTab === 'magic' ? DND_MAGIC_ITEMS : DND_MUNDANE_ITEMS; }
+function itemById(id){ return DND_ITEMS.find(i => i.id === id); }
+function setTab(tab){ activeTab = tab; resetFilters(false); render(); }
+function updateTabs(){
+  const on='border-forest text-forest bg-white', off='border-transparent text-slate-500 hover:text-forest';
+  document.getElementById('tabMundane').className='px-4 py-3 text-sm font-bold border-b-2 transition '+(activeTab==='mundane'?on:off);
+  document.getElementById('tabMagic').className='px-4 py-3 text-sm font-bold border-b-2 transition '+(activeTab==='magic'?on:off);
+}
+function fillFilters(){
+  const items=dataSet();
+  const cats=[...new Set(items.map(i=>i.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'uk'));
+  const rarities=[...new Set(items.map(i=>i.rarityUk||i.rarity).filter(Boolean))].sort((a,b)=>rarityRank(a)-rarityRank(b));
+  document.getElementById('catFilter').innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+  document.getElementById('rarityFilter').innerHTML='<option value="">All rarities</option>'+rarities.map(r=>`<option value="${esc(r)}">${esc(r)}</option>`).join('');
+}
+function resetFilters(doRender=true){
+  document.getElementById('q').value='';
+  fillFilters();
+  document.getElementById('catFilter').value='';
+  document.getElementById('rarityFilter').value='';
+  if(doRender) render();
+}
+function filteredItems(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const cat=document.getElementById('catFilter').value;
+  const rarity=document.getElementById('rarityFilter').value;
+  return dataSet().filter(i=>{
+    if(cat && i.category!==cat) return false;
+    if(rarity && (i.rarityUk||i.rarity)!==rarity) return false;
+    if(q){
+      const hay=[i.name,i.englishName,i.category,i.typeEn,i.rarity,i.rarityUk,i.price,i.description,i.descriptionEn,i.damage,i.damageType,i.mastery,(i.properties||[]).join(' ')].filter(Boolean).join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  }).sort((a,b)=> (rarityRank(a.rarityUk||a.rarity)-rarityRank(b.rarityUk||b.rarity)) || a.name.localeCompare(b.name,'uk'));
+}
+function badgeClass(i){
+  if(activeTab==='magic') return 'bg-purple-100 text-purple-800';
+  if(i.type==='weapon') return 'bg-red-100 text-red-800';
+  if(i.type==='armor') return 'bg-blue-100 text-blue-800';
+  return 'bg-green-100 text-green-800';
+}
+function render(){
+  updateTabs();
+  const items=filteredItems();
+  document.getElementById('count').textContent = `${items.length} items`;
+  document.getElementById('sourceNote').textContent = activeTab==='magic' ? 'Source of magic items: Aidedd DnD 5.5 Magic Items PDF (full)' : 'Mundane items: PHB 2024 / dnd2024 Wikidot';
+  document.getElementById('itemsGrid').innerHTML = items.map(i=>{
+    const rarity = i.rarityUk || i.rarity || '—';
+    const subtitle = activeTab==='magic' ? `${i.englishName || ''} · ${i.typeEn || i.category} · ${i.price || '—'}` : `${i.category || '—'} · ${rarity}`;
+    const extra = activeTab==='magic'
+      ? `${i.attunement ? 'Requires attunement' : 'No attunement'} · ${i.price || '—'}`
+      : i.type==='weapon' ? `${esc(i.damage||'')} ${esc(i.damageType||'')} · ${esc((i.properties||[]).join(', ')||'без властивостей')}` : i.type==='armor' ? `КБ ${esc(i.ac||'—')}` : esc(i.description||'').slice(0,120);
+    return `<article onclick="openItemModal('${i.id}')" class="bg-white border border-slate-200 rounded-md p-4 cursor-pointer hover:border-forest hover:shadow-md transition">
+      <div class="flex items-start justify-between gap-2">
+        <div class="font-bold text-slate-800 leading-tight">${esc(i.name)}</div>
+        <span class="shrink-0 text-[11px] font-bold rounded px-2 py-0.5 ${badgeClass(i)}">${esc(activeTab==='magic'?rarity:(i.type==='weapon'?'Weapon':i.type==='armor'?'Armor':'Item'))}</span>
+      </div>
+      <div class="text-xs text-slate-500 mt-1">${esc(subtitle)}</div>
+      <div class="text-sm text-slate-600 mt-2 line-clamp-2">${extra}</div>
+    </article>`;
+  }).join('');
+}
+function openItemModal(id){
+  const i=itemById(id); if(!i) return;
+  const rarity=i.rarityUk||i.rarity||'—';
+  const lines=[];
+  if(i.type==='weapon'){
+    lines.push(`<div><b>Damage:</b> ${esc(i.damage||'—')} ${esc(i.damageType||'')}</div>`);
+    lines.push(`<div><b>Properties:</b> ${esc((i.properties||[]).join(', ') || '—')}</div>`);
+    lines.push(`<div><b>Mastery:</b> ${esc(i.mastery||'—')}</div>`);
+  }
+  if(i.type==='armor') lines.push(`<div><b>AC:</b> ${esc(i.ac||'—')}</div>`);
+  if(activeTab==='mundane'){
+    if(i.cost) lines.push(`<div><b>Price:</b> ${esc(i.cost)}</div>`);
+    if(i.weight) lines.push(`<div><b>Weight:</b> ${esc(i.weight)}</div>`);
+    if(i.ability) lines.push(`<div><b>Ability:</b> ${esc(i.ability)}</div>`);
+    if(i.capacity) lines.push(`<div><b>Capacity:</b> ${esc(i.capacity)}</div>`);
+    if(i.poisonType) lines.push(`<div><b>Poison type:</b> ${esc(i.poisonType)}</div>`);
+    if(i.roll) lines.push(`<div><b>Roll:</b> ${esc(i.roll)}</div>`);
+  }
+  if(activeTab==='magic'){
+    lines.push(`<div><b>English:</b> ${esc(i.englishName||i.name)}</div>`);
+    lines.push(`<div><b>Type:</b> ${esc(i.typeEn||i.category)}</div>`);
+    lines.push(`<div><b>Price:</b> ${esc(i.price||'—')}</div>`);
+    lines.push(`<div><b>Attunement:</b> ${i.attunement?'Required':'Not required'}</div>`);
+  }
+  document.getElementById('itemModalBody').innerHTML = `
+    <div class="pr-8">
+      <div class="text-xs font-bold uppercase tracking-wide text-slate-400">${esc(i.category||'—')} · ${esc(rarity)}</div>
+      <h3 class="font-heading text-2xl font-bold text-forest mt-1">${esc(i.name)}</h3>
+      ${i.englishName ? `<div class="text-sm italic text-slate-500 mt-1">${esc(i.englishName)}</div>` : ''}
+      <div class="mt-4 space-y-1 text-sm text-slate-700">${lines.join('')}</div>
+      <p class="mt-4 text-slate-700 leading-relaxed">${esc(i.description||'No description yet.')}</p>
+      ${i.descriptionEn ? `<p class="mt-3 text-sm text-slate-500 leading-relaxed"><b>EN:</b> ${esc(i.descriptionEn)}</p>` : ''}
+    </div>`;
+  const modal=document.getElementById('itemModal'); modal.classList.remove('hidden'); modal.classList.add('flex');
+}
+function closeItemModal(){ const modal=document.getElementById('itemModal'); modal.classList.add('hidden'); modal.classList.remove('flex'); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeItemModal(); });
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('catFilter').addEventListener('change',render);
+document.getElementById('rarityFilter').addEventListener('change',render);
+fillFilters();
+render();
+</script>
+  <script>(function(){try{function en(a){if(a)a.forEach(function(i){if(i.englishName)i.name=i.englishName;if(i.descriptionEn)i.description=i.descriptionEn;if(i.rarityUk&&i.rarity)i.rarityUk=i.rarity;});}en(typeof DND_MUNDANE_ITEMS!=="undefined"?DND_MUNDANE_ITEMS:null);en(typeof DND_MAGIC_ITEMS!=="undefined"?DND_MAGIC_ITEMS:null);if(typeof fillFilters==="function")fillFilters();if(typeof render==="function")render();}catch(e){}})();</script>
+    <script src="search-index.js"></script>
+  <script src="site-common.js"></script>
+  <script src="../storage.js"></script>
+  <script src="../items-custom.js"></script>
+</body>
+</html>

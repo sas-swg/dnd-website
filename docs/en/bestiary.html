@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiary - D&D 5e</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site-common.css">
+    <link rel="stylesheet" href="../vendor/tailwind.css">
+    <script>
+(function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
+</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition">Home</a>
+                <a href="rules.html" class="hover:text-forest-accent transition">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition">Класи</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+        <div class="mb-5">
+        <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Bestiary</h1>
+            <p class="text-sm text-slate-500 mt-2">Full monster database (2024). Click a monster to see its full stat block.</p>
+        </div>
+
+        <div class="bg-white rounded-md shadow-sm border border-slate-200 p-4 mb-5">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="md:col-span-2">
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Search</label>
+                    <input id="q" type="text" placeholder="Monster name…" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Type</label>
+                    <select id="ftype" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Size</label>
+                    <select id="fsize" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">CR from</label>
+                    <select id="crmin" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">CR to</label>
+                    <select id="crmax" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+                </div>
+                <div class="col-span-2 flex items-end justify-between gap-2">
+                    <span id="count" class="text-sm text-dnd-muted"></span>
+                    <button onclick="resetFilters()" class="text-xs px-3 py-2 border border-slate-300 rounded-lg hover:border-forest text-slate-600">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <label class="flex items-center gap-2 text-sm font-semibold text-slate-700 cursor-pointer">
+                <input id="onlyMine" type="checkbox" class="w-4 h-4 rounded border-slate-300 text-emerald-600">
+                ★ Only my monsters
+            </label>
+            <button id="cmbOpen" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm hover:bg-emerald-700 shadow-sm">🛠️ Create your monster</button>
+        </div>
+
+        <div id="list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-dnd-muted text-xs">&copy; 2024 D&D 5e Digital Knowledge Base. Unofficial project.</p>
+        </div>
+    </footer>
+
+    <div id="mon-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/50" onclick="closeModal()"></div>
+        <div class="relative bg-white rounded-md shadow-md max-w-2xl w-full p-6" style="max-height:88vh;overflow-y:auto">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-700 text-2xl leading-none">&times;</button>
+            <div id="mon-body"></div>
+        </div>
+    </div>
+
+    <script src="spell-classes.js"></script>
+    <script src="../monsters-data.js"></script>
+    <script src="../monsters-uk.js"></script>
+    <script src="../monsters-desc-uk.js"></script>
+    <script src="../monsters-desc-override.js"></script>
+    <script>
+var TYPE_UK={Aberration:"\u0410\u0431\u0435\u0440\u0430\u0446\u0456\u044f",Beast:"\u0417\u0432\u0456\u0440",Celestial:"\u041d\u0435\u0431\u043e\u0436\u0438\u0442\u0435\u043b\u044c",Construct:"\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442",Dragon:"\u0414\u0440\u0430\u043a\u043e\u043d",Elemental:"\u0415\u043b\u0435\u043c\u0435\u043d\u0442\u0430\u043b\u044c",Fey:"\u0424\u0435\u0439\u0440\u0456",Fiend:"\u0406\u0441\u0447\u0430\u0434\u0456\u0454",Giant:"\u0412\u0435\u043b\u0435\u0442\u0435\u043d\u044c",Humanoid:"\u0413\u0443\u043c\u0430\u043d\u043e\u0457\u0434",Monstrosity:"\u041f\u043e\u0442\u0432\u043e\u0440\u0430",Ooze:"\u0421\u043b\u0438\u0437",Plant:"\u0420\u043e\u0441\u043b\u0438\u043d\u0430",Undead:"\u041d\u0435\u0436\u0438\u0442\u044c"};
+var SIZE_UK={Tiny:"\u041a\u0440\u0438\u0445\u0456\u0442\u043d\u0438\u0439",Small:"\u041c\u0430\u043b\u0438\u0439",Medium:"\u0421\u0435\u0440\u0435\u0434\u043d\u0456\u0439",Large:"\u0412\u0435\u043b\u0438\u043a\u0438\u0439",Huge:"\u0412\u0435\u043b\u0438\u0447\u0435\u0437\u043d\u0438\u0439",Gargantuan:"\u0413\u0456\u0433\u0430\u043d\u0442\u0441\u044c\u043a\u0438\u0439"};
+var SUBTYPE_UK={Chromatic:"\u0425\u0440\u043e\u043c\u0430\u0442\u0438\u0447\u043d\u0438\u0439",Metallic:"\u041c\u0435\u0442\u0430\u043b\u0435\u0432\u0438\u0439",Gem:"\u0421\u0430\u043c\u043e\u0446\u0432\u0456\u0442\u043d\u0438\u0439",Dinosaur:"\u0414\u0438\u043d\u043e\u0437\u0430\u0432\u0440",Goblinoid:"\u0413\u043e\u0431\u043b\u0456\u043d\u043e\u0457\u0434",Demon:"\u0414\u0435\u043c\u043e\u043d",Devil:"\u0414\u0438\u044f\u0432\u043e\u043b",Titan:"\u0422\u0438\u0442\u0430\u043d",Shapechanger:"\u041f\u0435\u0440\u0435\u0432\u0435\u0440\u0442\u0435\u043d\u044c",Yugoloth:"\u042e\u0491\u043e\u043b\u043e\u0442"};
+var ALIGN_UK={Lawful:"\u0417\u0430\u043a\u043e\u043d\u043d\u0438\u0439",Neutral:"\u041d\u0435\u0439\u0442\u0440\u0430\u043b\u044c\u043d\u0438\u0439",Chaotic:"\u0425\u0430\u043e\u0442\u0438\u0447\u043d\u0438\u0439",Good:"\u0434\u043e\u0431\u0440\u0438\u0439",Evil:"\u0437\u043b\u0438\u0439",Unaligned:"\u0411\u0435\u0437 \u0441\u0432\u0456\u0442\u043e\u0433\u043b\u044f\u0434\u0443",Any:"\u0411\u0443\u0434\u044c-\u044f\u043a\u0438\u0439",Alignment:"\u0441\u0432\u0456\u0442\u043e\u0433\u043b\u044f\u0434",alignment:"\u0441\u0432\u0456\u0442\u043e\u0433\u043b\u044f\u0434",Typically:"\u0417\u0430\u0437\u0432\u0438\u0447\u0430\u0439",None:"\u2014",or:"\u0430\u0431\u043e"};
+var SECTION_UK={"TRAITS":"\u0420\u0418\u0421\u0418","ACTIONS":"\u0414\u0406\u0407","BONUS ACTIONS":"\u0411\u041e\u041d\u0423\u0421\u041d\u0406 \u0414\u0406\u0407","REACTIONS":"\u0420\u0415\u0410\u041a\u0426\u0406\u0407","LEGENDARY ACTIONS":"\u041b\u0415\u0413\u0415\u041d\u0414\u0410\u0420\u041d\u0406 \u0414\u0406\u0407","MYTHIC ACTIONS":"\u041c\u0406\u0424\u0406\u0427\u041d\u0406 \u0414\u0406\u0407","LAIR ACTIONS":"\u0414\u0406\u0407 \u041b\u0406\u0413\u0412\u0410","REGIONAL EFFECTS":"\u0420\u0415\u0413\u0406\u041e\u041d\u0410\u041b\u042c\u041d\u0406 \u0415\u0424\u0415\u041a\u0422\u0418","UTILITY SPELLS":"\u0414\u041e\u041f\u041e\u041c\u0406\u0416\u041d\u0406 \u0417\u0410\u041a\u041b\u042f\u0422\u0422\u042f"};
+var FIELD_UK={AC:"\u041a\u0411",HP:"\u0425\u0456\u0442\u0438",Initiative:"\u0406\u043d\u0456\u0446\u0456\u0430\u0442\u0438\u0432\u0430",Speed:"\u0428\u0432\u0438\u0434\u043a\u0456\u0441\u0442\u044c",Skills:"\u041d\u0430\u0432\u0438\u0447\u043a\u0438","Saving Throws":"\u0420\u044f\u0442\u0443\u043d\u043a\u0438",Resistances:"\u041e\u043f\u0456\u0440\u043d\u043e\u0441\u0442\u0456",Immunities:"\u0406\u043c\u0443\u043d\u0456\u0442\u0435\u0442\u0438",Vulnerabilities:"\u0412\u0440\u0430\u0437\u043b\u0438\u0432\u043e\u0441\u0442\u0456",Gear:"\u0421\u043f\u043e\u0440\u044f\u0434\u0436\u0435\u043d\u043d\u044f",Senses:"\u0427\u0443\u0442\u0442\u044f",Languages:"\u041c\u043e\u0432\u0438",CR:"\u041d\u0435\u0431\u0435\u0437\u043f\u0435\u043a\u0430 (CR)"};
+
+function esc(s){ return (s==null?"":String(s)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function crNum(v){ if(!v||v==="None") return -1; if(v.indexOf("/")>-1){var p=v.split("/");return parseInt(p[0],10)/parseInt(p[1],10);} var n=parseFloat(v); return isNaN(n)?-1:n; }
+function ukName(m){ return (typeof MONSTERS_UK!=="undefined" && MONSTERS_UK[m.slug]) || m.name; }
+var LANG="uk",CUR_SLUG=null;
+function setUk(){LANG="uk"; if(CUR_SLUG) openModal(CUR_SLUG);}
+function setEn(){LANG="en"; if(CUR_SLUG) openModal(CUR_SLUG);}
+function tType(t){ return TYPE_UK[t]||t; }
+function tSize(s){ return SIZE_UK[s]||s; }
+function tSub(s){ return s?(SUBTYPE_UK[s]||s):""; }
+function tAlign(a){ if(!a) return ""; return a.split(/\s+/).map(function(w){return ALIGN_UK[w]||w;}).join(" "); }
+function tMeta(m){ var p=[tType(m.type)]; if(m.subtype)p.push("("+tSub(m.subtype)+")"); if(m.size)p.push(tSize(m.size)); var s=p.join(" "); if(m.alignment)s+=", "+tAlign(m.alignment); return s; }
+
+var CR_ORDER=[];
+function initFilters(){
+  var types={}, sizes={}, crs={};
+  DND_MONSTERS.forEach(function(m){ if(m.type)types[m.type]=1; if(m.size)sizes[m.size]=1; crs[m.crValue||"None"]=1; });
+  var typeSel=document.getElementById("ftype");
+  typeSel.innerHTML='<option value="">\u0412\u0441\u0456 \u0442\u0438\u043f\u0438</option>'+Object.keys(types).sort().map(function(t){return '<option value="'+esc(t)+'">'+esc(tType(t))+'</option>';}).join("");
+  var sizeOrder=["Tiny","Small","Medium","Large","Huge","Gargantuan"];
+  var sizeSel=document.getElementById("fsize");
+  sizeSel.innerHTML='<option value="">\u0412\u0441\u0456 \u0440\u043e\u0437\u043c\u0456\u0440\u0438</option>'+sizeOrder.filter(function(s){return sizes[s];}).map(function(s){return '<option value="'+s+'">'+esc(tSize(s))+'</option>';}).join("");
+  CR_ORDER=Object.keys(crs).sort(function(a,b){return crNum(a)-crNum(b);});
+  var mn=document.getElementById("crmin"), mx=document.getElementById("crmax");
+  var opts=CR_ORDER.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>';}).join("");
+  mn.innerHTML=opts; mx.innerHTML=opts;
+  mn.value=CR_ORDER[0]; mx.value=CR_ORDER[CR_ORDER.length-1];
+}
+
+function applyFilters(){
+  var q=document.getElementById("q").value.trim().toLowerCase();
+  var ty=document.getElementById("ftype").value;
+  var sz=document.getElementById("fsize").value;
+  var cmin=crNum(document.getElementById("crmin").value);
+  var cmax=crNum(document.getElementById("crmax").value);
+  return DND_MONSTERS.filter(function(m){
+    if(q && ukName(m).toLowerCase().indexOf(q)===-1 && m.name.toLowerCase().indexOf(q)===-1) return false;
+    if(ty && m.type!==ty) return false;
+    if(sz && m.size!==sz) return false;
+    var c=crNum(m.crValue);
+    if(c<cmin || c>cmax) return false;
+    return true;
+  }).sort(function(a,b){ var d=crNum(a.crValue)-crNum(b.crValue); return d!==0?d:ukName(a).localeCompare(ukName(b),"uk"); });
+}
+
+function render(){
+  var res=applyFilters();
+  document.getElementById("count").textContent=res.length+" \u043c\u043e\u043d\u0441\u0442\u0440\u0456\u0432";
+  var box=document.getElementById("list");
+  box.innerHTML="";
+  var frag=document.createDocumentFragment();
+  res.forEach(function(m){
+    var card=document.createElement("div");
+    card.className="bg-white border border-slate-200 rounded-md p-3 cursor-pointer hover:border-forest hover:shadow-md transition";
+    card.onclick=function(){ openModal(m.slug); };
+    card.innerHTML='<div class="flex items-start justify-between gap-2">'+
+      '<div><div class="font-bold text-slate-800 leading-tight">'+esc(ukName(m))+'</div>'+
+      '<div class="text-[11px] text-slate-400">'+esc(m.name)+'</div></div>'+
+      '<span class="shrink-0 text-xs font-bold text-forest bg-green-100 rounded px-2 py-0.5">CR '+esc(m.crValue||"?")+'</span></div>'+
+      '<div class="text-xs text-slate-500 mt-1">'+esc(tType(m.type))+(m.subtype?(" ("+esc(tSub(m.subtype))+")"):"")+' \u00b7 '+esc(tSize(m.size))+'</div>'+
+      '<div class="text-xs text-slate-500 mt-1">'+esc(FIELD_UK.AC)+' '+esc(m.fields.AC||"?")+' \u00b7 '+esc(FIELD_UK.HP)+' '+esc((m.fields.HP||"?").split(" (")[0])+'</div>';
+    frag.appendChild(card);
+  });
+  box.appendChild(frag);
+}
+
+function bySlug(slug){ for(var i=0;i<DND_MONSTERS.length;i++) if(DND_MONSTERS[i].slug===slug) return DND_MONSTERS[i]; return null; }
+
+function parseEntries(text){
+  var lines=text.split("\n"), entries=[], cur=null, prevPeriod=true;
+  var nameRe=/^([A-ZА-ЯҐЄІЇ][A-Za-zА-Яа-яҐЄІЇґєіїї0-9'\u2019(),\/ +\-]{0,48}?)\.(\s|$)/;
+  lines.forEach(function(raw){
+    var ls=raw.trim(); if(!ls) return;
+    var mm=ls.match(nameRe);
+    if(mm && prevPeriod){
+      cur={name:mm[1],desc:ls.slice(mm[0].length).trim()}; entries.push(cur);
+    } else {
+      if(cur) cur.desc=(cur.desc+" "+ls).trim();
+      else { cur={name:"",desc:ls}; entries.push(cur); }
+    }
+    prevPeriod=/[.!?][\)\u201d"']?$/.test(ls);
+  });
+  return entries;
+}
+function sectionHtml(rawTitle,text){
+  var body=parseEntries(text).map(function(e){
+    if(e.name) return '<p class="text-sm text-slate-700 mb-1.5"><strong class="text-slate-900">'+esc(e.name)+'.</strong> '+esc(e.desc)+'</p>';
+    return '<p class="text-sm text-slate-700 mb-1.5">'+esc(e.desc)+'</p>';
+  }).join("");
+  var title=(LANG==="uk"?(SECTION_UK[rawTitle]||rawTitle):rawTitle);
+  return '<div class="mt-3"><div class="text-forest font-heading font-bold text-sm uppercase border-b border-forest/30 pb-1 mb-2">'+esc(title)+'</div>'+body+'</div>';
+}
+function abilRow(m){
+  var order=[["str","STR"],["dex","DEX"],["con","CON"],["int","INT"],["wis","WIS"],["cha","CHA"]];
+  var sg=function(n){return (n>=0?"+":"")+n;};
+  var cells=order.map(function(o){
+    var a=m.abilities[o[0]]; if(!a) a={score:"\u2014",mod:0,save:0};
+    return '<td class="px-2 py-1 text-center"><div class="font-bold text-xs text-slate-500">'+o[1]+'</div>'+
+      '<div class="font-bold text-slate-800">'+esc(a.score)+'</div>'+
+      '<div class="text-xs text-slate-600">'+sg(a.mod)+' / '+sg(a.save)+'</div></td>';
+  }).join("");
+  return '<table class="w-full my-3 bg-slate-50 rounded-lg"><tr>'+cells+'</tr>'+
+    '<tr><td colspan="6" class="text-center text-[10px] text-slate-400 pb-1">\u0417\u043d\u0430\u0447\u0435\u043d\u043d\u044f \u00b7 \u043c\u043e\u0434\u0438\u0444\u0456\u043a\u0430\u0442\u043e\u0440 / \u0440\u044f\u0442\u0443\u043d\u043e\u043a</td></tr></table>';
+}
+function fieldRow(label,val){ return val?('<div class="text-sm text-slate-700"><span class="font-bold text-slate-900">'+esc(label)+'</span> '+esc(val)+'</div>'):""; }
+
+function openModal(slug){
+  var m=bySlug(slug); if(!m) return;
+  CUR_SLUG=slug;
+  var f=m.fields;
+  var du=(typeof MONSTERS_DESC_UK!=="undefined" && MONSTERS_DESC_UK[slug])||null;
+  var ov=(typeof MONSTERS_DESC_OVERRIDE!=="undefined" && MONSTERS_DESC_OVERRIDE[slug])||null;
+  function gv(k){ if(LANG==="uk"){ if(ov&&ov.f&&ov.f[k]!=null) return ov.f[k]; if(du&&du.f&&du.f[k]!=null) return du.f[k]; } return f[k]; }
+  function L(k){ return LANG==="uk"?(FIELD_UK[k]||k):k; }
+  var toggle='<div class="flex gap-1 mb-2"><button onclick="setUk()" class="text-xs px-2 py-1 rounded '+(LANG==="uk"?"bg-forest text-white":"bg-slate-100 text-slate-600")+'">УКР</button><button onclick="setEn()" class="text-xs px-2 py-1 rounded '+(LANG==="en"?"bg-forest text-white":"bg-slate-100 text-slate-600")+'">EN</button></div>';
+  var head=toggle+'<h3 class="font-heading text-2xl font-bold text-forest">'+esc(ukName(m))+'</h3>'+
+    '<div class="text-xs text-slate-400">'+esc(m.name)+'</div>'+
+    '<div class="text-sm italic text-slate-500 mb-3">'+esc(LANG==="uk"?tMeta(m):m.meta)+'</div>'+
+    '<div class="space-y-0.5">'+fieldRow(L("AC"),gv("AC"))+fieldRow(L("HP"),gv("HP"))+fieldRow(L("Initiative"),gv("Initiative"))+fieldRow(L("Speed"),gv("Speed"))+'</div>';
+  var mid='<div class="space-y-0.5 mb-1">'+fieldRow(L("Skills"),gv("Skills"))+fieldRow(L("Saving Throws"),gv("Saving Throws"))+
+    fieldRow(L("Resistances"),gv("Resistances"))+fieldRow(L("Immunities"),gv("Immunities"))+fieldRow(L("Vulnerabilities"),gv("Vulnerabilities"))+
+    fieldRow(L("Gear"),gv("Gear"))+fieldRow(L("Senses"),gv("Senses"))+fieldRow(L("Languages"),gv("Languages"))+fieldRow(L("CR"),gv("CR"))+'</div>';
+  document.getElementById("mon-body").innerHTML=head+abilRow(m)+mid+m.sections.map(function(sec,i){ var txt=sec.text; if(LANG==="uk"){ if(ov&&ov.s&&ov.s[i]!=null) txt=ov.s[i]; else if(du&&du.s&&du.s[i]!=null) txt=du.s[i]; } return sectionHtml(sec.title,txt); }).join("");
+  var md=document.getElementById("mon-modal"); md.classList.remove("hidden"); md.classList.add("flex");
+}
+function closeModal(){ var md=document.getElementById("mon-modal"); md.classList.add("hidden"); md.classList.remove("flex"); }
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeModal(); });
+function resetFilters(){ document.getElementById("q").value=""; document.getElementById("ftype").value=""; document.getElementById("fsize").value=""; document.getElementById("crmin").value=CR_ORDER[0]; document.getElementById("crmax").value=CR_ORDER[CR_ORDER.length-1]; render(); }
+["q","ftype","fsize","crmin","crmax"].forEach(function(id){ document.getElementById(id).addEventListener("input",render); });
+initFilters();
+render();
+</script>
+    <script>(function(){try{ukName=function(m){return m.name;};tType=function(t){return t||"";};tSize=function(s){return s||"";};tSub=function(s){return s||"";};tAlign=function(a){return a||"";};LANG="en";FIELD_UK={AC:"AC",HP:"HP",Initiative:"Initiative",Speed:"Speed",Skills:"Skills","Saving Throws":"Saving Throws",Resistances:"Resistances",Immunities:"Immunities",Vulnerabilities:"Vulnerabilities",Gear:"Gear",Senses:"Senses",Languages:"Languages",CR:"CR"};if(typeof initFilters==="function")initFilters();if(typeof render==="function")render();}catch(e){}})();</script>
+    <script src="search-index.js"></script>
+    <script src="site-common.js"></script>
+    <script src="../storage.js"></script>
+    <script src="../bestiary-custom.js"></script>
+</body>
+</html>

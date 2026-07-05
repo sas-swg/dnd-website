@@ -3587,6 +3587,7 @@ const DND_RACES = {
         id: "highelf",
         name: "High Elf",
         grantedSpells: ["prestidigitation"],
+        grantedSpellsByLevel: { 3: ["detect_magic"], 5: ["misty_step"] },
         bonusCantripChoices: 1,
         traits: [
           {
@@ -3600,6 +3601,7 @@ const DND_RACES = {
         id: "woodelf",
         name: "Wood Elf",
         grantedSpells: ["druidcraft"],
+        grantedSpellsByLevel: { 3: ["longstrider"], 5: ["pass_without_trace"] },
         traits: [
           { name: "Fleet of Foot", desc: "Speed 35 feet." },
           {
@@ -3612,6 +3614,7 @@ const DND_RACES = {
         id: "drow",
         name: "Drow",
         grantedSpells: ["dancing_lights"],
+        grantedSpellsByLevel: { 3: ["faerie_fire"], 5: ["darkness"] },
         traits: [
           { name: "Improved Darkvision", desc: "Range 120 feet." },
           {
@@ -3797,6 +3800,7 @@ const DND_RACES = {
         id: "infernal",
         name: "Infernal",
         grantedSpells: ["fire_bolt"],
+        grantedSpellsByLevel: { 3: ["hellish_rebuke"], 5: ["darkness"] },
         traits: [
           {
             name: "Legacy",
@@ -3808,6 +3812,7 @@ const DND_RACES = {
         id: "chthonic",
         name: "Chthonic",
         grantedSpells: ["chill_touch"],
+        grantedSpellsByLevel: { 3: ["false_life"], 5: ["ray_of_enfeeblement"] },
         traits: [
           {
             name: "Legacy",
@@ -3818,6 +3823,8 @@ const DND_RACES = {
       {
         id: "abyssal",
         name: "Abyssal",
+        grantedSpells: ["poison_spray"],
+        grantedSpellsByLevel: { 3: ["ray_of_sickness"], 5: ["hold_person"] },
         traits: [
           {
             name: "Legacy",
