@@ -930,7 +930,7 @@ const DND_CLASSES = {
           {
             level: 17,
             name: "Покращене дублювання",
-            description: "Ви можете створити до ч��тирьох копій себе одночасно.",
+            description: "Ви можете створити до чотирьох копій себе одночасно.",
           },
         ],
       },
@@ -2212,7 +2212,7 @@ const DND_CLASSES = {
             level: 7,
             name: "Аура палати",
             description:
-              "Ви та союзники в межах 10 ��утів маєте опір до шкоди від заклинань. 30 футів з 18 рівня.",
+              "Ви та союзники в межах 10 футів маєте опір до шкоди від заклинань. 30 футів з 18 рівня.",
           },
           {
             level: 15,
@@ -3054,7 +3054,7 @@ const DND_CLASSES = {
           },
           {
             level: 6,
-            name: "��уманний втеча",
+            name: "Туманна втеча",
             description:
               "Реакція на отримання шкоди: станьте невидимим, телепортуйтеся на 60 футів. Невидимість до початку наступного ходу або до атаки/чаклування.",
           },
@@ -3624,6 +3624,7 @@ const DND_RACES = {
         id: "highelf",
         name: "Високий ельф",
         grantedSpells: ["prestidigitation"],
+        grantedSpellsByLevel: { 3: ["detect_magic"], 5: ["misty_step"] },
         bonusCantripChoices: 1,
         traits: [
           {
@@ -3640,6 +3641,7 @@ const DND_RACES = {
         id: "woodelf",
         name: "Лісовий ельф",
         grantedSpells: ["druidcraft"],
+        grantedSpellsByLevel: { 3: ["longstrider"], 5: ["pass_without_trace"] },
         traits: [
           { name: "Прудкість", desc: "Швидкість 35 футів." },
           {
@@ -3652,6 +3654,7 @@ const DND_RACES = {
         id: "drow",
         name: "Дроу",
         grantedSpells: ["dancing_lights"],
+        grantedSpellsByLevel: { 3: ["faerie_fire"], 5: ["darkness"] },
         traits: [
           { name: "Покращений темний зір", desc: "Дальність 120 футів." },
           {
@@ -3828,6 +3831,7 @@ const DND_RACES = {
         id: "infernal",
         name: "Інфернальний",
         grantedSpells: ["fire_bolt"],
+        grantedSpellsByLevel: { 3: ["hellish_rebuke"], 5: ["darkness"] },
         traits: [
           {
             name: "Спадок",
@@ -3839,6 +3843,7 @@ const DND_RACES = {
         id: "chthonic",
         name: "Хтонічний",
         grantedSpells: ["chill_touch"],
+        grantedSpellsByLevel: { 3: ["false_life"], 5: ["ray_of_enfeeblement"] },
         traits: [
           {
             name: "Спадок",
@@ -3849,6 +3854,8 @@ const DND_RACES = {
       {
         id: "abyssal",
         name: "Безодній",
+        grantedSpells: ["poison_spray"],
+        grantedSpellsByLevel: { 3: ["ray_of_sickness"], 5: ["hold_person"] },
         traits: [
           {
             name: "Спадок",
@@ -4118,7 +4125,7 @@ const DND_RACES = {
     category: "Еберрон",
     desc: "Розумні конструкти з дерева й металу, створені для Останньої війни. Джерело: Eberron.",
     speed: 30,
-    size: "Середня або Маленьк�� (на вибір)",
+    size: "Середня або Маленька (на вибір)",
     languages: "Загальна + 2 мови від передісторії",
     skillChoices: { count: 1, from: "any" },
     traits: [
@@ -5357,10 +5364,19 @@ const DND_FEATS = [
   {
     id: "warcaster",
     name: "Бойовий заклинач",
+    advantageConcentration: true, // структурований прапорець: перевага на рятунки концентрації
     description:
       "Перевага на рятунки Витривалості для збереження концентрації. Можете кастувати соматичні закляття з зайнятими руками. Реакція-атака може бути замінена на закляття цілі.",
   },
 ];
+
+// Ваги спорядження у фунтах (PHB) — для розрахунку обтяження на ігровому аркуші
+(function () {
+  var armorW = { padded: 8, leather: 10, studded: 13, hide: 12, chainshirt: 20, scalemail: 45, breastplate: 20, halfplate: 40, ringmail: 40, chainmail: 55, splint: 60, plate: 65 };
+  Object.keys(armorW).forEach(function (k) { if (ARMOR_DATA[k]) ARMOR_DATA[k].weight = armorW[k]; });
+  var weaponW = { club: 2, dagger: 1, greatclub: 10, handaxe: 2, javelin: 2, lighthammer: 2, mace: 4, quarterstaff: 4, sickle: 2, spear: 3, crossbowlight: 5, dart: 0.25, shortbow: 2, sling: 0, battleaxe: 4, flail: 2, glaive: 6, greataxe: 7, greatsword: 6, halberd: 6, lance: 6, longsword: 3, maul: 10, morningstar: 4, pike: 18, rapier: 2, scimitar: 3, shortsword: 2, trident: 4, warpick: 2, warhammer: 2, whip: 3, crossbowhand: 3, crossbowheavy: 18, longbow: 2 };
+  DND_WEAPONS.forEach(function (w) { if (weaponW[w.id] != null) w.weight = weaponW[w.id]; });
+})();
 const SPELL_SLOTS_FULL = {
   1: [2, 0, 0, 0, 0, 0, 0, 0, 0],
   2: [3, 0, 0, 0, 0, 0, 0, 0, 0],

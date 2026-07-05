@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Грати за персонажа - D&D 5e</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+      .pc-card { transition: all .2s ease; border: 1px solid #e2e8f0; }
+      .pc-card:hover { transform: translateY(-4px); border-color: #14532d; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
+    </style>
+    <link rel="stylesheet" href="site-common.css">
+    <link rel="stylesheet" href="vendor/tailwind.css">
+    <script>
+(function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
+</script>
+</head>
+<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e База Знань</h1>
+            </a>
+            <nav class="hidden md:flex gap-5 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+        <div class="mb-6">
+        <div class="flex flex-wrap items-end justify-between gap-3 mt-2">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Грати за персонажа</h1>
+                    <p class="text-sm text-slate-500 mt-2">Оберіть збереженого персонажа або створіть нового. Персонажі зберігаються автоматично у цьому браузері.</p>
+                </div>
+                <div class="flex gap-2">
+                    <label class="cursor-pointer text-sm font-bold border border-slate-300 bg-white text-slate-700 rounded-lg px-3 py-2 hover:border-forest transition">
+                        ⬆ Імпорт (PDF/JSON)
+                        <input id="importFile" type="file" accept=".pdf,.json,application/pdf,application/json" class="hidden">
+                    </label>
+                    <a href="character-creator.html" class="text-sm font-bold border-2 border-[#22C55E] bg-[#22C55E] text-white rounded-lg px-3 py-2 hover:bg-[#16a34a] transition">➕ Створити персонажа</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="emptyState" class="hidden text-center py-16 bg-white border border-dashed border-slate-300 rounded-md">
+            <div class="text-5xl mb-3">🧙</div>
+            <h3 class="font-heading text-xl font-bold text-forest">Поки немає збережених персонажів</h3>
+            <p class="text-sm text-slate-500 mt-2">Створіть першого героя — він з’явиться тут.</p>
+            <a href="character-creator.html" class="inline-block mt-4 text-sm font-bold border-2 border-[#22C55E] bg-[#22C55E] text-white rounded-lg px-4 py-2 hover:bg-[#16a34a] transition">➕ Створити персонажа</a>
+        </div>
+
+        <div id="list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-dnd-muted text-xs">&copy; 2024 D&D 5e Цифрова База Знань. Неофіційний проект.</p>
+        </div>
+    </footer>
+
+    <script src="storage.js"></script>
+    <script>
+    (function () {
+        var listEl = document.getElementById('list');
+        var emptyEl = document.getElementById('emptyState');
+        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]; }); }
+
+        function render() {
+            var chars = (window.DndStore ? DndStore.list('characters') : []).slice().sort(function (a, b) { return (b.updatedAt||0) - (a.updatedAt||0); });
+            listEl.innerHTML = '';
+            if (!chars.length) { emptyEl.classList.remove('hidden'); return; }
+            emptyEl.classList.add('hidden');
+            chars.forEach(function (rec) {
+                var ch = rec.character || {};
+                var name = rec.name || (ch.description && ch.description.name) || 'Без імені';
+                var cls = rec.className || ch.className || '—';
+                var race = rec.raceName || ch.raceName || '—';
+                var lvl = rec.level || ch.level || 1;
+                var card = document.createElement('div');
+                card.className = 'pc-card bg-white rounded-md p-4 shadow-sm flex flex-col';
+                card.innerHTML =
+                    '<div class="flex items-start justify-between gap-2">' +
+                        '<div><h3 class="font-heading text-lg font-bold text-forest leading-tight">' + esc(name) + '</h3>' +
+                        '<p class="text-xs text-dnd-muted mt-0.5">' + esc(race) + ' • ' + esc(cls) + '</p></div>' +
+                        '<span class="shrink-0 text-xs font-bold bg-green-100 text-forest px-2 py-1 rounded-lg">Рів. ' + esc(lvl) + '</span>' +
+                    '</div>' +
+                    '<div class="mt-4 grid grid-cols-2 gap-2">' +
+                        '<button data-act="sheet" class="col-span-2 text-sm font-bold bg-[#14532D] text-white rounded-lg px-3 py-2 hover:bg-[#166534] transition">▶ Аркуш персонажа</button>' +
+                        '<button data-act="play" class="col-span-2 text-sm font-semibold border border-slate-300 text-slate-700 rounded-lg px-3 py-2 hover:border-forest transition">✎ Редагувати</button>' +
+                        '<button data-act="export" class="text-sm font-semibold border border-slate-300 text-slate-700 rounded-lg px-3 py-2 hover:border-forest transition">⬇ JSON</button>' +
+                        '<button data-act="delete" class="text-sm font-semibold border border-red-300 text-red-600 rounded-lg px-3 py-2 hover:bg-red-50 transition">🗑 Видалити</button>' +
+                    '</div>';
+                card.querySelector('[data-act=sheet]').onclick = function () { location.href = 'play-sheet.html?char=' + encodeURIComponent(rec.id); };
+                card.querySelector('[data-act=play]').onclick = function () { location.href = 'character-creator.html?load=' + encodeURIComponent(rec.id); };
+                card.querySelector('[data-act=export]').onclick = function () {
+                    var fname = 'dnd-' + String(name).replace(/[^\wа-яА-ЯіЇєҐґ-]+/gi, '_') + '.json';
+                    DndStore.downloadJSON({ type: 'dnd-character', savedAt: Date.now(), character: ch }, fname);
+                };
+                card.querySelector('[data-act=delete]').onclick = function () {
+                    if (!confirm('Видалити персонажа «' + name + '»?')) return;
+                    DndStore.remove('characters', rec.id); render();
+                };
+                listEl.appendChild(card);
+            });
+        }
+
+        document.getElementById('importFile').addEventListener('change', function (e) {
+            var f = e.target.files && e.target.files[0];
+            if (!f || !window.DndStore) return;
+            DndStore.readCharFile(f, function (data) {
+                if (!data) { alert('Не вдалося прочитати файл. Підтримуються JSON та PDF, експортовані з цього сайту.'); return; }
+                var ch = data.character || data;
+                if (!ch || typeof ch !== 'object' || !ch.description) { alert('Файл не містить персонажа.'); return; }
+                DndStore.save('characters', {
+                    type: 'character',
+                    name: (ch.description && ch.description.name) || 'Імпортований',
+                    className: ch.className || '', raceName: ch.raceName || '', level: ch.level || 1,
+                    character: ch,
+                });
+                render();
+                alert('Персонажа імпортовано.');
+            });
+            e.target.value = '';
+        });
+
+        render();
+        window.addEventListener('storage', function (e) { if (!e || !e.key || e.key === 'dnd_characters') render(); });
+        window.addEventListener('focus', render);
+        document.addEventListener('visibilitychange', function () { if (!document.hidden) render(); });
+    })();
+    </script>
+    <script src="site-common.js"></script>
+</body>
+</html>

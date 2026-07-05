@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор імен НПС - D&D 5e</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="site-common.css">
+    <link rel="stylesheet" href="vendor/tailwind.css">
+    <script>
+(function () {
+  try {
+    if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="font-body text-ui-text bg-[#F8FAFC] min-h-screen flex flex-col">
+
+    <header class="bg-forest text-white py-4 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="favicon.png" alt="Logo" class="w-10 h-10 rounded-md" onerror="this.style.display='none'">
+                <h1 class="font-heading text-xl md:text-2xl font-bold tracking-tight uppercase">D&D 5e База Знань</h1>
+            </a>
+            <nav class="hidden md:flex gap-6 text-sm font-semibold">
+                <a href="index.html" class="hover:text-forest-accent transition">Головна</a>
+                <a href="rules.html" class="hover:text-forest-accent transition">Правила</a>
+                <a href="races.html" class="hover:text-forest-accent transition">Раси</a>
+                <a href="classes.html" class="hover:text-forest-accent transition">Класи</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-1 max-w-4xl">
+        <div class="mb-6">
+            <a href="index.html" class="text-sm text-forest hover:underline">&larr; На головну</a>
+            <h2 class="font-heading text-3xl font-bold text-forest mt-2 flex items-center gap-2">🎭 Генератор імен НПС</h2>
+            <p class="text-ui-muted mt-1">Швидко створюйте імена персонажів для вашого світу — за народом і статтю. За бажанням додайте професію та рису характеру.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Народ / раса</label>
+                    <select id="race" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm font-medium text-slate-700"></select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Стать</label>
+                    <select id="gender" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm font-medium text-slate-700">
+                        <option value="any">Будь-яка</option>
+                        <option value="male">Чоловіча</option>
+                        <option value="female">Жіноча</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-4 flex flex-wrap items-center gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1">Кількість</label>
+                    <select id="count" class="p-2.5 border border-slate-300 rounded-lg bg-white text-sm font-medium text-slate-700">
+                        <option>1</option><option selected>5</option><option>10</option><option>20</option>
+                    </select>
+                </div>
+                <label class="flex items-center gap-2 text-sm font-medium text-slate-700 mt-5 cursor-pointer">
+                    <input type="checkbox" id="withFlavor" class="w-4 h-4 rounded border-slate-300 text-forest focus:ring-forest">
+                    Додати професію та рису
+                </label>
+            </div>
+
+            <button onclick="generate()" class="mt-5 w-full sm:w-auto px-6 py-3 bg-forest text-white rounded-lg font-bold hover:bg-forest-hover shadow-md transition-transform transform active:scale-95">
+                ✨ Згенерувати
+            </button>
+        </div>
+
+        <div id="results" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        <div class="mt-8 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-heading font-bold text-forest text-lg flex items-center gap-2">📇 Збережені НПС</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-3" id="savedNpcList"></div>
+          <div id="savedNpcEmpty" class="text-sm text-slate-400 italic mb-3">Ще немає збережених НПС. Натисніть 💾 біля згенерованого імені.</div>
+          <div class="border-t border-slate-200 pt-3">
+            <div class="text-xs font-bold text-slate-500 uppercase mb-2">Додати власного НПС</div>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input id="customNpcName" type="text" placeholder="Ім’я НПС" class="flex-1 p-2 border border-slate-300 rounded-lg text-sm bg-white">
+              <input id="customNpcNote" type="text" placeholder="Нотатка (роль, раса, характер…)" class="flex-1 p-2 border border-slate-300 rounded-lg text-sm bg-white">
+              <button id="customNpcCreate" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm hover:bg-emerald-700 shrink-0">➕ Додати</button>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Цифрова База Знань. Неофіційний проект.</p>
+        </div>
+    </footer>
+
+    <script>
+const NAME_DATA = {
+  human_slavic: {
+    label: "Слов'янські (людина)",
+    male: ["Богдан","Всеволод","Добромир","Ждан","Мирослав","Радим","Святозар","Тихомир","Яромир","Любомир","Станіслав","Велибор"],
+    female: ["Велислава","Добронега","Злата","Милана","Мирослава","Рада","Світозара","Ярина","Любава","Богдана","Красимира","Лада"],
+    family: ["Вовкодав","Залізняк","Круторіг","Метелиця","Сивокінь","Тихоліс","Чорнобай","Ясноок"]
+  },
+  human_west: {
+    label: "Західні (людина)",
+    male: ["Алдрік","Бертран","Годфрі","Дітріх","Роланд","Гарет","Персіваль","Вільгельм","Едмунд","Тобіас","Конрад","Ансельм"],
+    female: ["Аделаїда","Бріенна","Гвендолін","Ізольда","Матильда","Ровена","Сесилія","Елеонора","Іветта","Констанція","Флоренція","Гелена"],
+    family: ["Блеквуд","Грейстоун","Фейрчайлд","Гартвелл","Стормвінд","Торнбері","Вайтхолл","Крествуд"]
+  },
+  elf: {
+    label: "Ельфи",
+    male: ["Аелар","Ердан","Іланніс","Карраель","Мінделін","Ролен","Таерон","Варіс","Фаель","Сільваріан","Ітраель","Наель"],
+    female: ["Аеріель","Аріан","Іланія","Кетора","Мелетея","Найріель","Селенія","Талія","Феалін","Шеваль","Ілвейн","Аларіель"],
+    family: ["Вечірній Вітер","Місячна Тінь","Срібнолист","Зорепад","Тихострумок","Світанковий Спів"]
+  },
+  dwarf: {
+    label: "Дворфи",
+    male: ["Адрік","Бруенор","Гарбек","Дайн","Торін","Балін","Гундрен","Морґран","Траубек","Флінт","Ульфгар","Норбур"],
+    female: ["Артін","Бардрин","Гунхільда","Дагнал","Ельдет","Ліфтраса","Ридль","Торбера","Вістра","Гельда","Аудхільда","Брунгільда"],
+    family: ["Вогнебород","Камнелам","Залізокрам","Молоторук","Золотошукач","Твердокамінь"]
+  },
+  halfling: {
+    label: "Напіврослики",
+    male: ["Альтон","Корін","Мило","Оско","Перрін","Роскоу","Веллбі","Едер","Фінан","Ловел","Гарбо","Тобі"],
+    female: ["Андрі","Бріє","Каллі","Ліді","Мадлен","Порція","Сераф","Верна","Юфемія","Кора","Роза","Неллі"],
+    family: ["Добротравень","Чаєлист","Товстобрюх","Яблунецвіт","Тихоступ","Медовар"]
+  },
+  gnome: {
+    label: "Гноми",
+    male: ["Бодрік","Дімбл","Фонкін","Ґлім","Джебеддо","Намфудл","Роондар","Зук","Веллбі","Крайфон","Ервін","Бімпнотін"],
+    female: ["Бімпнотін","Дуваміл","Еллівік","Лоопмоттін","Мардное","Німбл","Роузвин","Шамілін","Ваббл","Дженна","Ліллі","Оріл"],
+    family: ["Гострокрут","Шестерня","Іскрозапал","Мідногвинт","Хитромудр","Дзвінкомолот"]
+  },
+  orc: {
+    label: "Орки",
+    male: ["Ґрумш","Дарак","Кров'як","Мордай","Наргул","Тордек","Углук","Врагг","Зогаш","Бракка","Гром","Шаграт"],
+    female: ["Баггі","Емен","Енгонг","Мірша","Нанда","Орбул","Шаутха","Волен","Ярга","Грізельда","Урза","Кагра"],
+    family: ["Черепокрут","Кроволап","Кістколам","Залізоклик","Вовчезуб","Громобій"]
+  },
+  tiefling: {
+    label: "Тіфлінги",
+    male: ["Акмен","Баракас","Дамакос","Каїрон","Леуцис","Мелех","Мортос","Пелаіос","Терай","Iados","Скамос","Валавен"],
+    female: ["Акта","Бріседа","Дамая","Крія","Макарія","Немея","Оріанна","Пуджа","Ріє","Фелая","Уешта","Йога"],
+    virtue: ["Надія","Розрада","Покута","Слава","Терпіння","Спокута","Доля","Пітьма"],
+    family: []
+  },
+  dragonborn: {
+    label: "Драконороджені",
+    male: ["Арджган","Балашар","Ґартракос","Донаар","Медраш","Надарр","Патрін","Рхогар","Тархун","Хешан","Крів","Мехен"],
+    female: ["Акра","Біррі","Гарава","Даар","Кава","Корінн","Мішанн","Неара","Соранн","Тхава","Ювара","Джезеан"],
+    clan: ["Клетнеклан","Даргет","Феннкурил","Кепешкмолік","Мірклар","Норемкаул","Праксдорн","Шестендел"],
+    family: []
+  }
+};
+
+const OCCUPATIONS = ["коваль","шинкар","вартовий","торговець","жрець","рибалка","мисливець","писар","лікар-травник","найманець","фермер","злодій","мірошник","бард-мандрівник","капітан варти","алхімік","конюх","аптекар","стражник брами","картограф"];
+const TRAITS = ["балакучий і привітний","похмурий і мовчазний","жадібний до золота","боязкий, але чесний","хвалькуватий","надзвичайно забобонний","добросердий","підозріливий до чужинців","невиправний оптиміст","гострий на язик","відданий обов'язку","таємничий і потайний","запальний","мудрий не за роками","жартівник","меланхолійний мрійник"];
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+function initRaces(){
+  const sel = document.getElementById("race");
+  sel.innerHTML = Object.keys(NAME_DATA).map(k => `<option value="${k}">${NAME_DATA[k].label}</option>`).join("");
+}
+
+function makeName(raceKey, gender){
+  const d = NAME_DATA[raceKey];
+  let g = gender;
+  if (g === "any") g = Math.random() < 0.5 ? "male" : "female";
+  const first = rand(d[g] && d[g].length ? d[g] : d.male);
+  let last = "";
+  if (d.family && d.family.length) last = " " + rand(d.family);
+  else if (d.clan && d.clan.length) last = " з клану " + rand(d.clan);
+  else if (d.virtue && d.virtue.length) last = " «" + rand(d.virtue) + "»";
+  return (first + last).trim();
+}
+
+function generate(){
+  const raceKey = document.getElementById("race").value;
+  const gender = document.getElementById("gender").value;
+  const count = parseInt(document.getElementById("count").value, 10);
+  const withFlavor = document.getElementById("withFlavor").checked;
+  const box = document.getElementById("results");
+  box.innerHTML = "";
+  for (let i = 0; i < count; i++){
+    const name = makeName(raceKey, gender);
+    let flavor = "";
+    if (withFlavor) flavor = `<div class="text-xs text-slate-500 mt-1">${rand(OCCUPATIONS)}, ${rand(TRAITS)}</div>`;
+    const card = document.createElement("div");
+    card.className = "bg-white border border-slate-200 rounded-lg p-3 flex items-start justify-between gap-2";
+    card.innerHTML = `<div><div class="font-bold text-slate-800">${name}</div>${flavor}</div>` +
+      `<button title="Скопіювати" class="text-slate-400 hover:text-forest shrink-0" onclick="navigator.clipboard&&navigator.clipboard.writeText('${name.replace(/'/g, "\\'")}')">⧉</button>`;
+    box.appendChild(card);
+  }
+}
+
+initRaces();
+generate();
+</script>
+
+    <script src="storage.js"></script>
+    <script src="npc-save.js"></script>
+    <script src="search-index.js"></script>
+    <script src="site-common.js"></script>
+</body>
+</html>

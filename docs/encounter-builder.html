@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор сутичок - D&D 5e</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-common.css">
+  <link rel="stylesheet" href="vendor/tailwind.css">
+  <script>
+(function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
+</script>
+</head>
+<body class="font-body text-ui-text bg-[#F8FAFC] min-h-screen flex flex-col">
+  <header class="bg-forest text-white py-4 shadow-md sticky top-0 z-40">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="favicon.png" alt="Logo" class="w-10 h-10 rounded-md" onerror="this.style.display='none'">
+        <h1 class="font-heading text-xl md:text-2xl font-bold tracking-tight uppercase">D&D 5e База Знань</h1>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm font-semibold">
+        <a href="index.html" class="hover:text-forest-accent transition">Головна</a>
+        <a href="bestiary.html" class="hover:text-forest-accent transition">Бестіарій</a>
+        <a href="rules.html" class="hover:text-forest-accent transition">Правила</a>
+        <a href="character-creator.html" class="hover:text-forest-accent transition">Персонаж</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 flex-1 max-w-6xl">
+    <div class="mb-6">
+      <a href="index.html" class="text-sm text-forest hover:underline">&larr; На головну</a>
+      <h2 class="font-heading text-3xl font-bold text-forest mt-2 flex items-center gap-2">⚔️ Генератор сутичок</h2>
+      <p class="text-ui-muted mt-1 max-w-3xl">Оберіть монстрів, кількість персонажів і рівень партії. Генератор порахує сирий XP, adjusted XP для складності та XP на персонажа.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <section class="lg:col-span-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <h3 class="font-heading font-bold text-forest text-xl mb-3">Партія</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Кількість персонажів</label>
+            <input id="partySize" type="number" min="1" max="12" value="4" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Рівень</label>
+            <select id="partyLevel" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
+          </div>
+        </div>
+        <div class="mt-4 p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-600">
+          <div class="font-bold text-slate-800 mb-1">Пороги для партії</div>
+          <div id="thresholdsBox" class="space-y-1"></div>
+        </div>
+      </section>
+
+      <section class="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <h3 class="font-heading font-bold text-forest text-xl mb-3">Додати монстра</h3>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+          <div class="md:col-span-7">
+            <label class="block text-xs font-bold text-slate-600 mb-1">Пошук монстра</label>
+            <input id="monsterSearch" list="monsterOptions" placeholder="Напр. дракон, goblin, вампір…" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
+            <datalist id="monsterOptions"></datalist>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-slate-600 mb-1">Кількість</label>
+            <input id="monsterQty" type="number" min="1" max="99" value="1" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
+          </div>
+          <div class="md:col-span-3">
+            <button onclick="addMonsterFromInput()" class="w-full px-4 py-2.5 bg-forest text-white rounded-lg font-bold hover:bg-forest-hover shadow-sm transition">+ Додати</button>
+          </div>
+        </div>
+        <p id="addHint" class="text-xs text-slate-500 mt-2">Підказка: можна шукати українською або англійською назвою.</p>
+      </section>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+      <section class="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <h3 class="font-heading font-bold text-forest text-xl">Монстри сутички</h3>
+          <button id="saveEncBtn" class="text-xs px-3 py-2 border border-emerald-300 text-emerald-700 bg-emerald-50 rounded-lg hover:bg-emerald-100 font-bold">💾 Зберегти</button>
+          <button onclick="clearEncounter()" class="text-xs px-3 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50">Очистити</button>
+        </div>
+        <div id="monsterList" class="space-y-2"></div>
+        <div id="emptyList" class="text-sm text-slate-500 p-6 border border-dashed border-slate-300 rounded-xl text-center">Поки монстрів немає — додайте когось із пошуку вище.</div>
+      </section>
+
+      <aside class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <h3 class="font-heading font-bold text-forest text-xl mb-3">Результат</h3>
+        <div id="difficultyCard" class="rounded-2xl border p-4 mb-4">
+          <div class="text-xs uppercase tracking-wide font-bold text-slate-500">Складність</div>
+          <div id="difficultyName" class="text-3xl font-black mt-1">—</div>
+          <div id="difficultyNote" class="text-sm mt-1 text-slate-600">Додайте монстрів.</div>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between gap-3"><span class="text-slate-500">Монстрів</span><strong id="monsterCount">0</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-slate-500">Сирий XP</span><strong id="rawXp">0</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-slate-500">Множник</span><strong id="multiplier">×1</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-slate-500">Adjusted XP</span><strong id="adjustedXp">0</strong></div>
+          <hr class="border-slate-200 my-2">
+          <div class="flex justify-between gap-3"><span class="text-slate-500">XP на персонажа</span><strong id="xpEach">0</strong></div>
+        </div>
+        <div class="mt-4 text-xs text-slate-500 leading-relaxed">Складність рахується за adjusted XP із множником за кількість монстрів. Нагорода XP ділиться за сирим XP.</div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="container mx-auto px-4 mb-8">
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-heading font-bold text-forest text-lg flex items-center gap-2">📚 Збережені сутички</h3>
+        <span class="text-xs text-ui-muted">відкрийте монстрів та їх статблоки з атаками</span>
+      </div>
+      <div id="savedEncList" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      <div id="savedEncEmpty" class="text-sm text-slate-400 italic">Ще немає збережених сутичок.</div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 mb-8">
+    <details class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+      <summary class="cursor-pointer font-heading font-bold text-forest text-lg flex items-center gap-2">🛠️ Створити власного монстра</summary>
+      <p class="text-xs text-ui-muted mt-2 mb-3">Після створення монстр з’явиться у пошуку вище та його можна додати до сутички. XP потрібен для обрахунку складності.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
+        <input id="cmName" type="text" placeholder="Назва монстра"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmCr" type="text" placeholder="CR (напр. 5)"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmXp" type="number" placeholder="XP (напр. 1800)"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmSpeed" type="text" placeholder="Швидкість (30 ft.)"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmAc" type="text" placeholder="КЗ (напр. 15)"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmHp" type="text" placeholder="ХП (напр. 45 (6d10+12))"  class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+      </div>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-2 mb-2">
+        <input id="cmStr" type="number" placeholder="СИЛ" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmDex" type="number" placeholder="СПР" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmCon" type="number" placeholder="ТІЛ" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmInt" type="number" placeholder="ІНТ" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmWis" type="number" placeholder="МУД" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+        <input id="cmCha" type="number" placeholder="ХАР" value="10" class="p-2 border border-slate-300 rounded-lg text-sm bg-white">
+      </div>
+      <textarea id="cmAttacks" rows="3" placeholder="Атаки / дії (напр.: Multiattack... Меч: +6, 2d8+3 рубаючої)" class="w-full p-2 border border-slate-300 rounded-lg text-sm bg-white mb-2"></textarea>
+      <textarea id="cmTraits" rows="2" placeholder="Риси (опціонально)" class="w-full p-2 border border-slate-300 rounded-lg text-sm bg-white mb-2"></textarea>
+      <div class="flex items-center gap-3">
+        <button id="cmCreate" class="px-4 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm hover:bg-emerald-700">➕ Створити монстра</button>
+        <span id="cmStatus" class="text-xs text-emerald-700 font-semibold"></span>
+      </div>
+      <div class="mt-3"><div class="text-xs font-bold text-slate-500 uppercase mb-1">Власні монстри</div><div id="cmList" class="space-y-1"></div></div>
+    </details>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Цифрова База Знань. Неофіційний проект.</p>
+    </div>
+  </footer>
+
+  <script src="monsters-data.js"></script>
+  <script src="monsters-uk.js"></script>
+  <script>
+const XP_THRESHOLDS = {
+  1:[25,50,75,100],2:[50,100,150,200],3:[75,150,225,400],4:[125,250,375,500],5:[250,500,750,1100],
+  6:[300,600,900,1400],7:[350,750,1100,1700],8:[450,900,1400,2100],9:[550,1100,1600,2400],10:[600,1200,1900,2800],
+  11:[800,1600,2400,3600],12:[1000,2000,3000,4500],13:[1100,2200,3400,5100],14:[1250,2500,3800,5700],15:[1400,2800,4300,6400],
+  16:[1600,3200,4800,7200],17:[2000,3900,5900,8800],18:[2100,4200,6300,9500],19:[2400,4900,7300,10900],20:[2800,5700,8500,12700]
+};
+const MULTIPLIER_STEPS = [1,1.5,2,2.5,3,4];
+let encounter = [];
+
+function fmt(n){ return Math.round(n).toLocaleString('uk-UA'); }
+function ukName(m){ return (typeof MONSTERS_UK !== 'undefined' && MONSTERS_UK[m.slug]) || m.name; }
+function searchableName(m){ return `${ukName(m)} / ${m.name} — CR ${m.crValue || '?'} (${fmt(m.xp||0)} XP)`; }
+function bySlug(slug){ return DND_MONSTERS.find(m => m.slug === slug); }
+function crNumber(v){ if(!v || v==='None') return -1; if(String(v).includes('/')){const [a,b]=String(v).split('/').map(Number); return a/b;} return Number(v); }
+
+function init(){
+  const level = document.getElementById('partyLevel');
+  level.innerHTML = Array.from({length:20},(_,i)=>`<option value="${i+1}" ${i+1===5?'selected':''}>${i+1}</option>`).join('');
+  const list = document.getElementById('monsterOptions');
+  const sorted = [...DND_MONSTERS].filter(m => (m.xp||0) > 0).sort((a,b)=> ukName(a).localeCompare(ukName(b),'uk'));
+  list.innerHTML = sorted.map(m => `<option value="${searchableName(m).replace(/"/g,'&quot;')}" data-slug="${m.slug}"></option>`).join('');
+  ['partySize','partyLevel'].forEach(id => document.getElementById(id).addEventListener('input', render));
+  render();
+}
+
+function parseMonsterInput(value){
+  const lower = value.toLowerCase().trim();
+  if(!lower) return null;
+  let exact = DND_MONSTERS.find(m => searchableName(m).toLowerCase() === lower);
+  if(exact) return exact;
+  let slugMatch = DND_MONSTERS.find(m => m.slug === lower);
+  if(slugMatch) return slugMatch;
+  return DND_MONSTERS
+    .filter(m => (m.xp||0) > 0)
+    .find(m => ukName(m).toLowerCase().includes(lower) || m.name.toLowerCase().includes(lower));
+}
+
+function addMonsterFromInput(){
+  const input = document.getElementById('monsterSearch');
+  const qty = Math.max(1, parseInt(document.getElementById('monsterQty').value,10)||1);
+  const monster = parseMonsterInput(input.value);
+  const hint = document.getElementById('addHint');
+  if(!monster){ hint.textContent = 'Не знайшов монстра. Спробуйте іншу назву.'; hint.className='text-xs text-red-600 mt-2'; return; }
+  if((monster.xp||0) <= 0){ hint.textContent = 'У цього монстра 0 XP / CR None — для калькулятора складності краще обрати звичайного монстра.'; hint.className='text-xs text-orange-600 mt-2'; return; }
+  const existing = encounter.find(e => e.slug === monster.slug);
+  if(existing) existing.qty += qty; else encounter.push({slug: monster.slug, qty});
+  input.value=''; document.getElementById('monsterQty').value=1;
+  hint.textContent='Додано: '+ukName(monster); hint.className='text-xs text-green-700 mt-2';
+  render();
+}
+
+function changeQty(slug, delta){
+  const item = encounter.find(e => e.slug===slug); if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0) encounter = encounter.filter(e => e.slug!==slug);
+  render();
+}
+function setQty(slug, value){
+  const item = encounter.find(e => e.slug===slug); if(!item) return;
+  item.qty = Math.max(1, parseInt(value,10)||1);
+  render();
+}
+function removeMonster(slug){ encounter = encounter.filter(e => e.slug!==slug); render(); }
+function clearEncounter(){ encounter=[]; render(); }
+
+function monsterMultiplier(count, partySize){
+  let idx = count<=1 ? 0 : count===2 ? 1 : count<=6 ? 2 : count<=10 ? 3 : count<=14 ? 4 : 5;
+  if(partySize < 3) idx = Math.min(idx+1, MULTIPLIER_STEPS.length-1);
+  if(partySize >= 6) idx = Math.max(idx-1, 0);
+  return MULTIPLIER_STEPS[idx];
+}
+function difficulty(adjusted, thresholds){
+  const [easy, medium, hard, deadly] = thresholds;
+  if(adjusted <= 0) return {name:'—', note:'Додайте монстрів.', cls:'border-slate-200 bg-slate-50 text-slate-700'};
+  if(adjusted < easy) return {name:'Дуже легко', note:'Нижче Easy-порогу.', cls:'border-slate-200 bg-slate-50 text-slate-700'};
+  if(adjusted < medium) return {name:'Легко', note:'Ресурси витратить мінімально.', cls:'border-green-200 bg-green-50 text-green-800'};
+  if(adjusted < hard) return {name:'Середньо', note:'Нормальна сутичка.', cls:'border-blue-200 bg-blue-50 text-blue-800'};
+  if(adjusted < deadly) return {name:'Важко', note:'Може серйозно виснажити партію.', cls:'border-orange-200 bg-orange-50 text-orange-800'};
+  if(adjusted < deadly*1.5) return {name:'Смертельно', note:'Є реальний ризик падінь/смертей.', cls:'border-red-200 bg-red-50 text-red-800'};
+  return {name:'Надсмертельно', note:'Може бути TPK без переваг партії.', cls:'border-red-300 bg-red-100 text-red-900'};
+}
+
+function renderList(){
+  const box = document.getElementById('monsterList');
+  const empty = document.getElementById('emptyList');
+  empty.classList.toggle('hidden', encounter.length>0);
+  box.innerHTML = encounter.map(e => {
+    const m = bySlug(e.slug);
+    const total = (m.xp||0)*e.qty;
+    return `<div class="border border-slate-200 rounded-xl p-3 flex items-center gap-3 bg-slate-50/60">
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-slate-800 truncate">${ukName(m)}</div>
+        <div class="text-xs text-slate-500">${m.name} · CR ${m.crValue} · ${fmt(m.xp||0)} XP × ${e.qty} = ${fmt(total)} XP</div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button onclick="changeQty('${e.slug}',-1)" class="w-8 h-8 border border-slate-300 rounded-lg hover:border-forest">−</button>
+        <input type="number" min="1" value="${e.qty}" onchange="setQty('${e.slug}',this.value)" class="w-16 h-8 text-center border border-slate-300 rounded-lg bg-white text-sm">
+        <button onclick="changeQty('${e.slug}',1)" class="w-8 h-8 border border-slate-300 rounded-lg hover:border-forest">+</button>
+        <button onclick="removeMonster('${e.slug}')" class="w-8 h-8 border border-red-200 text-red-600 rounded-lg hover:bg-red-50">×</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function render(){
+  renderList();
+  const partySize = Math.max(1, parseInt(document.getElementById('partySize').value,10)||1);
+  const level = Math.max(1, Math.min(20, parseInt(document.getElementById('partyLevel').value,10)||1));
+  const base = XP_THRESHOLDS[level];
+  const thresholds = base.map(v => v*partySize);
+  document.getElementById('thresholdsBox').innerHTML = `
+    <div>Легко: <b>${fmt(thresholds[0])}</b></div>
+    <div>Середньо: <b>${fmt(thresholds[1])}</b></div>
+    <div>Важко: <b>${fmt(thresholds[2])}</b></div>
+    <div>Смертельно: <b>${fmt(thresholds[3])}</b></div>`;
+  let raw = 0, count = 0;
+  for(const e of encounter){ const m=bySlug(e.slug); raw += (m.xp||0)*e.qty; count += e.qty; }
+  const mult = monsterMultiplier(count, partySize);
+  const adjusted = raw * mult;
+  const diff = difficulty(adjusted, thresholds);
+  const card = document.getElementById('difficultyCard');
+  card.className = 'rounded-2xl border p-4 mb-4 '+diff.cls;
+  document.getElementById('difficultyName').textContent = diff.name;
+  document.getElementById('difficultyNote').textContent = diff.note;
+  document.getElementById('monsterCount').textContent = count;
+  document.getElementById('rawXp').textContent = fmt(raw);
+  document.getElementById('multiplier').textContent = '×'+mult;
+  document.getElementById('adjustedXp').textContent = fmt(adjusted);
+  document.getElementById('xpEach').textContent = fmt(raw / partySize);
+}
+
+init();
+</script>
+  <script src="storage.js"></script>
+  <script src="encounter-save.js"></script>
+  <script src="custom-monster.js"></script>
+  <script src="search-index.js"></script>
+  <script src="site-common.js"></script>
+</body>
+</html>

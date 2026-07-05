@@ -1,0 +1,3425 @@
+{
+  "already_polished": 33,
+  "remaining_full_text": 350,
+  "needs_reparse": 129,
+  "recommended_batch_size": "50 for normal monsters; 10-20 for long/lore-heavy bosses",
+  "batches": [
+    {
+      "id": "B1",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "10–16",
+      "items": [
+        {
+          "slug": "gulthias-blight",
+          "name": "Gulthias Blight",
+          "cr": "16",
+          "sections": 2,
+          "chars": 1560
+        },
+        {
+          "slug": "githyanki-dracomancer",
+          "name": "Githyanki Dracomancer",
+          "cr": "16",
+          "sections": 2,
+          "chars": 1255
+        },
+        {
+          "slug": "mummy-lord",
+          "name": "Mummy Lord",
+          "cr": "15",
+          "sections": 4,
+          "chars": 3485
+        },
+        {
+          "slug": "adult-bronze-dragon",
+          "name": "Adult Bronze Dragon",
+          "cr": "15",
+          "sections": 3,
+          "chars": 2756
+        },
+        {
+          "slug": "vampire-umbral-lord",
+          "name": "Vampire Umbral Lord",
+          "cr": "15",
+          "sections": 4,
+          "chars": 2625
+        },
+        {
+          "slug": "adult-green-dragon",
+          "name": "Adult Green Dragon",
+          "cr": "15",
+          "sections": 3,
+          "chars": 2351
+        },
+        {
+          "slug": "salamander-inferno-master",
+          "name": "Salamander Inferno Master",
+          "cr": "15",
+          "sections": 3,
+          "chars": 1777
+        },
+        {
+          "slug": "purple-worm",
+          "name": "Purple Worm",
+          "cr": "15",
+          "sections": 3,
+          "chars": 1414
+        },
+        {
+          "slug": "death-tyrant",
+          "name": "Death Tyrant",
+          "cr": "14",
+          "sections": 4,
+          "chars": 3893
+        },
+        {
+          "slug": "adult-copper-dragon",
+          "name": "Adult Copper Dragon",
+          "cr": "14",
+          "sections": 3,
+          "chars": 2994
+        },
+        {
+          "slug": "adult-black-dragon",
+          "name": "Adult Black Dragon",
+          "cr": "14",
+          "sections": 3,
+          "chars": 2376
+        },
+        {
+          "slug": "ice-devil",
+          "name": "Ice Devil",
+          "cr": "14",
+          "sections": 2,
+          "chars": 1087
+        },
+        {
+          "slug": "vampire",
+          "name": "Vampire",
+          "cr": "13",
+          "sections": 4,
+          "chars": 3943
+        },
+        {
+          "slug": "adult-brass-dragon",
+          "name": "Adult Brass Dragon",
+          "cr": "13",
+          "sections": 3,
+          "chars": 3071
+        },
+        {
+          "slug": "adult-white-dragon",
+          "name": "Adult White Dragon",
+          "cr": "13",
+          "sections": 3,
+          "chars": 2360
+        },
+        {
+          "slug": "shadow-dragon",
+          "name": "Shadow Dragon",
+          "cr": "13",
+          "sections": 4,
+          "chars": 1500
+        },
+        {
+          "slug": "rakshasa",
+          "name": "Rakshasa",
+          "cr": "13",
+          "sections": 2,
+          "chars": 1358
+        },
+        {
+          "slug": "ultroloth",
+          "name": "Ultroloth",
+          "cr": "13",
+          "sections": 3,
+          "chars": 1345
+        },
+        {
+          "slug": "nalfeshnee",
+          "name": "Nalfeshnee",
+          "cr": "13",
+          "sections": 4,
+          "chars": 1151
+        },
+        {
+          "slug": "storm-giant",
+          "name": "Storm Giant",
+          "cr": "13",
+          "sections": 2,
+          "chars": 894
+        },
+        {
+          "slug": "arcanaloth",
+          "name": "Arcanaloth",
+          "cr": "12",
+          "sections": 4,
+          "chars": 2241
+        },
+        {
+          "slug": "pirate-admiral",
+          "name": "Pirate Admiral",
+          "cr": "12",
+          "sections": 3,
+          "chars": 1511
+        },
+        {
+          "slug": "archmage",
+          "name": "Archmage",
+          "cr": "12",
+          "sections": 4,
+          "chars": 1464
+        },
+        {
+          "slug": "erinyes",
+          "name": "Erinyes",
+          "cr": "12",
+          "sections": 3,
+          "chars": 1423
+        },
+        {
+          "slug": "archpriest",
+          "name": "Archpriest",
+          "cr": "12",
+          "sections": 2,
+          "chars": 1333
+        },
+        {
+          "slug": "githzerai-psion",
+          "name": "Githzerai Psion",
+          "cr": "12",
+          "sections": 2,
+          "chars": 1021
+        },
+        {
+          "slug": "questing-knight",
+          "name": "Questing Knight",
+          "cr": "12",
+          "sections": 2,
+          "chars": 976
+        },
+        {
+          "slug": "djinni",
+          "name": "Djinni",
+          "cr": "11",
+          "sections": 2,
+          "chars": 2298
+        },
+        {
+          "slug": "sphinx-of-lore",
+          "name": "Sphinx Of Lore",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1947
+        },
+        {
+          "slug": "dao",
+          "name": "Dao",
+          "cr": "11",
+          "sections": 2,
+          "chars": 1703
+        },
+        {
+          "slug": "remorhaz",
+          "name": "Remorhaz",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1581
+        },
+        {
+          "slug": "marid",
+          "name": "Marid",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1533
+        },
+        {
+          "slug": "mind-flayer-arcanist",
+          "name": "Mind Flayer Arcanist",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1523
+        },
+        {
+          "slug": "behir",
+          "name": "Behir",
+          "cr": "11",
+          "sections": 2,
+          "chars": 1461
+        },
+        {
+          "slug": "death-knight-aspirant",
+          "name": "Death Knight Aspirant",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1456
+        },
+        {
+          "slug": "efreeti",
+          "name": "Efreeti",
+          "cr": "11",
+          "sections": 2,
+          "chars": 1307
+        },
+        {
+          "slug": "horned-devil",
+          "name": "Horned Devil",
+          "cr": "11",
+          "sections": 2,
+          "chars": 1253
+        },
+        {
+          "slug": "bandit-crime-lord",
+          "name": "Bandit Crime Lord",
+          "cr": "11",
+          "sections": 3,
+          "chars": 1162
+        },
+        {
+          "slug": "roc",
+          "name": "Roc",
+          "cr": "11",
+          "sections": 2,
+          "chars": 578
+        },
+        {
+          "slug": "aboleth",
+          "name": "Aboleth",
+          "cr": "10",
+          "sections": 3,
+          "chars": 2718
+        },
+        {
+          "slug": "haunting-revenant",
+          "name": "Haunting Revenant",
+          "cr": "10",
+          "sections": 2,
+          "chars": 1594
+        },
+        {
+          "slug": "young-gold-dragon",
+          "name": "Young Gold Dragon",
+          "cr": "10",
+          "sections": 2,
+          "chars": 1541
+        },
+        {
+          "slug": "yochlol",
+          "name": "Yochlol",
+          "cr": "10",
+          "sections": 4,
+          "chars": 1524
+        },
+        {
+          "slug": "performer-legend",
+          "name": "Performer Legend",
+          "cr": "10",
+          "sections": 2,
+          "chars": 1506
+        },
+        {
+          "slug": "death-slaad",
+          "name": "Death Slaad",
+          "cr": "10",
+          "sections": 3,
+          "chars": 1308
+        },
+        {
+          "slug": "young-red-dragon",
+          "name": "Young Red Dragon",
+          "cr": "10",
+          "sections": 1,
+          "chars": 1189
+        },
+        {
+          "slug": "warrior-commander",
+          "name": "Warrior Commander",
+          "cr": "10",
+          "sections": 3,
+          "chars": 1162
+        },
+        {
+          "slug": "stone-golem",
+          "name": "Stone Golem",
+          "cr": "10",
+          "sections": 3,
+          "chars": 1082
+        },
+        {
+          "slug": "noble-prodigy",
+          "name": "Noble Prodigy",
+          "cr": "10",
+          "sections": 2,
+          "chars": 1062
+        },
+        {
+          "slug": "deva",
+          "name": "Deva",
+          "cr": "10",
+          "sections": 3,
+          "chars": 967
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "7–10",
+      "items": [
+        {
+          "slug": "cyclops-oracle",
+          "name": "Cyclops Oracle",
+          "cr": "10",
+          "sections": 2,
+          "chars": 938
+        },
+        {
+          "slug": "cultist-hierophant",
+          "name": "Cultist Hierophant",
+          "cr": "10",
+          "sections": 1,
+          "chars": 911
+        },
+        {
+          "slug": "guardian-naga",
+          "name": "Guardian Naga",
+          "cr": "10",
+          "sections": 2,
+          "chars": 902
+        },
+        {
+          "slug": "spy-master",
+          "name": "Spy Master",
+          "cr": "10",
+          "sections": 2,
+          "chars": 813
+        },
+        {
+          "slug": "dire-worg",
+          "name": "Dire Worg",
+          "cr": "10",
+          "sections": 3,
+          "chars": 783
+        },
+        {
+          "slug": "brazen-gorgon",
+          "name": "Brazen Gorgon",
+          "cr": "9",
+          "sections": 2,
+          "chars": 1621
+        },
+        {
+          "slug": "abominable-yeti",
+          "name": "Abominable Yeti",
+          "cr": "9",
+          "sections": 2,
+          "chars": 1432
+        },
+        {
+          "slug": "young-silver-dragon",
+          "name": "Young Silver Dragon",
+          "cr": "9",
+          "sections": 1,
+          "chars": 1386
+        },
+        {
+          "slug": "young-blue-dragon",
+          "name": "Young Blue Dragon",
+          "cr": "9",
+          "sections": 1,
+          "chars": 1268
+        },
+        {
+          "slug": "gray-slaad",
+          "name": "Gray Slaad",
+          "cr": "9",
+          "sections": 3,
+          "chars": 1264
+        },
+        {
+          "slug": "clay-golem",
+          "name": "Clay Golem",
+          "cr": "9",
+          "sections": 3,
+          "chars": 1050
+        },
+        {
+          "slug": "glabrezu",
+          "name": "Glabrezu",
+          "cr": "9",
+          "sections": 2,
+          "chars": 966
+        },
+        {
+          "slug": "cloud-giant",
+          "name": "Cloud Giant",
+          "cr": "9",
+          "sections": 2,
+          "chars": 814
+        },
+        {
+          "slug": "treant",
+          "name": "Treant",
+          "cr": "9",
+          "sections": 2,
+          "chars": 787
+        },
+        {
+          "slug": "nycaloth",
+          "name": "Nycaloth",
+          "cr": "9",
+          "sections": 3,
+          "chars": 782
+        },
+        {
+          "slug": "bone-devil",
+          "name": "Bone Devil",
+          "cr": "9",
+          "sections": 2,
+          "chars": 709
+        },
+        {
+          "slug": "fire-giant",
+          "name": "Fire Giant",
+          "cr": "9",
+          "sections": 1,
+          "chars": 481
+        },
+        {
+          "slug": "sphinx-of-secrets",
+          "name": "Sphinx Of Secrets",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1615
+        },
+        {
+          "slug": "young-bronze-dragon",
+          "name": "Young Bronze Dragon",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1424
+        },
+        {
+          "slug": "gnoll-demoniac",
+          "name": "Gnoll Demoniac",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1423
+        },
+        {
+          "slug": "chain-devil",
+          "name": "Chain Devil",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1411
+        },
+        {
+          "slug": "green-slaad",
+          "name": "Green Slaad",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1397
+        },
+        {
+          "slug": "cloaker",
+          "name": "Cloaker",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1365
+        },
+        {
+          "slug": "assassin",
+          "name": "Assassin",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1214
+        },
+        {
+          "slug": "young-green-dragon",
+          "name": "Young Green Dragon",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1211
+        },
+        {
+          "slug": "aberrant-cultist",
+          "name": "Aberrant Cultist",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1208
+        },
+        {
+          "slug": "githyanki-knight",
+          "name": "Githyanki Knight",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1196
+        },
+        {
+          "slug": "elemental-cultist",
+          "name": "Elemental Cultist",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1192
+        },
+        {
+          "slug": "berserker-commander",
+          "name": "Berserker Commander",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1101
+        },
+        {
+          "slug": "death-cultist",
+          "name": "Death Cultist",
+          "cr": "8",
+          "sections": 2,
+          "chars": 1079
+        },
+        {
+          "slug": "cockatrice-regent",
+          "name": "Cockatrice Regent",
+          "cr": "8",
+          "sections": 3,
+          "chars": 1042
+        },
+        {
+          "slug": "vampire-nightbringer",
+          "name": "Vampire Nightbringer",
+          "cr": "8",
+          "sections": 3,
+          "chars": 870
+        },
+        {
+          "slug": "fiend-cultist",
+          "name": "Fiend Cultist",
+          "cr": "8",
+          "sections": 2,
+          "chars": 839
+        },
+        {
+          "slug": "spirit-naga",
+          "name": "Spirit Naga",
+          "cr": "8",
+          "sections": 2,
+          "chars": 785
+        },
+        {
+          "slug": "hydra",
+          "name": "Hydra",
+          "cr": "8",
+          "sections": 2,
+          "chars": 755
+        },
+        {
+          "slug": "hezrou",
+          "name": "Hezrou",
+          "cr": "8",
+          "sections": 3,
+          "chars": 714
+        },
+        {
+          "slug": "frost-giant",
+          "name": "Frost Giant",
+          "cr": "8",
+          "sections": 2,
+          "chars": 593
+        },
+        {
+          "slug": "thri-kreen-psion",
+          "name": "Thri-Kreen Psion",
+          "cr": "8",
+          "sections": 1,
+          "chars": 533
+        },
+        {
+          "slug": "tyrannosaurus-rex",
+          "name": "Tyrannosaurus Rex",
+          "cr": "8",
+          "sections": 1,
+          "chars": 505
+        },
+        {
+          "slug": "yuan-ti-abomination",
+          "name": "Yuan-Ti Abomination",
+          "cr": "7",
+          "sections": 3,
+          "chars": 2354
+        },
+        {
+          "slug": "young-copper-dragon",
+          "name": "Young Copper Dragon",
+          "cr": "7",
+          "sections": 1,
+          "chars": 1560
+        },
+        {
+          "slug": "shield-guardian",
+          "name": "Shield Guardian",
+          "cr": "7",
+          "sections": 3,
+          "chars": 1484
+        },
+        {
+          "slug": "violet-fungus-necrohulk",
+          "name": "Violet Fungus Necrohulk",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1476
+        },
+        {
+          "slug": "blue-slaad",
+          "name": "Blue Slaad",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1368
+        },
+        {
+          "slug": "mind-flayer",
+          "name": "Mind Flayer",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1301
+        },
+        {
+          "slug": "graveyard-revenant",
+          "name": "Graveyard Revenant",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1184
+        },
+        {
+          "slug": "bandit-deceiver",
+          "name": "Bandit Deceiver",
+          "cr": "7",
+          "sections": 1,
+          "chars": 1132
+        },
+        {
+          "slug": "oni",
+          "name": "Oni",
+          "cr": "7",
+          "sections": 3,
+          "chars": 1114
+        },
+        {
+          "slug": "young-black-dragon",
+          "name": "Young Black Dragon",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1111
+        },
+        {
+          "slug": "centaur-warden",
+          "name": "Centaur Warden",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1038
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "5–7",
+      "items": [
+        {
+          "slug": "tree-blight",
+          "name": "Tree Blight",
+          "cr": "7",
+          "sections": 2,
+          "chars": 1022
+        },
+        {
+          "slug": "grick-ancient",
+          "name": "Grick Ancient",
+          "cr": "7",
+          "sections": 1,
+          "chars": 708
+        },
+        {
+          "slug": "stone-giant",
+          "name": "Stone Giant",
+          "cr": "7",
+          "sections": 2,
+          "chars": 695
+        },
+        {
+          "slug": "primeval-owlbear",
+          "name": "Primeval Owlbear",
+          "cr": "7",
+          "sections": 2,
+          "chars": 594
+        },
+        {
+          "slug": "giant-ape",
+          "name": "Giant Ape",
+          "cr": "7",
+          "sections": 2,
+          "chars": 515
+        },
+        {
+          "slug": "young-brass-dragon",
+          "name": "Young Brass Dragon",
+          "cr": "6",
+          "sections": 1,
+          "chars": 1787
+        },
+        {
+          "slug": "hobgoblin-warlord",
+          "name": "Hobgoblin Warlord",
+          "cr": "6",
+          "sections": 3,
+          "chars": 1718
+        },
+        {
+          "slug": "young-white-dragon",
+          "name": "Young White Dragon",
+          "cr": "6",
+          "sections": 2,
+          "chars": 1425
+        },
+        {
+          "slug": "mage",
+          "name": "Mage",
+          "cr": "6",
+          "sections": 3,
+          "chars": 1235
+        },
+        {
+          "slug": "pirate-captain",
+          "name": "Pirate Captain",
+          "cr": "6",
+          "sections": 3,
+          "chars": 1163
+        },
+        {
+          "slug": "vrock",
+          "name": "Vrock",
+          "cr": "6",
+          "sections": 2,
+          "chars": 1127
+        },
+        {
+          "slug": "satyr-revelmaster",
+          "name": "Satyr Revelmaster",
+          "cr": "6",
+          "sections": 2,
+          "chars": 1093
+        },
+        {
+          "slug": "chasme",
+          "name": "Chasme",
+          "cr": "6",
+          "sections": 3,
+          "chars": 1045
+        },
+        {
+          "slug": "githzerai-zerth",
+          "name": "Githzerai Zerth",
+          "cr": "6",
+          "sections": 3,
+          "chars": 1033
+        },
+        {
+          "slug": "ghast-gravecaller",
+          "name": "Ghast Gravecaller",
+          "cr": "6",
+          "sections": 2,
+          "chars": 1026
+        },
+        {
+          "slug": "performer-maestro",
+          "name": "Performer Maestro",
+          "cr": "6",
+          "sections": 1,
+          "chars": 988
+        },
+        {
+          "slug": "kuo-toa-archpriest",
+          "name": "Kuo-Toa Archpriest",
+          "cr": "6",
+          "sections": 3,
+          "chars": 983
+        },
+        {
+          "slug": "azer-pyromancer",
+          "name": "Azer Pyromancer",
+          "cr": "6",
+          "sections": 3,
+          "chars": 934
+        },
+        {
+          "slug": "merfolk-wavebender",
+          "name": "Merfolk Wavebender",
+          "cr": "6",
+          "sections": 3,
+          "chars": 921
+        },
+        {
+          "slug": "giant-squid",
+          "name": "Giant Squid",
+          "cr": "6",
+          "sections": 3,
+          "chars": 770
+        },
+        {
+          "slug": "drider",
+          "name": "Drider",
+          "cr": "6",
+          "sections": 3,
+          "chars": 759
+        },
+        {
+          "slug": "invisible-stalker",
+          "name": "Invisible Stalker",
+          "cr": "6",
+          "sections": 2,
+          "chars": 740
+        },
+        {
+          "slug": "galeb-duhr",
+          "name": "Galeb Duhr",
+          "cr": "6",
+          "sections": 1,
+          "chars": 727
+        },
+        {
+          "slug": "cyclops-sentry",
+          "name": "Cyclops Sentry",
+          "cr": "6",
+          "sections": 2,
+          "chars": 701
+        },
+        {
+          "slug": "chimera",
+          "name": "Chimera",
+          "cr": "6",
+          "sections": 1,
+          "chars": 686
+        },
+        {
+          "slug": "night-hag",
+          "name": "Night Hag",
+          "cr": "5",
+          "sections": 3,
+          "chars": 2877
+        },
+        {
+          "slug": "beholder-zombie",
+          "name": "Beholder Zombie",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1873
+        },
+        {
+          "slug": "revenant",
+          "name": "Revenant",
+          "cr": "5",
+          "sections": 3,
+          "chars": 1690
+        },
+        {
+          "slug": "unicorn",
+          "name": "Unicorn",
+          "cr": "5",
+          "sections": 4,
+          "chars": 1563
+        },
+        {
+          "slug": "vampire-spawn",
+          "name": "Vampire Spawn",
+          "cr": "5",
+          "sections": 3,
+          "chars": 1527
+        },
+        {
+          "slug": "sahuagin-baron",
+          "name": "Sahuagin Baron",
+          "cr": "5",
+          "sections": 3,
+          "chars": 1495
+        },
+        {
+          "slug": "fire-elemental",
+          "name": "Fire Elemental",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1491
+        },
+        {
+          "slug": "half-dragon",
+          "name": "Half-Dragon",
+          "cr": "5",
+          "sections": 3,
+          "chars": 1485
+        },
+        {
+          "slug": "wraith",
+          "name": "Wraith",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1413
+        },
+        {
+          "slug": "red-slaad",
+          "name": "Red Slaad",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1328
+        },
+        {
+          "slug": "flesh-golem",
+          "name": "Flesh Golem",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1308
+        },
+        {
+          "slug": "gorgon",
+          "name": "Gorgon",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1306
+        },
+        {
+          "slug": "mezzoloth",
+          "name": "Mezzoloth",
+          "cr": "5",
+          "sections": 3,
+          "chars": 1295
+        },
+        {
+          "slug": "water-elemental",
+          "name": "Water Elemental",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1164
+        },
+        {
+          "slug": "salamander",
+          "name": "Salamander",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1116
+        },
+        {
+          "slug": "werebear",
+          "name": "Werebear",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1066
+        },
+        {
+          "slug": "shambling-mound",
+          "name": "Shambling Mound",
+          "cr": "5",
+          "sections": 2,
+          "chars": 1033
+        },
+        {
+          "slug": "barbed-devil",
+          "name": "Barbed Devil",
+          "cr": "5",
+          "sections": 2,
+          "chars": 986
+        },
+        {
+          "slug": "otyugh",
+          "name": "Otyugh",
+          "cr": "5",
+          "sections": 1,
+          "chars": 934
+        },
+        {
+          "slug": "pixie-wonderbringer",
+          "name": "Pixie Wonderbringer",
+          "cr": "5",
+          "sections": 3,
+          "chars": 930
+        },
+        {
+          "slug": "barlgura",
+          "name": "Barlgura",
+          "cr": "5",
+          "sections": 3,
+          "chars": 880
+        },
+        {
+          "slug": "troll",
+          "name": "Troll",
+          "cr": "5",
+          "sections": 3,
+          "chars": 843
+        },
+        {
+          "slug": "umber-hulk",
+          "name": "Umber Hulk",
+          "cr": "5",
+          "sections": 3,
+          "chars": 773
+        },
+        {
+          "slug": "roper",
+          "name": "Roper",
+          "cr": "5",
+          "sections": 2,
+          "chars": 763
+        },
+        {
+          "slug": "bulette",
+          "name": "Bulette",
+          "cr": "5",
+          "sections": 2,
+          "chars": 703
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "3–5",
+      "items": [
+        {
+          "slug": "giant-axe-beak",
+          "name": "Giant Axe Beak",
+          "cr": "5",
+          "sections": 1,
+          "chars": 603
+        },
+        {
+          "slug": "gladiator",
+          "name": "Gladiator",
+          "cr": "5",
+          "sections": 2,
+          "chars": 601
+        },
+        {
+          "slug": "air-elemental",
+          "name": "Air Elemental",
+          "cr": "5",
+          "sections": 2,
+          "chars": 588
+        },
+        {
+          "slug": "xorn",
+          "name": "Xorn",
+          "cr": "5",
+          "sections": 3,
+          "chars": 571
+        },
+        {
+          "slug": "earth-elemental",
+          "name": "Earth Elemental",
+          "cr": "5",
+          "sections": 2,
+          "chars": 569
+        },
+        {
+          "slug": "cambion",
+          "name": "Cambion",
+          "cr": "5",
+          "sections": 1,
+          "chars": 561
+        },
+        {
+          "slug": "giant-crocodile",
+          "name": "Giant Crocodile",
+          "cr": "5",
+          "sections": 2,
+          "chars": 554
+        },
+        {
+          "slug": "ghost",
+          "name": "Ghost",
+          "cr": "4",
+          "sections": 2,
+          "chars": 1884
+        },
+        {
+          "slug": "black-pudding",
+          "name": "Black Pudding",
+          "cr": "4",
+          "sections": 3,
+          "chars": 1764
+        },
+        {
+          "slug": "succubus",
+          "name": "Succubus",
+          "cr": "4",
+          "sections": 3,
+          "chars": 1624
+        },
+        {
+          "slug": "incubus",
+          "name": "Incubus",
+          "cr": "4",
+          "sections": 3,
+          "chars": 1523
+        },
+        {
+          "slug": "wereboar",
+          "name": "Wereboar",
+          "cr": "4",
+          "sections": 2,
+          "chars": 1267
+        },
+        {
+          "slug": "weretiger",
+          "name": "Weretiger",
+          "cr": "4",
+          "sections": 2,
+          "chars": 1204
+        },
+        {
+          "slug": "couatl",
+          "name": "Couatl",
+          "cr": "4",
+          "sections": 3,
+          "chars": 1194
+        },
+        {
+          "slug": "red-dragon-wyrmling",
+          "name": "Red Dragon Wyrmling",
+          "cr": "4",
+          "sections": 1,
+          "chars": 1184
+        },
+        {
+          "slug": "bullywug-bog-sage",
+          "name": "Bullywug Bog Sage",
+          "cr": "4",
+          "sections": 3,
+          "chars": 1057
+        },
+        {
+          "slug": "gnoll-fang-of-yeenoghu",
+          "name": "Gnoll Fang Of Yeenoghu",
+          "cr": "4",
+          "sections": 2,
+          "chars": 1057
+        },
+        {
+          "slug": "banshee",
+          "name": "Banshee",
+          "cr": "4",
+          "sections": 2,
+          "chars": 1010
+        },
+        {
+          "slug": "swarm-of-dretches",
+          "name": "Swarm Of Dretches",
+          "cr": "4",
+          "sections": 2,
+          "chars": 937
+        },
+        {
+          "slug": "juvenile-shadow-dragon",
+          "name": "Juvenile Shadow Dragon",
+          "cr": "4",
+          "sections": 3,
+          "chars": 845
+        },
+        {
+          "slug": "flameskull",
+          "name": "Flameskull",
+          "cr": "4",
+          "sections": 2,
+          "chars": 814
+        },
+        {
+          "slug": "chuul",
+          "name": "Chuul",
+          "cr": "4",
+          "sections": 2,
+          "chars": 803
+        },
+        {
+          "slug": "lamia",
+          "name": "Lamia",
+          "cr": "4",
+          "sections": 2,
+          "chars": 790
+        },
+        {
+          "slug": "aarakocra-aeromancer",
+          "name": "Aarakocra Aeromancer",
+          "cr": "4",
+          "sections": 2,
+          "chars": 732
+        },
+        {
+          "slug": "lizardfolk-sovereign",
+          "name": "Lizardfolk Sovereign",
+          "cr": "4",
+          "sections": 2,
+          "chars": 730
+        },
+        {
+          "slug": "tough-boss",
+          "name": "Tough Boss",
+          "cr": "4",
+          "sections": 2,
+          "chars": 702
+        },
+        {
+          "slug": "bone-naga",
+          "name": "Bone Naga",
+          "cr": "4",
+          "sections": 1,
+          "chars": 666
+        },
+        {
+          "slug": "shadow-demon",
+          "name": "Shadow Demon",
+          "cr": "4",
+          "sections": 3,
+          "chars": 561
+        },
+        {
+          "slug": "guard-captain",
+          "name": "Guard Captain",
+          "cr": "4",
+          "sections": 1,
+          "chars": 456
+        },
+        {
+          "slug": "wight",
+          "name": "Wight",
+          "cr": "3",
+          "sections": 5,
+          "chars": 2142
+        },
+        {
+          "slug": "green-hag",
+          "name": "Green Hag",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1864
+        },
+        {
+          "slug": "hobgoblin-captain",
+          "name": "Hobgoblin Captain",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1565
+        },
+        {
+          "slug": "yuan-ti-malison-type-3",
+          "name": "Yuan-Ti Malison (Type 3)",
+          "cr": "3",
+          "sections": 3,
+          "chars": 1477
+        },
+        {
+          "slug": "vampire-familiar",
+          "name": "Vampire Familiar",
+          "cr": "3",
+          "sections": 3,
+          "chars": 1463
+        },
+        {
+          "slug": "gold-dragon-wyrmling",
+          "name": "Gold Dragon Wyrmling",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1454
+        },
+        {
+          "slug": "spectator",
+          "name": "Spectator",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1362
+        },
+        {
+          "slug": "goblin-hexer",
+          "name": "Goblin Hexer",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1360
+        },
+        {
+          "slug": "yuan-ti-malison-type-1",
+          "name": "Yuan-Ti Malison (Type 1)",
+          "cr": "3",
+          "sections": 3,
+          "chars": 1330
+        },
+        {
+          "slug": "doppelganger",
+          "name": "Doppelganger",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1328
+        },
+        {
+          "slug": "blue-dragon-wyrmling",
+          "name": "Blue Dragon Wyrmling",
+          "cr": "3",
+          "sections": 1,
+          "chars": 1239
+        },
+        {
+          "slug": "werewolf",
+          "name": "Werewolf",
+          "cr": "3",
+          "sections": 3,
+          "chars": 1226
+        },
+        {
+          "slug": "yuan-ti-malison-type-2",
+          "name": "Yuan-Ti Malison (Type 2)",
+          "cr": "3",
+          "sections": 3,
+          "chars": 1193
+        },
+        {
+          "slug": "yeti",
+          "name": "Yeti",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1096
+        },
+        {
+          "slug": "mummy",
+          "name": "Mummy",
+          "cr": "3",
+          "sections": 1,
+          "chars": 1024
+        },
+        {
+          "slug": "bearded-devil",
+          "name": "Bearded Devil",
+          "cr": "3",
+          "sections": 2,
+          "chars": 1000
+        },
+        {
+          "slug": "scout-captain",
+          "name": "Scout Captain",
+          "cr": "3",
+          "sections": 3,
+          "chars": 990
+        },
+        {
+          "slug": "bugbear-stalker",
+          "name": "Bugbear Stalker",
+          "cr": "3",
+          "sections": 3,
+          "chars": 874
+        },
+        {
+          "slug": "displacer-beast",
+          "name": "Displacer Beast",
+          "cr": "3",
+          "sections": 2,
+          "chars": 817
+        },
+        {
+          "slug": "knight",
+          "name": "Knight",
+          "cr": "3",
+          "sections": 2,
+          "chars": 811
+        },
+        {
+          "slug": "quaggoth-thonot",
+          "name": "Quaggoth Thonot",
+          "cr": "3",
+          "sections": 3,
+          "chars": 793
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "2–3",
+      "items": [
+        {
+          "slug": "kuo-toa-monitor",
+          "name": "Kuo-Toa Monitor",
+          "cr": "3",
+          "sections": 2,
+          "chars": 791
+        },
+        {
+          "slug": "grell",
+          "name": "Grell",
+          "cr": "3",
+          "sections": 2,
+          "chars": 782
+        },
+        {
+          "slug": "swarm-of-lemures",
+          "name": "Swarm Of Lemures",
+          "cr": "3",
+          "sections": 2,
+          "chars": 761
+        },
+        {
+          "slug": "flaming-skeleton",
+          "name": "Flaming Skeleton",
+          "cr": "3",
+          "sections": 2,
+          "chars": 759
+        },
+        {
+          "slug": "phase-spider",
+          "name": "Phase Spider",
+          "cr": "3",
+          "sections": 3,
+          "chars": 757
+        },
+        {
+          "slug": "swarm-of-crawling-claws",
+          "name": "Swarm Of Crawling Claws",
+          "cr": "3",
+          "sections": 2,
+          "chars": 660
+        },
+        {
+          "slug": "githyanki-warrior",
+          "name": "Githyanki Warrior",
+          "cr": "3",
+          "sections": 2,
+          "chars": 596
+        },
+        {
+          "slug": "basilisk",
+          "name": "Basilisk",
+          "cr": "3",
+          "sections": 2,
+          "chars": 549
+        },
+        {
+          "slug": "warrior-veteran",
+          "name": "Warrior Veteran",
+          "cr": "3",
+          "sections": 2,
+          "chars": 533
+        },
+        {
+          "slug": "owlbear",
+          "name": "Owlbear",
+          "cr": "3",
+          "sections": 1,
+          "chars": 506
+        },
+        {
+          "slug": "winter-wolf",
+          "name": "Winter Wolf",
+          "cr": "3",
+          "sections": 2,
+          "chars": 496
+        },
+        {
+          "slug": "hell-hound",
+          "name": "Hell Hound",
+          "cr": "3",
+          "sections": 2,
+          "chars": 492
+        },
+        {
+          "slug": "nightmare",
+          "name": "Nightmare",
+          "cr": "3",
+          "sections": 2,
+          "chars": 484
+        },
+        {
+          "slug": "gelatinous-cube",
+          "name": "Gelatinous Cube",
+          "cr": "2",
+          "sections": 2,
+          "chars": 2205
+        },
+        {
+          "slug": "intellect-devourer",
+          "name": "Intellect Devourer",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1712
+        },
+        {
+          "slug": "sea-hag",
+          "name": "Sea Hag",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1608
+        },
+        {
+          "slug": "carrion-crawler",
+          "name": "Carrion Crawler",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1477
+        },
+        {
+          "slug": "white-dragon-wyrmling",
+          "name": "White Dragon Wyrmling",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1422
+        },
+        {
+          "slug": "mimic",
+          "name": "Mimic",
+          "cr": "2",
+          "sections": 3,
+          "chars": 1421
+        },
+        {
+          "slug": "bronze-dragon-wyrmling",
+          "name": "Bronze Dragon Wyrmling",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1359
+        },
+        {
+          "slug": "myconid-sovereign",
+          "name": "Myconid Sovereign",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1331
+        },
+        {
+          "slug": "silver-dragon-wyrmling",
+          "name": "Silver Dragon Wyrmling",
+          "cr": "2",
+          "sections": 1,
+          "chars": 1322
+        },
+        {
+          "slug": "nothic",
+          "name": "Nothic",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1241
+        },
+        {
+          "slug": "gnoll-pack-lord",
+          "name": "Gnoll Pack Lord",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1224
+        },
+        {
+          "slug": "green-dragon-wyrmling",
+          "name": "Green Dragon Wyrmling",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1207
+        },
+        {
+          "slug": "gibbering-mouther",
+          "name": "Gibbering Mouther",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1172
+        },
+        {
+          "slug": "sahuagin-priest",
+          "name": "Sahuagin Priest",
+          "cr": "2",
+          "sections": 3,
+          "chars": 1121
+        },
+        {
+          "slug": "ogre",
+          "name": "Ogre",
+          "cr": "2",
+          "sections": 1,
+          "chars": 1109
+        },
+        {
+          "slug": "faerie-dragon-adult",
+          "name": "Faerie Dragon Adult",
+          "cr": "2",
+          "sections": 3,
+          "chars": 1107
+        },
+        {
+          "slug": "black-dragon-wyrmling",
+          "name": "Black Dragon Wyrmling",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1087
+        },
+        {
+          "slug": "wererat",
+          "name": "Wererat",
+          "cr": "2",
+          "sections": 2,
+          "chars": 1020
+        },
+        {
+          "slug": "ettercap",
+          "name": "Ettercap",
+          "cr": "2",
+          "sections": 3,
+          "chars": 986
+        },
+        {
+          "slug": "githzerai-monk",
+          "name": "Githzerai Monk",
+          "cr": "2",
+          "sections": 3,
+          "chars": 912
+        },
+        {
+          "slug": "animated-rug-of-smothering",
+          "name": "Animated Rug Of Smothering",
+          "cr": "2",
+          "sections": 1,
+          "chars": 878
+        },
+        {
+          "slug": "bandit-captain",
+          "name": "Bandit Captain",
+          "cr": "2",
+          "sections": 2,
+          "chars": 843
+        },
+        {
+          "slug": "mage-apprentice",
+          "name": "Mage Apprentice",
+          "cr": "2",
+          "sections": 1,
+          "chars": 824
+        },
+        {
+          "slug": "lizardfolk-geomancer",
+          "name": "Lizardfolk Geomancer",
+          "cr": "2",
+          "sections": 1,
+          "chars": 806
+        },
+        {
+          "slug": "druid",
+          "name": "Druid",
+          "cr": "2",
+          "sections": 1,
+          "chars": 783
+        },
+        {
+          "slug": "priest",
+          "name": "Priest",
+          "cr": "2",
+          "sections": 2,
+          "chars": 747
+        },
+        {
+          "slug": "ghast",
+          "name": "Ghast",
+          "cr": "2",
+          "sections": 2,
+          "chars": 740
+        },
+        {
+          "slug": "swarm-of-stirges",
+          "name": "Swarm Of Stirges",
+          "cr": "2",
+          "sections": 2,
+          "chars": 729
+        },
+        {
+          "slug": "centaur-trooper",
+          "name": "Centaur Trooper",
+          "cr": "2",
+          "sections": 2,
+          "chars": 700
+        },
+        {
+          "slug": "cultist-fanatic",
+          "name": "Cultist Fanatic",
+          "cr": "2",
+          "sections": 2,
+          "chars": 648
+        },
+        {
+          "slug": "gargoyle",
+          "name": "Gargoyle",
+          "cr": "2",
+          "sections": 2,
+          "chars": 635
+        },
+        {
+          "slug": "minotaur-skeleton",
+          "name": "Minotaur Skeleton",
+          "cr": "2",
+          "sections": 1,
+          "chars": 630
+        },
+        {
+          "slug": "poltergeist",
+          "name": "Poltergeist",
+          "cr": "2",
+          "sections": 3,
+          "chars": 624
+        },
+        {
+          "slug": "ochre-jelly",
+          "name": "Ochre Jelly",
+          "cr": "2",
+          "sections": 3,
+          "chars": 618
+        },
+        {
+          "slug": "merrow",
+          "name": "Merrow",
+          "cr": "2",
+          "sections": 2,
+          "chars": 594
+        },
+        {
+          "slug": "peryton",
+          "name": "Peryton",
+          "cr": "2",
+          "sections": 2,
+          "chars": 562
+        },
+        {
+          "slug": "ankheg",
+          "name": "Ankheg",
+          "cr": "2",
+          "sections": 2,
+          "chars": 535
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "1/2–2",
+      "items": [
+        {
+          "slug": "azer-sentinel",
+          "name": "Azer Sentinel",
+          "cr": "2",
+          "sections": 2,
+          "chars": 522
+        },
+        {
+          "slug": "spined-devil",
+          "name": "Spined Devil",
+          "cr": "2",
+          "sections": 2,
+          "chars": 511
+        },
+        {
+          "slug": "ogre-zombie",
+          "name": "Ogre Zombie",
+          "cr": "2",
+          "sections": 2,
+          "chars": 504
+        },
+        {
+          "slug": "grick",
+          "name": "Grick",
+          "cr": "2",
+          "sections": 1,
+          "chars": 490
+        },
+        {
+          "slug": "awakened-tree",
+          "name": "Awakened Tree",
+          "cr": "2",
+          "sections": 1,
+          "chars": 463
+        },
+        {
+          "slug": "quasit",
+          "name": "Quasit",
+          "cr": "1",
+          "sections": 2,
+          "chars": 1719
+        },
+        {
+          "slug": "brass-dragon-wyrmling",
+          "name": "Brass Dragon Wyrmling",
+          "cr": "1",
+          "sections": 1,
+          "chars": 1676
+        },
+        {
+          "slug": "goblin-boss",
+          "name": "Goblin Boss",
+          "cr": "1",
+          "sections": 3,
+          "chars": 1520
+        },
+        {
+          "slug": "copper-dragon-wyrmling",
+          "name": "Copper Dragon Wyrmling",
+          "cr": "1",
+          "sections": 1,
+          "chars": 1415
+        },
+        {
+          "slug": "imp",
+          "name": "Imp",
+          "cr": "1",
+          "sections": 2,
+          "chars": 1285
+        },
+        {
+          "slug": "ogrillon-ogre",
+          "name": "Ogrillon Ogre",
+          "cr": "1",
+          "sections": 1,
+          "chars": 1258
+        },
+        {
+          "slug": "empyrean-iota",
+          "name": "Empyrean Iota",
+          "cr": "1",
+          "sections": 3,
+          "chars": 1090
+        },
+        {
+          "slug": "dryad",
+          "name": "Dryad",
+          "cr": "1",
+          "sections": 3,
+          "chars": 1001
+        },
+        {
+          "slug": "kuo-toa-whip",
+          "name": "Kuo-Toa Whip",
+          "cr": "1",
+          "sections": 3,
+          "chars": 981
+        },
+        {
+          "slug": "harpy",
+          "name": "Harpy",
+          "cr": "1",
+          "sections": 1,
+          "chars": 963
+        },
+        {
+          "slug": "giant-toad",
+          "name": "Giant Toad",
+          "cr": "1",
+          "sections": 2,
+          "chars": 954
+        },
+        {
+          "slug": "faerie-dragon-youth",
+          "name": "Faerie Dragon Youth",
+          "cr": "1",
+          "sections": 3,
+          "chars": 913
+        },
+        {
+          "slug": "manes-vaporspawn",
+          "name": "Manes Vaporspawn",
+          "cr": "1",
+          "sections": 3,
+          "chars": 868
+        },
+        {
+          "slug": "sphinx-of-wonder",
+          "name": "Sphinx Of Wonder",
+          "cr": "1",
+          "sections": 3,
+          "chars": 843
+        },
+        {
+          "slug": "yuan-ti-infiltrator",
+          "name": "Yuan-Ti Infiltrator",
+          "cr": "1",
+          "sections": 2,
+          "chars": 829
+        },
+        {
+          "slug": "psychic-gray-ooze",
+          "name": "Psychic Gray Ooze",
+          "cr": "1",
+          "sections": 3,
+          "chars": 817
+        },
+        {
+          "slug": "lacedon-ghoul",
+          "name": "Lacedon Ghoul",
+          "cr": "1",
+          "sections": 2,
+          "chars": 799
+        },
+        {
+          "slug": "bugbear-warrior",
+          "name": "Bugbear Warrior",
+          "cr": "1",
+          "sections": 2,
+          "chars": 702
+        },
+        {
+          "slug": "giant-octopus",
+          "name": "Giant Octopus",
+          "cr": "1",
+          "sections": 3,
+          "chars": 667
+        },
+        {
+          "slug": "pirate",
+          "name": "Pirate",
+          "cr": "1",
+          "sections": 1,
+          "chars": 656
+        },
+        {
+          "slug": "lion",
+          "name": "Lion",
+          "cr": "1",
+          "sections": 2,
+          "chars": 610
+        },
+        {
+          "slug": "swarm-of-larvae",
+          "name": "Swarm Of Larvae",
+          "cr": "1",
+          "sections": 2,
+          "chars": 600
+        },
+        {
+          "slug": "salamander-fire-snake",
+          "name": "Salamander Fire Snake",
+          "cr": "1",
+          "sections": 2,
+          "chars": 573
+        },
+        {
+          "slug": "death-dog",
+          "name": "Death Dog",
+          "cr": "1",
+          "sections": 1,
+          "chars": 561
+        },
+        {
+          "slug": "giant-spider",
+          "name": "Giant Spider",
+          "cr": "1",
+          "sections": 2,
+          "chars": 559
+        },
+        {
+          "slug": "ghoul",
+          "name": "Ghoul",
+          "cr": "1",
+          "sections": 1,
+          "chars": 554
+        },
+        {
+          "slug": "thri-kreen-marauder",
+          "name": "Thri-Kreen Marauder",
+          "cr": "1",
+          "sections": 2,
+          "chars": 480
+        },
+        {
+          "slug": "swarm-of-piranhas",
+          "name": "Swarm Of Piranhas",
+          "cr": "1",
+          "sections": 2,
+          "chars": 460
+        },
+        {
+          "slug": "darkmantle",
+          "name": "Darkmantle",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 1599
+        },
+        {
+          "slug": "hobgoblin-warrior",
+          "name": "Hobgoblin Warrior",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 1457
+        },
+        {
+          "slug": "jackalwere",
+          "name": "Jackalwere",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 1142
+        },
+        {
+          "slug": "gray-ooze",
+          "name": "Gray Ooze",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 1040
+        },
+        {
+          "slug": "shadow",
+          "name": "Shadow",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 1039
+        },
+        {
+          "slug": "rust-monster",
+          "name": "Rust Monster",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 949
+        },
+        {
+          "slug": "gas-spore-fungus",
+          "name": "Gas Spore Fungus",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 920
+        },
+        {
+          "slug": "gnoll-warrior",
+          "name": "Gnoll Warrior",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 903
+        },
+        {
+          "slug": "vine-blight",
+          "name": "Vine Blight",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 888
+        },
+        {
+          "slug": "myconid-adult",
+          "name": "Myconid Adult",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 856
+        },
+        {
+          "slug": "sahuagin-warrior",
+          "name": "Sahuagin Warrior",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 769
+        },
+        {
+          "slug": "dust-mephit",
+          "name": "Dust Mephit",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 749
+        },
+        {
+          "slug": "ice-mephit",
+          "name": "Ice Mephit",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 701
+        },
+        {
+          "slug": "scout",
+          "name": "Scout",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 651
+        },
+        {
+          "slug": "cockatrice",
+          "name": "Cockatrice",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 585
+        },
+        {
+          "slug": "magma-mephit",
+          "name": "Magma Mephit",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 581
+        },
+        {
+          "slug": "performer",
+          "name": "Performer",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 556
+        }
+      ]
+    },
+    {
+      "id": "B7",
+      "type": "manual-polish",
+      "count": 50,
+      "cr_range": "None–1/2",
+      "items": [
+        {
+          "slug": "magmin",
+          "name": "Magmin",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 555
+        },
+        {
+          "slug": "satyr",
+          "name": "Satyr",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 536
+        },
+        {
+          "slug": "troll-limb",
+          "name": "Troll Limb",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 526
+        },
+        {
+          "slug": "tough",
+          "name": "Tough",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 511
+        },
+        {
+          "slug": "kuo-toa",
+          "name": "Kuo-Toa",
+          "cr": "1/4",
+          "sections": 3,
+          "chars": 1765
+        },
+        {
+          "slug": "pseudodragon",
+          "name": "Pseudodragon",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 1654
+        },
+        {
+          "slug": "sprite",
+          "name": "Sprite",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 1618
+        },
+        {
+          "slug": "winged-kobold",
+          "name": "Winged Kobold",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 1441
+        },
+        {
+          "slug": "goblin-warrior",
+          "name": "Goblin Warrior",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 1118
+        },
+        {
+          "slug": "giant-frog",
+          "name": "Giant Frog",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 948
+        },
+        {
+          "slug": "steam-mephit",
+          "name": "Steam Mephit",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 886
+        },
+        {
+          "slug": "bullywug-warrior",
+          "name": "Bullywug Warrior",
+          "cr": "1/4",
+          "sections": 3,
+          "chars": 729
+        },
+        {
+          "slug": "priest-acolyte",
+          "name": "Priest Acolyte",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 680
+        },
+        {
+          "slug": "pixie",
+          "name": "Pixie",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 660
+        },
+        {
+          "slug": "mud-mephit",
+          "name": "Mud Mephit",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 655
+        },
+        {
+          "slug": "smoke-mephit",
+          "name": "Smoke Mephit",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 639
+        },
+        {
+          "slug": "swarm-of-ravens",
+          "name": "Swarm Of Ravens",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 596
+        },
+        {
+          "slug": "aarakocra-skirmisher",
+          "name": "Aarakocra Skirmisher",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 579
+        },
+        {
+          "slug": "zombie",
+          "name": "Zombie",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 563
+        },
+        {
+          "slug": "dretch",
+          "name": "Dretch",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 548
+        },
+        {
+          "slug": "needle-blight",
+          "name": "Needle Blight",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 529
+        },
+        {
+          "slug": "kenku",
+          "name": "Kenku",
+          "cr": "1/4",
+          "sections": 3,
+          "chars": 515
+        },
+        {
+          "slug": "troglodyte",
+          "name": "Troglodyte",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 496
+        },
+        {
+          "slug": "skeleton",
+          "name": "Skeleton",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 484
+        },
+        {
+          "slug": "blink-dog",
+          "name": "Blink Dog",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 462
+        },
+        {
+          "slug": "kobold-warrior",
+          "name": "Kobold Warrior",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 1141
+        },
+        {
+          "slug": "flumph",
+          "name": "Flumph",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 1006
+        },
+        {
+          "slug": "goblin-minion",
+          "name": "Goblin Minion",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 928
+        },
+        {
+          "slug": "noble",
+          "name": "Noble",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 608
+        },
+        {
+          "slug": "twig-blight",
+          "name": "Twig Blight",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 583
+        },
+        {
+          "slug": "bandit",
+          "name": "Bandit",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 547
+        },
+        {
+          "slug": "stirge",
+          "name": "Stirge",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 547
+        },
+        {
+          "slug": "slaad-tadpole",
+          "name": "Slaad Tadpole",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 530
+        },
+        {
+          "slug": "merfolk-skirmisher",
+          "name": "Merfolk Skirmisher",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 464
+        },
+        {
+          "slug": "homunculus",
+          "name": "Homunculus",
+          "cr": "0",
+          "sections": 2,
+          "chars": 575
+        },
+        {
+          "slug": "myconid-sprout",
+          "name": "Myconid Sprout",
+          "cr": "0",
+          "sections": 2,
+          "chars": 571
+        },
+        {
+          "slug": "octopus",
+          "name": "Octopus",
+          "cr": "0",
+          "sections": 3,
+          "chars": 571
+        },
+        {
+          "slug": "lemure",
+          "name": "Lemure",
+          "cr": "0",
+          "sections": 2,
+          "chars": 450
+        },
+        {
+          "slug": "undead-spirit",
+          "name": "Undead Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 1226
+        },
+        {
+          "slug": "fiendish-spirit",
+          "name": "Fiendish Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 1177
+        },
+        {
+          "slug": "aberrant-spirit",
+          "name": "Aberrant Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 1065
+        },
+        {
+          "slug": "construct-spirit",
+          "name": "Construct Spirit",
+          "cr": "None",
+          "sections": 3,
+          "chars": 1000
+        },
+        {
+          "slug": "otherworldly-steed",
+          "name": "Otherworldly Steed",
+          "cr": "None",
+          "sections": 3,
+          "chars": 908
+        },
+        {
+          "slug": "fey-spirit",
+          "name": "Fey Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 865
+        },
+        {
+          "slug": "giant-insect",
+          "name": "Giant Insect",
+          "cr": "None",
+          "sections": 3,
+          "chars": 785
+        },
+        {
+          "slug": "celestial-spirit",
+          "name": "Celestial Spirit",
+          "cr": "None",
+          "sections": 1,
+          "chars": 693
+        },
+        {
+          "slug": "bestial-spirit",
+          "name": "Bestial Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 646
+        },
+        {
+          "slug": "draconic-spirit",
+          "name": "Draconic Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 645
+        },
+        {
+          "slug": "beast-of-the-land",
+          "name": "Beast Of The Land",
+          "cr": "None",
+          "sections": 2,
+          "chars": 514
+        },
+        {
+          "slug": "elemental-spirit",
+          "name": "Elemental Spirit",
+          "cr": "None",
+          "sections": 2,
+          "chars": 458
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "type": "needs-reparse/manual-source-fix",
+      "count": 129,
+      "cr_range": "None–23",
+      "items": [
+        {
+          "slug": "blob-of-annihilation",
+          "name": "Blob Of Annihilation",
+          "cr": "23",
+          "sections": 3,
+          "chars": 177
+        },
+        {
+          "slug": "elemental-cataclysm",
+          "name": "Elemental Cataclysm",
+          "cr": "22",
+          "sections": 3,
+          "chars": 212
+        },
+        {
+          "slug": "animal-lord",
+          "name": "Animal Lord",
+          "cr": "20",
+          "sections": 4,
+          "chars": 359
+        },
+        {
+          "slug": "beholder",
+          "name": "Beholder",
+          "cr": "13",
+          "sections": 4,
+          "chars": 144
+        },
+        {
+          "slug": "fomorian",
+          "name": "Fomorian",
+          "cr": "8",
+          "sections": 1,
+          "chars": 416
+        },
+        {
+          "slug": "mammoth",
+          "name": "Mammoth",
+          "cr": "6",
+          "sections": 2,
+          "chars": 447
+        },
+        {
+          "slug": "wyvern",
+          "name": "Wyvern",
+          "cr": "6",
+          "sections": 1,
+          "chars": 334
+        },
+        {
+          "slug": "hill-giant",
+          "name": "Hill Giant",
+          "cr": "5",
+          "sections": 1,
+          "chars": 414
+        },
+        {
+          "slug": "young-remorhaz",
+          "name": "Young Remorhaz",
+          "cr": "5",
+          "sections": 2,
+          "chars": 345
+        },
+        {
+          "slug": "triceratops",
+          "name": "Triceratops",
+          "cr": "5",
+          "sections": 1,
+          "chars": 323
+        },
+        {
+          "slug": "giant-shark",
+          "name": "Giant Shark",
+          "cr": "5",
+          "sections": 2,
+          "chars": 242
+        },
+        {
+          "slug": "elephant",
+          "name": "Elephant",
+          "cr": "4",
+          "sections": 2,
+          "chars": 446
+        },
+        {
+          "slug": "helmed-horror",
+          "name": "Helmed Horror",
+          "cr": "4",
+          "sections": 2,
+          "chars": 435
+        },
+        {
+          "slug": "ettin",
+          "name": "Ettin",
+          "cr": "4",
+          "sections": 1,
+          "chars": 413
+        },
+        {
+          "slug": "hippopotamus",
+          "name": "Hippopotamus",
+          "cr": "4",
+          "sections": 2,
+          "chars": 196
+        },
+        {
+          "slug": "archelon",
+          "name": "Archelon",
+          "cr": "4",
+          "sections": 2,
+          "chars": 177
+        },
+        {
+          "slug": "water-weird",
+          "name": "Water Weird",
+          "cr": "3",
+          "sections": 2,
+          "chars": 430
+        },
+        {
+          "slug": "minotaur-of-baphomet",
+          "name": "Minotaur Of Baphomet",
+          "cr": "3",
+          "sections": 1,
+          "chars": 412
+        },
+        {
+          "slug": "giant-scorpion",
+          "name": "Giant Scorpion",
+          "cr": "3",
+          "sections": 1,
+          "chars": 367
+        },
+        {
+          "slug": "manticore",
+          "name": "Manticore",
+          "cr": "3",
+          "sections": 1,
+          "chars": 255
+        },
+        {
+          "slug": "hook-horror",
+          "name": "Hook Horror",
+          "cr": "3",
+          "sections": 1,
+          "chars": 252
+        },
+        {
+          "slug": "ankylosaurus",
+          "name": "Ankylosaurus",
+          "cr": "3",
+          "sections": 1,
+          "chars": 206
+        },
+        {
+          "slug": "killer-whale",
+          "name": "Killer Whale",
+          "cr": "3",
+          "sections": 2,
+          "chars": 134
+        },
+        {
+          "slug": "berserker",
+          "name": "Berserker",
+          "cr": "2",
+          "sections": 2,
+          "chars": 386
+        },
+        {
+          "slug": "allosaurus",
+          "name": "Allosaurus",
+          "cr": "2",
+          "sections": 1,
+          "chars": 370
+        },
+        {
+          "slug": "swarm-of-venomous-snakes",
+          "name": "Swarm Of Venomous Snakes",
+          "cr": "2",
+          "sections": 2,
+          "chars": 366
+        },
+        {
+          "slug": "quaggoth",
+          "name": "Quaggoth",
+          "cr": "2",
+          "sections": 2,
+          "chars": 363
+        },
+        {
+          "slug": "giant-boar",
+          "name": "Giant Boar",
+          "cr": "2",
+          "sections": 2,
+          "chars": 356
+        },
+        {
+          "slug": "giant-constrictor-snake",
+          "name": "Giant Constrictor Snake",
+          "cr": "2",
+          "sections": 1,
+          "chars": 346
+        },
+        {
+          "slug": "giant-elk",
+          "name": "Giant Elk",
+          "cr": "2",
+          "sections": 1,
+          "chars": 306
+        },
+        {
+          "slug": "rhinoceros",
+          "name": "Rhinoceros",
+          "cr": "2",
+          "sections": 1,
+          "chars": 276
+        },
+        {
+          "slug": "saber-toothed-tiger",
+          "name": "Saber-Toothed Tiger",
+          "cr": "2",
+          "sections": 3,
+          "chars": 266
+        },
+        {
+          "slug": "griffon",
+          "name": "Griffon",
+          "cr": "2",
+          "sections": 1,
+          "chars": 255
+        },
+        {
+          "slug": "bulette-pup",
+          "name": "Bulette Pup",
+          "cr": "2",
+          "sections": 2,
+          "chars": 204
+        },
+        {
+          "slug": "hunter-shark",
+          "name": "Hunter Shark",
+          "cr": "2",
+          "sections": 2,
+          "chars": 194
+        },
+        {
+          "slug": "plesiosaurus",
+          "name": "Plesiosaurus",
+          "cr": "2",
+          "sections": 2,
+          "chars": 138
+        },
+        {
+          "slug": "polar-bear",
+          "name": "Polar Bear",
+          "cr": "2",
+          "sections": 1,
+          "chars": 120
+        },
+        {
+          "slug": "pegasus",
+          "name": "Pegasus",
+          "cr": "2",
+          "sections": 1,
+          "chars": 107
+        },
+        {
+          "slug": "spy",
+          "name": "Spy",
+          "cr": "1",
+          "sections": 2,
+          "chars": 447
+        },
+        {
+          "slug": "scarecrow",
+          "name": "Scarecrow",
+          "cr": "1",
+          "sections": 1,
+          "chars": 419
+        },
+        {
+          "slug": "specter",
+          "name": "Specter",
+          "cr": "1",
+          "sections": 2,
+          "chars": 398
+        },
+        {
+          "slug": "animated-armor",
+          "name": "Animated Armor",
+          "cr": "1",
+          "sections": 1,
+          "chars": 396
+        },
+        {
+          "slug": "giant-vulture",
+          "name": "Giant Vulture",
+          "cr": "1",
+          "sections": 2,
+          "chars": 354
+        },
+        {
+          "slug": "dire-wolf",
+          "name": "Dire Wolf",
+          "cr": "1",
+          "sections": 2,
+          "chars": 348
+        },
+        {
+          "slug": "myconid-spore-servant",
+          "name": "Myconid Spore Servant",
+          "cr": "1",
+          "sections": 1,
+          "chars": 297
+        },
+        {
+          "slug": "brown-bear",
+          "name": "Brown Bear",
+          "cr": "1",
+          "sections": 1,
+          "chars": 288
+        },
+        {
+          "slug": "giant-hyena",
+          "name": "Giant Hyena",
+          "cr": "1",
+          "sections": 2,
+          "chars": 237
+        },
+        {
+          "slug": "hippogriff",
+          "name": "Hippogriff",
+          "cr": "1",
+          "sections": 2,
+          "chars": 225
+        },
+        {
+          "slug": "tiger",
+          "name": "Tiger",
+          "cr": "1",
+          "sections": 2,
+          "chars": 210
+        },
+        {
+          "slug": "giant-eagle",
+          "name": "Giant Eagle",
+          "cr": "1",
+          "sections": 1,
+          "chars": 149
+        },
+        {
+          "slug": "swarm-of-insects",
+          "name": "Swarm Of Insects",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 430
+        },
+        {
+          "slug": "warhorse-skeleton",
+          "name": "Warhorse Skeleton",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 413
+        },
+        {
+          "slug": "giant-seahorse",
+          "name": "Giant Seahorse",
+          "cr": "1/2",
+          "sections": 3,
+          "chars": 371
+        },
+        {
+          "slug": "piercer",
+          "name": "Piercer",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 350
+        },
+        {
+          "slug": "reef-shark",
+          "name": "Reef Shark",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 331
+        },
+        {
+          "slug": "worg",
+          "name": "Worg",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 325
+        },
+        {
+          "slug": "warhorse",
+          "name": "Warhorse",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 279
+        },
+        {
+          "slug": "giant-goat",
+          "name": "Giant Goat",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 278
+        },
+        {
+          "slug": "crocodile",
+          "name": "Crocodile",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 272
+        },
+        {
+          "slug": "ape",
+          "name": "Ape",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 219
+        },
+        {
+          "slug": "giant-wasp",
+          "name": "Giant Wasp",
+          "cr": "1/2",
+          "sections": 2,
+          "chars": 195
+        },
+        {
+          "slug": "black-bear",
+          "name": "Black Bear",
+          "cr": "1/2",
+          "sections": 1,
+          "chars": 120
+        },
+        {
+          "slug": "animated-broom",
+          "name": "Animated Broom",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 430
+        },
+        {
+          "slug": "giant-owl",
+          "name": "Giant Owl",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 366
+        },
+        {
+          "slug": "animated-flying-sword",
+          "name": "Animated Flying Sword",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 357
+        },
+        {
+          "slug": "wolf",
+          "name": "Wolf",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 346
+        },
+        {
+          "slug": "boar",
+          "name": "Boar",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 345
+        },
+        {
+          "slug": "swarm-of-bats",
+          "name": "Swarm Of Bats",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 329
+        },
+        {
+          "slug": "swarm-of-rats",
+          "name": "Swarm Of Rats",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 329
+        },
+        {
+          "slug": "axe-beak",
+          "name": "Axe Beak",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 305
+        },
+        {
+          "slug": "constrictor-snake",
+          "name": "Constrictor Snake",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 274
+        },
+        {
+          "slug": "elk",
+          "name": "Elk",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 274
+        },
+        {
+          "slug": "violet-fungus",
+          "name": "Violet Fungus",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 221
+        },
+        {
+          "slug": "pteranodon",
+          "name": "Pteranodon",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 173
+        },
+        {
+          "slug": "giant-centipede",
+          "name": "Giant Centipede",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 162
+        },
+        {
+          "slug": "giant-wolf-spider",
+          "name": "Giant Wolf Spider",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 153
+        },
+        {
+          "slug": "panther",
+          "name": "Panther",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 137
+        },
+        {
+          "slug": "giant-lizard",
+          "name": "Giant Lizard",
+          "cr": "1/4",
+          "sections": 2,
+          "chars": 126
+        },
+        {
+          "slug": "grimlock",
+          "name": "Grimlock",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 112
+        },
+        {
+          "slug": "giant-venomous-snake",
+          "name": "Giant Venomous Snake",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 102
+        },
+        {
+          "slug": "draft-horse",
+          "name": "Draft Horse",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 79
+        },
+        {
+          "slug": "riding-horse",
+          "name": "Riding Horse",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 79
+        },
+        {
+          "slug": "giant-badger",
+          "name": "Giant Badger",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 74
+        },
+        {
+          "slug": "giant-bat",
+          "name": "Giant Bat",
+          "cr": "1/4",
+          "sections": 1,
+          "chars": 74
+        },
+        {
+          "slug": "warrior-infantry",
+          "name": "Warrior Infantry",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 438
+        },
+        {
+          "slug": "cultist",
+          "name": "Cultist",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 413
+        },
+        {
+          "slug": "blood-hawk",
+          "name": "Blood Hawk",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 331
+        },
+        {
+          "slug": "manes",
+          "name": "Manes",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 309
+        },
+        {
+          "slug": "giant-rat",
+          "name": "Giant Rat",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 273
+        },
+        {
+          "slug": "guard",
+          "name": "Guard",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 254
+        },
+        {
+          "slug": "giant-crab",
+          "name": "Giant Crab",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 240
+        },
+        {
+          "slug": "flying-snake",
+          "name": "Flying Snake",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 185
+        },
+        {
+          "slug": "mule",
+          "name": "Mule",
+          "cr": "1/8",
+          "sections": 2,
+          "chars": 185
+        },
+        {
+          "slug": "mastiff",
+          "name": "Mastiff",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 149
+        },
+        {
+          "slug": "venomous-snake",
+          "name": "Venomous Snake",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 101
+        },
+        {
+          "slug": "pony",
+          "name": "Pony",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 79
+        },
+        {
+          "slug": "camel",
+          "name": "Camel",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 77
+        },
+        {
+          "slug": "giant-weasel",
+          "name": "Giant Weasel",
+          "cr": "1/8",
+          "sections": 1,
+          "chars": 74
+        },
+        {
+          "slug": "commoner",
+          "name": "Commoner",
+          "cr": "0",
+          "sections": 2,
+          "chars": 442
+        },
+        {
+          "slug": "shrieker-fungus",
+          "name": "Shrieker Fungus",
+          "cr": "0",
+          "sections": 1,
+          "chars": 390
+        },
+        {
+          "slug": "awakened-shrub",
+          "name": "Awakened Shrub",
+          "cr": "0",
+          "sections": 1,
+          "chars": 376
+        },
+        {
+          "slug": "crawling-claw",
+          "name": "Crawling Claw",
+          "cr": "0",
+          "sections": 1,
+          "chars": 373
+        },
+        {
+          "slug": "spider",
+          "name": "Spider",
+          "cr": "0",
+          "sections": 2,
+          "chars": 304
+        },
+        {
+          "slug": "baboon",
+          "name": "Baboon",
+          "cr": "0",
+          "sections": 2,
+          "chars": 277
+        },
+        {
+          "slug": "vulture",
+          "name": "Vulture",
+          "cr": "0",
+          "sections": 2,
+          "chars": 275
+        },
+        {
+          "slug": "hyena",
+          "name": "Hyena",
+          "cr": "0",
+          "sections": 2,
+          "chars": 271
+        },
+        {
+          "slug": "raven",
+          "name": "Raven",
+          "cr": "0",
+          "sections": 2,
+          "chars": 246
+        },
+        {
+          "slug": "frog",
+          "name": "Frog",
+          "cr": "0",
+          "sections": 2,
+          "chars": 232
+        },
+        {
+          "slug": "goat",
+          "name": "Goat",
+          "cr": "0",
+          "sections": 1,
+          "chars": 195
+        },
+        {
+          "slug": "piranha",
+          "name": "Piranha",
+          "cr": "0",
+          "sections": 2,
+          "chars": 185
+        },
+        {
+          "slug": "larva",
+          "name": "Larva",
+          "cr": "0",
+          "sections": 1,
+          "chars": 176
+        },
+        {
+          "slug": "seahorse",
+          "name": "Seahorse",
+          "cr": "0",
+          "sections": 2,
+          "chars": 168
+        },
+        {
+          "slug": "deer",
+          "name": "Deer",
+          "cr": "0",
+          "sections": 2,
+          "chars": 165
+        },
+        {
+          "slug": "giant-fire-beetle",
+          "name": "Giant Fire Beetle",
+          "cr": "0",
+          "sections": 2,
+          "chars": 165
+        },
+        {
+          "slug": "owl",
+          "name": "Owl",
+          "cr": "0",
+          "sections": 2,
+          "chars": 162
+        },
+        {
+          "slug": "rat",
+          "name": "Rat",
+          "cr": "0",
+          "sections": 2,
+          "chars": 160
+        },
+        {
+          "slug": "cat",
+          "name": "Cat",
+          "cr": "0",
+          "sections": 2,
+          "chars": 159
+        },
+        {
+          "slug": "lizard",
+          "name": "Lizard",
+          "cr": "0",
+          "sections": 2,
+          "chars": 122
+        },
+        {
+          "slug": "crab",
+          "name": "Crab",
+          "cr": "0",
+          "sections": 2,
+          "chars": 115
+        },
+        {
+          "slug": "scorpion",
+          "name": "Scorpion",
+          "cr": "0",
+          "sections": 1,
+          "chars": 92
+        },
+        {
+          "slug": "eagle",
+          "name": "Eagle",
+          "cr": "0",
+          "sections": 1,
+          "chars": 78
+        },
+        {
+          "slug": "jackal",
+          "name": "Jackal",
+          "cr": "0",
+          "sections": 1,
+          "chars": 74
+        },
+        {
+          "slug": "hawk",
+          "name": "Hawk",
+          "cr": "0",
+          "sections": 1,
+          "chars": 66
+        },
+        {
+          "slug": "badger",
+          "name": "Badger",
+          "cr": "0",
+          "sections": 1,
+          "chars": 64
+        },
+        {
+          "slug": "bat",
+          "name": "Bat",
+          "cr": "0",
+          "sections": 1,
+          "chars": 64
+        },
+        {
+          "slug": "weasel",
+          "name": "Weasel",
+          "cr": "0",
+          "sections": 1,
+          "chars": 64
+        },
+        {
+          "slug": "beast-of-the-sea",
+          "name": "Beast Of The Sea",
+          "cr": "None",
+          "sections": 2,
+          "chars": 422
+        },
+        {
+          "slug": "beast-of-the-sky",
+          "name": "Beast Of The Sky",
+          "cr": "None",
+          "sections": 2,
+          "chars": 329
+        },
+        {
+          "slug": "animated-object",
+          "name": "Animated Object",
+          "cr": "None",
+          "sections": 1,
+          "chars": 265
+        }
+      ]
+    }
+  ]
+}

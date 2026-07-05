@@ -555,8 +555,11 @@
   function profText(data) {
     const a = [];
     if (data.cls) {
-      if (data.cls.armorProf) a.push("Броня: " + data.cls.armorProf);
-      if (data.cls.weaponProf) a.push("Зброя: " + data.cls.weaponProf);
+      const __ep = (typeof character !== "undefined" && character.proficiencies) ? character.proficiencies : {};
+      const __ea = (__ep.extraArmor && __ep.extraArmor.length) ? ", " + __ep.extraArmor.join(", ") : "";
+      const __ew = (__ep.extraWeapons && __ep.extraWeapons.length) ? ", " + __ep.extraWeapons.join(", ") : "";
+      if (data.cls.armorProf || __ea) a.push("Броня: " + (data.cls.armorProf || "") + __ea);
+      if (data.cls.weaponProf || __ew) a.push("Зброя: " + (data.cls.weaponProf || "") + __ew);
       if (data.cls.savingThrowsLabel) a.push("Рятунки: " + data.cls.savingThrowsLabel);
     }
     if (data.race && data.race.languages) a.push("Мови: " + data.race.languages);
@@ -1202,7 +1205,9 @@
           putC("SlotsRemaining " + (18 + __L), __n, 9);
         }
       }
-      const blob = new Blob([doc.build()], { type: "application/pdf" });
+      let __charMarker = "";
+      try { __charMarker = "\n%DNDCHAR:" + btoa(unescape(encodeURIComponent(JSON.stringify(character)))) + "\n"; } catch (e) {}
+      const blob = new Blob([doc.build(), __charMarker], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
