@@ -601,11 +601,40 @@
     );
     return out.join("\n");
   }
+  // Lazy loading of heavy PDF assets (~1.6 MB): font and sheet images are
+  // fetched only on the first PDF generation, not on page load.
+  const pdfAssetPromises = {};
+  function loadScriptOnce(src) {
+    if (!pdfAssetPromises[src]) {
+      pdfAssetPromises[src] = new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = src;
+        s.onload = () => resolve();
+        s.onerror = () => {
+          delete pdfAssetPromises[src];
+          reject(new Error("Failed to load " + src));
+        };
+        document.head.appendChild(s);
+      });
+    }
+    return pdfAssetPromises[src];
+  }
+  function ensurePdfAssets() {
+    const tasks = [];
+    if (typeof window.DEJAVU_SANS_BASE64 !== "string" || window.DEJAVU_SANS_BASE64.length < 1e3)
+      tasks.push(loadScriptOnce("../dejavu-font.js"));
+    if (!window.CHAR_SHEET_EN_PAGE_1) tasks.push(loadScriptOnce("character-sheet-en-images.js"));
+    return Promise.all(tasks);
+  }
   async function generatePDF() {
     const btn = document.getElementById("btn-download-pdf"),
       label = document.getElementById("btn-download-label"),
       icon = document.getElementById("btn-download-icon");
     try {
+      if (btn) btn.disabled = true;
+      if (label) label.innerText = "Preparing PDF...";
+      setPdfStatus("Loading PDF assets...");
+      await ensurePdfAssets();
       if (typeof window.DEJAVU_SANS_BASE64 !== "string" || window.DEJAVU_SANS_BASE64.length < 1e3)
         throw new Error("Font failed to load.");
       const errors = typeof runValidation === "function" ? runValidation() : [];

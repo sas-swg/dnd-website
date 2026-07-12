@@ -2,15 +2,17 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+    <meta name="description" content="D&D equipment and magic-item reference.">
+    <link rel="manifest" href="../manifest.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Items & Magic Items - D&D 5e</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../favicon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-common.css">
+  <link rel="stylesheet" href="../site-common.css">
   <link rel="stylesheet" href="../vendor/tailwind.css">
   <script>
 (function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
@@ -20,14 +22,14 @@
   <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
     <div class="container mx-auto px-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2">
-        <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+        <img src="../favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
         <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
       </a>
       <nav class="hidden md:flex gap-5 text-sm font-semibold">
         <a href="index.html" class="hover:text-forest-accent transition">Home</a>
-        <a href="bestiary.html" class="hover:text-forest-accent transition">Бестіарій</a>
-        <a href="encounter-builder.html" class="hover:text-forest-accent transition">Сутички</a>
-        <a href="character-creator.html" class="hover:text-forest-accent transition">Персонаж</a>
+        <a href="bestiary.html" class="hover:text-forest-accent transition">Bestiary</a>
+        <a href="encounter-builder.html" class="hover:text-forest-accent transition">Encounters</a>
+        <a href="character-creator.html" class="hover:text-forest-accent transition">Character</a>
       </nav>
     </div>
   </header>
@@ -46,15 +48,15 @@
       <div class="p-4">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
           <div class="md:col-span-2">
-            <label class="block text-xs font-bold text-slate-600 mb-1">Пошук</label>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Search</label>
             <input id="q" type="text" placeholder="sword, armor, potion, cloak…" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm">
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-600 mb-1">Категорія</label>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Category</label>
             <select id="catFilter" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-600 mb-1">Рідкість</label>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Rarity</label>
             <select id="rarityFilter" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white text-sm"></select>
           </div>
           <div class="flex items-end">
@@ -93,10 +95,11 @@
     </div>
   </div>
 
-  <script src="../items-data.js"></script>
+  <script src="../items-data.js" defer></script>
+  <script src="items-en-runtime.js" defer></script>
   <script>
 let activeTab = 'mundane';
-const RARITY_ORDER = ['Звичайний','Common','Незвичайний','Uncommon','Рідкісний','Rare','Дуже рідкісний','Very Rare','Легендарний','Legendary','Артефакт','Artifact'];
+const RARITY_ORDER = ['Common','Common','Uncommon','Uncommon','Rare','Rare','Very Rare','Very Rare','Legendary','Legendary','Artifact','Artifact'];
 function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function rarityRank(r){ const i=RARITY_ORDER.indexOf(r); return i < 0 ? 99 : i; }
 function dataSet(){ return activeTab === 'magic' ? DND_MAGIC_ITEMS : DND_MUNDANE_ITEMS; }
@@ -151,7 +154,7 @@ function render(){
     const subtitle = activeTab==='magic' ? `${i.englishName || ''} · ${i.typeEn || i.category} · ${i.price || '—'}` : `${i.category || '—'} · ${rarity}`;
     const extra = activeTab==='magic'
       ? `${i.attunement ? 'Requires attunement' : 'No attunement'} · ${i.price || '—'}`
-      : i.type==='weapon' ? `${esc(i.damage||'')} ${esc(i.damageType||'')} · ${esc((i.properties||[]).join(', ')||'без властивостей')}` : i.type==='armor' ? `КБ ${esc(i.ac||'—')}` : esc(i.description||'').slice(0,120);
+      : i.type==='weapon' ? `${esc(i.damage||'')} ${esc(i.damageType||'')} · ${esc((i.properties||[]).join(', ')||'no properties')}` : i.type==='armor' ? `AC ${esc(i.ac||'—')}` : esc(i.description||'').slice(0,120);
     return `<article onclick="openItemModal('${i.id}')" class="bg-white border border-slate-200 rounded-md p-4 cursor-pointer hover:border-forest hover:shadow-md transition">
       <div class="flex items-start justify-between gap-2">
         <div class="font-bold text-slate-800 leading-tight">${esc(i.name)}</div>
@@ -202,8 +205,10 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeItemModal();
 document.getElementById('q').addEventListener('input',render);
 document.getElementById('catFilter').addEventListener('change',render);
 document.getElementById('rarityFilter').addEventListener('change',render);
-fillFilters();
-render();
+document.addEventListener("DOMContentLoaded", function () {
+  fillFilters();
+  render();
+});
 </script>
   <script>(function(){try{function en(a){if(a)a.forEach(function(i){if(i.englishName)i.name=i.englishName;if(i.descriptionEn)i.description=i.descriptionEn;if(i.rarityUk&&i.rarity)i.rarityUk=i.rarity;});}en(typeof DND_MUNDANE_ITEMS!=="undefined"?DND_MUNDANE_ITEMS:null);en(typeof DND_MAGIC_ITEMS!=="undefined"?DND_MAGIC_ITEMS:null);if(typeof fillFilters==="function")fillFilters();if(typeof render==="function")render();}catch(e){}})();</script>
     <script src="search-index.js"></script>

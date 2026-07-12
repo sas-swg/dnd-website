@@ -2,12 +2,14 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Open, import and manage locally saved D&D 2024 characters.">
+    <link rel="manifest" href="../manifest.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play as Character - D&D 5e</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../favicon.png">
+    <link rel="shortcut icon" href="../favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +19,7 @@
       .pc-card { transition: all .2s ease; border: 1px solid #e2e8f0; }
       .pc-card:hover { transform: translateY(-4px); border-color: #14532d; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
     </style>
-    <link rel="stylesheet" href="site-common.css">
+    <link rel="stylesheet" href="../site-common.css">
     <link rel="stylesheet" href="../vendor/tailwind.css">
     <script>
 (function () { try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {} })();
@@ -28,7 +30,7 @@
     <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <img src="../favicon.png" alt="Logo" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">D&D 5e Knowledge Base</h1>
             </a>
             <nav class="hidden md:flex gap-5 text-sm font-semibold">

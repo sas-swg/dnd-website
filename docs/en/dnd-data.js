@@ -1060,7 +1060,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [
       "guidance",
       "light",
@@ -1177,7 +1177,7 @@ const DND_CLASSES = {
         desc: "You cast cleric spells using Wisdom as your spellcasting ability. Prepared spells = cleric level + Wisdom modifier.",
       },
       {
-        level: 1,
+        level: 3,
         name: "Divine Domain",
         desc: "Choose a domain (subclass) that determines your additional spells and abilities.",
       },
@@ -1823,7 +1823,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 2,
+    subclassLevel: 3,
     spellList: [],
     features: [
       { level: 1, name: "Druidic", desc: "You know Druidic — the secret language of druids." },
@@ -2814,7 +2814,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [],
     features: [
       { level: 1, name: "Spellcasting", desc: "You cast sorcerer spells using innate magic." },
@@ -3123,7 +3123,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [],
     features: [
       {
@@ -3523,7 +3523,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 2,
+    subclassLevel: 3,
     spellList: [],
     features: [
       {
@@ -3536,7 +3536,7 @@ const DND_CLASSES = {
         name: "Arcane Recovery",
         desc: "Once per day during a short rest you restore spell slots.",
       },
-      { level: 2, name: "Arcane Tradition", desc: "Choose a school of magic to specialize in." },
+      { level: 3, name: "Arcane Tradition", desc: "Choose a school of magic to specialize in." },
       {
         level: 18,
         name: "Spell Mastery",
@@ -5710,4 +5710,10 @@ const DND_EPIC_BOONS = [
   if (typeof globalThis !== "undefined") {
     globalThis.computeClassResources = computeClassResources;
   }
+})();
+
+// Stable cross-language background IDs (2024 migration).
+;(function(){
+  var map={"Acolyte": "acolyte", "Artisan": "artisan", "Charlatan": "charlatan", "Criminal": "criminal", "Entertainer": "entertainer", "Farmer": "farmer", "Guard": "guard", "Guide": "guide", "Hermit": "hermit", "Merchant": "merchant", "Noble": "noble", "Outlander": "outlander", "Sage": "sage", "Sailor": "sailor", "Scribe": "scribe", "Soldier": "soldier", "Urchin": "urchin", "Wayfarer": "wayfarer"};
+  Object.keys(map).forEach(function(oldKey){var id=map[oldKey], value=BACKGROUND_DATA[oldKey];if(!value)return;delete BACKGROUND_DATA[oldKey];BACKGROUND_DATA[id]=value;Object.defineProperty(BACKGROUND_DATA,oldKey,{value:value,enumerable:false,configurable:true});});
 })();
