@@ -2,6 +2,8 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+    <meta name="description" content="Створення та розрахунок D&D encounters for a party.">
+    <link rel="manifest" href="manifest.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Генератор сутичок - D&D 5e</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -156,8 +158,8 @@
     </div>
   </footer>
 
-  <script src="monsters-data.js"></script>
-  <script src="monsters-uk.js"></script>
+  <script src="monsters-data.js" defer></script>
+  <script src="monsters-uk.js" defer></script>
   <script>
 const XP_THRESHOLDS = {
   1:[25,50,75,100],2:[50,100,150,200],3:[75,150,225,400],4:[125,250,375,500],5:[250,500,750,1100],
@@ -290,7 +292,7 @@ function render(){
   document.getElementById('xpEach').textContent = fmt(raw / partySize);
 }
 
-init();
+document.addEventListener("DOMContentLoaded", init);
 </script>
   <script src="storage.js"></script>
   <script src="encounter-save.js"></script>

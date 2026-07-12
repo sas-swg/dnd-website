@@ -79,6 +79,9 @@
   if (!Array.isArray(ch.playState.targetConds)) ch.playState.targetConds = []; // стани цілі для атак: 'prone'|'restrained'|'blinded'|'invisible'
   if (ch.playState.lastD20 !== null && typeof ch.playState.lastD20 !== 'object') ch.playState.lastD20 = null; // останній d20 (для натхнення після перезавантаження)
   if (typeof ch.playState.inspiration !== 'boolean') ch.playState.inspiration = false; // героїчне натхнення
+  if (typeof ch.playState.round !== 'number' || ch.playState.round < 1) ch.playState.round = 1;
+  if (!Array.isArray(ch.playState.effects)) ch.playState.effects = [];
+  if (typeof ch.playState.customRollMod !== 'number') ch.playState.customRollMod = 0;
   if (!ch.playState.hitDiceUsedByClass || typeof ch.playState.hitDiceUsedByClass !== 'object') ch.playState.hitDiceUsedByClass = {}; // витрачені кістки хітів за класами (мультиклас)
   // НОВІ поля (D&D Beyond-рівень; старі сейви мігруються значеннями за замовчуванням)
   if (!Array.isArray(ch.expertiseSkills)) ch.expertiseSkills = []; // навички з Expertise (2× бонус майстерності)
@@ -442,7 +445,7 @@
     if (inv.shield) ac += 2;
     return ac;
   }
-  // Ефективна швидкість: раса + довільний модифікатор − обтяження (−10/−20), потім виснаження (5+ → 0; 2+ → навпіл)
+  // Ефективна швидкість: раса + довільний модифікатор − обтяження (−10/−20), потім виснаження (−5 футів за кожен рівень, правила 2024)
   function speedValue() {
     var r = race();
     var base = (r ? r.speed : 30) + cm('speed');
@@ -552,13 +555,13 @@
     if (id === 'monk' && lvl >= 2) out.push({ key: 'ki', label: t('resKi'), max: lvl, recharge: 'short' });
     if (id === 'sorcerer' && lvl >= 2) out.push({ key: 'sorc', label: t('resSorcPts'), max: lvl, recharge: 'long' });
     if (id === 'bard') out.push({ key: 'bardic', label: t('resBardic'), max: Math.max(1, abilityMod('cha')), recharge: lvl >= 5 ? 'short' : 'long' });
-    // Редакція 2014: Channel Divinity (клірик 1 вик., 6+ — 2, 18+ — 3) і Wild Shape — повне відновлення на короткому відпочинку
+    // Редакція 2024: Channel Divinity і Wild Shape відновлюють 1 використання за короткий відпочинок
     if (id === 'cleric') out.push({ key: 'channel', label: t('resChannel'), max: lvl >= 18 ? 4 : lvl >= 6 ? 3 : 2, recharge: 'short-one' });
     if (id === 'paladin' && lvl >= 3) out.push({ key: 'channel', label: t('resChannel'), max: lvl >= 11 ? 3 : 2, recharge: 'short-one' });
     if (id === 'paladin') out.push({ key: 'loh', label: t('resLayOnHands'), max: 5 * lvl, pool: true, recharge: 'long' });
     if (id === 'druid' && lvl >= 2) out.push({ key: 'wildshape', label: t('resWildShape'), max: lvl >= 17 ? 4 : lvl >= 6 ? 3 : 2, recharge: 'short-one' });
     if (id === 'fighter') {
-      // Редакція 2014: Second Wind — 1 використання, відновлення на короткому/тривалому
+      // Редакція 2024: Second Wind має 2–4 використання; 1 відновлюється за короткий відпочинок
       out.push({ key: 'secondwind', label: t('resSecondWind'), max: lvl >= 10 ? 4 : lvl >= 4 ? 3 : 2, recharge: 'short-one' });
       if (lvl >= 2) out.push({ key: 'actionsurge', label: t('resActionSurge'), max: lvl >= 17 ? 2 : 1, recharge: 'short' });
       var sub = subclassObj();
@@ -1282,6 +1285,7 @@
   // Джерела переваги/перешкоди комбінуються за правилами: будь-яка перевага + будь-яка перешкода = звичайний кидок
   var lastD20 = ch.playState.lastD20 || null; // останній кидок для перекидання натхненням (переживає перезавантаження)
   function rollD20(label, mod, type, opts) {
+    mod += parseInt(ch.playState.customRollMod, 10) || 0;
     opts = opts || {};
     var advSources = [], disSources = [];
     if (opts.advantage) advSources.push(opts.advReason || t('advantage'));
@@ -1837,7 +1841,10 @@
         '<div class="text-[9px] font-bold uppercase text-slate-500">' + esc(label) + '</div>' +
         '<div class="font-mono font-bold text-xl text-forest">' + value + '</div></div>';
     };
-    var topHtml = '<div class="flex flex-wrap gap-2">' +
+    var effects = ch.playState.effects || [];
+    var effectHtml = effects.length ? effects.map(function(e, i) { return '<button data-effect-remove="' + i + '" class="text-[11px] font-bold border border-amber-300 bg-amber-50 text-amber-800 rounded px-2 py-1">✕ ' + esc(e.name) + (e.rounds > 0 ? ' · ' + e.rounds : '') + '</button>'; }).join(' ') : '<span class="text-xs text-slate-400">' + (window.PS_LANG === 'en' ? 'No timed effects' : 'Немає тимчасових ефектів') + '</span>';
+    var trackerHtml = '<section class="mb-3 bg-gradient-to-r from-amber-50 to-white border border-amber-200 rounded-md p-3"><div class="flex flex-wrap items-center gap-2"><span class="font-heading font-bold text-amber-900">⚔ ' + (window.PS_LANG === 'en' ? 'Round' : 'Раунд') + ' <span class="font-mono">' + ch.playState.round + '</span></span><button data-round-action="prev" class="text-xs font-bold border border-amber-300 bg-white rounded px-2 py-1">−</button><button data-round-action="next" class="text-xs font-bold border border-amber-400 bg-amber-100 rounded px-3 py-1">' + (window.PS_LANG === 'en' ? 'Next round' : 'Наступний раунд') + '</button><button data-round-action="reset" class="text-xs font-bold text-slate-500 border border-slate-300 bg-white rounded px-2 py-1">↺</button><label class="ml-auto text-xs font-semibold text-slate-600">' + (window.PS_LANG === 'en' ? 'Quick modifier' : 'Швидкий модифікатор') + ' <input id="ps-quick-mod" type="number" value="' + (ch.playState.customRollMod || 0) + '" class="w-16 border border-slate-300 rounded px-2 py-1 bg-white"></label></div><div class="mt-2 flex flex-wrap gap-1.5 items-center">' + effectHtml + '<button data-add-effect class="text-[11px] font-bold border border-[#22C55E] text-forest bg-white rounded px-2 py-1">+ ' + (window.PS_LANG === 'en' ? 'Effect' : 'Ефект') + '</button></div></section>';
+    var topHtml = trackerHtml + '<div class="flex flex-wrap gap-2">' +
       statBox(t('ac'), calcAC()) +
       statBox(t('initiative'), fmtMod(initiativeBonus())) +
       statBox(t('profBonus'), '+' + pb) +
@@ -3190,6 +3197,11 @@
   // ---------- Обробники подій вкладок ----------
   function bindTab(box) {
     // Кидки
+    // Раунди, тимчасові ефекти й швидкий модифікатор.
+    Array.prototype.forEach.call(box.querySelectorAll('[data-round-action]'), function (b) { b.onclick = function () { var a=b.getAttribute('data-round-action'); if(a==='next'){ch.playState.round+=1;ch.playState.effects=(ch.playState.effects||[]).map(function(e){return {name:e.name,rounds:e.rounds>0?e.rounds-1:0};}).filter(function(e){return e.rounds!==0;});}else if(a==='prev')ch.playState.round=Math.max(1,ch.playState.round-1);else ch.playState.round=1;persist();renderTab();};});
+    var addEffect=box.querySelector('[data-add-effect]');if(addEffect)addEffect.onclick=function(){var name=window.prompt(window.PS_LANG==='en'?'Effect name':'Назва ефекту');if(!name)return;var rounds=parseInt(window.prompt(window.PS_LANG==='en'?'Rounds (0 = indefinite)':'Кількість раундів (0 = безстроково)','1'),10);ch.playState.effects.push({name:name.trim(),rounds:isNaN(rounds)?1:Math.max(0,rounds)});persist();renderTab();};
+    Array.prototype.forEach.call(box.querySelectorAll('[data-effect-remove]'),function(b){b.onclick=function(){ch.playState.effects.splice(parseInt(b.getAttribute('data-effect-remove'),10),1);persist();renderTab();};});
+    var quickMod=box.querySelector('#ps-quick-mod');if(quickMod)quickMod.onchange=function(){ch.playState.customRollMod=parseInt(quickMod.value,10)||0;persist();};
     // Боєрежим: швидкі кнопки HP (−5/−1/+1/+5)
     Array.prototype.forEach.call(box.querySelectorAll('[data-cb-hp]'), function (b) {
       b.onclick = function () {
@@ -3504,10 +3516,9 @@
         var lv = parseInt(b.getAttribute('data-exh'));
         ch.playState.exhaustion = (ch.playState.exhaustion === lv) ? lv - 1 : lv;
         if (ch.playState.exhaustion >= 6) logRoll('☠ ' + t('characterDied'), t('exhaustionLevel') + ' 6', '☠', 'damage');
-        // Рівень 4+ ділить maxHP навпіл. НЕ чіпаємо «сирий» inv.hpCurrent:
-        // currentHP() клампить при читанні, тож після зняття виснаження HP повертається
+        // За правилами 2024 виснаження не змінює максимум хітів; воно дає −2 до d20-тестів і −5 футів швидкості за рівень
         persist();
-        renderHeader(); // maxHP і швидкість могли змінитись
+        renderHeader(); // швидкість могла змінитись
         renderTab();
       };
     });
@@ -3515,7 +3526,7 @@
     if (exhReset) exhReset.onclick = function () {
       ch.playState.exhaustion = 0;
       persist();
-      renderHeader(); // maxHP і швидкість повертаються до норми
+      renderHeader(); // швидкість повертається до норми
       renderTab();
     };
     // Слоти заклинань

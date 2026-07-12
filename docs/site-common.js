@@ -15,12 +15,21 @@
     if (path === "") path = "index.html";
     return path.toLowerCase();
   }
+  // Інлайн SVG-іконки (Lucide) — однаковий вигляд у всіх ОС, на відміну від емодзі
+  var SVG_ATTRS = 'xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+  var ICONS = {
+    search: '<svg ' + SVG_ATTRS + '><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
+    moon: '<svg ' + SVG_ATTRS + '><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+    sun: '<svg ' + SVG_ATTRS + '><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>',
+    menu: '<svg ' + SVG_ATTRS.replace(/width="18" height="18"/, 'width="24" height="24"') + '><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>',
+    close: '<svg ' + SVG_ATTRS.replace(/width="18" height="18"/, 'width="24" height="24"') + '><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>',
+  };
   function applyTheme(theme) {
     if (theme === "dark") document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
     var btns = document.querySelectorAll("[data-theme-toggle]");
     for (var i = 0; i < btns.length; i++) {
-      btns[i].textContent = theme === "dark" ? "☀️" : "🌙";
+      btns[i].innerHTML = theme === "dark" ? ICONS.sun : ICONS.moon;
       btns[i].setAttribute("aria-label", theme === "dark" ? "Світла тема" : "Темна тема");
     }
   }
@@ -74,9 +83,9 @@
     var controls =
       __langLink +
       '<button type="button" data-search-open aria-label="Пошук" ' +
-      'class="hover:text-forest-accent transition-colors text-lg" title="Пошук (натисніть /)">🔍</button>' +
+      'class="hover:text-forest-accent transition-colors inline-flex items-center" title="Пошук (натисніть /)">' + ICONS.search + '</button>' +
       '<button type="button" data-theme-toggle aria-label="Темна тема" ' +
-      'class="hover:text-forest-accent transition-colors text-lg">🌙</button>';
+      'class="hover:text-forest-accent transition-colors inline-flex items-center">' + ICONS.moon + '</button>';
     if (existingNav) {
       existingNav.innerHTML = navHtml + controls;
       existingNav.className = "hidden md:flex items-center gap-5 text-sm font-semibold";
@@ -92,7 +101,7 @@
     burger.className = "md:hidden text-white text-2xl leading-none ml-auto";
     burger.setAttribute("aria-label", "Меню");
     burger.setAttribute("aria-expanded", "false");
-    burger.innerHTML = "☰";
+    burger.innerHTML = ICONS.menu;
     bar.appendChild(burger);
     var mobile = document.createElement("div");
     mobile.id = "mobile-menu";
@@ -117,16 +126,23 @@
       __langLabel +
       "</a>";
     mHtml +=
-      '<button type="button" data-search-open class="text-left py-2 border-b border-white/10 hover:text-forest-accent">🔍 Пошук</button>';
+      '<button type="button" data-search-open class="text-left py-2 border-b border-white/10 hover:text-forest-accent inline-flex items-center gap-2">' + ICONS.search + ' Пошук</button>';
     mHtml +=
-      '<button type="button" data-theme-toggle-text class="text-left py-2 hover:text-forest-accent">🌙 Перемкнути тему</button>';
+      '<button type="button" data-theme-toggle-text class="text-left py-2 hover:text-forest-accent inline-flex items-center gap-2">' + ICONS.moon + ' Перемкнути тему</button>';
     mHtml += "</div>";
     mobile.innerHTML = mHtml;
     header.insertAdjacentElement("afterend", mobile);
     burger.addEventListener("click", function () {
       var open = mobile.classList.toggle("open");
       burger.setAttribute("aria-expanded", open ? "true" : "false");
-      burger.innerHTML = open ? "✕" : "☰";
+      burger.innerHTML = open ? ICONS.close : ICONS.menu;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" || !mobile.classList.contains("open")) return;
+      mobile.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+      burger.innerHTML = ICONS.menu;
+      burger.focus();
     });
   }
   var searchIndex = [];
@@ -220,7 +236,7 @@
     var overlay = document.createElement("div");
     overlay.id = "global-search-overlay";
     overlay.innerHTML =
-      '<div id="global-search-box" role="dialog" aria-label="Пошук по базі">' +
+      '<div id="global-search-box" role="dialog" aria-modal="true" aria-label="Пошук по базі">' +
       '<input id="global-search-input" type="search" autocomplete="off" ' +
       'placeholder="Пошук заклинань, рис, рас, класів, правил...">' +
       '<div id="global-search-cats"></div>' +
@@ -235,6 +251,25 @@
     });
     input.addEventListener("input", function () {
       renderResults(input.value, results);
+    });
+    // Escape закриває пошук незалежно від того, де фокус
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("open")) closeSearch();
+    });
+    // Focus-trap: Tab не виходить за межі відкритого пошуку
+    overlay.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      var focusables = overlay.querySelectorAll('input, button, [href], [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      var first = focusables[0],
+        last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
     input.addEventListener("keydown", function (e) {
       var items = results.querySelectorAll(".gs-result");
@@ -389,9 +424,14 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
+  var __searchLastFocus = null;
   function openSearch() {
     var overlay = document.getElementById("global-search-overlay");
     if (!overlay) return;
+    // Доступність: запам'ятовуємо фокус, щоб повернути його при закритті
+    if (document.activeElement && document.activeElement !== document.body) {
+      __searchLastFocus = document.activeElement;
+    }
     overlay.classList.add("open");
     var input = overlay.querySelector("#global-search-input");
     loadIndex().then(function () {
@@ -405,6 +445,10 @@
   function closeSearch() {
     var overlay = document.getElementById("global-search-overlay");
     if (overlay) overlay.classList.remove("open");
+    if (__searchLastFocus && typeof __searchLastFocus.focus === "function") {
+      __searchLastFocus.focus();
+      __searchLastFocus = null;
+    }
   }
   function fixFooterYear() {
     var year = new Date().getFullYear();
@@ -539,6 +583,14 @@
       flashTarget(focusEl);
     }, 180);
   }
+
+  function ensureAccessibleNames() {
+    var fields=document.querySelectorAll('input:not([type="hidden"]),select,textarea');
+    for(var i=0;i<fields.length;i++){var e=fields[i];if(e.getAttribute('aria-label')||e.getAttribute('aria-labelledby'))continue;var label=e.id?document.querySelector('label[for="'+e.id.replace(/"/g,'')+'"]'):null;var name=(label&&label.textContent.trim())||e.getAttribute('placeholder')||e.getAttribute('title')||String(e.id||e.name||e.tagName).replace(/[-_]/g,' ');e.setAttribute('aria-label',name);}
+    var controls=document.querySelectorAll('button,a[href]');for(var j=0;j<controls.length;j++){var x=controls[j];if(!x.textContent.trim()&&!x.getAttribute('aria-label'))x.setAttribute('aria-label',x.getAttribute('title')||'Action');}
+  }
+  function registerOffline(){if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){navigator.serviceWorker.register((location.pathname.indexOf('/en/')>=0?'../':'')+'sw.js').catch(function(){});}}
+
   function init() {
     applyTheme(getTheme());
     buildNav();
@@ -547,6 +599,8 @@
     makeTablesResponsive();
     fixFooterYear();
     focusSearchTarget();
+    ensureAccessibleNames();
+    registerOffline();
     document.addEventListener("click", function (e) {
       var t = e.target.closest
         ? e.target.closest("[data-theme-toggle],[data-theme-toggle-text],[data-search-open]")

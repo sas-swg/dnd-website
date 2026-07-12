@@ -1,0 +1,15 @@
+{
+  "name": "D&D 2024 Digital Reference",
+  "short_name": "D&D 2024",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#14532d",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}

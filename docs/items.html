@@ -2,6 +2,8 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+    <meta name="description" content="D&D equipment and magic-item reference.">
+    <link rel="manifest" href="manifest.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Предмети та магічні предмети - D&D 5e</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -94,14 +96,14 @@
     </div>
   </div>
 
-  <script src="items-data.js"></script>
+  <script src="items-data.js" defer></script>
   <script>
 let activeTab = 'mundane';
 const RARITY_ORDER = ['Звичайний','Common','Незвичайний','Uncommon','Рідкісний','Rare','Дуже рідкісний','Very Rare','Легендарний','Legendary','Артефакт','Artifact'];
 function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function rarityRank(r){ const i=RARITY_ORDER.indexOf(r); return i < 0 ? 99 : i; }
 function dataSet(){ return activeTab === 'magic' ? DND_MAGIC_ITEMS : DND_MUNDANE_ITEMS; }
-function itemById(id){ return DND_ITEMS.find(i => i.id === id); }
+function itemById(id){ return [...DND_MUNDANE_ITEMS, ...DND_MAGIC_ITEMS].find(i => i.id === id); }
 function setTab(tab){ activeTab = tab; resetFilters(false); render(); }
 function updateTabs(){
   const on='border-forest text-forest bg-white', off='border-transparent text-slate-500 hover:text-forest';
@@ -203,8 +205,10 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeItemModal();
 document.getElementById('q').addEventListener('input',render);
 document.getElementById('catFilter').addEventListener('change',render);
 document.getElementById('rarityFilter').addEventListener('change',render);
-fillFilters();
-render();
+document.addEventListener("DOMContentLoaded", function () {
+  fillFilters();
+  render();
+});
 </script>
   <script src="search-index.js"></script>
   <script src="site-common.js"></script>

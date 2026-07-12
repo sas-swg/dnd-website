@@ -1092,7 +1092,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [
       "guidance",
       "light",
@@ -1209,7 +1209,7 @@ const DND_CLASSES = {
         desc: "Ви чаклуєте жрецькі закляття, використовуючи Мудрість як заклинальну характеристику. Підготовлених заклять = рівень жерця + мод. Мудрості.",
       },
       {
-        level: 1,
+        level: 3,
         name: "Божественний домен",
         desc: "Оберіть домен (підклас), що визначить ваші додаткові закляття та здібності.",
       },
@@ -1854,7 +1854,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 2,
+    subclassLevel: 3,
     spellList: [],
     features: [
       { level: 1, name: "Друїдична мова", desc: "Ви знаєте друїдичну — таємну мову друїдів." },
@@ -2848,7 +2848,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [],
     features: [
       {
@@ -2867,7 +2867,7 @@ const DND_CLASSES = {
   },
   warlock: {
     id: "warlock",
-    name: "Колдун",
+    name: "Чаклун",
     icon: "🔮",
     hitDice: "1d8",
     primaryAbility: "Харизма",
@@ -3156,10 +3156,10 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 1,
+    subclassLevel: 3,
     spellList: [],
     features: [
-      { level: 1, name: "Потойбічний покровитель", desc: "Ви уклали угоду з потойбічною істотою." },
+      { level: 3, name: "Потойбічний покровитель", desc: "Ви уклали угоду з потойбічною істотою." },
       {
         level: 1,
         name: "Чаклунство пакту",
@@ -3554,7 +3554,7 @@ const DND_CLASSES = {
         ],
       },
     ],
-    subclassLevel: 2,
+    subclassLevel: 3,
     spellList: [],
     features: [
       {
@@ -3567,7 +3567,7 @@ const DND_CLASSES = {
         name: "Відновлення аркани",
         desc: "Раз на день під час короткого відпочинку ви відновлюєте комірки заклинань.",
       },
-      { level: 2, name: "Аркана традиція", desc: "Оберіть школу магії для спеціалізації." },
+      { level: 3, name: "Аркана традиція", desc: "Оберіть школу магії для спеціалізації." },
       {
         level: 18,
         name: "Майстерність заклинань",
@@ -5848,4 +5848,10 @@ const DND_EPIC_BOONS = [
   if (typeof globalThis !== "undefined") {
     globalThis.computeClassResources = computeClassResources;
   }
+})();
+
+// Stable cross-language background IDs (2024 migration).
+;(function(){
+  var map={"Прислужник": "acolyte", "Ремісник": "artisan", "Шарлатан": "charlatan", "Злочинець": "criminal", "Артист": "entertainer", "Фермер": "farmer", "Охоронець": "guard", "Провідник": "guide", "Відлюдник": "hermit", "Торговець": "merchant", "Дворянин": "noble", "Чужинець": "outlander", "Мудрець": "sage", "Моряк": "sailor", "Писар": "scribe", "Солдат": "soldier", "Безпритульник": "urchin", "Мандрівник": "wayfarer"};
+  Object.keys(map).forEach(function(oldKey){var id=map[oldKey], value=BACKGROUND_DATA[oldKey];if(!value)return;delete BACKGROUND_DATA[oldKey];BACKGROUND_DATA[id]=value;Object.defineProperty(BACKGROUND_DATA,oldKey,{value:value,enumerable:false,configurable:true});});
 })();

@@ -606,11 +606,40 @@
     );
     return out.join("\n");
   }
+  // Лінива загрузка важких PDF-ресурсів (~1.6 МБ): шрифт та зображення аркуша
+  // вантажаться лише при першій генерації PDF, а не при відкритті сторінки.
+  const pdfAssetPromises = {};
+  function loadScriptOnce(src) {
+    if (!pdfAssetPromises[src]) {
+      pdfAssetPromises[src] = new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = src;
+        s.onload = () => resolve();
+        s.onerror = () => {
+          delete pdfAssetPromises[src];
+          reject(new Error("Не вдалося завантажити " + src));
+        };
+        document.head.appendChild(s);
+      });
+    }
+    return pdfAssetPromises[src];
+  }
+  function ensurePdfAssets() {
+    const tasks = [];
+    if (typeof window.DEJAVU_SANS_BASE64 !== "string" || window.DEJAVU_SANS_BASE64.length < 1e3)
+      tasks.push(loadScriptOnce("dejavu-font.js"));
+    if (!window.CHAR_SHEET_UK_PAGE_1) tasks.push(loadScriptOnce("character-sheet-images.js"));
+    return Promise.all(tasks);
+  }
   async function generatePDF() {
     const btn = document.getElementById("btn-download-pdf"),
       label = document.getElementById("btn-download-label"),
       icon = document.getElementById("btn-download-icon");
     try {
+      if (btn) btn.disabled = true;
+      if (label) label.innerText = "Готуємо PDF...";
+      setPdfStatus("Завантажуємо ресурси для PDF...");
+      await ensurePdfAssets();
       if (typeof window.DEJAVU_SANS_BASE64 !== "string" || window.DEJAVU_SANS_BASE64.length < 1e3)
         throw new Error("Шрифт не завантажився.");
       const errors = typeof runValidation === "function" ? runValidation() : [];

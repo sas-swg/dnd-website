@@ -767,3 +767,192 @@ html.dark #sum-masteries .bg-purple-100 { background-color: rgba(168,85,247,.2) 
 html.dark #sum-languages .text-emerald-800,
 html.dark #sum-tools .text-sky-800,
 html.dark #sum-masteries .text-purple-800 { color: #e2e8f0 !important; }
+
+/* === Complete dark-theme coverage === */
+html.dark {
+  color-scheme: dark;
+}
+html.dark body,
+html.dark dialog {
+  color: #e2e8f0;
+}
+
+/* Native controls and dynamically generated fields */
+html.dark input[type="email"],
+html.dark input[type="password"],
+html.dark input[type="url"],
+html.dark input[type="tel"],
+html.dark input[type="date"],
+html.dark input[type="time"],
+html.dark input[type="file"],
+html.dark option,
+html.dark optgroup {
+  background-color: #243449 !important;
+  color: #e2e8f0 !important;
+  border-color: #475569 !important;
+}
+html.dark input[type="checkbox"],
+html.dark input[type="radio"] {
+  color-scheme: dark;
+  accent-color: #22c55e;
+}
+html.dark input:disabled,
+html.dark select:disabled,
+html.dark textarea:disabled,
+html.dark button:disabled,
+html.dark [aria-disabled="true"] {
+  opacity: 0.58;
+}
+html.dark input::file-selector-button {
+  background: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+
+/* Remaining Tailwind surfaces used by generated cards and badges */
+html.dark .bg-gray-50,
+html.dark .bg-zinc-50,
+html.dark .bg-stone-50 {
+  background-color: #243449 !important;
+}
+html.dark .bg-gray-100,
+html.dark .bg-zinc-100,
+html.dark .bg-stone-100 {
+  background-color: #334155 !important;
+}
+html.dark .bg-blue-50,
+html.dark .bg-blue-100 {
+  background-color: #172b4d !important;
+}
+html.dark .bg-purple-50,
+html.dark .bg-purple-100 {
+  background-color: #2e1a47 !important;
+}
+html.dark .bg-orange-50,
+html.dark .bg-orange-100,
+html.dark .bg-yellow-50,
+html.dark .bg-yellow-100 {
+  background-color: #3a2e12 !important;
+}
+html.dark .bg-rose-50,
+html.dark .bg-pink-50 {
+  background-color: #451525 !important;
+}
+html.dark .bg-cyan-50,
+html.dark .bg-teal-50,
+html.dark .bg-emerald-50 {
+  background-color: #12363a !important;
+}
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-zinc-200,
+html.dark .border-zinc-300,
+html.dark .border-stone-200,
+html.dark .border-stone-300 {
+  border-color: #475569 !important;
+}
+html.dark .border-blue-200,
+html.dark .border-blue-300 {
+  border-color: #315c8a !important;
+}
+html.dark .border-purple-100,
+html.dark .border-purple-200,
+html.dark .border-purple-300 {
+  border-color: #6b3fa0 !important;
+}
+html.dark .border-orange-200,
+html.dark .border-orange-300,
+html.dark .border-yellow-200,
+html.dark .border-yellow-300 {
+  border-color: #785f24 !important;
+}
+html.dark .text-blue-600,
+html.dark .text-blue-700 {
+  color: #93c5fd !important;
+}
+html.dark .text-orange-600,
+html.dark .text-orange-700 {
+  color: #fdba74 !important;
+}
+html.dark .text-purple-500,
+html.dark .text-purple-700 {
+  color: #d8b4fe !important;
+}
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-zinc-500,
+html.dark .text-stone-500 {
+  color: #94a3b8 !important;
+}
+html.dark .text-gray-700,
+html.dark .text-gray-900,
+html.dark .text-zinc-700,
+html.dark .text-zinc-900,
+html.dark .text-stone-700,
+html.dark .text-stone-900 {
+  color: #e2e8f0 !important;
+}
+html.dark .ring-white {
+  --tw-ring-color: #1e293b !important;
+}
+
+/* The autosave toolbar is generated with inline light-theme styles. */
+html.dark #char-autosave-toolbar {
+  background: rgba(30, 41, 59, 0.97) !important;
+  border-color: #475569 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+html.dark #char-autosave-toolbar > span {
+  color: #cbd5e1 !important;
+}
+html.dark #char-autosave-toolbar button:not(:nth-of-type(1)) {
+  background: #243449 !important;
+  color: #e2e8f0 !important;
+  border-color: #64748b !important;
+}
+html.dark #char-autosave-toolbar button:nth-of-type(4) {
+  color: #fca5a5 !important;
+  border-color: #ef4444 !important;
+}
+html.dark body > button[aria-label*="Розгорнути панель"],
+html.dark body > button[aria-label*="Expand autosave"] {
+  background: rgba(30, 41, 59, 0.97) !important;
+  color: #e2e8f0 !important;
+  border-color: #475569 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Keep translucent cards, shadows and interactive states coherent. */
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.35) !important;
+}
+html.dark .hover\:text-purple-900:hover {
+  color: #e9d5ff !important;
+}
+html.dark .hover\:text-forest:hover,
+html.dark .hover\:text-forest-accent:hover {
+  color: #4ade80 !important;
+}
+html.dark ::selection {
+  background: #166534;
+  color: #f1f5f9;
+}
+
+/* 2024 accessibility/mobile hardening */
+:focus-visible{outline:3px solid #2783de!important;outline-offset:2px!important}
+@media(max-width:640px){
+ #char-autosave-toolbar{left:8px!important;right:8px!important;bottom:76px!important;max-width:none!important;justify-content:center!important}
+ #char-autosave-toolbar span{flex-basis:100%;text-align:center}
+ body:has(#char-autosave-toolbar){padding-bottom:150px}
+ .sticky.bottom-0{z-index:50!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:640px){
+ #char-autosave-toolbar{left:8px!important;right:8px!important;bottom:72px!important;max-width:none!important;justify-content:flex-start!important;flex-wrap:nowrap!important;overflow-x:auto!important;padding:5px 6px!important;gap:6px!important;scrollbar-width:thin}
+ #char-autosave-toolbar span{display:none!important}
+ #char-autosave-toolbar button{white-space:nowrap!important;padding:5px 8px!important;min-height:36px}
+ body:has(#char-autosave-toolbar){padding-bottom:122px}
+}

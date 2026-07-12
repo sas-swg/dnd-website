@@ -2,6 +2,8 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Пошуковий D&D spell reference with level, class and school filters.">
+    <link rel="manifest" href="manifest.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заклинання (Spells) - D&D 5e</title>
 
@@ -48,7 +50,7 @@
     <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
+                <img alt="D&D 2024" src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
                 <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
                     D&D 5e База Знань
                 </h1>
@@ -107,7 +109,7 @@
                 <option value="рейнджер">Рейнджер</option>
                 <option value="чародій">Чародій</option>
                 <option value="чарівник">Чарівник</option>
-                <option value="колдун">Колдун</option>
+                <option value="чаклун">Чаклун</option>
                 <option value="винахідник">Винахідник (Artificer)</option>
             </select>
 
@@ -134,7 +136,7 @@
     </main>
 
 <script src="spell-classes.js"></script>
-<script src="spells-data.js"></script>
+<script src="spells-data.js" defer></script>
 <script>
 function toggleSingle(element) {
   const card = element.closest(".feat-card");
@@ -154,13 +156,55 @@ function toggleSingle(element) {
     content.classList.remove("open");
     title.classList.replace("text-forest", "text-black");
     card.classList.remove("active-card");
+    updateUrlParam("spell", "");
   } else {
     content.classList.add("open");
     title.classList.replace("text-black", "text-forest");
     card.classList.add("active-card");
+    updateUrlParam("spell", card.getAttribute("data-eng") || "");
     setTimeout(() => {
       card.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }, 300);
+  }
+}
+// Deep-links: стан фільтрів і відкрита картка зберігаються в URL,
+// щоб можна було поділитися посиланням на конкретне заклинання.
+function updateUrlParam(key, value) {
+  try {
+    const url = new URL(location.href);
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
+    history.replaceState(null, "", url);
+  } catch (e) {}
+}
+function syncFiltersToUrl() {
+  updateUrlParam("q", document.getElementById("searchInput").value.trim());
+  updateUrlParam("level", document.getElementById("levelFilter").value);
+  updateUrlParam("school", document.getElementById("schoolFilter").value);
+  updateUrlParam("class", document.getElementById("classFilter").value);
+}
+function applyUrlParams() {
+  let params;
+  try {
+    params = new URLSearchParams(location.search);
+  } catch (e) {
+    return;
+  }
+  if (params.get("q")) document.getElementById("searchInput").value = params.get("q");
+  if (params.get("level")) document.getElementById("levelFilter").value = params.get("level");
+  if (params.get("school")) document.getElementById("schoolFilter").value = params.get("school");
+  if (params.get("class")) document.getElementById("classFilter").value = params.get("class");
+  filterSpells();
+  const spell = (params.get("spell") || "").toLowerCase();
+  if (spell) {
+    const cards = document.getElementsByClassName("feat-card");
+    for (let i = 0; i < cards.length; i++) {
+      if ((cards[i].getAttribute("data-eng") || "") === spell) {
+        const header = cards[i].querySelector("[onclick]");
+        if (header) toggleSingle(header);
+        break;
+      }
+    }
   }
 }
 function esc(s) {
@@ -298,6 +342,7 @@ function filterSpells() {
   const hasFilters = textInput || levelInput || schoolInput || classInput;
   const reset = document.getElementById("resetFilters");
   if (reset) reset.classList.toggle("hidden", !hasFilters);
+  syncFiltersToUrl();
 }
 function resetSpellFilters() {
   document.getElementById("searchInput").value = "";
@@ -308,7 +353,7 @@ function resetSpellFilters() {
 }
 document.addEventListener("DOMContentLoaded", function () {
   renderSpells();
-  filterSpells();
+  applyUrlParams();
 });
 </script>
 <script src="search-index.js"></script>

@@ -342,7 +342,40 @@
     /* ====================================================================
      *  ЧАСТИНА 3 — Генерація листа персонажа.
      * ==================================================================== */
+    // Лінива загрузка шрифту (~1 МБ): вантажиться лише при першій генерації PDF.
+    let dejavuFontPromise = null;
+    function ensureDejavuFont() {
+        if (typeof window.DEJAVU_SANS_BASE64 === "string" && window.DEJAVU_SANS_BASE64.length >= 1000) {
+            return Promise.resolve();
+        }
+        if (!dejavuFontPromise) {
+            dejavuFontPromise = new Promise((resolve, reject) => {
+                const s = document.createElement("script");
+                s.src = (window.DEJAVU_FONT_SRC || "dejavu-font.js");
+                s.onload = () => resolve();
+                s.onerror = () => { dejavuFontPromise = null; reject(new Error("Не вдалося завантажити dejavu-font.js")); };
+                document.head.appendChild(s);
+            });
+        }
+        return dejavuFontPromise;
+    }
+
     function generatePDF() {
+        const preBtn = document.getElementById("btn-download-pdf");
+        const preLabel = document.getElementById("btn-download-label");
+        if (preBtn) preBtn.disabled = true;
+        if (preLabel) preLabel.innerText = "Готуємо шрифт...";
+        setPdfStatus("Завантажуємо шрифт для PDF...");
+        ensureDejavuFont()
+            .then(() => generatePDFCore())
+            .catch((err) => {
+                setPdfStatus(`Шрифт не завантажився: ${err.message}`, true);
+                if (preBtn) preBtn.disabled = false;
+                if (preLabel) preLabel.innerText = "Завантажити PDF";
+            });
+    }
+
+    function generatePDFCore() {
         const btn = document.getElementById("btn-download-pdf");
         const label = document.getElementById("btn-download-label");
         const icon = document.getElementById("btn-download-icon");

@@ -177,7 +177,8 @@
   function setStatus(txt) { if (statusEl) statusEl.textContent = txt; }
   function buildToolbar() {
     var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;bottom:14px;left:14px;z-index:9999;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.95);border:1px solid #cbd5e1;border-radius:10px;padding:6px 10px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:12px;';
+    bar.id = 'char-autosave-toolbar';
+    bar.style.cssText = 'position:fixed;bottom:82px;left:14px;right:auto;z-index:30;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:rgba(255,255,255,.97);border:1px solid #cbd5e1;border-radius:10px;padding:6px 10px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:12px;max-width:calc(100vw - 28px);';
     statusEl = document.createElement('span');
     statusEl.style.cssText = 'color:#475569;font-weight:600;white-space:nowrap;';
     statusEl.textContent = '💾 Автозбереження';
@@ -203,8 +204,32 @@
     reset.type = 'button'; reset.textContent = '🔄 Почати заново';
     reset.style.cssText = 'cursor:pointer;border:1px solid #ef4444;background:#fff;color:#b91c1c;border-radius:8px;padding:4px 8px;font-weight:700;';
     reset.onclick = startOver;
-    bar.appendChild(statusEl); bar.appendChild(sheetBtn); bar.appendChild(exp); bar.appendChild(loadBtn); bar.appendChild(reset); bar.appendChild(fileInput);
+    // Кнопка згортання панелі, щоб вона не затуляла контент
+    var collapseBtn = document.createElement('button');
+    collapseBtn.type = 'button'; collapseBtn.textContent = '−';
+    collapseBtn.title = 'Згорнути панель';
+    collapseBtn.setAttribute('aria-label', 'Згорнути панель автозбереження');
+    collapseBtn.style.cssText = 'cursor:pointer;border:1px solid #94a3b8;background:#fff;color:#334155;border-radius:8px;padding:4px 9px;font-weight:700;line-height:1;';
+    var expandBtn = document.createElement('button');
+    expandBtn.type = 'button'; expandBtn.textContent = '💾';
+    expandBtn.title = 'Розгорнути панель автозбереження';
+    expandBtn.setAttribute('aria-label', 'Розгорнути панель автозбереження');
+    expandBtn.style.cssText = 'position:fixed;bottom:82px;left:14px;z-index:30;display:none;cursor:pointer;border:1px solid #cbd5e1;background:rgba(255,255,255,.97);border-radius:50%;width:40px;height:40px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:16px;';
+    var COLLAPSE_KEY = 'char-autosave-collapsed';
+    function setCollapsed(collapsed) {
+      bar.style.display = collapsed ? 'none' : 'flex';
+      expandBtn.style.display = collapsed ? 'block' : 'none';
+      try { localStorage.setItem(COLLAPSE_KEY, collapsed ? '1' : '0'); } catch (e) {}
+    }
+    collapseBtn.onclick = function () { setCollapsed(true); };
+    expandBtn.onclick = function () { setCollapsed(false); };
+    bar.appendChild(statusEl); bar.appendChild(sheetBtn); bar.appendChild(exp); bar.appendChild(loadBtn); bar.appendChild(reset); bar.appendChild(collapseBtn); bar.appendChild(fileInput);
     document.body.appendChild(bar);
+    document.body.appendChild(expandBtn);
+    // Резервуємо місце внизу сторінки, щоб панель не перекривала контент і кнопки
+    var basePad = parseInt(getComputedStyle(document.body).paddingBottom, 10) || 0;
+    document.body.style.paddingBottom = (basePad + 140) + 'px';
+    try { if (localStorage.getItem(COLLAPSE_KEY) === '1') setCollapsed(true); } catch (e) {}
   }
 
   function saveAndOpenSheet() {
