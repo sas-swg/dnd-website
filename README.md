@@ -18,7 +18,7 @@
 - 🌐 Працює без інтернету після завантаження
 
 ### ⚠️ Авторські права та застереження
-*Dungeons & Dragons*, *D&D*, Wizards of the Coast та всі пов'язані назви,
+*Dungeons & Dragons*,*D&D*, Wizards of the Coast та всі пов'язані назви,
 логотипи й образи є торговими марками та власністю **Wizards of the Coast LLC**.
 Усі права на оригінальний матеріал належать Wizards of the Coast.
 
