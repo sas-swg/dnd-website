@@ -1,23 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Пошуковий D&D spell reference with level, class and school filters.">
-    <link rel="manifest" href="manifest.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заклинання (Spells) - D&D 5e</title>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-
-
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="Пошуковий D&amp;D spell reference with level, class and school filters." name="description"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Заклинання (Spells) - D&amp;D 5e</title>
+<link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon.png" rel="icon" sizes="128x128" type="image/png"/>
+<link href="favicon.ico" rel="shortcut icon"/>
+<style>
 .feat-content {
   display: grid;
   grid-template-rows: 0fr;
@@ -34,329 +27,99 @@
   box-shadow: 0 4px 12px rgba(20, 83, 45, 0.1);
 }
 </style>
-    <link rel="stylesheet" href="site-common.css">
-    <link rel="stylesheet" href="vendor/tailwind.css">
-    <script>
+<link href="site-common.css" rel="stylesheet"/>
+<link href="vendor/tailwind.css" rel="stylesheet"/>
+<script>
 (function () {
   try {
     if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
   } catch (e) {}
 })();
 </script>
-</head>
-<body class="font-body text-dnd-text bg-[#F8FAFC] min-h-screen flex flex-col">
-
-
-    <header class="bg-forest text-white py-2 shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-4 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <img alt="D&D 2024" src="favicon.png" class="w-8 h-8 rounded-md" onerror="this.style.display='none'">
-                <h1 class="font-heading text-lg font-bold uppercase tracking-tight">
-                    D&D 5e База Знань
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap"/><link href="vendor/fonts.css" rel="stylesheet"/>
+<link href="https://sas-swg.github.io/dnd-website/spells.html" rel="canonical"/><link href="https://sas-swg.github.io/dnd-website/spells.html" hreflang="uk" rel="alternate"/><link href="https://sas-swg.github.io/dnd-website/en/spells.html" hreflang="en" rel="alternate"/><meta content="website" property="og:type"/><meta content="Заклинання (Spells) - D&amp;D 5e" property="og:title"/><meta content="Пошуковий D&amp;D spell reference with level, class and school filters." property="og:description"/><meta content="https://sas-swg.github.io/dnd-website/spells.html" property="og:url"/><meta content="https://sas-swg.github.io/dnd-website/img/favicon.png" property="og:image"/><meta content="uk_UA" property="og:locale"/><meta content="D&amp;D 2024" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="Заклинання (Spells) - D&amp;D 5e" name="twitter:title"/><meta content="Пошуковий D&amp;D spell reference with level, class and school filters." name="twitter:description"/></head>
+<body class="font-body text-ui-text min-h-screen flex flex-col">
+<a class="skip-link" href="#main">Перейти до вмісту</a>
+<header class="bg-forest text-white py-3 shadow-md sticky top-0 z-40">
+<div class="container mx-auto px-4 flex items-center justify-between">
+<a class="flex items-center gap-2" href="index.html">
+<img alt="D&amp;D 2024" class="w-9 h-9 rounded-md" onerror="this.style.display='none'" src="favicon.png"/>
+<h1 class="font-heading text-xl font-bold uppercase tracking-tight">
+                    D&amp;D 5e База Знань
                 </h1>
-            </a>
-            <nav class="hidden md:flex gap-5 text-sm font-semibold">
-                <a href="index.html" class="hover:text-forest-accent transition-colors">Головна</a>
-                <a href="rules.html" class="hover:text-forest-accent transition-colors">Правила</a>
-                <a href="races.html" class="hover:text-forest-accent transition-colors">Раси</a>
-                <a href="classes.html" class="hover:text-forest-accent transition-colors">Класи</a>
-            </nav>
-        </div>
-    </header>
-
-    
-    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
-
-        <div class="mb-6">
-            <h1 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Заклинання</h1>
-            <p class="text-sm text-slate-500 mt-2">Використовуйте фільтри нижче, щоб знайти потрібну магію. Натисніть на картку, щоб розгорнути опис.</p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full mb-4">
-
-            <select id="levelFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">Всі рівні</option>
-                <option value="замовляння">Замовляння (0)</option>
-                <option value="1-й рівень">1-й рівень</option>
-                <option value="2-й рівень">2-й рівень</option>
-                <option value="3-й рівень">3-й рівень</option>
-                <option value="4-й рівень">4-й рівень</option>
-                <option value="5-й рівень">5-й рівень</option>
-                <option value="6-й рівень">6-й рівень</option>
-                <option value="7-й рівень">7-й рівень</option>
-                <option value="8-й рівень">8-й рівень</option>
-                <option value="9-й рівень">9-й рівень</option>
-            </select>
-
-            <select id="schoolFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">Всі школи</option>
-                <option value="убезпечення">Убезпечення</option>
-                <option value="виклик">Виклик</option>
-                <option value="віщування">Віщування</option>
-                <option value="очарування">Очарування</option>
-                <option value="втілення">Втілення</option>
-                <option value="ілюзія">Ілюзія</option>
-                <option value="некромантія">Некромантія</option>
-                <option value="перетворення">Перетворення</option>
-            </select>
-
-            <select id="classFilter" onchange="filterSpells()" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer">
-                <option value="">Всі класи</option>
-                <option value="бард">Бард</option>
-                <option value="жрець">Жрець</option>
-                <option value="друїд">Друїд</option>
-                <option value="паладин">Паладин</option>
-                <option value="рейнджер">Рейнджер</option>
-                <option value="чародій">Чародій</option>
-                <option value="чарівник">Чарівник</option>
-                <option value="чаклун">Чаклун</option>
-                <option value="винахідник">Винахідник (Artificer)</option>
-            </select>
-
-            <div class="relative flex-grow sm:w-64 lg:w-auto">
-                <input type="text" id="searchInput" onkeyup="filterSpells()" placeholder="Пошук за словом..."
-                    class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all">
-                <span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
-            </div>
-        </div>
-
-        <div class="flex items-center justify-between mb-4">
-            <p id="resultCount" class="text-xs text-slate-400"></p>
-            <button id="resetFilters" onclick="resetSpellFilters()" class="text-xs font-semibold text-forest hover:text-forest-hover hidden">Скинути фільтри</button>
-        </div>
-
-        <div id="spell-list" class="space-y-3"></div>
-
-        <div id="emptyState" class="hidden text-center py-16 text-slate-400">
-            <div class="text-4xl mb-3">🪄</div>
-            <p class="font-semibold">Нічого не знайдено</p>
-            <p class="text-sm mt-1">Спробуйте змінити фільтри або пошуковий запит.</p>
-        </div>
-
-    </main>
-
+</a>
+<nav class="hidden md:flex gap-5 text-sm font-semibold">
+<a class="hover:text-forest-accent transition-colors" href="index.html">Головна</a>
+<a class="hover:text-forest-accent transition-colors" href="rules.html">Правила</a>
+<a class="hover:text-forest-accent transition-colors" href="races.html">Раси</a>
+<a class="hover:text-forest-accent transition-colors" href="classes.html">Класи</a>
+</nav>
+</div>
+</header>
+<main id="main" class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8 mt-16 w-full">
+<div class="mb-6">
+<h2 class="text-3xl md:text-4xl font-bold text-forest font-heading border-b border-slate-200 pb-3">Заклинання</h2>
+<p class="text-sm text-slate-500 mt-2">Використовуйте фільтри нижче, щоб знайти потрібну магію. Натисніть на картку, щоб розгорнути опис.</p>
+</div>
+<div class="flex flex-col sm:flex-row flex-wrap gap-3 w-full mb-4">
+<select aria-label="levelFilter" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer" id="levelFilter" onchange="filterSpells()">
+<option value="">Всі рівні</option>
+<option value="замовляння">Замовляння (0)</option>
+<option value="1-й рівень">1-й рівень</option>
+<option value="2-й рівень">2-й рівень</option>
+<option value="3-й рівень">3-й рівень</option>
+<option value="4-й рівень">4-й рівень</option>
+<option value="5-й рівень">5-й рівень</option>
+<option value="6-й рівень">6-й рівень</option>
+<option value="7-й рівень">7-й рівень</option>
+<option value="8-й рівень">8-й рівень</option>
+<option value="9-й рівень">9-й рівень</option>
+</select>
+<select aria-label="schoolFilter" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer" id="schoolFilter" onchange="filterSpells()">
+<option value="">Всі школи</option>
+<option value="убезпечення">Убезпечення</option>
+<option value="виклик">Виклик</option>
+<option value="віщування">Віщування</option>
+<option value="очарування">Очарування</option>
+<option value="втілення">Втілення</option>
+<option value="ілюзія">Ілюзія</option>
+<option value="некромантія">Некромантія</option>
+<option value="перетворення">Перетворення</option>
+</select>
+<select aria-label="classFilter" class="pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm bg-white text-slate-700 cursor-pointer" id="classFilter" onchange="filterSpells()">
+<option value="">Всі класи</option>
+<option value="бард">Бард</option>
+<option value="жрець">Жрець</option>
+<option value="друїд">Друїд</option>
+<option value="паладин">Паладин</option>
+<option value="рейнджер">Рейнджер</option>
+<option value="чародій">Чародій</option>
+<option value="чарівник">Чарівник</option>
+<option value="чаклун">Чаклун</option>
+<option value="винахідник">Винахідник (Artificer)</option>
+</select>
+<div class="relative flex-grow sm:w-64 lg:w-auto">
+<input aria-label="Пошук за словом..." class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent shadow-sm text-sm transition-all" id="searchInput" onkeyup="filterSpells()" placeholder="Пошук за словом..." type="text"/>
+<span class="absolute right-3 top-2.5 text-slate-400">🔍</span>
+</div>
+</div>
+<div class="flex items-center justify-between mb-4">
+<p class="text-xs text-slate-400" id="resultCount"></p>
+<button class="text-xs font-semibold text-forest hover:text-forest-hover hidden" id="resetFilters" onclick="resetSpellFilters()">Скинути фільтри</button>
+</div>
+<div class="space-y-3" id="spell-list"></div>
+<div class="hidden text-center py-16 text-slate-400" id="emptyState">
+<div class="text-4xl mb-3">🪄</div>
+<p class="font-semibold">Нічого не знайдено</p>
+<p class="text-sm mt-1">Спробуйте змінити фільтри або пошуковий запит.</p>
+</div>
+</main>
 <script src="spell-classes.js"></script>
-<script src="spells-data.js" defer></script>
+<script defer="" src="spells-data.js"></script>
 <script>
-function toggleSingle(element) {
-  const card = element.closest(".feat-card");
-  const content = card.querySelector(".feat-content");
-  const title = card.querySelector(".feat-name");
-  const isOpen = content.classList.contains("open");
-  document.querySelectorAll(".feat-content.open").forEach((el) => {
-    if (el !== content) {
-      el.classList.remove("open");
-      el.closest(".feat-card")
-        .querySelector(".feat-name")
-        .classList.replace("text-forest", "text-black");
-      el.closest(".feat-card").classList.remove("active-card");
-    }
-  });
-  if (isOpen) {
-    content.classList.remove("open");
-    title.classList.replace("text-forest", "text-black");
-    card.classList.remove("active-card");
-    updateUrlParam("spell", "");
-  } else {
-    content.classList.add("open");
-    title.classList.replace("text-black", "text-forest");
-    card.classList.add("active-card");
-    updateUrlParam("spell", card.getAttribute("data-eng") || "");
-    setTimeout(() => {
-      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }, 300);
-  }
-}
-// Deep-links: стан фільтрів і відкрита картка зберігаються в URL,
-// щоб можна було поділитися посиланням на конкретне заклинання.
-function updateUrlParam(key, value) {
-  try {
-    const url = new URL(location.href);
-    if (value) url.searchParams.set(key, value);
-    else url.searchParams.delete(key);
-    history.replaceState(null, "", url);
-  } catch (e) {}
-}
-function syncFiltersToUrl() {
-  updateUrlParam("q", document.getElementById("searchInput").value.trim());
-  updateUrlParam("level", document.getElementById("levelFilter").value);
-  updateUrlParam("school", document.getElementById("schoolFilter").value);
-  updateUrlParam("class", document.getElementById("classFilter").value);
-}
-function applyUrlParams() {
-  let params;
-  try {
-    params = new URLSearchParams(location.search);
-  } catch (e) {
-    return;
-  }
-  if (params.get("q")) document.getElementById("searchInput").value = params.get("q");
-  if (params.get("level")) document.getElementById("levelFilter").value = params.get("level");
-  if (params.get("school")) document.getElementById("schoolFilter").value = params.get("school");
-  if (params.get("class")) document.getElementById("classFilter").value = params.get("class");
-  filterSpells();
-  const spell = (params.get("spell") || "").toLowerCase();
-  if (spell) {
-    const cards = document.getElementsByClassName("feat-card");
-    for (let i = 0; i < cards.length; i++) {
-      if ((cards[i].getAttribute("data-eng") || "") === spell) {
-        const header = cards[i].querySelector("[onclick]");
-        if (header) toggleSingle(header);
-        break;
-      }
-    }
-  }
-}
-function esc(s) {
-  return String(s == null ? "" : s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-function levelLabel(lvl) {
-  return lvl === 0 ? "Замовляння" : lvl + "-й рівень";
-}
-function renderSpells() {
-  const list = document.getElementById("spell-list");
-  const spells = (typeof DND_SPELLS !== "undefined" ? DND_SPELLS : []).slice();
-  spells.sort((a, b) => a.level - b.level || a.name.localeCompare(b.name, "uk"));
-  const html = spells
-    .map(function (sp) {
-      const lvlLabel = levelLabel(sp.level);
-      const subtitle = lvlLabel + ", " + sp.school + (sp.ritual ? " · Ритуал" : "");
-      const summaryParts = [sp.castingTime, sp.range, sp.duration].filter(Boolean);
-      const summary = (sp.concentration ? "Концентрація · " : "") + summaryParts.join(" | ");
-      const engName = (sp.nameEn || "").toLowerCase();
-      const fullName = sp.name + " (" + (sp.nameEn || "") + ")";
-      const paras = String(sp.description || "")
-        .split(/\n+/)
-        .filter(function (p) {
-          return p.trim();
-        })
-        .map(function (p) {
-          return "<p>" + esc(p) + "</p>";
-        })
-        .join("");
-      const searchText = (fullName + " " + sp.school + " " + (sp.description || "")).toLowerCase();
-      const badges = [];
-      if (sp.concentration)
-        badges.push(
-          '<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-700">Концентрація</span>',
-        );
-      if (sp.ritual)
-        badges.push(
-          '<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-700">Ритуал</span>',
-        );
-      return (
-        "" +
-        '<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm"' +
-        ' data-level-label="' +
-        esc(lvlLabel.toLowerCase()) +
-        '"' +
-        ' data-school="' +
-        esc(sp.school.toLowerCase()) +
-        '"' +
-        ' data-eng="' +
-        esc(engName) +
-        '"' +
-        ' data-search="' +
-        esc(searchText) +
-        '">' +
-        '<div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)">' +
-        '<div class="flex flex-col mb-2 md:mb-0">' +
-        '<span class="font-bold text-lg leading-tight feat-name text-black transition-colors">' +
-        esc(fullName) +
-        "</span>" +
-        '<span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">' +
-        esc(subtitle) +
-        "</span>" +
-        "</div>" +
-        '<div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">' +
-        esc(summary) +
-        "</div>" +
-        "</div>" +
-        '<div class="feat-content"><div class="feat-inner">' +
-        '<div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">' +
-        (badges.length ? '<div class="flex gap-2 flex-wrap">' + badges.join("") + "</div>" : "") +
-        '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs bg-slate-50 p-3 rounded border border-slate-100">' +
-        '<div><strong class="text-forest">Час:</strong> ' +
-        esc(sp.castingTime) +
-        "</div>" +
-        '<div><strong class="text-forest">Дистанція:</strong> ' +
-        esc(sp.range) +
-        "</div>" +
-        '<div><strong class="text-forest">Компоненти:</strong> ' +
-        esc(sp.components) +
-        "</div>" +
-        '<div><strong class="text-forest">Тривалість:</strong> ' +
-        esc(sp.duration) +
-        "</div>" +
-        "</div>" +
-        paras +
-        "</div>" +
-        "</div></div>" +
-        "</div>"
-      );
-    })
-    .join("");
-  list.innerHTML = html;
-}
-function filterSpells() {
-  const textInput = document.getElementById("searchInput").value.toLowerCase().trim();
-  const levelInput = document.getElementById("levelFilter").value.toLowerCase();
-  const schoolInput = document.getElementById("schoolFilter").value.toLowerCase();
-  const classInput = document.getElementById("classFilter").value.toLowerCase();
-  const cards = document.getElementsByClassName("feat-card");
-  let visible = 0;
-  for (let i = 0; i < cards.length; i++) {
-    const c = cards[i];
-    const search = c.getAttribute("data-search") || "";
-    const levelLbl = c.getAttribute("data-level-label") || "";
-    const school = c.getAttribute("data-school") || "";
-    const eng = c.getAttribute("data-eng") || "";
-    const matchesText = textInput === "" || search.includes(textInput);
-    const matchesLevel = levelInput === "" || levelLbl === levelInput;
-    const matchesSchool = schoolInput === "" || school.includes(schoolInput);
-    let matchesClass = true;
-    if (classInput !== "") {
-      matchesClass = false;
-      if (typeof spellClassesDB !== "undefined" && spellClassesDB[eng]) {
-        matchesClass = spellClassesDB[eng].includes(classInput);
-      } else {
-        matchesClass = search.includes(classInput);
-      }
-    }
-    if (matchesText && matchesLevel && matchesSchool && matchesClass) {
-      c.style.display = "";
-      visible++;
-    } else {
-      c.style.display = "none";
-    }
-  }
-  const total = cards.length;
-  const counter = document.getElementById("resultCount");
-  if (counter) counter.textContent = "Показано " + visible + " із " + total + " заклинань";
-  const empty = document.getElementById("emptyState");
-  if (empty) empty.classList.toggle("hidden", visible !== 0);
-  const hasFilters = textInput || levelInput || schoolInput || classInput;
-  const reset = document.getElementById("resetFilters");
-  if (reset) reset.classList.toggle("hidden", !hasFilters);
-  syncFiltersToUrl();
-}
-function resetSpellFilters() {
-  document.getElementById("searchInput").value = "";
-  document.getElementById("levelFilter").value = "";
-  document.getElementById("schoolFilter").value = "";
-  document.getElementById("classFilter").value = "";
-  filterSpells();
-}
-document.addEventListener("DOMContentLoaded", function () {
-  renderSpells();
-  applyUrlParams();
-});
+function toggleSingle(element){const card=element.closest(".feat-card"),content=card.querySelector(".feat-content"),title=card.querySelector(".feat-name"),isOpen=content.classList.contains("open");document.querySelectorAll(".feat-content.open").forEach(el=>{el!==content&&(el.classList.remove("open"),el.closest(".feat-card").querySelector(".feat-name").classList.replace("text-forest","text-black"),el.closest(".feat-card").classList.remove("active-card"))}),isOpen?(content.classList.remove("open"),title.classList.replace("text-forest","text-black"),card.classList.remove("active-card"),updateUrlParam("spell","")):(content.classList.add("open"),title.classList.replace("text-black","text-forest"),card.classList.add("active-card"),updateUrlParam("spell",card.getAttribute("data-eng")||""),setTimeout(()=>{card.scrollIntoView({behavior:"smooth",block:"nearest"})},300))}function updateUrlParam(key,value){try{const url=new URL(location.href);value?url.searchParams.set(key,value):url.searchParams.delete(key),history.replaceState(null,"",url)}catch(e){}}function syncFiltersToUrl(){updateUrlParam("q",document.getElementById("searchInput").value.trim()),updateUrlParam("level",document.getElementById("levelFilter").value),updateUrlParam("school",document.getElementById("schoolFilter").value),updateUrlParam("class",document.getElementById("classFilter").value)}function applyUrlParams(){let params;try{params=new URLSearchParams(location.search)}catch(e){return}params.get("q")&&(document.getElementById("searchInput").value=params.get("q")),params.get("level")&&(document.getElementById("levelFilter").value=params.get("level")),params.get("school")&&(document.getElementById("schoolFilter").value=params.get("school")),params.get("class")&&(document.getElementById("classFilter").value=params.get("class")),filterSpells();const spell=(params.get("spell")||"").toLowerCase();if(spell){const cards=document.getElementsByClassName("feat-card");for(let i=0;i<cards.length;i++)if((cards[i].getAttribute("data-eng")||"")===spell){const header=cards[i].querySelector("[onclick]");header&&toggleSingle(header);break}}}function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}function levelLabel(lvl){return lvl===0?"Замовляння":lvl+"-й рівень"}function renderSpells(){const list=document.getElementById("spell-list"),spells=(typeof DND_SPELLS!="undefined"?DND_SPELLS:[]).slice();spells.sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name,"uk"));const html=spells.map(function(sp){const lvlLabel=levelLabel(sp.level),subtitle=lvlLabel+", "+sp.school+(sp.ritual?" · Ритуал":""),summaryParts=[sp.castingTime,sp.range,sp.duration].filter(Boolean),summary=(sp.concentration?"Концентрація · ":"")+summaryParts.join(" | "),engName=(sp.nameEn||"").toLowerCase(),fullName=sp.name+" ("+(sp.nameEn||"")+")",paras=String(sp.description||"").split(/\n+/).filter(function(p){return p.trim()}).map(function(p){return"<p>"+esc(p)+"</p>"}).join(""),searchText=(fullName+" "+sp.school+" "+(sp.description||"")).toLowerCase(),badges=[];return sp.concentration&&badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-700">Концентрація</span>'),sp.ritual&&badges.push('<span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-700">Ритуал</span>'),'<div class="feat-card bg-white border border-slate-200 rounded-md shadow-sm" data-level-label="'+esc(lvlLabel.toLowerCase())+'" data-school="'+esc(sp.school.toLowerCase())+'" data-eng="'+esc(engName)+'" data-search="'+esc(searchText)+'"><div class="p-3 md:p-4 bg-dnd-beige hover:bg-dnd-beigedark cursor-pointer flex flex-col md:flex-row justify-between md:items-center transition-colors select-none" onclick="toggleSingle(this)"><div class="flex flex-col mb-2 md:mb-0"><span class="font-bold text-lg leading-tight feat-name text-black transition-colors">'+esc(fullName)+'</span><span class="text-xs font-semibold text-dnd-muted uppercase mt-0.5">'+esc(subtitle)+'</span></div><div class="text-sm font-medium text-slate-800 md:text-right md:max-w-[55%] feat-summary">'+esc(summary)+'</div></div><div class="feat-content"><div class="feat-inner"><div class="p-4 md:p-6 border-t border-slate-200 bg-white text-slate-800 text-sm leading-relaxed space-y-3">'+(badges.length?'<div class="flex gap-2 flex-wrap">'+badges.join("")+"</div>":"")+'<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs bg-slate-50 p-3 rounded border border-slate-100"><div><strong class="text-forest">Час:</strong> '+esc(sp.castingTime)+'</div><div><strong class="text-forest">Дистанція:</strong> '+esc(sp.range)+'</div><div><strong class="text-forest">Компоненти:</strong> '+esc(sp.components)+'</div><div><strong class="text-forest">Тривалість:</strong> '+esc(sp.duration)+"</div></div>"+paras+"</div></div></div></div>"}).join("");list.innerHTML=html}function filterSpells(){const textInput=document.getElementById("searchInput").value.toLowerCase().trim(),levelInput=document.getElementById("levelFilter").value.toLowerCase(),schoolInput=document.getElementById("schoolFilter").value.toLowerCase(),classInput=document.getElementById("classFilter").value.toLowerCase(),cards=document.getElementsByClassName("feat-card");let visible=0;for(let i=0;i<cards.length;i++){const c=cards[i],search=c.getAttribute("data-search")||"",levelLbl=c.getAttribute("data-level-label")||"",school=c.getAttribute("data-school")||"",eng=c.getAttribute("data-eng")||"",matchesText=textInput===""||search.includes(textInput),matchesLevel=levelInput===""||levelLbl===levelInput,matchesSchool=schoolInput===""||school.includes(schoolInput);let matchesClass=!0;classInput!==""&&(matchesClass=!1,typeof spellClassesDB!="undefined"&&spellClassesDB[eng]?matchesClass=spellClassesDB[eng].includes(classInput):matchesClass=search.includes(classInput)),matchesText&&matchesLevel&&matchesSchool&&matchesClass?(c.style.display="",visible++):c.style.display="none"}const total=cards.length,counter=document.getElementById("resultCount");counter&&(counter.textContent="Показано "+visible+" із "+total+" заклинань");const empty=document.getElementById("emptyState");empty&&empty.classList.toggle("hidden",visible!==0);const hasFilters=textInput||levelInput||schoolInput||classInput,reset=document.getElementById("resetFilters");reset&&reset.classList.toggle("hidden",!hasFilters),syncFiltersToUrl()}function resetSpellFilters(){document.getElementById("searchInput").value="",document.getElementById("levelFilter").value="",document.getElementById("schoolFilter").value="",document.getElementById("classFilter").value="",filterSpells()}document.addEventListener("DOMContentLoaded",function(){renderSpells(),applyUrlParams()});
+
 </script>
-<script src="search-index.js"></script>
 <script src="site-common.js"></script>
 </body>
 </html>
