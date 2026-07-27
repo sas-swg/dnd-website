@@ -1,25 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="D&D 2024 digital reference with rules, classes, species, spells, monsters, items and character tools.">
-    <link rel="manifest" href="../manifest.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D 5e: Digital Knowledge Base</title>
-    
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="../favicon.png">
-    <link rel="shortcut icon" href="../favicon.ico">
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    
-    
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="D&amp;D 2024 digital reference with rules, classes, species, spells, monsters, items and character tools." name="description"/>
+<link href="../manifest.webmanifest" rel="manifest"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>D&amp;D 5e: Digital Knowledge Base</title>
+<link href="../favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../favicon.png" rel="icon" sizes="128x128" type="image/png"/>
+<link href="../favicon.ico" rel="shortcut icon"/>
+<style>
 .header-logo {
   width: 50px;
   height: 50px;
@@ -60,235 +51,153 @@ body {
   transform: scale(0.9);
 }
 </style>
-    <link rel="stylesheet" href="../site-common.css">
-    <link rel="stylesheet" href="../vendor/tailwind.css">
-    <script>
+<link href="../site-common.css" rel="stylesheet"/>
+<link href="../vendor/tailwind.css" rel="stylesheet"/>
+<script>
 (function () {
   try {
     if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
   } catch (e) {}
 })();
 </script>
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/><link rel="stylesheet" media="print" onload="this.media=&#39;all&#39;" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap"/><link href="../vendor/fonts.css" rel="stylesheet"/>
+<link href="https://sas-swg.github.io/dnd-website/en/index.html" rel="canonical"/><link href="https://sas-swg.github.io/dnd-website/index.html" hreflang="uk" rel="alternate"/><link href="https://sas-swg.github.io/dnd-website/en/index.html" hreflang="en" rel="alternate"/><meta content="website" property="og:type"/><meta content="D&amp;D 5e: Digital Knowledge Base" property="og:title"/><meta content="D&amp;D 2024 digital reference with rules, classes, species, spells, monsters, items and character tools." property="og:description"/><meta content="https://sas-swg.github.io/dnd-website/en/index.html" property="og:url"/><meta content="https://sas-swg.github.io/dnd-website/img/favicon.png" property="og:image"/><meta content="en_US" property="og:locale"/><meta content="D&amp;D 2024" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="D&amp;D 5e: Digital Knowledge Base" name="twitter:title"/><meta content="D&amp;D 2024 digital reference with rules, classes, species, spells, monsters, items and character tools." name="twitter:description"/></head>
 <body class="font-body text-ui-text min-h-screen flex flex-col overflow-x-hidden">
-
-    
-    <header class="bg-forest text-white py-4 shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="../favicon.png" alt="Logo" class="header-logo rounded-md">
-                <h1 class="font-heading text-xl md:text-2xl font-bold tracking-tight uppercase">D&D 5e Knowledge Base</h1>
-            </div>
-            <nav class="hidden md:flex gap-6 text-sm font-semibold">
-                <a href="rules.html" class="hover:text-forest-accent transition">Rules</a>
-                <a href="races.html" class="hover:text-forest-accent transition">Races</a>
-                <a href="classes.html" class="hover:text-forest-accent transition">Classes</a>
-            </nav>
-        </div>
-    </header>
-
-    
-    <main class="container mx-auto px-4 py-8 flex-1">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <a href="spells.html" class="nav-card block bg-white rounded-xl p-6">
-                    <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🔮</div>
-                    <h3 class="font-heading text-lg font-bold text-forest mb-2">Spells</h3>
-                    <p class="text-ui-muted text-sm">A full spell database with filters by level, class, and school.</p>
-                </a>
-
-            <a href="rules.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📖</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Core Rules</h3>
-                <p class="text-ui-muted text-sm">Combat mechanics, conditions, resting, and ability checks.</p>
-            </a>
-
-            <a href="races.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">👥</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Races</h3>
-                <p class="text-ui-muted text-sm">Traits and unique abilities of playable races and subraces.</p>
-            </a>
-
-            <a href="classes.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🛡️</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Classes</h3>
-                <p class="text-ui-muted text-sm">Level tables, combat abilities, and magical specializations.</p>
-            </a>
-
-            <a href="backgrounds.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📜</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Backgrounds</h3>
-                <p class="text-ui-muted text-sm">Your hero's past: skills, languages, and extra equipment.</p>
-            </a>
-
-            <a href="feats.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">⚡</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Feats</h3>
-                <p class="text-ui-muted text-sm">A catalog of special talents for customizing your character.</p>
-            </a>
-
-            <a href="npc-names.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎭</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">NPC Name Generator</h3>
-                <p class="text-ui-muted text-sm">Quickly create character names by people and gender, with optional occupation and trait.</p>
-            </a>
-
-            <a href="bestiary.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🐉</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Bestiary</h3>
-                <p class="text-ui-muted text-sm">Full monster database with searchable stat blocks and attacks.</p>
-            </a>
-
-            <a href="encounter-builder.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">⚔️</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Encounter Builder</h3>
-                <p class="text-ui-muted text-sm">Balance encounters by party size and level with XP thresholds.</p>
-            </a>
-
-            <a href="items.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎒</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Items & Magic Items</h3>
-                <p class="text-ui-muted text-sm">Mundane gear and magic items with filters by category and rarity.</p>
-            </a>
-
-            <a href="loot-generator.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">💰</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Loot Generator</h3>
-                <p class="text-ui-muted text-sm">Generate coins, gems, art and items by source, value, type and rarity.</p>
-            </a>
-
-            <a href="play-character.html" class="nav-card block bg-white rounded-xl p-6">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎭</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Play as Character</h3>
-                <p class="text-ui-muted text-sm">Your saved heroes: continue, export or create a new one.</p>
-            </a>
-
-            <div class="md:col-span-2 lg:col-span-1 lg:col-start-2 flex justify-center">
-                <a href="character-creator.html" class="nav-card block bg-white rounded-xl p-6 border-2 border-[#22C55E]/30 hover:border-[#22C55E] transition-all w-full md:w-[calc(50%-0.75rem)] lg:w-full">
-                <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl bg-[#22C55E]">✨</div>
-                <h3 class="font-heading text-lg font-bold text-forest mb-2">Create a Character</h3>
-                <p class="text-ui-muted text-sm">A step-by-step builder for quickly and easily creating your hero.</p>
-            </a>
-            </div>
-
-        </div>
-    </main>
-
-    
-    
-    <div id="floating-dice-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-    
-    <div id="floating-dice-menu" class="hidden mb-4 bg-white border border-slate-200 rounded-2xl shadow-2xl w-72 overflow-hidden origin-bottom-right transition-all flex flex-col">
-        
-        <div class="bg-slate-100 p-3 border-b border-slate-200 flex justify-between items-center gap-2">
-            <div class="text-sm font-bold text-[#14532D] truncate flex-1" id="floating-queue">Select dice...</div>
-            <div class="flex gap-1">
-                <button onclick="undoFloatingDice()" class="text-slate-500 hover:text-slate-700 bg-white border border-slate-200 p-1.5 rounded shadow-sm transition-colors" title="Undo last">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-                </button>
-                <button onclick="clearFloatingDice()" class="text-red-500 hover:text-red-700 bg-white border border-red-100 p-1.5 rounded shadow-sm transition-colors" title="Clear all">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                </button>
-            </div>
-        </div>
-
-        <div class="p-3 grid grid-cols-3 gap-2 bg-slate-50">
-            <button onclick="addFloatingDice(4)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d4</button>
-            <button onclick="addFloatingDice(6)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d6</button>
-            <button onclick="addFloatingDice(8)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d8</button>
-            <button onclick="addFloatingDice(10)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d10</button>
-            <button onclick="addFloatingDice(12)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d12</button>
-            <button onclick="addFloatingDice(100)" class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600">d100</button>
-            
-            <button onclick="addFloatingDice(20)" class="col-span-3 py-2 mt-1 bg-green-100 border border-green-300 text-[#14532D] rounded-lg hover:bg-[#14532D] hover:text-white font-black text-lg transition-colors shadow-sm">d20</button>
-        </div>
-
-        <div class="px-3 pb-3 bg-slate-50">
-            <button onclick="rollFloatingDice()" class="w-full py-2.5 bg-[#14532D] text-white rounded-lg font-bold hover:bg-[#166534] shadow-md transition-transform transform active:scale-95">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="bg-forest text-white py-3 shadow-md sticky top-0 z-40">
+<div class="container mx-auto px-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Logo" class="header-logo w-9 h-9 rounded-md" src="../favicon.png"/>
+<h1 class="font-heading text-xl font-bold uppercase tracking-tight">D&amp;D 5e Knowledge Base</h1>
+</div>
+<nav class="hidden md:flex gap-6 text-sm font-semibold">
+<a class="hover:text-forest-accent transition" href="rules.html">Rules</a>
+<a class="hover:text-forest-accent transition" href="races.html">Races</a>
+<a class="hover:text-forest-accent transition" href="classes.html">Classes</a>
+</nav>
+</div>
+</header>
+<main id="main" class="container mx-auto px-4 py-8 flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<a class="nav-card block bg-white rounded-xl p-6" href="spells.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🔮</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Spells</h3>
+<p class="text-ui-muted text-sm">A full spell database with filters by level, class, and school.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="rules.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📖</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Core Rules</h3>
+<p class="text-ui-muted text-sm">Combat mechanics, conditions, resting, and ability checks.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="races.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">👥</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Races</h3>
+<p class="text-ui-muted text-sm">Traits and unique abilities of playable races and subraces.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="classes.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🛡️</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Classes</h3>
+<p class="text-ui-muted text-sm">Level tables, combat abilities, and magical specializations.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="backgrounds.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">📜</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Backgrounds</h3>
+<p class="text-ui-muted text-sm">Your hero's past: skills, languages, and extra equipment.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="feats.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">⚡</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Feats</h3>
+<p class="text-ui-muted text-sm">A catalog of special talents for customizing your character.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="npc-names.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎭</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">NPC Name Generator</h3>
+<p class="text-ui-muted text-sm">Quickly create character names by people and gender, with optional occupation and trait.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="bestiary.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🐉</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Bestiary</h3>
+<p class="text-ui-muted text-sm">Full monster database with searchable stat blocks and attacks.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="encounter-builder.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">⚔️</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Encounter Builder</h3>
+<p class="text-ui-muted text-sm">Balance encounters by party size and level with XP thresholds.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="items.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎒</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Items &amp; Magic Items</h3>
+<p class="text-ui-muted text-sm">Mundane gear and magic items with filters by category and rarity.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="loot-generator.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">💰</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Loot Generator</h3>
+<p class="text-ui-muted text-sm">Generate coins, gems, art and items by source, value, type and rarity.</p>
+</a>
+<a class="nav-card block bg-white rounded-xl p-6" href="play-character.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl">🎭</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Play as Character</h3>
+<p class="text-ui-muted text-sm">Your saved heroes: continue, export or create a new one.</p>
+</a>
+<div class="md:col-span-2 lg:col-span-1 lg:col-start-2 flex justify-center">
+<a class="nav-card block bg-white rounded-xl p-6 border-2 border-[#22C55E]/30 hover:border-[#22C55E] transition-all w-full md:w-[calc(50%-0.75rem)] lg:w-full" href="character-creator.html">
+<div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-white text-2xl bg-[#22C55E]">✨</div>
+<h3 class="font-heading text-lg font-bold text-forest mb-2">Create a Character</h3>
+<p class="text-ui-muted text-sm">A step-by-step builder for quickly and easily creating your hero.</p>
+</a>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end" id="floating-dice-widget">
+<div class="hidden mb-4 bg-white border border-slate-200 rounded-2xl shadow-2xl w-72 overflow-hidden origin-bottom-right transition-all flex flex-col" id="floating-dice-menu">
+<div class="bg-slate-100 p-3 border-b border-slate-200 flex justify-between items-center gap-2">
+<div class="text-sm font-bold text-[#14532D] truncate flex-1" id="floating-queue">Select dice...</div>
+<div class="flex gap-1">
+<button class="text-slate-500 hover:text-slate-700 bg-white border border-slate-200 p-1.5 rounded shadow-sm transition-colors" onclick="undoFloatingDice()" title="Undo last">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="text-red-500 hover:text-red-700 bg-white border border-red-100 p-1.5 rounded shadow-sm transition-colors" onclick="clearFloatingDice()" title="Clear all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<div class="p-3 grid grid-cols-3 gap-2 bg-slate-50">
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(4)">d4</button>
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(6)">d6</button>
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(8)">d8</button>
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(10)">d10</button>
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(12)">d12</button>
+<button class="py-2 bg-white border border-slate-200 rounded-lg hover:border-[#22C55E] hover:text-[#14532D] font-bold shadow-sm transition-colors text-slate-600" onclick="addFloatingDice(100)">d100</button>
+<button class="col-span-3 py-2 mt-1 bg-green-100 border border-green-300 text-[#14532D] rounded-lg hover:bg-[#14532D] hover:text-white font-black text-lg transition-colors shadow-sm" onclick="addFloatingDice(20)">d20</button>
+</div>
+<div class="px-3 pb-3 bg-slate-50">
+<button class="w-full py-2.5 bg-[#14532D] text-white rounded-lg font-bold hover:bg-[#166534] shadow-md transition-transform transform active:scale-95" onclick="rollFloatingDice()">
                 Roll dice!
             </button>
-        </div>
-
-        <div id="floating-dice-result" class="bg-[#14532D] text-white p-4 text-center hidden transition-transform duration-200 border-t-4 border-[#22C55E]">
-            <div class="text-xs text-green-200 uppercase font-bold tracking-wider mb-1">Result</div>
-            <div class="text-5xl font-black drop-shadow-md" id="floating-total-sum">0</div>
-            <div class="text-xs font-mono mt-2 text-green-100/70" id="floating-details"></div>
-        </div>
-    </div>
-
-    <button onclick="toggleFloatingMenu()" class="flex items-center justify-center w-16 h-16 bg-[#14532D] hover:bg-[#166534] text-white rounded-full shadow-[0_8px_16px_rgba(20,83,45,0.4)] transition-transform transform hover:scale-110 focus:outline-none border-2 border-[#22C55E]">
-        <span class="text-3xl">🎲</span>
-    </button>
 </div>
-
+<div class="bg-[#14532D] text-white p-4 text-center hidden transition-transform duration-200 border-t-4 border-[#22C55E]" id="floating-dice-result">
+<div class="text-xs text-green-200 uppercase font-bold tracking-wider mb-1">Result</div>
+<div class="text-5xl font-black drop-shadow-md" id="floating-total-sum">0</div>
+<div class="text-xs font-mono mt-2 text-green-100/70" id="floating-details"></div>
+</div>
+</div>
+<button class="flex items-center justify-center w-16 h-16 bg-[#14532D] hover:bg-[#166534] text-white rounded-full shadow-[0_8px_16px_rgba(20,83,45,0.4)] transition-transform transform hover:scale-110 focus:outline-none border-2 border-[#22C55E]" onclick="toggleFloatingMenu()">
+<span class="text-3xl">🎲</span>
+</button>
+</div>
 <script>
-let floatingDicePool = [];
-function toggleFloatingMenu() {
-  const menu = document.getElementById("floating-dice-menu");
-  menu.classList.toggle("hidden");
-}
-document.addEventListener("click", function (event) {
-  const widget = document.getElementById("floating-dice-widget");
-  const menu = document.getElementById("floating-dice-menu");
-  if (widget && !widget.contains(event.target)) {
-    menu.classList.add("hidden");
-  }
-});
-function addFloatingDice(sides) {
-  floatingDicePool.push(sides);
-  updateFloatingQueue();
-  document.getElementById("floating-dice-result").classList.add("hidden");
-}
-function undoFloatingDice() {
-  if (floatingDicePool.length > 0) {
-    floatingDicePool.pop();
-    updateFloatingQueue();
-    document.getElementById("floating-dice-result").classList.add("hidden");
-  }
-}
-function clearFloatingDice() {
-  floatingDicePool = [];
-  updateFloatingQueue();
-  document.getElementById("floating-dice-result").classList.add("hidden");
-}
-function updateFloatingQueue() {
-  const queueEl = document.getElementById("floating-queue");
-  if (floatingDicePool.length === 0) {
-    queueEl.innerText = "Select dice...";
-    return;
-  }
-  const counts = {};
-  floatingDicePool.forEach((d) => (counts[d] = (counts[d] || 0) + 1));
-  queueEl.innerText = Object.entries(counts)
-    .map(([sides, count]) => `${count}d${sides}`)
-    .join(" + ");
-}
-function rollFloatingDice() {
-  if (floatingDicePool.length === 0) return;
-  let total = 0;
-  let rolls = [];
-  floatingDicePool.forEach((sides) => {
-    const res = Math.floor(Math.random() * sides) + 1;
-    total += res;
-    rolls.push(`[d${sides}]: ${res}`);
-  });
-  document.getElementById("floating-total-sum").innerText = total;
-  document.getElementById("floating-details").innerText = rolls.join(", ");
-  const resultDiv = document.getElementById("floating-dice-result");
-  resultDiv.classList.remove("hidden");
-  resultDiv.style.transform = "scale(1.05)";
-  setTimeout(() => {
-    resultDiv.style.transform = "scale(1)";
-  }, 150);
-}
-</script>
+let floatingDicePool=[];function toggleFloatingMenu(){document.getElementById("floating-dice-menu").classList.toggle("hidden")}document.addEventListener("click",function(event){const widget=document.getElementById("floating-dice-widget"),menu=document.getElementById("floating-dice-menu");widget&&!widget.contains(event.target)&&menu.classList.add("hidden")});function addFloatingDice(sides){floatingDicePool.push(sides),updateFloatingQueue(),document.getElementById("floating-dice-result").classList.add("hidden")}function undoFloatingDice(){floatingDicePool.length>0&&(floatingDicePool.pop(),updateFloatingQueue(),document.getElementById("floating-dice-result").classList.add("hidden"))}function clearFloatingDice(){floatingDicePool=[],updateFloatingQueue(),document.getElementById("floating-dice-result").classList.add("hidden")}function updateFloatingQueue(){const queueEl=document.getElementById("floating-queue");if(floatingDicePool.length===0){queueEl.innerText="Select dice...";return}const counts={};floatingDicePool.forEach(d=>counts[d]=(counts[d]||0)+1),queueEl.innerText=Object.entries(counts).map(([sides,count])=>`${count}d${sides}`).join(" + ")}function rollFloatingDice(){if(floatingDicePool.length===0)return;let total=0,rolls=[],trace=[];floatingDicePool.forEach(sides=>{const res=Math.floor(Math.random()*sides)+1;total+=res,rolls.push(`[d${sides}]: ${res}`),trace.push({sides,value:res})}),document.getElementById("floating-total-sum").innerText=total,document.getElementById("floating-details").innerText=rolls.join(", ");const resultDiv=document.getElementById("floating-dice-result");resultDiv.classList.remove("hidden"),resultDiv.style.transform="scale(1.05)",setTimeout(()=>{resultDiv.style.transform="scale(1)"},150);try{let crit=null;const d20s=trace.filter(t=>t.sides===20).map(t=>t.value);d20s.indexOf(20)>=0?crit="hit":d20s.length&&d20s.indexOf(1)>=0&&(crit="miss"),window.Dice3D&&window.Dice3D.roll({dice:trace,label:"Quick roll",detail:rolls.join(", "),total,crit})}catch(e){}}
 
-    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-ui-muted text-xs">&copy; 2024 D&D 5e Digital Knowledge Base. Unofficial project.</p>
-        </div>
-    </footer>
-    <script src="search-index.js"></script>
-    <script src="site-common.js"></script>
+</script>
+<footer class="bg-white border-t border-slate-200 py-6 mt-12">
+<div class="container mx-auto px-4 text-center">
+<p class="text-ui-muted text-xs">© 2024 D&amp;D 5e Digital Knowledge Base. Unofficial project.</p>
+</div>
+</footer>
+<script defer="" src="../dice3d.js"></script>
+<script src="site-common.js"></script>
+<script defer src="../storage.js"></script>
+<script defer src="../save-system.js"></script>
+<script src="../backup.js" defer></script>
 </body>
 </html>
